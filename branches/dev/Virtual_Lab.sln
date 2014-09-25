@@ -1,0 +1,28 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Virtual_Lab", "Virtual_Lab.csproj", "{428EA288-8516-488F-80F4-E1E8A1841759}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VML Setup", "VML Setup\VML Setup.vdproj", "{5D70554E-4267-4A70-99FC-86EEE0A6754C}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{428EA288-8516-488F-80F4-E1E8A1841759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{428EA288-8516-488F-80F4-E1E8A1841759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{428EA288-8516-488F-80F4-E1E8A1841759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{428EA288-8516-488F-80F4-E1E8A1841759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D70554E-4267-4A70-99FC-86EEE0A6754C}.Debug|Any CPU.ActiveCfg = Debug
+		{5D70554E-4267-4A70-99FC-86EEE0A6754C}.Release|Any CPU.ActiveCfg = Release
+		{5D70554E-4267-4A70-99FC-86EEE0A6754C}.Release|Any CPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

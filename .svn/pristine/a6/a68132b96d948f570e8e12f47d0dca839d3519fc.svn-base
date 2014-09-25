@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{428EA288-8516-488F-80F4-E1E8A1841759}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>Virtual Lab.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Virtual_Lab</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Virtual_Lab</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetZone>LocalIntranet</TargetZone>
+    <GenerateManifests>false</GenerateManifests>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <Win32Resource>
+    </Win32Resource>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AboutVML.resx">
+      <DependentUpon>AboutVML.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\closeDown.bmp" />
+    <EmbeddedResource Include="Images\closeUp.bmp" />
+    <Content Include="EvalReport_old.htm" />
+    <Content Include="Lists\WI\NU-6 21.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lists\WI\NU-6 22.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lists\WI\NU-6 23.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lists\WI\NU-6 24.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Lists\SRTList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\%24this.BackgroundImage.bmp" />
+    <Content Include="Virtual Lab.ico" />
+    <EmbeddedResource Include="Sounds\Tones\Tone1000.wav" />
+    <EmbeddedResource Include="Sounds\Tones\Tone2000.wav" />
+    <EmbeddedResource Include="Sounds\Tones\Tone250.wav" />
+    <EmbeddedResource Include="Sounds\Tones\Tone4000.wav" />
+    <EmbeddedResource Include="Sounds\Tones\Tone500.wav" />
+    <EmbeddedResource Include="Sounds\Tones\Tone8000.wav" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sounds\Patient\1_hotdog.wav" />
+    <EmbeddedResource Include="Sounds\Patient\1_DontKnow.wav" />
+    <EmbeddedResource Include="Sounds\Patient\1_baseball.wav" />
+    <EmbeddedResource Include="Sounds\Patient\1_airplane.wav" />
+    <EmbeddedResource Include="Sounds\Patient\testing.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\female_hotdog.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\female_baseball.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_railroad.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_playground.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_pancake.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_padlock.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_outside.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_oatmeal.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_nutmeg.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_northwest.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_mushroom.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_mousetrap.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_inkwell.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_headlight.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_eyebrow.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_earthquake.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_eardrum.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_duckpond.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_drawbridge.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_doormat.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_cowboy.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_cookbook.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_blackboard.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_birthday.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_baseball.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_backbone.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\f_armchair.wav" />
+    <EmbeddedResource Include="Sounds\Audiologist\male_baseball.wav" />
+    <EmbeddedResource Include="Images\1_raiseright30.gif" />
+    <EmbeddedResource Include="Images\1_raiseleft60.gif" />
+    <EmbeddedResource Include="Images\1_raiseleft30.gif" />
+    <EmbeddedResource Include="Images\1_raiseright60.gif" />
+    <Compile Include="AboutVML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutVML.Designer.cs">
+      <DependentUpon>AboutVML.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Audiogram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Audiometer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaseHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EncryptUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EvalOutput.cs" />
+    <Compile Include="Pathology.cs" />
+    <Compile Include="PathologySelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PatientWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plateau_Plot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SpeechAudiometry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SRT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Virtual_Lab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WelcomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="Audiogram.resx">
+      <DependentUpon>Audiogram.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Audiometer.resx">
+      <DependentUpon>Audiometer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CaseHistoryForm.resx">
+      <DependentUpon>CaseHistoryForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PathologySelector.resx">
+      <DependentUpon>PathologySelector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientWindow.resx">
+      <DependentUpon>PatientWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plateau_Plot.resx">
+      <DependentUpon>Plateau_Plot.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpeechAudiometry.resx">
+      <DependentUpon>SpeechAudiometry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SRT.resx">
+      <DependentUpon>SRT.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Virtual_Lab.resx">
+      <DependentUpon>Virtual_Lab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomeScreen.resx">
+      <DependentUpon>WelcomeScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WI.resx">
+      <DependentUpon>WI.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BaseApplicationManifest Include="Properties\app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EvalReport.htm" />
+    <None Include="License.rtf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <EmbeddedResource Include="Images\AboutImage.jpg" />
+    <EmbeddedResource Include="Images\boy_right_sure.gif" />
+    <EmbeddedResource Include="Images\girl_left_sure.gif" />
+    <EmbeddedResource Include="Images\girl_left_unsure.gif" />
+    <EmbeddedResource Include="Images\girl_right_sure.gif" />
+    <EmbeddedResource Include="Images\girl_right_unsure.gif" />
+    <EmbeddedResource Include="Images\lady_left_sure.gif" />
+    <EmbeddedResource Include="Images\lady_left_unsure.gif" />
+    <EmbeddedResource Include="Images\lady_right_sure.gif" />
+    <EmbeddedResource Include="Images\lady_right_unsure.gif" />
+    <EmbeddedResource Include="Images\man_left_sure.gif" />
+    <EmbeddedResource Include="Images\man_left_unsure.gif" />
+    <EmbeddedResource Include="Images\man_right_unsure.gif" />
+    <EmbeddedResource Include="Images\boy_left_sure.gif" />
+    <EmbeddedResource Include="Images\boy_left_unsure.gif" />
+    <EmbeddedResource Include="Images\boy_right_unsure.gif" />
+    <EmbeddedResource Include="Images\man_right_sure.gif" />
+    <Content Include="User Manual.doc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="VirtualLab_ClassDiagram.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

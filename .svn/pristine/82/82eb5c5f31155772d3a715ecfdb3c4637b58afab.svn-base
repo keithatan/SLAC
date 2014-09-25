@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Audiogram_Dev.Audiogram" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>C2HmwIEINe5ACoOQlwCNhBQKgmJQAgE8BMfAA3gKVDE=</HashCode>
+      <FileName>Audiogram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Audiogram_Dev.SpeechAudiometry" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>LKSAUAAAASIIiEWDCgqkBCSWAiAgAEwhAPhBQQCBBAw=</HashCode>
+      <FileName>SpeechAudiometry.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Virtual_Lab.Audiometer" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/2WKVQEh1D0EELEDxGrRgQpHUUAFDqPzZZVMIVURYn4=</HashCode>
+      <FileName>Audiometer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Virtual_Lab.PathologySelector" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAEAAAAAAAIAAQAAA=</HashCode>
+      <FileName>PathologySelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Virtual_Lab.VirtualLabToplevel" Collapsed="true">
+    <Position X="6" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CBMAGEYqgSIACS1AIACUgAKCAACAGlAAZADDFGAIAME=</HashCode>
+      <FileName>Virtual_Lab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Virtual_Lab.StudentInformation" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAQAAAAAAAAAIAAAAAAAgAACAAAAAAAAAAA=</HashCode>
+      <FileName>Virtual_Lab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Virtual_Lab.TestResults" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAACABAABAAAAAAA=</HashCode>
+      <FileName>Virtual_Lab.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Virtual_Lab.ResultsInfo" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAFAABAAAAAAAAAMAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Virtual_Lab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Virtual_Lab.WelcomeScreen" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCBQAAAAAiSkABAAAACAIAASCgAAgAACEEABAABBIAA=</HashCode>
+      <FileName>WelcomeScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pathology_Dev.CaseHistoryForm" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/xAMBAmAASAUABAAAAGAAIACAAAgCAAAEAECBQgAADg=</HashCode>
+      <FileName>CaseHistoryForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Pathology_Dev.Pathology">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MADISJAAAAAQAAAAiCAACgYAEgI0AABAAAoABwAAQAA=</HashCode>
+      <FileName>Pathology.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Instructor_Interface.EncryptUtil" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAQAAAAAAAAAAAAAASAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>EncryptUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Patient.Patient" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAEAAACQAAAAACDgAAAAAAACAAAEAA=</HashCode>
+      <FileName>Patient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plateau_Plot.Plateau_Plot" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>OAEQAAUAgCxIABBAEADAAoECAiAgwEIpAAAAQCAAEAA=</HashCode>
+      <FileName>Plateau_Plot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Virtual_Lab.Properties.Resources" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SRT.SRT" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AbAoEBFAEOIAHFFQAMCAQI0CgASJlAAiAAJKgSIRAAg=</HashCode>
+      <FileName>SRT.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WI.WI" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AaAgEAFAMOAAHFFQQMCAAI0DkACBhAAiAApCgCIRAAg=</HashCode>
+      <FileName>WI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PatientWindowGif.PatientWindow" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIA4kABAAGBAAAkQAICBAdICoAkIDAkgAAAAgAIAAAA=</HashCode>
+      <FileName>PatientWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Pathology_Dev.Pathology_Cases" Collapsed="true">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAQBIAAAABAIAAgAAAAAAAAAQAIQAADAA=</HashCode>
+      <FileName>Pathology.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Patient.ResponseType" Collapsed="true">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAACAAAgAAAAIAABAAAAA=</HashCode>
+      <FileName>Patient.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Patient.TestType" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Patient.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Patient.SpeechRespType" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABAAAAAAAIAAA=</HashCode>
+      <FileName>Patient.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Pathology_Dev.Ear" Collapsed="true">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAIAAIAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Pathology.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>
