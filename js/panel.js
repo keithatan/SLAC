@@ -38,7 +38,7 @@ function FreqPlus() {
 }
 
 function FreqMinus() {
-    if (Freq <= 250) return Freq;
+    if (Freq <= 125) return Freq;
 
     else if (Freq > 4000 && Freq <= 8000) {
         Freq = Freq - 2000;
