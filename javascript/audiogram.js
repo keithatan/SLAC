@@ -1,4 +1,4 @@
-/**
+z/**
  * Creates an Audiogram
  * @constructor
  * @param {String} id - the DOM id of the HTML input element
@@ -18,6 +18,7 @@ function Audiogram(id) {
     this.AC; // Raphael set of SVG elements of the air conduction points
     this.BC; // Raphael set of SVG elements of the bone conduction points
 
+	this.iylabels = ['','','','','','','','','','','','','','']; // Invisible labels for the invisible lines
     this.ylabels = [-10, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130];          // dB HL labels for the y-axis
     this.xlabels = [125, '', 250, '', 500, 750, 1000, 1500, 2000, 3000, 4000, 6000, 8000];    // frequency labels for the x-axis
 
@@ -35,6 +36,7 @@ function Audiogram(id) {
         this.gutter = height / 8; //width of gutter for labels
         var gutter = this.gutter;
 
+		var inumY = this.iylabels.length; //number of invisible labels
         var numY = this.ylabels.length;    //number of y-labels
         var numX = this.xlabels.length;    //number of x-labels
 
@@ -57,11 +59,11 @@ function Audiogram(id) {
         this.r.text(this.width / 2, gutter / 4, "Frequency [Hz]").attr({stroke: "#000000"});
         this.r.text(this.width - gutter / 4, this.height / 2, "Hearing Loss in DB HL").transform("r90").attr({stroke: "#000000"});
 
-        /****************************
-         ** DRAW HORIZONTAL LINES
-         ****************************/
+        /*************************************
+         *** DRAW VISIBLE HORIZONTAL LINES ***
+         *************************************/
 
-        var positionY = gutter + strokeWidth; //y-coordiante for current line
+        var positionY = gutter + strokeWidth; //y-coordinate for current line
 
         for (var i = 0; i < numY; i++) {
             var attr = ( i == 0 || i == numY - 1 ) ? TWICE_STROKE_WIDTH : STROKE_WIDTH ;
@@ -71,10 +73,24 @@ function Audiogram(id) {
             this.r.text(gutter / 2 - gutter / 4, positionY, this.ylabels[i]).attr({stroke: "#000000"});
             positionY += diffHeight;
         }
-
-        /****************************
-         ** DRAW VERTICAL LINES
-         ****************************/
+		
+		/***************************************
+         *** DRAW INVISIBLE HORIZONTAL LINES ***
+         ***************************************/
+		 
+		 var ipositionY = gutter + istrokeWidth + diffHeight / 2; //y-coordinate for current line
+		 
+		 for (var i = 0; i < inumY; i++) {
+			var attr = (i == 0 || i == inumY - 1) ? TWICE_STROKE_WIDTH : STROKE_WIDTH;
+			
+			var path = Raphael.format("M{0} {2}L{1} {2}", gutter / 2, this.chartWidth + 1.5 * gutter, ipositionY);
+			this.r.path(path).attr(attr);
+			ipositionY += diffHeight;
+		 }
+		
+        /***************************
+         *** DRAW VERTICAL LINES ***
+         ***************************/
 
         var positionX = gutter + strokeWidth; //x-coordinate for current line
 
