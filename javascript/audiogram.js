@@ -1,4 +1,4 @@
-z/**
+/**
  * Creates an Audiogram
  * @constructor
  * @param {String} id - the DOM id of the HTML input element
@@ -15,8 +15,24 @@ function Audiogram(id) {
     this.chartWidth; // width of the chart grid
     this.chartHeight; // height of the chart grid
 
-    this.AC; // Raphael set of SVG elements of the air conduction points
-    this.BC; // Raphael set of SVG elements of the bone conduction points
+	this.AC;
+	this.BC;
+	
+    this.AC_R; // Raphael sets of SVG elements for Air Conduction points
+	this.AC_L;
+	this.AC_RM;
+	this.AC_LM;
+	
+    this.BC_R; // Raphael sets of SVG elements for Bone Conduction points
+	this.BC_L;
+	this.BC_RM;
+	this.BC_LM;
+	
+	this.UL_R; // Raphael sets of SVG elements for Uncomfortable Level points
+	this.UL_L;
+	
+	this.NR_R; // Raphael sets of SVH elements for No Response points
+	this.NR_L;
 
 	this.iylabels = [''];                                                                     // Invisible label for the invisible lines
     this.ylabels = [-10, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130];          // dB HL labels for the y-axis
@@ -102,6 +118,7 @@ function Audiogram(id) {
      * @param {Number} h - cooresponding HL of the y-coordinate
      */
 
+	 // Plots AC_R - Circle
     this.plotAC = function (x, y, f, h) {
         var r = 5 + Math.round(this.height/200); // radius of circle
 
@@ -125,6 +142,7 @@ function Audiogram(id) {
      * @param {Number} h - cooresponding HL of the y-coordinate
      */
 
+	 // Plots AC_RM - Triangle
     this.plotBC = function (x, y, f, h) {
         var r = 5 + Math.round(this.height/200); // "radius" of triangle
         var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}", x, y - r, x - r, y + r, x + r, y + r, x, y - r);
@@ -143,7 +161,208 @@ function Audiogram(id) {
 
         this.BC.push(point);
     };
-
+	
+	// Plots AC_L - X
+	this.plotAC_L = function (x, y, f, h) {
+		var r = 5 + Math.round(this.height/200); // "radius" of X
+		
+		var path = Raphael.format("M{0} {1}L{2} {3}M{4} {5}L{6} {7}", x - r, y + r, x + r, y - r, x + r, y + r, x - r, y - r);
+		var point = this.r.path(path).attr({
+			"stroke-width": 2,
+			"stroke-linecap": "round",
+			"stroke-linejoin": "miter",
+			'stroke': "#000000"
+		});
+		
+		point.frequency = f;
+		point.HL = h;
+		point.attrs.cx = x;
+		point.attrs.cy = y;
+		
+		this.AC_L.push(point);
+	}
+	
+	// Plots AC_LM - Square
+	this.plotAC_LM = function (x, y, f, h) {
+		var r = 5 + Math.round(this.height/200); // "radius" of X
+		
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}L{8} {9}", x - r, y + r, x + r, y + r, x + r, y - r, x - r, y - r, x - r, y + r);
+		var point = this.r.path(path).attr({
+			"stroke-width": 2,
+			"stroke-linecap": "round",
+			"stroke-linejoin": "miter",
+			'stroke': "#000000"
+		});
+		
+		point.frequency = f;
+		point.HL = h;
+		point.attrs.cx = x;
+		point.attrs.cy = y;
+		
+		this.AC_LM.push(point);
+	}
+	
+	// Plots BC_R - <
+	this.plotBC_R = function (x, y, f, h) {
+		var r = 5 + Math.round(this.height/200); // "radius" of X
+		
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}", x + r, y + r, x - r, y, x + r, y - r);
+		var point = this.r.path(path).attr({
+			"stroke-width": 2,
+			"stroke-linecap": "round",
+			"stroke-linejoin": "miter",
+			'stroke': "#000000"
+		});
+		
+		point.frequency = f;
+		point.HL = h;
+		point.attrs.cx = x;
+		point.attrs.cy = y;
+		
+		this.BC_R.push(point);
+	}
+	
+	// Plots BC_RM - [
+	this.plotBC_RM = function (x, y, f, h) {
+		var r = 5 + Math.round(this.height/200); // "radius" of X
+		
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}", x + r, y + r, x - r, y + r, x - r, y - r, x + r, y - r);
+		var point = this.r.path(path).attr({
+			"stroke-width": 2,
+			"stroke-linecap": "round",
+			"stroke-linejoin": "miter",
+			'stroke': "#000000"
+		});
+		
+		point.frequency = f;
+		point.HL = h;
+		point.attrs.cx = x;
+		point.attrs.cy = y;
+		
+		this.BC_RM.push(point);
+	}
+	
+	// Plots BC_L - >
+	this.plotBC_L = function (x, y, f, h) {
+		var r = 5 + Math.round(this.height/200); // "radius" of X
+		
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}", x - r, y + r, x + r, y, x - r, y - r);
+		var point = this.r.path(path).attr({
+			"stroke-width": 2,
+			"stroke-linecap": "round",
+			"stroke-linejoin": "miter",
+			'stroke': "#000000"
+		});
+		
+		point.frequency = f;
+		point.HL = h;
+		point.attrs.cx = x;
+		point.attrs.cy = y;
+		
+		this.BC_L.push(point);
+	}
+	
+	// Plots BC_LM - ]
+	this.plotBC_LM = function (x, y, f, h) {
+		var r = 5 + Math.round(this.height/200); // "radius" of X
+		
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}L{8} {9}", x - r, y + r, x + r, y + r, x + r, y - r, x - r, y - r);
+		var point = this.r.path(path).attr({
+			"stroke-width": 2,
+			"stroke-linecap": "round",
+			"stroke-linejoin": "miter",
+			'stroke': "#000000"
+		});
+		
+		point.frequency = f;
+		point.HL = h;
+		point.attrs.cx = x;
+		point.attrs.cy = y;
+		
+		this.BC_LM.push(point);
+	}
+	
+	// Plots UL_R - "UR"
+	this.plotUL_R = function (x, y, f, h) {
+		var r = 5 + Math.round(this.height/200); // "radius" of X
+		
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}M{8} {9}L{10} {11}L{12} {13}L{14} {15}L{16} {17}M{18} {19}L{20} {21}", x - r, y - r, x - r, y + r, x - 2, y + r, x - 2, y - r, x + 2, y, x + r, y, x + r, y - r, x + 2, y - r, x + 2, y + r, x + 2, y, x + r, y + r);
+		var point = this.r.path(path).attr({
+			"stroke-width": 2,
+			"stroke-linecap": "round",
+			"stroke-linejoin": "miter",
+			'stroke': "#000000"
+		});
+		
+		point.frequency = f;
+		point.HL = h;
+		point.attrs.cx = x;
+		point.attrs.cy = y;
+		
+		this.UL_R.push(point);
+	}
+	
+	// Plots UL_L - "UL"
+	this.plotUL_L = function (x, y, f, h) {
+		var r = 5 + Math.round(this.height/200); // "radius" of X
+		
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}M{8} {9}L{10} {11}L{12} {13}", x - r, y - r, x - r, y + r, x - 2, y + r, x - 2, y - r, x + 2, y - r, x + 2, y + r, x + r, y + r);
+		var point = this.r.path(path).attr({
+			"stroke-width": 2,
+			"stroke-linecap": "round",
+			"stroke-linejoin": "miter",
+			'stroke': "#000000"
+		});
+		
+		point.frequency = f;
+		point.HL = h;
+		point.attrs.cx = x;
+		point.attrs.cy = y;
+		
+		this.UL_L.push(point);
+	}
+	
+	
+	// Plots NR_R - Arrow down left
+	this.plotNR_R = function (x, y, f, h) {
+		var r = 5 + Math.round(this.height/200); // "radius" of X
+		
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}M{6} {7}L{8} {9}", x + r, y - r, x - r, y + r, x - r, y, x, y + r, x - r, y + r);
+		var point = this.r.path(path).attr({
+			"stroke-width": 2,
+			"stroke-linecap": "round",
+			"stroke-linejoin": "miter",
+			'stroke': "#000000"
+		});
+		
+		point.frequency = f;
+		point.HL = h;
+		point.attrs.cx = x;
+		point.attrs.cy = y;
+		
+		this.NR_R.push(point);
+	}
+	
+	// Plots NR_L - Arrow down right
+	this.plotNR_L = function (x, y, f, h) {
+		var r = 5 + Math.round(this.height/200); // "radius" of X
+		
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}M{6} {7}L{8} {9}", x - r, y - r, x + r, y + r, x + r, y, x, y + r, x + r, y + r);
+		var point = this.r.path(path).attr({
+			"stroke-width": 2,
+			"stroke-linecap": "round",
+			"stroke-linejoin": "miter",
+			'stroke': "#000000"
+		});
+		
+		point.frequency = f;
+		point.HL = h;
+		point.attrs.cx = x;
+		point.attrs.cy = y;
+		
+		this.NR_L.push(point);
+	}
+	
     /**
      * Clears all the points plotted on the audiogram
      */
@@ -245,7 +464,35 @@ function Audiogram(id) {
         //console.log("x = ", positionX, "y = ", positionY, "f = ", f, "h = ", h);
 
         this.removePoint(x); // remove any points currently at this frequency for the current plotType
-        this.plotType == "AC" ? this.plotAC(x, y, f, h) : this.plotBC(x, y, f, h);  // plot a point of the current plot type at the position
+		
+		// selects which type of symbol to plot
+		if (this.plotType == "AC") {
+			this.plotAC(x, y, f, h);
+		} else if (this.plotType == "BC") {
+			this.plotBC(x, y, f, h);
+		} else if (this.plotType == "AC_L") {
+			this.plotAC_L(x, y, f, h);
+		} else if (this.plotType == "AC_LM") {
+			this.plotAC_LM(x, y, f, h);
+		} else if (this.plotType == "BC_R") {
+			this.plotBC_R(x, y, f, h);
+		} else if (this.plotType == "BC_RM") {
+			this.plotBC_RM(x, y, f, h);
+		} else if (this.plotType == "BC_L") {
+			this.plotBC_L(x, y, f, h);
+		} else if (this.plotType == "BC_LM") {
+			this.plotBC_LM(x, y, f, h);
+		} else if (this.plotType == "UL_L") {
+			this.plotUL_L(x, y, f, h);
+		} else if (this.plotType == "UL_R") {
+			this.plotUL_R(x, y, f, h);
+		} else if (this.plotType == "NR_R") {
+			this.plotNR_R(x, y, f, h);
+		} else if (this.plotType == "NR_L") {
+			this.plotNR_L(x, y, f, h);
+		}
+		
+        //this.plotType == "AC" ? this.plotAC(x, y, f, h) : this.plotBC(x, y, f, h);  // plot a point of the current plot type at the position
 
         //console.log("diffWidth: ", this.diffWidth, "diffHeight:", this.diffHeight)
         //console.log("x: ", positionX, "y: ", positionY)
