@@ -18,7 +18,7 @@ function Audiogram(id) {
     this.AC; // Raphael set of SVG elements of the air conduction points
     this.BC; // Raphael set of SVG elements of the bone conduction points
 
-	this.iylabels = ['','','','','','','','','','','','','',''];                              // Invisible labels for the invisible lines
+	this.iylabels = [''];                                                                     // Invisible label for the invisible lines
     this.ylabels = [-10, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130];          // dB HL labels for the y-axis
     this.xlabels = [125, '', 250, '', 500, 750, 1000, 1500, 2000, 3000, 4000, 6000, 8000];    // frequency labels for the x-axis
 
@@ -29,7 +29,6 @@ function Audiogram(id) {
 
     this.draw = function (height) {
         var strokeWidth = 1;
-		var istrokeWidth = 0;
         
         var STROKE_WIDTH = {"stroke-width": strokeWidth, "stroke": "#000000"};
         var TWICE_STROKE_WIDTH = {"stroke-width": 2 * strokeWidth, "stroke": "#000000"};
@@ -37,15 +36,14 @@ function Audiogram(id) {
         this.gutter = height / 8; //width of gutter for labels
         var gutter = this.gutter;
 
-		var inumY = this.iylabels.length;  //number of invisible labels
         var numY = this.ylabels.length;    //number of y-labels
         var numX = this.xlabels.length;    //number of x-labels
 
         this.chartHeight = height;  //height of the gridded chart itself
-        this.diffHeight = (this.chartHeight - 2 * strokeWidth) / (numY - 1);
+        this.diffHeight = ((this.chartHeight - 2 * strokeWidth) / (numY - 1)) / 2;
         var diffHeight = this.diffHeight;
-        this.diffWidth = this.diffHeight;
-        var diffWidth = diffHeight;
+        this.diffWidth = this.diffHeight * 2;
+        var diffWidth = diffHeight * 2;
         this.chartWidth = diffWidth * (numX - 1) + 2 * strokeWidth; //width of the gridded chart itself
 
         this.width = this.chartWidth + 2 * gutter;  //width of the SVG canvas
@@ -72,23 +70,9 @@ function Audiogram(id) {
             var path = Raphael.format("M{0} {2}L{1} {2}", gutter / 2, this.chartWidth + 1.5 * gutter, positionY);
             this.r.path(path).attr(attr);
             this.r.text(gutter / 2 - gutter / 4, positionY, this.ylabels[i]).attr({stroke: "#000000"});
-            positionY += diffHeight;
+            positionY += diffHeight * 2;
         }
-		
-		/***************************************
-         *** DRAW INVISIBLE HORIZONTAL LINES ***
-         ***************************************/
 		 
-		 var ipositionY = gutter + istrokeWidth + diffHeight / 2; //y-coordinate for current line
-		 
-		 for (var i = 0; i < inumY; i++) {
-			var attr = (i == 0 || i == inumY - 1) ? TWICE_STROKE_WIDTH : STROKE_WIDTH;
-			
-			var path = Raphael.format("M{0} {2}L{1} {2}", gutter / 2, this.chartWidth + 1.5 * gutter, ipositionY);
-			this.r.path(path).attr(attr);
-			ipositionY += diffHeight;
-		 }
-		
         /***************************
          *** DRAW VERTICAL LINES ***
          ***************************/
@@ -206,6 +190,7 @@ function Audiogram(id) {
      * @returns {Audiogram Object}
      */
 
+	 // Chooses what symbols get plotted on the graph
     this.switchPlotType = function() {
         console.log("current plotType ", this.plotType);
         this.plotType = (this.plotType == "AC") ? "BC": "AC";
