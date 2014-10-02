@@ -18,7 +18,7 @@ function Audiogram(id) {
     this.AC; // Raphael set of SVG elements of the air conduction points
     this.BC; // Raphael set of SVG elements of the bone conduction points
 
-	this.iylabels = ['','','','','','','','','','','','','','']; // Invisible labels for the invisible lines
+	this.iylabels = ['','','','','','','','','','','','','',''];                              // Invisible labels for the invisible lines
     this.ylabels = [-10, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130];          // dB HL labels for the y-axis
     this.xlabels = [125, '', 250, '', 500, 750, 1000, 1500, 2000, 3000, 4000, 6000, 8000];    // frequency labels for the x-axis
 
@@ -29,6 +29,7 @@ function Audiogram(id) {
 
     this.draw = function (height) {
         var strokeWidth = 1;
+		var istrokeWidth = 0;
         
         var STROKE_WIDTH = {"stroke-width": strokeWidth, "stroke": "#000000"};
         var TWICE_STROKE_WIDTH = {"stroke-width": 2 * strokeWidth, "stroke": "#000000"};
@@ -36,7 +37,7 @@ function Audiogram(id) {
         this.gutter = height / 8; //width of gutter for labels
         var gutter = this.gutter;
 
-		var inumY = this.iylabels.length; //number of invisible labels
+		var inumY = this.iylabels.length;  //number of invisible labels
         var numY = this.ylabels.length;    //number of y-labels
         var numX = this.xlabels.length;    //number of x-labels
 
