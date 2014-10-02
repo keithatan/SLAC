@@ -15,6 +15,7 @@ function Audiogram(id) {
     this.chartWidth; // width of the chart grid
     this.chartHeight; // height of the chart grid
 
+	// These two have no place in the actual program, but are being kept for now because we haven't changed the actual audiometer yet. If we got rid of these two, things would break.
 	this.AC;
 	this.BC;
 	
@@ -124,7 +125,7 @@ function Audiogram(id) {
 
         var point = this.r.circle(x, y, r).attr({
             "stroke-width": 2,
-            'stroke': "#000000"
+            'stroke': "#ff0000"
         });
 
         point.frequency = f;
@@ -151,7 +152,7 @@ function Audiogram(id) {
             "stroke-width": 2,
             "stroke-linecap": "round",
             "stroke-linejoin": "miter",
-            'stroke': "#000000"
+            'stroke': "#ff0000"
         });
 
         point.frequency = f;
@@ -171,7 +172,7 @@ function Audiogram(id) {
 			"stroke-width": 2,
 			"stroke-linecap": "round",
 			"stroke-linejoin": "miter",
-			'stroke': "#000000"
+			'stroke': "#0000ff"
 		});
 		
 		point.frequency = f;
@@ -191,7 +192,7 @@ function Audiogram(id) {
 			"stroke-width": 2,
 			"stroke-linecap": "round",
 			"stroke-linejoin": "miter",
-			'stroke': "#000000"
+			'stroke': "#0000ff"
 		});
 		
 		point.frequency = f;
@@ -211,7 +212,7 @@ function Audiogram(id) {
 			"stroke-width": 2,
 			"stroke-linecap": "round",
 			"stroke-linejoin": "miter",
-			'stroke': "#000000"
+			'stroke': "#ff0000"
 		});
 		
 		point.frequency = f;
@@ -231,7 +232,7 @@ function Audiogram(id) {
 			"stroke-width": 2,
 			"stroke-linecap": "round",
 			"stroke-linejoin": "miter",
-			'stroke': "#000000"
+			'stroke': "#ff0000"
 		});
 		
 		point.frequency = f;
@@ -251,7 +252,7 @@ function Audiogram(id) {
 			"stroke-width": 2,
 			"stroke-linecap": "round",
 			"stroke-linejoin": "miter",
-			'stroke': "#000000"
+			'stroke': "#0000ff"
 		});
 		
 		point.frequency = f;
@@ -271,7 +272,7 @@ function Audiogram(id) {
 			"stroke-width": 2,
 			"stroke-linecap": "round",
 			"stroke-linejoin": "miter",
-			'stroke': "#000000"
+			'stroke': "#0000ff"
 		});
 		
 		point.frequency = f;
@@ -291,7 +292,7 @@ function Audiogram(id) {
 			"stroke-width": 2,
 			"stroke-linecap": "round",
 			"stroke-linejoin": "miter",
-			'stroke': "#000000"
+			'stroke': "#ff0000"
 		});
 		
 		point.frequency = f;
@@ -311,7 +312,7 @@ function Audiogram(id) {
 			"stroke-width": 2,
 			"stroke-linecap": "round",
 			"stroke-linejoin": "miter",
-			'stroke': "#000000"
+			'stroke': "#0000ff"
 		});
 		
 		point.frequency = f;
@@ -332,7 +333,7 @@ function Audiogram(id) {
 			"stroke-width": 2,
 			"stroke-linecap": "round",
 			"stroke-linejoin": "miter",
-			'stroke': "#000000"
+			'stroke': "#ff0000"
 		});
 		
 		point.frequency = f;
@@ -352,7 +353,7 @@ function Audiogram(id) {
 			"stroke-width": 2,
 			"stroke-linecap": "round",
 			"stroke-linejoin": "miter",
-			'stroke': "#000000"
+			'stroke': "#0000ff"
 		});
 		
 		point.frequency = f;
