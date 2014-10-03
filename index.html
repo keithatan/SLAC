@@ -186,7 +186,7 @@
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-left bottom-left divider-right">
                                         <button class="btn btn-default">Interrupt</button>
                                         <input id="range1" type="range" step="5" min="0" max="130" value="0">
-                                        <button class="btn btn-default btn-long" onclick="sndplay()">CH 1</button>
+                                        <button class="btn btn-default btn-long" onclick="sndplay()">Present</button>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color">
                                         <span>Noise</span>
@@ -219,8 +219,10 @@
                                         <button class="btn btn-default" onclick="print_stimulus('Stimulus2', 'EXT B')" disabled>EXT B</button>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-					<svg width = "116" height = "223">
-					<rect width = "116" height = "223" rx = 20 ry = 20 style = "fill:rgb(157,177,81)" onmouseover = "evt.target.setAttribute('opacity','0.5');" onmouseout = "evt.target.setAttribute('opacity', '1');" />
+										<!-- The following code is the indicator box. It needs to be responsive - right now it kind of makes things ugly -->
+										<svg width = "116" height = "223">
+										<rect width = "116" height = "223" rx = 20 ry = 20 style = "fill:rgb(157,177,81)" onmouseover = "evt.target.setAttribute('opacity','0.5');" onmouseout = "evt.target.setAttribute('opacity', '1');" />
+										<!-- End indicator box -->
                                     </div>
                                 </div>
                                 <div class="row">
@@ -239,7 +241,7 @@
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-right bottom-right divider-left">
                                         <button class="btn btn-default">Interrupt</button>
                                         <input id="range2" type="range" step="5" min="0" max="130" value="0">
-                                        <button class="btn btn-default btn-long" onclick="sndplay()">CH 2</button>
+                                        <button class="btn btn-default btn-long" onclick="sndplay()">Present</button>
                                     </div>
                                 </div>
                             </div>
