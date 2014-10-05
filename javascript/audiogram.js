@@ -35,7 +35,6 @@ function Audiogram(id) {
 	this.NR_R; // Raphael sets of SVH elements for No Response points
 	this.NR_L;
 
-	this.iylabels = [''];                                                                     // Invisible label for the invisible lines
     this.ylabels = [-10, 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130];          // dB HL labels for the y-axis
     this.xlabels = [125, '', 250, '', 500, 750, 1000, 1500, 2000, 3000, 4000, 6000, 8000];    // frequency labels for the x-axis
 
@@ -531,7 +530,7 @@ function Audiogram(id) {
     this.initialize = function (id, size) {
         this.id = id;
         this.el = document.getElementById(id);
-        this.plotType = "AC";
+        this.plotType = "UL_L";
         
         this.draw(size);
         
