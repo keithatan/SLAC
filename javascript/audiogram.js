@@ -201,10 +201,15 @@ function Audiogram(id) {
 			'stroke': "#ff0000"
 		});
 		
-		point.frequency = f;
-		point.HL = h;
-		point.attrs.cx = x;
-		point.attrs.cy = y;
+		point1.frequency = f;
+		point1.HL = h;
+		point1.attrs.cx = x;
+		point1.attrs.cy = y;
+		
+		point2.frequency = f;
+		point2.HL = h;
+		point2.attrs.cx = x;
+		point2.attrs.cy = y;
 		
 		this.AC_NR_R.push(point1);
 		this.AC_NR_R.push(point2);
