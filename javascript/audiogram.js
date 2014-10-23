@@ -467,7 +467,7 @@ function Audiogram(id) {
 		point.attrs.cx = x;
 		point.attrs.cy = y;
 		
-		this.UL_R.push(point);
+		//this.UL_R.push(point);
 	}
 	
 	// ******************** Plots UL_L - "UL" ********************
@@ -487,16 +487,27 @@ function Audiogram(id) {
 		point.attrs.cx = x;
 		point.attrs.cy = y;
 		
-		this.UL_L.push(point);
+		//this.UL_L.push(point);
 	}
 	
-    /**
-     * Clears all the points plotted on the audiogram
-     */
-
+	// Clears points plotted on the audiogram
     this.clearPoints = function () {
-        this.AC.remove();
-        this.BC.remove();
+		this.AC_L.remove();
+		this.AC_R.remove();
+		this.AC_NR_L.remove();
+		this.AC_NR_R.remove(); // broken
+		this.AC_M_L.remove();
+		this.AC_M_R.remove();
+		this.AC_M_NR_L.remove();
+		this.AC_M_NR_R.remove();
+		this.BC_L.remove();
+		this.BC_R.remove();
+		this.BC_NR_L.remove();
+		this.BC_NR_R.remove();
+		this.BC_M_L.remove();
+		this.BC_M_R.remove();
+		this.BC_M_NR_L.remove();
+		this.BC_M_NR_R.remove();
     };
 
     /**
@@ -527,8 +538,40 @@ function Audiogram(id) {
                 point.remove();
             }
         };
-
-        this.plotType == "AC" ? this.AC.forEach(remove, this.AC) : this.BC.forEach(remove, this.BC);
+		
+		if (this.plotType == "AC_L") {
+			this.AC_L.forEach(remove, this.AC_L)
+		} else if (this.plotType == "AC_R") {
+			this.AC_R.forEach(remove, this.AC_R)
+		} else if (this.plotType == "AC_NR_L") {
+			this.AC_NR_L.forEach(remove, this.AC_NR_L)
+		} else if (this.plotType == "AC_NR_R") { // broken
+			this.AC_NR_R.forEach(remove, this.AC_NR_R) // broken
+		} else if (this.plotType == "AC_M_L") {
+			this.AC_M_L.forEach(remove, this.AC_M_L)
+		} else if (this.plotType == "AC_M_R") {
+			this.AC_M_R.forEach(remove, this.AC_M_R)
+		} else if (this.plotType == "AC_M_NR_L") {
+			this.AC_M_NR_L.forEach(remove, this.AC_M_NR_L)
+		} else if (this.plotType == "AC_M_NR_R") {
+			this.AC_M_NR_R.forEach(remove, this.AC_M_NR_R)
+		} else if (this.plotType == "BC_L") {
+			this.BC_L.forEach(remove, this.BC_L)
+		} else if (this.plotType == "BC_R") {
+			this.BC_R.forEach(remove, this.BC_R)
+		} else if (this.plotType == "BC_NR_L") {
+			this.BC_NR_L.forEach(remove, this.BC_NR_L)
+		} else if (this.plotType == "BC_NR_R") {
+			this.BC_NR_R.forEach(remove, this.BC_NR_R)
+		} else if (this.plotType == "BC_M_L") {
+			this.BC_M_L.forEach(remove, this.BC_M_L)
+		} else if (this.plotType == "BC_M_R") {
+			this.BC_M_R.forEach(remove, this.BC_M_R)
+		} else if (this.plotType == "BC_M_NR_L") {
+			this.BC_M_NR_L.forEach(remove, this.BC_M_NR_L)
+		} else if (this.plotType == "BC_M_NR_R") {
+			this.BC_M_NR_R.forEach(remove, this.BC_M_NR_R)
+		}
     };
 
     /**
@@ -552,16 +595,71 @@ function Audiogram(id) {
 
     this.exportPoints = function() {
         var obj = {};
-        obj.AC = [];
-        obj.BC = [];
+		obj.AC_L = [];
+		obj.AC_R = [];
+		obj.AC_NR_L = [];
+		obj.AC_NR_R = []; // broken
+		obj.AC_M_L = [];
+		obj.AC_M_R = [];
+		obj.AC_M_NR_L = [];
+		obj.AC_M_NR_R = [];
+		obj.BC_L = [];
+		obj.BC_R = [];
+		obj.BC_NR_L = [];
+		obj.BC_NR_R = [];
+		obj.BC_M_L = [];
+		obj.BC_M_R = [];
+		obj.BC_M_NR_L = [];
+		obj.BC_M_NR_R = [];
 
-        this.AC.forEach(function(point) {
-            obj.AC.push({f: point.frequency, h: point.HL});
-        }, this.AC);
-
-        this.BC.forEach(function(point) {
-            obj.BC.push({f: point.frequency, h: point.HL});
-        }, this.BC);
+		this.AC_L.forEach(function(point) {
+			obj.AC_L.push({f: point.frequency, h: point.HL});
+		}, this.AC_L);
+		this.AC_R.forEach(function(point) {
+			obj.AC_R.push({f: point.frequency, h: point.HL});
+		}, this.AC_R);
+		this.AC_NR_L.forEach(function(point) {
+			obj.AC_NR_L.push({f: point.frequency, h: point.HL});
+		}, this.AC_NR_L);
+		this.AC_NR_R.forEach(function(point) { // broken
+			obj.AC_NR_R.push({f: point.frequency, h: point.HL}); // broken
+		}, this.AC_NR_R); // broken
+		this.AC_M_L.forEach(function(point) {
+			obj.AC_M_L.push({f: point.frequency, h: point.HL});
+		}, this.AC_M_L);
+		this.AC_M_R.forEach(function(point) {
+			obj.AC_M_R.push({f: point.frequency, h: point.HL});
+		}, this.AC_M_R);
+		this.AC_M_NR_L.forEach(function(point) {
+			obj.AC_M_NR_L.push({f: point.frequency, h: point.HL});
+		}, this.AC_M_NR_L);
+		this.AC_M_NR_R.forEach(function(point) {
+			obj.AC_M_NR_R.push({f: point.frequency, h: point.HL});
+		}, this.AC_M_NR_R);
+		this.BC_L.forEach(function(point) {
+			obj.BC_L.push({f: point.frequency, h: point.HL});
+		}, this.BC_L);
+		this.BC_R.forEach(function(point) {
+			obj.BC_R.push({f: point.frequency, h: point.HL});
+		}, this.BC_R);
+		this.BC_NR_L.forEach(function(point) {
+			obj.BC_NR_L.push({f: point.frequency, h: point.HL});
+		}, this.BC_NR_L);
+		this.BC_NR_R.forEach(function(point) {
+			obj.BC_NR_R.push({f: point.frequency, h: point.HL});
+		}, this.BC_NR_R);
+		this.BC_M_L.forEach(function(point) {
+			obj.BC_M_L.push({f: point.frequency, h: point.HL});
+		}, this.BC_M_L);
+		this.BC_M_R.forEach(function(point) {
+			obj.BC_M_R.push({f: point.frequency, h: point.HL});
+		}, this.BC_M_R);
+		this.BC_M_NR_L.forEach(function(point) {
+			obj.BC_M_NR_L.push({f: point.frequency, h: point.HL});
+		}, this.BC_M_NR_L);
+		this.BC_M_NR_R.forEach(function(point) {
+			obj.BC_M_NR_R.push({f: point.frequency, h: point.HL});
+		}, this.BC_M_NR_R);
 
         return obj;
     };
@@ -624,8 +722,6 @@ function Audiogram(id) {
 		} else if (this.plotType == "BC_M_NR_R") {
 			this.plotBC_M_NR_R(x, y, f, h);
 		}
-		
-        //this.plotType == "AC" ? this.plotAC(x, y, f, h) : this.plotBC(x, y, f, h);  // plot a point of the current plot type at the position
     };
 
     /**
@@ -660,13 +756,27 @@ function Audiogram(id) {
     this.initialize = function (id, size) {
         this.id = id;
         this.el = document.getElementById(id);
-        this.plotType = "BC_M_NR_R";
+        this.plotType = "AC_NR_R";
         
         this.draw(size);
         
         this.svg = this.el.querySelector("svg");
-        this.AC = this.r.set();
-        this.BC = this.r.set();
+		this.AC_L = this.r.set();
+		this.AC_R = this.r.set();
+		this.AC_NR_L = this.r.set();
+		this.AC_NR_R = this.r.set(); // broken
+		this.AC_M_L = this.r.set();
+		this.AC_M_R = this.r.set();
+		this.AC_M_NR_L = this.r.set();
+		this.AC_M_NR_R = this.r.set();
+		this.BC_L = this.r.set();
+		this.BC_R = this.r.set();
+		this.BC_NR_L = this.r.set();
+		this.BC_NR_R = this.r.set();
+		this.BC_M_L = this.r.set();
+		this.BC_M_R = this.r.set();
+		this.BC_M_NR_L = this.r.set();
+		this.BC_M_NR_R = this.r.set();
 
         this.svg.addEventListener("click", this, false);
         this.svg.addEventListener("mousedown", this, false);
