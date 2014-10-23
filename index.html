@@ -155,7 +155,7 @@
 
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                        <div class="row" >
+                        <div class="row">
                             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                                 <img class="toggler" id="ol" src="./images/arrow-left.png" alt="">
                             </div>
@@ -169,17 +169,27 @@
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 top-left color">
                                         <span>Stimulus</span>
-                                        <button class="btn btn-default" onclick="print_stimulus('Stimulus1', 'Tone')">Tone</button>
+                                        <button class="btn btn-default" onclick="print_stimulus('Stimulus1', 'Tone')">
+                                            Tone
+                                        </button>
                                         <button class="btn btn-default" disabled>MIC</button>
                                         <button class="btn btn-default" disabled>EXT A</button>
                                         <button class="btn btn-default" disabled>EXT B</button>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 top-right color">
                                         <span>Transducer</span>
-                                        <button class="btn btn-default" onclick="print_transducer('Transducer1', 'Phone')">Phone</button>
-                                        <button class="btn btn-default" onclick="print_transducer('Transducer1', 'Bone')">Bone</button>
-                                        <button class="btn btn-default" onclick="print_transducer('Transducer1', 'SPKR')" disabled>SPKR</button>
-                                        <button class="btn btn-default" onclick="print_transducer('Transducer1', 'Insert')" disabled>Insert</button>
+                                        <button class="btn btn-default"
+                                                onclick="print_transducer('Transducer1', 'Phone')">Phone
+                                        </button>
+                                        <button class="btn btn-default"
+                                                onclick="print_transducer('Transducer1', 'Bone')">Bone
+                                        </button>
+                                        <button class="btn btn-default"
+                                                onclick="print_transducer('Transducer1', 'SPKR')" disabled>SPKR
+                                        </button>
+                                        <button class="btn btn-default"
+                                                onclick="print_transducer('Transducer1', 'Insert')" disabled>Insert
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="row divider-right">
@@ -196,9 +206,15 @@
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color bottom-right">
                                         <span>Routing</span>
-                                        <button class="btn btn-default" onclick="print_routing('Routing1', 'Left')">Left</button>
-                                        <button class="btn btn-default" onclick="print_routing('Routing1', 'Right')">Right</button>
-                                        <button class="btn btn-default" onclick="print_routing('Routing1', 'Both')">Both</button>
+                                        <button class="btn btn-default" onclick="print_routing('Routing1', 'Left')">
+                                            Left
+                                        </button>
+                                        <button class="btn btn-default" onclick="print_routing('Routing1', 'Right')">
+                                            Right
+                                        </button>
+                                        <button class="btn btn-default" onclick="print_routing('Routing1', 'Both')">
+                                            Both
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -206,31 +222,61 @@
                                 <div class="row divider-bottom">
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-left">
                                         <span>Transducer</span>
-                                        <button class="btn btn-default" onclick="print_transducer('Transducer2', 'Phone')">Phone</button>
-                                        <button class="btn btn-default" onclick="print_transducer('Transducer2', 'Bone')">Bone</button>
-                                        <button class="btn btn-default" onclick="print_transducer('Transducer2', 'SPKR')" disabled>SPKR</button>
-                                        <button class="btn btn-default" onclick="print_transducer('Transducer2', 'Insert')" disabled>Insert</button>
+                                        <button class="btn btn-default"
+                                                onclick="print_transducer('Transducer2', 'Phone')">Phone
+                                        </button>
+                                        <button class="btn btn-default"
+                                                onclick="print_transducer('Transducer2', 'Bone')">Bone
+                                        </button>
+                                        <button class="btn btn-default"
+                                                onclick="print_transducer('Transducer2', 'SPKR')" disabled>SPKR
+                                        </button>
+                                        <button class="btn btn-default"
+                                                onclick="print_transducer('Transducer2', 'Insert')" disabled>Insert
+                                        </button>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-right">
                                         <span>Stimulus</span>
-                                        <button class="btn btn-default" onclick="print_stimulus('Stimulus2', 'Tone')">Tone</button>
-                                        <button class="btn btn-default" onclick="print_stimulus('Stimulus2', 'MIC')" disabled>MIC</button>
-                                        <button class="btn btn-default" onclick="print_stimulus('Stimulus2', 'EXT A')" disabled>EXT A</button>
-                                        <button class="btn btn-default" onclick="print_stimulus('Stimulus2', 'EXT B')" disabled>EXT B</button>
+                                        <button class="btn btn-default" onclick="print_stimulus('Stimulus2', 'Tone')">
+                                            Tone
+                                        </button>
+                                        <button class="btn btn-default" onclick="print_stimulus('Stimulus2', 'MIC')"
+                                                disabled>MIC
+                                        </button>
+                                        <button class="btn btn-default" onclick="print_stimulus('Stimulus2', 'EXT A')"
+                                                disabled>EXT A
+                                        </button>
+                                        <button class="btn btn-default" onclick="print_stimulus('Stimulus2', 'EXT B')"
+                                                disabled>EXT B
+                                        </button>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-										<!-- The following code is the indicator box. It needs to be responsive - right now it kind of makes things ugly -->
-										<svg width = "116" height = "223">
-										<rect width = "116" height = "223" rx = 20 ry = 20 style = "fill:rgb(157,177,81)" onmouseover = "evt.target.setAttribute('opacity','0.5');" onmouseout = "evt.target.setAttribute('opacity', '1');" />
-										<!-- End indicator box -->
+                                        <!-- The following code is the indicator box. It needs to be responsive - right now it kind of makes things ugly -->
+                                        <svg width="100%" height="100%" style="height:80px">
+                                            <rect width="100%" height="100%" rx=20 ry=20 style="fill:rgb(157,177,81)"
+                                                  onmouseover="evt.target.setAttribute('opacity','0.5');"
+                                                  onmouseout="evt.target.setAttribute('opacity', '1');"/>
+                                             </svg>
+                                            <!-- End indicator box -->
+                                            </div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 bottom-ight">
+                                            <button class="btn btn-default">Match</button>
+                                            <button class="btn btn-default">Reset</button>
+                                            <div>
+                                        </svg>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color bottom-left">
                                         <span>Routing</span>
-                                        <button class="btn btn-default" onclick="print_routing('Routing2', 'Left')">Left</button>
-                                        <button class="btn btn-default" onclick="print_routing('Routing2', 'Right')">Right</button>
-                                        <button class="btn btn-default" onclick="print_routing('Routing2', 'Both')">Both</button>
+                                        <button class="btn btn-default" onclick="print_routing('Routing2', 'Left')">
+                                            Left
+                                        </button>
+                                        <button class="btn btn-default" onclick="print_routing('Routing2', 'Right')">
+                                            Right
+                                        </button>
+                                        <button class="btn btn-default" onclick="print_routing('Routing2', 'Both')">
+                                            Both
+                                        </button>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color">
                                         <span>Noise</span>
@@ -250,9 +296,7 @@
                                 <img class="toggler" id="or" src="./images/arrow-right.png" alt="">
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
                         <div class="row frequency">
                             <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                             </div>
@@ -267,7 +311,7 @@
                         </div>
                     </div>
 
-            </div>
+                </div>
         </div>
     </div>
     <!-- CONTROLS PANEL -->
