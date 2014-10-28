@@ -1,9 +1,4 @@
-/**
- * Creates an Audiogram
- * @constructor
- * @param {String} id - the DOM id of the HTML input element
- */
-
+// Creates an Audiogram
 function Audiogram(id) {
     this.id; // id of the DOM Element container
     this.el; // DOM Element object of the container
@@ -23,7 +18,8 @@ function Audiogram(id) {
     this.AC_L;
 	this.AC_R;
 	this.AC_NR_L;
-	this.AC_NR_R;
+	this.AC_NR_R1;
+	this.AC_NR_R2;
 	this.AC_M_L;
 	this.AC_M_R;
 	this.AC_M_NR_L;
@@ -115,13 +111,6 @@ function Audiogram(id) {
         }
     };
 
-    /**
-     * Plots a circle at the given (x, y) coordinates and adds it to the points collection
-     * @param {Number} x - x-coordinate of the point
-     * @param {Number} y - t-coordinate of the point
-     * @param {Number} f - corresponding frequency of the x-coordinate
-     * @param {Number} h - cooresponding HL of the y-coordinate
-     */
 	// Plots AC_L - 'X'
 	this.plotAC_L = function(x, y, f, h) {
 		var r = 5 + Math.round(this.height/200); // drawing size
@@ -177,42 +166,41 @@ function Audiogram(id) {
 		this.AC_NR_L.push(point);
 	};
 	
-	// Plots AC_NR_R - Circle with arrow bottom-left
-	this.plotAC_NR_R = function(x, y, f, h) {
+	// Plots the circle portion of AC_NR_R
+	this.plotAC_NR_R1 = function(x, y, f, h) {
 		var r = 5 + Math.round(this.height/200); // drawing size
-		var path1 = this.r.circle(x + r/3, y - r/3, (2 / 3) * r).attr({
+		
+		var point = this.r.circle(x + r/3, y - r/3, (2 / 3) * r).attr({
 			"stroke-width": 2,
 			'stroke': "#ff0000"
 		});
 		
-		var path2 = Raphael.format("M{0} {1}L{2} {3}L{4} {5}M{2} {3}L{6} {7}", x, y, x - r, y + r, x - r, y + r/2, x - r/2, y + r);
+		point.frequency = f;
+		point.HL = h;
+		point.attrs.cx = x;
+		point.attrs.cy = y;
 		
-		var point1 = this.r.path(path1).attr({
-			"stroke-width": 2,
-			"stroke-linecap": "round",
-			"stroke-linejoin": "miter",
-			'stroke': "#0000ff"
-		});
+		this.AC_NR_R1.push(point);
+	};
+	
+	// Plots the arrow portion of AC_NR_R
+	this.plotAC_NR_R2 = function(x, y, f, h) {
+		var r = 5 + Math.round(this.height/200); // drawing size
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}M{2} {3}L{6} {7}", x, y, x - r, y + r, x - r, y + r/2, x - r/2, y + r);
 		
-		var point2 = this.r.path(path2).attr({
+		var point = this.r.path(path).attr({
 			"stroke-width": 2,
 			"stroke-linecap": "round",
 			"stroke-linejoin": "miter",
 			'stroke': "#ff0000"
 		});
 		
-		point1.frequency = f;
-		point1.HL = h;
-		point1.attrs.cx = x;
-		point1.attrs.cy = y;
+		point.frequency = f;
+		point.HL = h;
+		point.attrs.cx = x;
+		point.attrs.cy = y;
 		
-		point2.frequency = f;
-		point2.HL = h;
-		point2.attrs.cx = x;
-		point2.attrs.cy = y;
-		
-		this.AC_NR_R.push(point1);
-		this.AC_NR_R.push(point2);
+		this.AC_NR_R2.push(point);
 	};
 
 	// Plots AC_M_L - Square
@@ -500,7 +488,8 @@ function Audiogram(id) {
 		this.AC_L.remove();
 		this.AC_R.remove();
 		this.AC_NR_L.remove();
-		this.AC_NR_R.remove(); // broken
+		this.AC_NR_R1.remove();
+		this.AC_NR_R2.remove();
 		this.AC_M_L.remove();
 		this.AC_M_R.remove();
 		this.AC_M_NR_L.remove();
@@ -515,25 +504,14 @@ function Audiogram(id) {
 		this.BC_M_NR_R.remove();
     };
 
-    /**
-     * Determines if the given point is within the gridlines
-     * @param {Number} x - x-coordinate of the point
-     * @param {Number} y - t-coordinate of the point
-     * @returns {Boolean}
-     */
-
+	// Determines if the given point is within the gridlines
     this.onGrid = function (x, y) {
         var xGood = x >= this.gutter && x <= (this.width - this.gutter);    // is the x-coordinate within the plottable area?
         var yGood = y >= this.gutter && y <= (this.height - this.gutter);   // is the y-coordinate within the plottable area?
         return xGood && yGood;
     };
 
-    /**
-     * Removes any present points at the same x value (frequency) in the current plotType
-     * @param {Number} x - x-coordinate of the point
-     * @returns {Boolean}
-     */
-
+	// Removes any present points at the same x-value (frequency) in the current plotType
     this.removePoint = function (x) {
 
         var remove = function(point) {
@@ -550,8 +528,9 @@ function Audiogram(id) {
 			this.AC_R.forEach(remove, this.AC_R)
 		} else if (this.plotType == "AC_NR_L") {
 			this.AC_NR_L.forEach(remove, this.AC_NR_L)
-		} else if (this.plotType == "AC_NR_R") { // broken
-			this.AC_NR_R.forEach(remove, this.AC_NR_R) // broken
+		} else if (this.plotType == "AC_NR_R") {
+			this.AC_NR_R1.forEach(remove, this.AC_NR_R1)
+			this.AC_NR_R2.forEach(remove, this.AC_NR_R2)
 		} else if (this.plotType == "AC_M_L") {
 			this.AC_M_L.forEach(remove, this.AC_M_L)
 		} else if (this.plotType == "AC_M_R") {
@@ -579,31 +558,22 @@ function Audiogram(id) {
 		}
     };
 
-    /**
-     * Switches plot type between AC and BC
-     * @returns {Audiogram Object}
-     */
-
-	 // Chooses what symbols get plotted on the graph
+	// Switches plot type between AC and BC
+	// Will need to be replaced once the user can select plot type
     this.switchPlotType = function() {
         console.log("current plotType ", this.plotType);
         this.plotType = (this.plotType == "AC") ? "BC": "AC";
         return this; // chain calls
     }.bind(this);
 
-
-    /**
-     * Exports all (x, y) plotted points into (Frequency, dB HL) points
-     * Format: { AC: [{f: 125, h: 10}, ...], BC: [{f: 125, h: 10}, ...] }
-     * @returns {Object}
-     */
-
+	// Exports all (x, y) plotted points into (Frequency, dB HL) points
     this.exportPoints = function() {
         var obj = {};
 		obj.AC_L = [];
 		obj.AC_R = [];
 		obj.AC_NR_L = [];
-		obj.AC_NR_R = []; // broken
+		obj.AC_NR_R1 = [];
+		obj.AC_NR_R2 = [];
 		obj.AC_M_L = [];
 		obj.AC_M_R = [];
 		obj.AC_M_NR_L = [];
@@ -626,9 +596,12 @@ function Audiogram(id) {
 		this.AC_NR_L.forEach(function(point) {
 			obj.AC_NR_L.push({f: point.frequency, h: point.HL});
 		}, this.AC_NR_L);
-		this.AC_NR_R.forEach(function(point) { // broken
-			obj.AC_NR_R.push({f: point.frequency, h: point.HL}); // broken
-		}, this.AC_NR_R); // broken
+		this.AC_NR_R1.forEach(function(point) {
+			obj.AC_NR_R1.push({f: point.frequency, h: point.HL});
+		}, this.AC_NR_R1);
+		this.AC_NR_R2.forEach(function(point) {
+			obj.AC_NR_R2.push({f: point.frequency, h: point.HL});
+		}, this.AC_NR_R2);
 		this.AC_M_L.forEach(function(point) {
 			obj.AC_M_L.push({f: point.frequency, h: point.HL});
 		}, this.AC_M_L);
@@ -669,13 +642,7 @@ function Audiogram(id) {
         return obj;
     };
 
-    /**
-     * Determines the closest point on the grid to the clicked location
-     * @param {Number} x - x-coordinate of the point
-     * @param {Number} y - t-coordinate of the point
-     * @returns {Boolean}
-     */
-
+	// Determines the closest point on the grid to the clicked location
     this.closestPoint = function (x, y) {
         x = x - this.gutter;
         y = y - this.gutter;
@@ -693,7 +660,7 @@ function Audiogram(id) {
 
         this.removePoint(x); // remove any points currently at this frequency for the current plotType
 		
-		// selects which type of symbol to plot
+		// Selects which type of symbol to plot
 		if (this.plotType == "AC_L") {
 			this.plotAC_L(x, y, f, h);
 		} else if (this.plotType == "AC_R") {
@@ -701,7 +668,8 @@ function Audiogram(id) {
 		} else if (this.plotType == "AC_NR_L") {
 			this.plotAC_NR_L(x, y, f, h);
 		} else if (this.plotType == "AC_NR_R") {
-			this.plotAC_NR_R(x, y, f, h);
+			this.plotAC_NR_R1(x, y, f, h);
+			this.plotAC_NR_R2(x, y, f, h);
 		} else if (this.plotType == "AC_M_L") {
 			this.plotAC_M_L(x, y, f, h);
 		} else if (this.plotType == "AC_M_R") {
@@ -729,12 +697,7 @@ function Audiogram(id) {
 		}
     };
 
-    /**
-     * Handles events
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/EventTarget.addEventListener#The_value_of_this_within_the_handler
-     * @param {EventObject}
-     */
-
+	// Handles events
     this.handleEvent = function (event) {
         event.preventDefault();
         var x = event.offsetX;
@@ -753,11 +716,8 @@ function Audiogram(id) {
                 break;
         }
     };
-
-    /**
-     * Calls the individual functions of the audiogram to draw it and set up event listeners
-     */
-
+	
+	// Calls the individual functions of the audiogram to draw it and set up event listeners
     this.initialize = function (id, size) {
         this.id = id;
         this.el = document.getElementById(id);
@@ -769,7 +729,8 @@ function Audiogram(id) {
 		this.AC_L = this.r.set();
 		this.AC_R = this.r.set();
 		this.AC_NR_L = this.r.set();
-		this.AC_NR_R = this.r.set(); // broken
+		this.AC_NR_R1 = this.r.set();
+		this.AC_NR_R2 = this.r.set();
 		this.AC_M_L = this.r.set();
 		this.AC_M_R = this.r.set();
 		this.AC_M_NR_L = this.r.set();
