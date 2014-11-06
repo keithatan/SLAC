@@ -240,6 +240,15 @@ input[type=range]::-webkit-slider-thumb {
     box-shadow: inset 0 1px white;
 }
 
+.snap-drawer .btn-type-select-audiogram {
+    color: black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+    position: relative;
+    left: 100px;
+    top: -30px;
+}
+
 /*
 Active state
 */
