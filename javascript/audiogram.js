@@ -72,7 +72,8 @@ function Audiogram(id) {
 
         this.r.path(Raphael.format("M{0} {1}L{0} {2}", this.chartWidth + 2 * gutter - gutter / 2, gutter, this.chartHeight + gutter)).attr(TWICE_STROKE_WIDTH);
 
-        this.r.text(this.width / 2, gutter / 4, "Frequency [Hz]").attr({stroke: "#000000"});
+        this.r.text(this.width / 2, gutter
+         / 4, "Frequency [Hz]").attr({stroke: "#000000"});
         this.r.text(this.width - gutter / 4, this.height / 2, "Hearing Loss in DB HL").transform("r90").attr({stroke: "#000000"});
 
         /*****************************
@@ -109,6 +110,9 @@ function Audiogram(id) {
             }
             positionX += diffWidth;
         }
+
+        var buttonTypeSelect = document.getElementsByClassName('btn-type-select-audiogram');
+        
     };
 
 	// Plots AC_L - 'X'
