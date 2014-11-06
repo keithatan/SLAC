@@ -286,7 +286,7 @@ function Audiogram(id) {
 	// Plots BC_L - '>'
 	this.plotBC_L = function(x, y, f, h) {
 		var r = 5 + Math.round(this.height/200); // drawing size
-		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}", x - r, y - r, x + r, y, x - r, y + r);
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}", x - r + r, y - r, x + r + r, y, x - r + r, y + r);
 		
 		var point = this.r.path(path).attr({
 			"stroke-width": 2,
@@ -306,7 +306,7 @@ function Audiogram(id) {
 	// Plots BC_R - '<'
 	this.plotBC_R = function(x, y, f, h) {
 		var r = 5 + Math.round(this.height/200); // drawing size
-		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}", x + r, y - r, x - r, y, x + r, y + r);
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}", x + r - r, y - r, x - r - r, y, x + r - r, y + r);
 		
 		var point = this.r.path(path).attr({
 			"stroke-width": 2,
@@ -326,7 +326,7 @@ function Audiogram(id) {
 	// Plots BC_NR_L - '>' with arrow bottom right
 	this.plotBC_NR_L = function(x, y, f, h) {
 		var r = 5 + Math.round(this.height/200); // drawing size
-		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}L{8} {9}M{6} {7}L{10} {11}", x - r, y - r, x, y - r/2, x - r, y, x, y + r, x - r/2, y + r, x, y + r/2);
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}L{8} {9}M{6} {7}L{10} {11}", x - r + r, y - r, x + r, y - r/2, x - r + r, y, x + r, y + r, x - r/2 + r, y + r, x + r, y + r/2);
 		
 		var point = this.r.path(path).attr({
 			"stroke-width": 2,
@@ -346,7 +346,7 @@ function Audiogram(id) {
 	// Plots BC_NR_R - '<' with arrow bottom left
 	this.plotBC_NR_R = function(x, y, f, h) {
 		var r = 5 + Math.round(this.height/200); // drawing size
-		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}L{8} {9}M{6} {7}L{10} {11}", x + r, y - r, x, y - r/2, x + r, y, x, y + r, x + r/2, y + r, x, y + r/2);
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}L{8} {9}M{6} {7}L{10} {11}", x + r - r, y - r, x - r, y - r/2, x + r - r, y, x - r, y + r, x + r/2 - r, y + r, x - r, y + r/2);
 		
 		var point = this.r.path(path).attr({
 			"stroke-width": 2,
@@ -366,7 +366,7 @@ function Audiogram(id) {
 	// Plots BC_M_L - ']'
 	this.plotBC_M_L = function(x, y, f, h) {
 		var r = 5 + Math.round(this.height/200); // drawing size
-		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}", x - r, y - r, x, y - r, x, y + r, x - r, y + r);
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}", x - r + r, y - r, x + r, y - r, x + r, y + r, x - r + r, y + r);
 		
 		var point = this.r.path(path).attr({
 			"stroke-width": 2,
@@ -386,7 +386,7 @@ function Audiogram(id) {
 	// Plots BC_M_R - '['
 	this.plotBC_M_R = function(x, y, f, h) {
 		var r = 5 + Math.round(this.height/200); // drawing size
-		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}", x + r, y - r, x, y - r, x, y + r, x + r, y + r);
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}", x + r - r, y - r, x - r, y - r, x - r, y + r, x + r - r, y + r);
 		
 		var point = this.r.path(path).attr({
 			"stroke-width": 2,
@@ -406,7 +406,7 @@ function Audiogram(id) {
 	// Plots BC_M_NR_L - ']' with arrow bottom right
 	this.plotBC_M_NR_L = function(x, y, f, h) {
 		var r = 5 + Math.round(this.height/200); // drawing size
-		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}M{4} {5}L{8} {9}L{10} {11}M{8} {9}L{12} {13}", x - r, y - r, x, y - r, x, y + r/2, x - r, y + r/2, x + r/2, y + r, x, y + r, x + r/2, y + r/2);
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}M{4} {5}L{8} {9}L{10} {11}M{8} {9}L{12} {13}", x - r + r, y - r, x + r, y - r, x + r, y + r/2, x - r + r, y + r/2, x + r/2 + r, y + r, x + r, y + r, x + r/2 + r, y + r/2);
 		
 		var point = this.r.path(path).attr({
 			"stroke-width": 2,
@@ -426,7 +426,7 @@ function Audiogram(id) {
 	// Plots BC_M_NR_R - '[' with arrow bottom left
 	this.plotBC_M_NR_R = function(x, y, f, h) {
 		var r = 5 + Math.round(this.height/200); // drawing size
-		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}M{4} {5}L{8} {9}L{10} {11}M{8} {9}L{12} {13}", x + r, y - r, x, y - r, x, y + r/2, x + r, y + r/2, x - r/2, y + r, x, y + r, x - r/2, y + r/2);
+		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}M{4} {5}L{8} {9}L{10} {11}M{8} {9}L{12} {13}", x + r - r, y - r, x - r, y - r, x - r, y + r/2, x + r - r, y + r/2, x - r/2 - r, y + r, x - r, y + r, x - r/2 - r, y + r/2);
 		
 		var point = this.r.path(path).attr({
 			"stroke-width": 2,
@@ -694,6 +694,8 @@ function Audiogram(id) {
 			this.plotBC_M_NR_L(x, y, f, h);
 		} else if (this.plotType == "BC_M_NR_R") {
 			this.plotBC_M_NR_R(x, y, f, h);
+		} else {
+			console.log("Error: Invalid plotType: " + this.plotType);
 		}
     };
 
@@ -721,7 +723,7 @@ function Audiogram(id) {
     this.initialize = function (id, size) {
         this.id = id;
         this.el = document.getElementById(id);
-        this.plotType = "AC_NR_R";
+        this.plotType = "BC_M_NR_R";
         
         this.draw(size);
         
