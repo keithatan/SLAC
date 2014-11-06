@@ -163,7 +163,18 @@
                                 <div class="row divider-bottom divider-right">
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                         <button class="btn btn-default" disabled>FM</button>
-                                        <button class="btn btn-default">Pulse</button>
+                                        <button id="pulse" class="btn btn-default" onclick="changeColor(this.id)">Pulse</button>
+                                        <script type="text/javascript">
+                                            function changeColor(clicked_id){
+                                                var tmp = document.getElementById(clicked_id);
+                                                console.log(tmp.style.backgroundColor);
+                                                if(tmp.style.backgroundColor == 'white'){
+                                                    tmp.style.backgroundColor = 'red';
+                                                }else{
+                                                    tmp.style.backgroundColor = 'white';
+                                                }
+                                            }
+                                        </script>
                                         <button class="btn btn-default" disabled>ALT</button>
                                         <button class="btn btn-default" disabled>SISI</button>
                                     </div>
@@ -253,7 +264,7 @@
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                         <!-- The following code is the indicator box. It needs to be responsive - right now it kind of makes things ugly -->
                                         <svg width="100%" height="100%" style="height:80px">
-                                            <rect width="100%" height="100%" rx=20 ry=20 style="fill:rgb(157,177,81)"
+                                            <rect width="100%" height="100%" rx=20 ry=20 style="fill:rgb(157,177,81)" id="indicator">
                                                   onmouseover="evt.target.setAttribute('opacity','0.5');"
                                                   onmouseout="evt.target.setAttribute('opacity', '1');"/>
                                              </svg>

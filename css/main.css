@@ -61,9 +61,16 @@ span {
     box-shadow: 3px 3px 3px gray;
     -webkit-appearance: none;
 }
+.btn-default:active{
+    color: blue;
+}
+
+.btn-default:focus {
+    background: cornflowerblue;
+}
 
 button:focus {
-    background: white;
+    background: cornflowerblue;
     outline: 0;
     -webkit-appearance: none;
 }
@@ -71,6 +78,7 @@ button:focus {
 button:hover, button:active {
     outline: 0;
     -webkit-appearance: none;
+    background: cornflowerblue;
 }
 
 .btn-long {
@@ -245,5 +253,8 @@ input[type=range]:active::-webkit-slider-thumb,
 input[type=range]:active::-moz-range-thumb {
     border: 1px solid #0940fd;
     box-shadow: 0 0 0 2px #6fb5f1;
+}
+
+#indicator {
 }
 
