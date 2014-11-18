@@ -13,14 +13,21 @@ svg {
 }
 
 span {
-    font-size: 10px;
-    color: rgba(0, 0, 0, .7);
-    padding: 3px;
-    display: block;
+    display: inline;
 }
 
 #countdown {
     color: white;
+}
+
+.hiddenPatInfo {
+	padding-left: 6px;
+}
+
+.oldSpan {
+	font-size: 10px;
+    color: rgba(0, 0, 0, .7);
+    padding: 3px;
 }
 
 .frequency {
@@ -103,15 +110,17 @@ button:hover, button:active {
     width: 300px; 
 }
 
-.slider-left{
-    align-self: center;
-    text-align:center; 
+.slider-left {
+    text-align: center; 
     margin: 0px 0;
     padding: 0px 0;
     margin-left:auto;
     margin-right:auto;
 }
 
+.patInfoHider {
+	opacity: 0;
+}
 /***********************************
 * Rounded Corner Styles for Panel
 ************************************/
