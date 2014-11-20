@@ -121,7 +121,7 @@ function changeColor(clicked_id){
         tmp.style.backgroundColor = 'red';
     }else{
         tmp.style.backgroundColor = 'white';
-    }+
+    }
 }
 
 function sleep(milliseconds) {
