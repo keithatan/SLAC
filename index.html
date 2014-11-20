@@ -175,23 +175,12 @@
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                         <button class="btn btn-default" disabled>FM</button>
                                         <button id="pulse" class="btn btn-default" onclick="changeColor(this.id)">Pulse</button>
-                                        <script type="text/javascript">
-                                            function changeColor(clicked_id){
-                                                var tmp = document.getElementById(clicked_id);
-                                                console.log(tmp.style.backgroundColor);
-                                                if(tmp.style.backgroundColor == 'white'){
-                                                    tmp.style.backgroundColor = 'red';
-                                                }else{
-                                                    tmp.style.backgroundColor = 'white';
-                                                }
-                                            }
-                                        </script>
                                         <button class="btn btn-default" disabled>ALT</button>
                                         <button class="btn btn-default" disabled>SISI</button>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 top-left color">
                                         <div class="oldSpan">Stimulus</div>
-                                        <button class="btn btn-default" onclick="print_stimulus('Stimulus1', 'Tone')">
+                                        <button id="Tone" class="btn btn-default" onclick="print_stimulus('Stimulus1', 'Tone');changeColor(this.id)">
                                             Tone
                                         </button>
                                         <button class="btn btn-default" disabled>MIC</button>
@@ -200,11 +189,11 @@
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 top-right color">
                                         <div class="oldSpan">Transducer</div>
-                                        <button class="btn btn-default"
-                                                onclick="print_transducer('Transducer1', 'Phone')">Phone
+                                        <button id = "Phone" class="btn btn-default"
+                                                onclick="print_transducer('Transducer1', 'Phone'); changeColor(this.id)">Phone
                                         </button>
-                                        <button class="btn btn-default"
-                                                onclick="print_transducer('Transducer1', 'Bone')">Bone
+                                        <button id="bone" class="btn btn-default"
+                                                onclick="print_transducer('Transducer1', 'Bone');changeColor(this.id)">Bone
                                         </button>
                                         <button class="btn btn-default"
                                                 onclick="print_transducer('Transducer1', 'SPKR')" disabled>SPKR
@@ -216,25 +205,25 @@
                                 </div>
                                 <div class="row divider-right">
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-left bottom-left divider-right">
-                                        <button class="btn btn-default">Interrupt</button>
+                                        <button id="Interrupt" class="btn btn-default" onclick="changeColor(this.id)">Interrupt</button>
                                         <input id="range1" type="range" step="5" min="0" max="130" value="0">
                                         <button class="btn btn-default btn-long" onclick="sndplay()">Present</button>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color">
                                         <div class="oldSpan">Noise</div>
-                                        <button class="btn btn-default">NB</button>
+                                        <button id="NB" class="btn btn-default" onclick="changeColor(this.id)">NB</button>
                                         <button class="btn btn-default" disabled>Speech</button>
                                         <button class="btn btn-default" disabled>White</button>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color bottom-right">
                                         <div class="oldSpan">Routing</div>
-                                        <button class="btn btn-default" onclick="print_routing('Routing1', 'Left')">
+                                        <button id="Left" class="btn btn-default" onclick="print_routing('Routing1', 'Left'); changeColor(this.id)"><!--Logic needed-->
                                             Left
                                         </button>
-                                        <button class="btn btn-default" onclick="print_routing('Routing1', 'Right')">
+                                        <button id="Right" class="btn btn-default" onclick="print_routing('Routing1', 'Right'); changeColor(this.id)">
                                             Right
                                         </button>
-                                        <button class="btn btn-default" onclick="print_routing('Routing1', 'Both')">
+                                        <button class="btn btn-default" onclick="print_routing('Routing1', 'Both')" disable>
                                             Both
                                         </button>
                                     </div>
@@ -296,7 +285,7 @@
                                         <button class="btn btn-default" onclick="print_routing('Routing2', 'Right')">
                                             Right
                                         </button>
-                                        <button class="btn btn-default" onclick="print_routing('Routing2', 'Both')">
+                                        <button class="btn btn-default" onclick="print_routing('Routing2', 'Both')" disabled>
                                             Both
                                         </button>
                                     </div>
@@ -307,9 +296,9 @@
                                         <button class="btn btn-default" disabled>White</button>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-right bottom-right divider-left">
-                                        <button class="btn btn-default">Interrupt</button>
+                                        <button id="Interrupt" class="btn btn-default" onclick="changeColor(this.id)">Interrupt</button>
                                         <input id="range2" type="range" step="5" min="0" max="130" value="0">
-                                        <button class="btn btn-default btn-long" onclick="sndplay()">Present</button>
+                                        <button id="Present" class="btn btn-default btn-long" onclick="sndplay(); changeColor(this.id)" >Present </button>
                                     </div>
                                 </div>
                             </div>

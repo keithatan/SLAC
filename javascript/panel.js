@@ -113,6 +113,17 @@ function print_step(id, step) {
     document.getElementById(id).innerHTML = step + " dB step";
 }
 
+
+function changeColor(clicked_id){
+    var tmp = document.getElementById(clicked_id);
+    console.log(tmp.style.backgroundColor);
+    if(tmp.style.backgroundColor == 'white'){
+        tmp.style.backgroundColor = 'red';
+    }else{
+        tmp.style.backgroundColor = 'white';
+    }+
+}
+
 function sleep(milliseconds) {
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
