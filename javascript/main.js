@@ -42,13 +42,13 @@ function Audiogram(id) {
         this.r = Raphael(this.id, this.width, this.height);
 
         this.r.path(Raphael.format("M{0} {1}L{0} {2}", gutter / 2, gutter, this.chartHeight + gutter))
-        .attr({
-            "stroke-width": 2 * strokeWidth
-        });
+            .attr({
+                "stroke-width": 2 * strokeWidth
+            });
         this.r.path(Raphael.format("M{0} {1}L{0} {2}", this.chartWidth + 2 * gutter - gutter / 2, gutter, this.chartHeight + gutter))
-        .attr({
-            "stroke-width": 2 * strokeWidth
-        });
+            .attr({
+                "stroke-width": 2 * strokeWidth
+            });
 
         this.r.text(this.width / 2, gutter / 4, "Frequency [Hz]");
         this.r.text(this.width - gutter / 4, this.height / 2, "Hearing Loss in DB HL").transform("r90");
@@ -163,7 +163,10 @@ function Audiogram(id) {
             plot.y = y;
         }
 
-        this.previewRect = this.r.rect(plot.x, plot.y, width, height).attr({"stroke": "#000000", "stroke-dasharray": "-"});
+        this.previewRect = this.r.rect(plot.x, plot.y, width, height).attr({
+            "stroke": "#000000",
+            "stroke-dasharray": "-"
+        });
     };
 
     /**
@@ -174,10 +177,12 @@ function Audiogram(id) {
 
     this.deleteSelection = function (x, y) {
 
-        if(!this.previewRect) { return; }
+        if (!this.previewRect) {
+            return;
+        }
         var BBox = this.previewRect.getBBox();
 
-        this.points.forEach(function(point) {
+        this.points.forEach(function (point) {
             Raphael.isPointInsideBBox(BBox, point.x, point.y) && point.remove();
         });
         this.previewRect && this.previewRect.remove();
@@ -266,4 +271,16 @@ var loadData = function (data) {
 
 window.addEventListener("load", initializeApp, false);
 
+/**
+ * Gives functionality to the pop-up buttons on start-up
+ */
+$(document).ready(function () {
+    $('.patientOptionPractice').click(function () {
+        $('#choosePatientType').modal('hide');
+    });
+
+    $('.patientOptionReal').click(function () {
+        $('#choosePatientType').modal('hide');
+    });
+});
 
