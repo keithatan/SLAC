@@ -663,7 +663,10 @@ function Audiogram(id) {
         y = Math.round(positionY * this.diffHeight + this.gutter + 1);
 
         this.removePoint(x); // remove any points currently at this frequency for the current plotType
-		
+
+		var selectedVal = $("input:radio[name=opt-select]:checked").val();
+		this.plotType = selectedVal;
+
 		// Selects which type of symbol to plot
 		if (this.plotType == "AC_L") {
 			this.plotAC_L(x, y, f, h);
