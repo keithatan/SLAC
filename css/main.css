@@ -284,6 +284,8 @@ input[type=range]:active::-moz-range-thumb {
 
 #choosePatientType #myModalLabel {
     text-align: center;
+    font-size: 32px;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 }
 
 #choosePatientType .modal-body {
