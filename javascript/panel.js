@@ -118,7 +118,7 @@ function changeColor(clicked_id){
     var tmp = document.getElementById(clicked_id);
     console.log(tmp.style.backgroundColor);
     if(tmp.style.backgroundColor == 'white'){
-        tmp.style.backgroundColor = 'red';
+        tmp.style.backgroundColor = 'yellow';
     }else{
         tmp.style.backgroundColor = 'white';
     }
