@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /**
  * Creates an Audiogram
  * @constructor
@@ -284,6 +285,7 @@ $(document).ready(function () {
     });
 });
 
+=======
 /**
  * Creates an Audiogram
  * @constructor
@@ -551,3 +553,6 @@ var loadData = function (data) {
  **************************************************************************/
 
 window.addEventListener("load", initializeApp, false);
+
+
+>>>>>>> Stashed changes
