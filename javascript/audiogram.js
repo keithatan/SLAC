@@ -1,5 +1,3 @@
-// This is a comment
-
 // Creates an Audiogram
 function Audiogram(id) {
     this.id; // id of the DOM Element container
