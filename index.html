@@ -163,7 +163,7 @@
             <div class="btn-type-select-audiogram">
                 <h1> Choose Type: </h1>
 
-                <input type="radio" name="opt-select" value="AC_L"> AC_L </input> <br>
+                <input type="button" name="opt-select" class="AC_L"> AC_L </input> <br>
                 <input type="radio" name="opt-select" value="AC_R"> AC_R </input> <br>
                 <input type="radio" name="opt-select" value="AC_NR_L"> AC_NR_L </input> <br>
                 <input type="radio" name="opt-select" value="AC_NR_R"> AC_NR_R </input> <br>
@@ -171,7 +171,6 @@
                 <input type="radio" name="opt-select" value="AC_M_R"> AC_M_R </input> <br>
                 <input type="radio" name="opt-select" value="AC_M_NR_L"> AC_M_NR_L </input> <br>
                 <input type="radio" name="opt-select" value="AC_M_NR_R"> AC_M_NR_R </input> <br>
-
                 <input type="radio" name="opt-select" value="BC_L"> BC_L </input> <br>
                 <input type="radio" name="opt-select" value="BC_R"> BC_R </input> <br>
                 <input type="radio" name="opt-select" value="BC_NR_L"> BC_NR_L </input> <br>
@@ -227,26 +226,39 @@
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 left">
                             <div class="row divider-bottom divider-right">
                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                    <button class="btn btn-default" disabled>FM</button>
-                                    <button id="pulse" class="btn btn-default" onclick="changeColor(this.id)">Pulse
+                                    <button class="btn btn-default" disabled>
+										FM
+									</button>
+                                    <button id="pulse" class="btn btn-default" onclick="changeColor(this.id)">
+										Pulse
                                     </button>
-                                    <button class="btn btn-default" disabled>ALT</button>
-                                    <button class="btn btn-default" disabled>SISI</button>
+                                    <button class="btn btn-default" disabled>
+										ALT
+									</button>
+                                    <button class="btn btn-default" disabled>
+										SISI
+									</button>
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 top-left color">
                                     <div class="oldSpan">Stimulus</div>
-                                    <button id="Tone" class="btn btn-default"
-                                            onclick="print_stimulus('Stimulus1', 'Tone');changeColor(this.id)">
+                                    <button id="Tone" class="btn btn-default" onclick="print_stimulus('Stimulus1', 'Tone');changeColor(this.id)">
                                         Tone
                                     </button>
-                                    <button class="btn btn-default" disabled>MIC</button>
-                                    <button class="btn btn-default" disabled>EXT A</button>
-                                    <button class="btn btn-default" disabled>EXT B</button>
+                                    <button class="btn btn-default" disabled>
+										MIC
+									</button>
+                                    <button class="btn btn-default" disabled>
+										EXT A
+									</button>
+                                    <button class="btn btn-default" disabled>
+										EXT B
+									</button>
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 top-right color">
-                                    <div class="oldSpan">Transducer</div>
-                                    <button id="Phone" class="btn btn-default"
-                                            onclick="print_transducer('Transducer1', 'Phone'); changeColor(this.id)">
+                                    <div class="oldSpan">
+										Transducer
+									</div>
+                                    <button id="Phone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Phone'); changeColor(this.id)">
                                         Phone
                                     </button>
                                     <button id="bone" class="btn btn-default"
