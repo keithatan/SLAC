@@ -1,4 +1,4 @@
-    body {
+body {
     color: white;
     margin: 10px 0;
     font-size: 2em;
@@ -69,7 +69,16 @@ span {
     -webkit-appearance: none;
 }
 
+.btn-default:active {
+    color: blue;
+}
+
+.btn-default:focus {
+    background: cornflowerblue;
+}
+
 button:focus {
+    background: cornflowerblue;
     outline: 0;
     -webkit-appearance: none;
 }
@@ -77,6 +86,7 @@ button:focus {
 button:hover, button:active {
     outline: 0;
     -webkit-appearance: none;
+    background: cornflowerblue;
 }
 
 .btn-long {

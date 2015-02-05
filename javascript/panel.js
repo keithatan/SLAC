@@ -114,23 +114,13 @@ function print_step(id, step) {
 }
 
 
-function changeColor(clicked_id){                       //CHANGES THE COLOR TO -RED- AND BACK
+function changeColor(clicked_id){
     var tmp = document.getElementById(clicked_id);
-    console.log("Button color changed from: " + tmp.style.backgroundColor);
-    if(tmp.style.backgroundColor == 'red'){
-        tmp.style.backgroundColor = 'white';
-    }else{
+    console.log(tmp.style.backgroundColor);
+    if(tmp.style.backgroundColor == 'white'){
         tmp.style.backgroundColor = 'red';
-    }
-}
-
-function changeColorBlue(clicked_id){                   //CHANGES THE COLOR TO -BLUE- AND BACK
-    var tmp = document.getElementById(clicked_id);
-    console.log("Button color changed from: " + tmp.style.backgroundColor);
-    if(tmp.style.backgroundColor == 'CornflowerBlue'){
-        tmp.style.backgroundColor = 'white';
     }else{
-        tmp.style.backgroundColor = 'CornflowerBlue';
+        tmp.style.backgroundColor = 'white';
     }
 }
 
