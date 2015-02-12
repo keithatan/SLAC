@@ -127,6 +127,7 @@ function Audiogram(id) {
 			'stroke': "#0000ff"
 		});
 		
+		point.plotType = "AC_L";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -144,6 +145,7 @@ function Audiogram(id) {
             'stroke': "#ff0000"
         });
 
+		point.plotType = "AC_R";
         point.frequency = f;
         point.HL = h;
 
@@ -162,6 +164,7 @@ function Audiogram(id) {
 			'stroke': "#0000ff"
 		});
 		
+		point.plotType = "AC_NR_L";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -179,6 +182,7 @@ function Audiogram(id) {
 			'stroke': "#ff0000"
 		});
 		
+		point.plotType = "AC_NR_R";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -199,6 +203,7 @@ function Audiogram(id) {
 			'stroke': "#ff0000"
 		});
 		
+		point.plotType = "AC_NR_R";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -219,6 +224,7 @@ function Audiogram(id) {
 			'stroke': "#0000ff"
 		});
 		
+		point.plotType = "AC_M_L";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -239,6 +245,7 @@ function Audiogram(id) {
 			'stroke': "#ff0000"
 		});
 		
+		point.plotType = "AC_M_R";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -259,6 +266,7 @@ function Audiogram(id) {
 			'stroke': "#ff0000"
 		});
 		
+		point.plotType = "AC_M_NR_L";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -279,6 +287,7 @@ function Audiogram(id) {
 			'stroke': "#0000ff"
 		});
 		
+		point.plotType = "AC_M_NR_R";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -299,6 +308,7 @@ function Audiogram(id) {
 			'stroke': "#0000ff"
 		});
 		
+		point.plotType = "BC_L";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -319,6 +329,7 @@ function Audiogram(id) {
 			'stroke': "#ff0000"
 		});
 		
+		point.plotType = "BC_R";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -339,6 +350,7 @@ function Audiogram(id) {
 			'stroke': "#0000ff"
 		});
 		
+		point.plotType = "BC_NR_L";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -359,6 +371,7 @@ function Audiogram(id) {
 			'stroke': "#ff0000"
 		});
 		
+		point.plotType = "BC_NR_R";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -379,6 +392,7 @@ function Audiogram(id) {
 			'stroke': "#0000ff"
 		});
 		
+		point.plotType = "BC_M_L";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -399,6 +413,7 @@ function Audiogram(id) {
 			'stroke': "#ff0000"
 		});
 		
+		point.plotType = "BC_M_R";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -419,6 +434,7 @@ function Audiogram(id) {
 			'stroke': "#0000ff"
 		});
 		
+		point.plotType = "BC_M_NR_L";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -439,6 +455,7 @@ function Audiogram(id) {
 			'stroke': "#ff0000"
 		});
 		
+		point.plotType = "BC_M_NR_R";
 		point.frequency = f;
 		point.HL = h;
 		point.attrs.cx = x;
@@ -446,46 +463,6 @@ function Audiogram(id) {
 		
 		this.BC_M_NR_R.push(point);
 	};
-	
-	// ******************** Plots UL_R - "UR" ********************
-	this.plotUL_R = function (x, y, f, h) {
-		var r = 5 + Math.round(this.height/200); // "radius" of X
-		
-		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}M{8} {9}L{10} {11}L{12} {13}L{14} {15}L{16} {17}M{18} {19}L{20} {21}", x - r, y - r, x - r, y + r, x - 2, y + r, x - 2, y - r, x + 2, y, x + r, y, x + r, y - r, x + 2, y - r, x + 2, y + r, x + 2, y, x + r, y + r);
-		var point = this.r.path(path).attr({
-			"stroke-width": 2,
-			"stroke-linecap": "round",
-			"stroke-linejoin": "miter",
-			'stroke': "#ff0000"
-		});
-		
-		point.frequency = f;
-		point.HL = h;
-		point.attrs.cx = x;
-		point.attrs.cy = y;
-		
-		//this.UL_R.push(point);
-	}
-	
-	// ******************** Plots UL_L - "UL" ********************
-	this.plotUL_L = function (x, y, f, h) {
-		var r = 5 + Math.round(this.height/200); // "radius" of X
-		
-		var path = Raphael.format("M{0} {1}L{2} {3}L{4} {5}L{6} {7}M{8} {9}L{10} {11}L{12} {13}", x - r, y - r, x - r, y + r, x - 2, y + r, x - 2, y - r, x + 2, y - r, x + 2, y + r, x + r, y + r);
-		var point = this.r.path(path).attr({
-			"stroke-width": 2,
-			"stroke-linecap": "round",
-			"stroke-linejoin": "miter",
-			'stroke': "#0000ff"
-		});
-		
-		point.frequency = f;
-		point.HL = h;
-		point.attrs.cx = x;
-		point.attrs.cy = y;
-		
-		//this.UL_L.push(point);
-	}
 	
 	// Clears points plotted on the audiogram
     this.clearPoints = function () {
@@ -514,61 +491,6 @@ function Audiogram(id) {
         var yGood = y >= this.gutter && y <= (this.height - this.gutter);   // is the y-coordinate within the plottable area?
         return xGood && yGood;
     };
-
-	// Removes any present points at the same x-value (frequency) in the current plotType
-    this.removePoint = function (x) {
-
-        var remove = function(point) {
-            if (point !== undefined && point.attrs.cx == x) 
-            {
-                this.exclude(point);
-                point.remove();
-            }
-        };
-		
-		if (this.plotType == "AC_L") {
-			this.AC_L.forEach(remove, this.AC_L)
-		} else if (this.plotType == "AC_R") {
-			this.AC_R.forEach(remove, this.AC_R)
-		} else if (this.plotType == "AC_NR_L") {
-			this.AC_NR_L.forEach(remove, this.AC_NR_L)
-		} else if (this.plotType == "AC_NR_R") {
-			this.AC_NR_R1.forEach(remove, this.AC_NR_R1)
-			this.AC_NR_R2.forEach(remove, this.AC_NR_R2)
-		} else if (this.plotType == "AC_M_L") {
-			this.AC_M_L.forEach(remove, this.AC_M_L)
-		} else if (this.plotType == "AC_M_R") {
-			this.AC_M_R.forEach(remove, this.AC_M_R)
-		} else if (this.plotType == "AC_M_NR_L") {
-			this.AC_M_NR_L.forEach(remove, this.AC_M_NR_L)
-		} else if (this.plotType == "AC_M_NR_R") {
-			this.AC_M_NR_R.forEach(remove, this.AC_M_NR_R)
-		} else if (this.plotType == "BC_L") {
-			this.BC_L.forEach(remove, this.BC_L)
-		} else if (this.plotType == "BC_R") {
-			this.BC_R.forEach(remove, this.BC_R)
-		} else if (this.plotType == "BC_NR_L") {
-			this.BC_NR_L.forEach(remove, this.BC_NR_L)
-		} else if (this.plotType == "BC_NR_R") {
-			this.BC_NR_R.forEach(remove, this.BC_NR_R)
-		} else if (this.plotType == "BC_M_L") {
-			this.BC_M_L.forEach(remove, this.BC_M_L)
-		} else if (this.plotType == "BC_M_R") {
-			this.BC_M_R.forEach(remove, this.BC_M_R)
-		} else if (this.plotType == "BC_M_NR_L") {
-			this.BC_M_NR_L.forEach(remove, this.BC_M_NR_L)
-		} else if (this.plotType == "BC_M_NR_R") {
-			this.BC_M_NR_R.forEach(remove, this.BC_M_NR_R)
-		}
-    };
-
-	// Switches plot type between AC and BC
-	// Will need to be replaced once the user can select plot type
-    this.switchPlotType = function() {
-        console.log("current plotType ", this.plotType);
-        this.plotType = (this.plotType == "AC") ? "BC": "AC";
-        return this; // chain calls
-    }.bind(this);
 
 	// Exports all (x, y) plotted points into (Frequency, dB HL) points
     this.exportPoints = function() {
@@ -703,6 +625,53 @@ function Audiogram(id) {
 			this.plotBC_M_NR_R(x, y, f, h);
 		} else {
 			console.log("Error: Invalid plotType: " + this.plotType);
+		}
+    };
+	
+	// Removes any present points at the same x-value (frequency) in the current plotType
+    this.removePoint = function (x) {
+		var remove = function (point) {
+			this.plotType = $("input:radio[name=opt-select]:checked").val();
+            if (point != undefined && point.attrs.cx == x && point.plotType == this.plotType) 
+            {
+                this.exclude(point);
+                point.remove();
+            }
+        };
+		
+		if (this.plotType == "AC_L") {
+			this.AC_L.forEach(remove, this.AC_L)
+		} else if (this.plotType == "AC_R") {
+			this.AC_R.forEach(remove, this.AC_R)
+		} else if (this.plotType == "AC_NR_L") {
+			this.AC_NR_L.forEach(remove, this.AC_NR_L)
+		} else if (this.plotType == "AC_NR_R") {
+			this.AC_NR_R1.forEach(remove, this.AC_NR_R1)
+			this.AC_NR_R2.forEach(remove, this.AC_NR_R2)
+		} else if (this.plotType == "AC_M_L") {
+			this.AC_M_L.forEach(remove, this.AC_M_L)
+		} else if (this.plotType == "AC_M_R") {
+			this.AC_M_R.forEach(remove, this.AC_M_R)
+		} else if (this.plotType == "AC_M_NR_L") {
+			this.AC_M_NR_L.forEach(remove, this.AC_M_NR_L)
+		} else if (this.plotType == "AC_M_NR_R") {
+			this.AC_M_NR_R.forEach(remove, this.AC_M_NR_R)
+		} else if (this.plotType == "BC_L") {
+			this.BC_L.forEach(remove, this.BC_L)
+		} else if (this.plotType == "BC_R") {
+			this.BC_R.forEach(remove, this.BC_R)
+		} else if (this.plotType == "BC_NR_L") {
+			this.BC_NR_L.forEach(remove, this.BC_NR_L)
+		} else if (this.plotType == "BC_NR_R") {
+			this.BC_NR_R.forEach(remove, this.BC_NR_R)
+		} else if (this.plotType == "BC_M_L") {
+			this.BC_M_L.forEach(remove, this.BC_M_L)
+		} else if (this.plotType == "BC_M_R") {
+			this.BC_M_R.forEach(remove, this.BC_M_R)
+		} else if (this.plotType == "BC_M_NR_L") {
+			this.BC_M_NR_L.forEach(remove, this.BC_M_NR_L)
+		} else if (this.plotType == "BC_M_NR_R") {
+			this.BC_M_NR_R.forEach(remove, this.BC_M_NR_R)
 		}
     };
 

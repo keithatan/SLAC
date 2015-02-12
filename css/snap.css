@@ -1,3 +1,4 @@
+/*  */
 html, body {
     font-family: sans-serif;
     margin: 0;
@@ -7,6 +8,7 @@ html, body {
     overflow: hidden;
 }
 
+/*  */
 .snap-content {
     position: absolute;
     top: 0;
@@ -25,6 +27,7 @@ html, body {
     transform: translate3d(0, 0, 0);
 }
 
+/*  */
 .snap-drawers {
     position: absolute;
     top: 0;
@@ -35,6 +38,7 @@ html, body {
     height: auto;
 }
 
+/*  */
 .snap-drawer {
     position: absolute;
     top: 0;
@@ -53,23 +57,27 @@ html, body {
     transition: width 0.3s ease;
 }
 
+/*  */
 .snap-drawer-left {
     left: 0;
     z-index: 1;
     width: 300px;
 }
 
+/*  */
 .snap-drawer-right {
     right: 0;
     z-index: 1;
     width: 765px;
 }
 
+/*  */
 .snapjs-left .snap-drawer-right,
 .snapjs-right .snap-drawer-left {
     display: none;
 }
 
+/*  */
 .snapjs-expand-left .snap-drawer-left,
 .snapjs-expand-right .snap-drawer-right {
     width: 100%;
