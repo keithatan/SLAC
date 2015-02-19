@@ -1,3 +1,16 @@
-.AC_L {
-background-image:url(file://images/AC_L.jpg);
+label > input{ /* HIDE RADIO */
+  display:none;
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+  border:2px solid transparent;
+}
+label > input:checked + img{ /* (CHECKED) IMAGE STYLES */
+  border:2px solid #f00;
+}
+
+.audiogram-text {
+	font-size: 24;
+    color: black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
 }

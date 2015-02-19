@@ -699,7 +699,6 @@ function Audiogram(id) {
     this.initialize = function (id, size) {
         this.id = id;
         this.el = document.getElementById(id);
-        this.plotType = "BC_M_NR_R";
         
         this.draw(size);
         
