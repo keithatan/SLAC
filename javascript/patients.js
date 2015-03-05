@@ -1,3 +1,5 @@
+// This is all probably useless, as Roberta will supply patient data, but there's no real reason we can't just keep this around for now
+
 loadData({
     "patients": [{
             "Pathology": "AcousticTumor",

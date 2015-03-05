@@ -5,78 +5,66 @@ var app = {
     ch2: {}
 };
 
-/*****************************
- * Change frequency
- ******************************/
 
+// Changing frequency
 var Freq = 125;
 
+// Increasing frequency
 function FreqPlus() {
     if (Freq >= 8000) return Freq;
 
     else if (Freq >= 500 && Freq < 1000) {
         Freq = Freq + 250;
-        console.log(String(Freq));
-        return Freq;
     } else if (Freq >= 1000 && Freq < 2000) {
         Freq = Freq + 500;
-        console.log(String(Freq));
-        return Freq;
     } else if (Freq >= 2000 && Freq < 4000) {
         Freq = Freq + 1000;
-        console.log(String(Freq));
-        return Freq;
     } else if (Freq >= 4000 && Freq < 8000) {
         Freq = Freq + 2000;
-        console.log(String(Freq));
-        return Freq;
     } else {
         Freq = Freq * 2;
-        console.log(String(Freq));
-        return Freq;
     }
+    console.log(String(Freq));
+    return Freq;
 }
 
+// Decreasing frequency
 function FreqMinus() {
     if (Freq <= 125) return Freq;
 
     else if (Freq > 4000 && Freq <= 8000) {
         Freq = Freq - 2000;
-        console.log(String(Freq));
-        return Freq;
     } else if (Freq > 2000 && Freq <= 4000) {
         Freq = Freq - 1000;
-        console.log(String(Freq));
-        return Freq;
     } else if (Freq > 1000 && Freq <= 2000) {
         Freq = Freq - 500;
-        console.log(String(Freq));
-        return Freq;
     } else if (Freq > 500 && Freq <= 1000) {
         Freq = Freq - 250;
-        console.log(String(Freq));
-        return Freq;
     } else {
         Freq = Freq / 2;
-        console.log(String(Freq));
-        return Freq;
     }
+    console.log(String(Freq));
+    return Freq;
 }
 
+// Updates frequency on page
 function printHz(id, msg) {
     document.getElementById(id).innerHTML = msg + " Hz";
 }
 
+// Updates channel 1 dB level
 function update_ch1_dB() {
     app.ch1.dB = this.value;
     document.getElementById('dB1').innerHTML = app.ch1.dB + " dB HL";
 }
 
+// Updates channel 2 dB level
 function update_ch2_dB() {
     app.ch2.dB = this.value;
     document.getElementById('dB2').innerHTML = app.ch2.dB + " dB HL";
 }
 
+// Page timer
 var seconds = 0;
 
 function secondPassed() {
@@ -90,11 +78,13 @@ function secondPassed() {
     seconds++;
 }
 
+// Updates routing on page
 function print_routing(id, routing) {
     app.routing = routing;
     document.getElementById(id).innerHTML = "Routing: " + routing;
 }
 
+// Updates transducer on page
 function print_transducer(id, transducer) {
     app.transducer = transducer;
     
@@ -103,18 +93,20 @@ function print_transducer(id, transducer) {
     document.getElementById(id).innerHTML = "Transducer: " + transducer;
 }
 
+// Updates stimulus on page
 function print_stimulus(id, stimulus) {
     app.stimulus = stimulus;
     document.getElementById(id).innerHTML = "Stimulus: " + stimulus;
 }
 
+// Updates dB step on page [DEPRECATED]
 function print_step(id, step) {
     app.dB_step = step;
     document.getElementById(id).innerHTML = step + " dB step";
 }
 
-
-function changeColor(clicked_id){                       //CHANGES THE COLOR TO -RED- AND BACK
+// Changes color to red and back
+function changeColor(clicked_id){
     var tmp = document.getElementById(clicked_id);
     console.log("Button color changed from: " + tmp.style.backgroundColor);
     if(tmp.style.backgroundColor == 'red'){
@@ -124,7 +116,8 @@ function changeColor(clicked_id){                       //CHANGES THE COLOR TO -
     }
 }
 
-function changeColorBlue(clicked_id){                   //CHANGES THE COLOR TO -BLUE- AND BACK
+// Changes color to blue and back
+function changeColorBlue(clicked_id){
     var tmp = document.getElementById(clicked_id);
     console.log("Button color changed from: " + tmp.style.backgroundColor);
     if(tmp.style.backgroundColor == 'CornflowerBlue'){
@@ -134,6 +127,7 @@ function changeColorBlue(clicked_id){                   //CHANGES THE COLOR TO -
     }
 }
 
+// Sleeps for a given time
 function sleep(milliseconds) {
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
@@ -143,24 +137,22 @@ function sleep(milliseconds) {
     }
 }
 
-/*****************************
- * Audio play
- ******************************/
-
+// Play audio
+// Define audio variables
 var snd200 = new Audio("sound/200hz.wav");
-var snd500 = new Audio("sound/500hz.wav");
-var snd1000 = new Audio("sound/1000hz.wav");
-var snd2000 = new Audio("sound/2000hz.wav");
-//var snd5000 = new Audio("sound/5000hz.wav"); 
-var snd8000 = new Audio("sound/8000hz.wav");
-
 var snd250 = new Audio("sound/250hz.mp3");
+var snd500 = new Audio("sound/500hz.wav");
 var snd750 = new Audio("sound/750hz.mp3");
+var snd1000 = new Audio("sound/1000hz.wav");
 var snd1500 = new Audio("sound/1500hz.mp3");
+var snd2000 = new Audio("sound/2000hz.wav");
 var snd3000 = new Audio("sound/3000hz.mp3");
 var snd4000 = new Audio("sound/4000hz.mp3");
+//var snd5000 = new Audio("sound/5000hz.wav"); 
 var snd6000 = new Audio("sound/6000hz.mp3");
+var snd8000 = new Audio("sound/8000hz.wav");
 
+// Play sound based on what frequency is
 function sndplay() {
     if (Freq == 200) snd200.play();
     else if (Freq == 250) snd250.play();
@@ -225,11 +217,7 @@ function setblinkColor() {
 ////    draw AC, BC accordingly;
 //}
 
-
-/*****************************
- * Begins execution of the app
- ******************************/
-
+// Initialize environment
 function windowLoad() {
     
     app.audiogram = new Audiogram().initialize("audiogram", 600);  //pass the id of the HTML DOM Element
@@ -275,8 +263,5 @@ function windowLoad() {
     }, false);
 }
 
-/*****************************
- * Begins execution of the app
- ******************************/
-
+// Begins execution of the app
 window.addEventListener("load", windowLoad, false);

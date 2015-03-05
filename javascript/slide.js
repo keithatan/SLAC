@@ -1,3 +1,5 @@
+// Runs the cool little 'snap' motion the two side panels have
+
 var addEvent = function addEvent(element, eventName, func) {
 	if (element.addEventListener) {
     	return element.addEventListener(eventName, func, false);
@@ -9,8 +11,7 @@ var addEvent = function addEvent(element, eventName, func) {
 addEvent(document.getElementById('open-left'), 'click', function(){
 	snapper.open('left');
 });
-
-/* Prevent Safari opening links when viewing as a Mobile App */
+// Prevent Safari opening links when viewing as a Mobile App
 (function (a, b, c) {
     if(c in b && b[c]) {
         var d, e = a.location,
