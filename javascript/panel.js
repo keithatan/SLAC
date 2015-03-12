@@ -86,10 +86,7 @@ function print_routing(id, routing) {
 
 // Updates transducer on page
 function print_transducer(id, transducer) {
-    app.transducer = transducer;
-    
-    app.audiogram.switchPlotType();
-    
+    app.transducer = transducer;    
     document.getElementById(id).innerHTML = "Transducer: " + transducer;
 }
 
@@ -109,10 +106,10 @@ function print_step(id, step) {
 function changeColor(clicked_id){
     var tmp = document.getElementById(clicked_id);
     console.log("Button color changed from: " + tmp.style.backgroundColor);
-    if(tmp.style.backgroundColor == 'red'){
+    if(tmp.style.backgroundColor == 'rgb(255, 0, 0)'){
         tmp.style.backgroundColor = 'white';
     }else{
-        tmp.style.backgroundColor = 'red';
+        tmp.style.backgroundColor = 'rgb(255, 0, 0)';
     }
 }
 
@@ -120,10 +117,10 @@ function changeColor(clicked_id){
 function changeColorBlue(clicked_id){
     var tmp = document.getElementById(clicked_id);
     console.log("Button color changed from: " + tmp.style.backgroundColor);
-    if(tmp.style.backgroundColor == 'CornflowerBlue'){
+    if(tmp.style.backgroundColor == 'rgb(100, 149, 237)'){
         tmp.style.backgroundColor = 'white';
     }else{
-        tmp.style.backgroundColor = 'CornflowerBlue';
+        tmp.style.backgroundColor = 'rgb(100, 149, 237)';
     }
 }
 
