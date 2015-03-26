@@ -19,14 +19,9 @@
     <link rel="shortcut icon" href="images/favicon.png">
     
     <!-- Style Sheets -->
-    <link href="css/snap.css" rel="stylesheet">
-    <link href="css/slide.css" rel="stylesheet">
     <link href="bower_components/bootstrap-switch/dist/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <link href="css/table.css" rel="stylesheet">
-    <link href="css/dropdown.css" rel="stylesheet">
-    <link href="css/audiogram.css" rel="stylesheet">
     
     <!-- JavaScript Assets -->
     <!--    <script src="bower_components/jquery/dist/jquery.min.js"></script> -->
