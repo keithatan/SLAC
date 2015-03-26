@@ -1,39 +1,290 @@
-    body {
-    color: white;
-    margin: 10px 0;
-    font-size: 2em;
-    background: #333;
+/* NOTE: This file was created before my time. Essentially all these rules stack on each other and make this crazy complex web of conflicting and overwriting rules. I won't pretend to have the faintest understanding of how all these rules work together - I've just done my best to infer what each rule (generally) applies to, in order to assist people who don't understand HTML or CSS code. If you want to go through and consolidate stuff, change up the HTML file to something sensible, and make a legitimate structure to how the CSS is formatted, more power to you. And good luck. -HH */
+
+/*******************/
+/* CONSTRUCT RULES */
+/*******************/
+
+/* Sets general rules for the file */
+html {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
+/* Sets general rules for the body of the page */
+body {
+  color: white;
+  margin: 10px 0;
+  font-size: 2em;
+  background: #333;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Prevents the user from highlighting the svg canvas */
 svg {
-    /* Prevent user from highlighting SVG canvas */
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
 }
 
+/* For some unknown godforsaken reason previous teams had 'span' configured to be exactly like a 'div'. Which completely defeats the point. The default setting is inline anyways, but there's no real reason we can't explicitly state it and have this little paragraph here to explain why. */
 span {
     display: inline;
 }
 
-#countdown {
-    color: white;
+/* Hides the windows-style radio button circle thing so we can use our own method of displaying selection */
+label > input{
+  display:none;
 }
 
+/* Tells the mouse to be the sideways gun hand thing (called "pointer" by Windows) and gives each image a transparent 2 pixel border (which we'll later turn red in order to display to the user what they've selected) */
+label > input + img{
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+/* Displays the red border around the images when they're checked */
+label > input:checked + img{
+  border:2px solid #ff0000;
+}
+
+/* Defines how a button looks when it has focus (if you don't know what focus is, google it. It's too complex to explain in a dumb CSS comment nobody will ever read) */
+button:focus {
+    outline: 0;
+    -webkit-appearance: none;
+}
+
+/* Defines how a button looks when it is hovered over by the mouse, and when it's active (I think a button is "active" when it has been clicked) */
+button:hover, button:active {
+    outline: 0;
+    -webkit-appearance: none;
+}
+
+/* General rules for the slider things to change dB HL */
+input[type=range] {
+    margin: 10px auto;
+    padding: 0;
+    width: 85px;
+    border: none;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    vertical-align: top;
+    outline: 0;
+    border-radius: 6px;
+    border: 1px solid #a5a8a8;
+    background: #d3d7d7;
+    height: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* General rules for when the dB HL slider has focus (again, look that up if you want to know what "focus" is) */
+input[type=range]:focus {
+    outline: 0;
+}
+
+/* Rules specific to webkit (Chrome, Chromium, Opera, etc) browsers to change how the dB HL slider looks */
+input[type=range]::-webkit-slider-thumb {
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.36);
+    border-radius: 20px;
+    background: #e5e9e8;
+    background-size: 7px 18px;
+    box-shadow: inset 0 1px white;
+}
+
+/* Rules specific to webkit (Chrome, Chromium, Opera, etc) browsers to change how the dB HL slider looks when you hover the mouse over it */
+input[type=range]::-webkit-slider-thumb:hover {
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+/* Rules specific to webkit (Chrome, Chromium, Opera, etc) browsers to change how the dB HL slider looks as you're holding down the mouse button and clicking on it */
+input[type=range]:active::-webkit-slider-thumb,
+.topcoat-range-input--vertical:active::-webkit-slider-thumb {
+    border: 1px solid #0940fd;
+    box-shadow: 0 0 0 2px #6fb5f1;
+}
+
+/* Apparently the CSS rule identifier is duplicated because it doesn't work otherwise. If it ain't broke, don't fix it. Anyways, this defines how the cursor looks when it's sliding the dB HL thing back and forth on mozilla- (firefox) based browsers */
+input[type=range]::-moz-range-thumb,
+input[type=range]::-moz-range-thumb {
+    cursor: pointer;
+}
+
+/* Rules specific to mozilla (Firefox and Firefox-based) browsers to change how the dB HL slider looks as you're holding down the mouse button and clicking on it */
+input[type=range]:active::-moz-range-thumb {
+    border: 1px solid #0940fd;
+    box-shadow: 0 0 0 2px #6fb5f1;
+}
+
+/* Rules specific to mozilla (Firefox and Firefox-based) browsers about how the dB HL slider looks when it has focus (again, look that up champ) */
+input[type=range]::-moz-focus-inner {
+    outline: 0;
+}
+
+/* Honestly don't know what this one does. No harm in leaving it here, though */
+input[type=range]::-moz-range-track {
+    border-radius: 6px;
+    border: 1px solid #a5a8a8;
+    background: #d3d7d7;
+    height: 1rem;
+    border-radius: 30px;
+}
+
+/***************/
+/* CLASS RULES */
+/***************/
+
+/* Determines how the "Choose Symbol:" text looks */
+/* At least it's supposed to. God knows why it doesn't work at the moment */
+.audiogram-text {
+	font-size: 24;
+  color: black;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+/* Defines rules for snap drawers */
+.snap-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    z-index: 2;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/* Defines rules for snap drawers */
+.snap-drawers {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    background: #333333;
+}
+
+/* Defines rules for snap drawers */
+.snap-drawer {
+    position: absolute;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: auto;
+    background: #333333;
+    color: #eeeeee;
+
+    height: auto;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: width 0.3s ease;
+    -moz-transition: width 0.3s ease;
+    -ms-transition: width 0.3s ease;
+    -o-transition: width 0.3s ease;
+    transition: width 0.3s ease;
+}
+
+/* Probably does someting inside the drawers (see how you can use the names to infer what they do?) and with the opacity of said area. Beyond that, I'm lost. This rule probably came as default from whatever library we got the nifty sliding drawers from (bootstrap maybe?) and whatever team implemented it didn't feel the need to cull the herd and delete unused CSS rules. Thanks, old team. */
+.drawer-inner {
+	-webkit-transition: opacity 0.3s ease; 
+	   -moz-transition: opacity 0.3s ease; 
+	    -ms-transition: opacity 0.3s ease; 
+	     -o-transition: opacity 0.3s ease; 
+	        transition: opacity 0.3s ease; 
+}
+
+/* Set the Header 3 (it's an HTML thing, don't worry about it) text format inside drawers */
+.snap-drawer h3 {
+  font-size: 36px;
+  font-weight: normal;
+  margin: 15px;
+}
+
+/* Set the Header 4 (it's an HTML thing, don't worry about it) text format inside drawers */
+.snap-drawer h4 {
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0;
+}
+
+/* Set the Header 5 (it's an HTML thing, don't worry about it) text format inside drawers */
+.snap-drawer h5 {
+	font-size: 42;
+  color: black;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+/* Set the default way regular old text displays inside drawers. Can be (and probably is) overwritten by other rules */
+.snap-drawer p {
+  opacity: 0.5;
+  padding: 15px;
+  font-size: 12px;
+}
+
+/* Define position and size of left snap drawer */
+.snap-drawer-left {
+    left: 0;
+    z-index: 1;
+    width: 300px;
+}
+
+/* Define position and size of right snap drawer */
+.snap-drawer-right {
+    right: 0;
+    z-index: 1;
+    width: 765px;
+}
+
+/* Tells the snap drawers to not display on page load */
+.snapjs-left .snap-drawer-right,
+.snapjs-right .snap-drawer-left {
+    display: none;
+}
+
+/* Tells the drawer to be at 100% of its width when it's extended */
+.snapjs-expand-left .snap-drawer-left,
+.snapjs-expand-right .snap-drawer-right {
+    width: 100%;
+}
+
+/* Defines how hidden patient info looks. Literally about to be deprecated */
 .hiddenPatInfo {
     padding-left: 6px;
 }
 
+/* This is what I used to replace 'span' tags everywhere. This is what some old team had inhabiting the 'span' tag near the top of this file, but they also made it display: block which makes it exactly like a 'div'. God only knows why they did that. Instead of going for a cool, neat, clean fix I just did this. Deal w/it */
 .oldSpan {
     font-size: 10px;
     color: rgba(0, 0, 0, .7);
     padding: 3px;
 }
 
+/* Helps format the frequency buttons at the bottom of the control panel */
 .frequency {
     margin-top: 20px;
 }
 
+/* Helps format the main Audiometer area (or control panel or whatever you want to call it) */
 .controls {
     margin: 10px 0;
     padding: 40px 0;
@@ -43,6 +294,7 @@ span {
     background: whiteSmoke;
 }
 
+/* Helps format the header display (the place where all the information is, it's above the main Audiometer/control panel thing) */
 .display {
     padding: 10px 0;
     margin-bottom: 20px;
@@ -50,15 +302,18 @@ span {
     text-shadow: #000 1px 1px 2px;
 }
 
+/* Rules specific to the dB HL display in the header */
 .display .decibel {
     font-size: 40px;
     padding: 10px 0;
 }
 
+/* This rule applies to everything besides the header */
 .container-fluid .row {
     text-align: center;
 }
 
+/* Helps format all the buttons we see littered across our program */
 .btn-default {
     margin: 5px;
     width: 72px;
@@ -69,38 +324,29 @@ span {
     -webkit-appearance: none;
 }
 
-button:focus {
-    outline: 0;
-    -webkit-appearance: none;
-}
-
-button:hover, button:active {
-    outline: 0;
-    -webkit-appearance: none;
-}
-
-.btn-long {
-    height: 36px;
-}
-
+/* Formats the cute little arrows that allow you to slide out the left and right drawers */
 .toggler {
     margin-top: 70px;
 }
 
+/* Formats how the cute little arrows that allow you to slide out the left and right drawer react to the mouse hovering over them */
 .toggler:hover {
     cursor: pointer;
 }
 
+/* General formatting rules for drawers */
 .audiogram-drawer {
     width: 700px;
     padding: 10px;
     background: whiteSmoke;
 }
 
+/* Formatting rules for the left-side drawer */
 .patient-drawer {
     width: 300px;
 }
 
+/* More formatting inside the left-side drawer */
 .slider-left {
     text-align: center;
     margin: 0px 0;
@@ -109,172 +355,86 @@ button:hover, button:active {
     margin-right: auto;
 }
 
+/* Hides patient info so it can ~magically~ appear with the power of JavaScript. Super deprecated, nobody will ever see this comment because I'll delete the rule once we get the PHP thing working */
 .patInfoHider {
     opacity: 0;
 }
 
-/***********************************
-* Rounded Corner Styles for Panel
-************************************/
-
+/* The color of the background to all the buttons. It's currently green. It would be super helpful if you edited this comment to reflect changes in color, because otherwise nobody will know what the heck this rule is for */
 .color {
     background: rgb(157, 177, 81);
-    /*background: #70b970;*/
     padding: 10px 0;
 }
 
+/* Helps format the left-side TONE/MIX/EXT A/EXT B buttons */
 .top-left {
     border-top-left-radius: 20px;
 }
 
+/* Helps format the right-side TONE/MIX/EXT A/EXT B buttons */
 .top-right {
     border-top-right-radius: 20px;
 }
 
+/* Helps format the left-side INTERRUPT/PRESENT buttons */
 .bottom-left {
     border-bottom-left-radius: 20px;
 }
 
+/* Helps format the right-side INTERRUPT/PRESENT buttons */
 .bottom-right {
     border-bottom-right-radius: 20px;
 }
 
+/* Helps format the top half of the Audiometer/control panel (I haven't the slightest clue why it's named the way it is) */
 .divider-bottom {
     border-bottom: 1px solid whiteSmoke;
 }
 
+/* Helps format the left half of the Audiometer/control panel (why do they name things opposite of what they do) */
 .divider-right {
     border-right: 1px solid whiteSmoke;
 }
 
+/* Helps format the right half of the Audiometer/control panel (ohgodwhy) */
 .divider-left {
     border-left: 1px solid whiteSmoke;
 }
 
-/***********************************
-* Range Input Styles
-************************************/
+/************/
+/* ID RULES */
+/************/
 
-input[type=range] {
-    margin: 10px auto;
+/* Sets the background for the page (what is seen above and below the strip containing all the controls) */
+#content {
+    background: #333333;
 }
 
-input[type=range]::-webkit-slider-thumb:hover {
-    cursor: pointer;
+/* Sets the color of the countdown text */
+#countdown {
+    color: white;
 }
 
-input[type=range]::-moz-focus-inner {
-    outline: 0;
-}
-
-input[type=range]:focus {
-    outline: 0;
-}
-
-input[type=range] {
-    padding: 0;
-    width: 85px;
-    background: transparent;
-    border: none;
-    box-sizing: border-box;
-    background-clip: padding-box;
-    vertical-align: top;
-    outline: none;
-    -webkit-appearance: none;
-}
-
-/* 
-Declarations get duplicated because an invalid selector
-invalidates the entire declaration block
-*/
-
-input[type=range]::-webkit-slider-thumb {
-    cursor: pointer;
-    -webkit-appearance: none;
-}
-
-input[type=range]::-moz-range-thumb,
-input[type=range]::-moz-range-thumb {
-    cursor: pointer;
-}
-
-input[type=range] {
-    border-radius: 6px;
-    border: 1px solid #a5a8a8;
-    background: #d3d7d7;
-    height: 1rem;
-    border-radius: 30px;
-}
-
-input[type=range]::-moz-range-track {
-    border-radius: 6px;
-    border: 1px solid #a5a8a8;
-    background: #d3d7d7;
-    height: 1rem;
-    border-radius: 30px;
-}
-
-/* 
-Declarations get duplicated because an invalid selector
-invalidates the entire declaration block
-*/
-
-input[type=range]::-webkit-slider-thumb {
-    height: 2rem;
-    width: 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.36);
-    border-radius: 20px;
-    /* Is base64 the way to go ? */
-    /* I don't imagine simulating vertical stripes w/ gradients */
-    background: #e5e9e8;
-    background-size: 7px 18px;
-    box-shadow: inset 0 1px white;
-}
-
-.input[type=range]::-moz-range-thumb {
-    height: 3rem;
-    width: 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.36);
-    border-radius: 6px;
-    background: #e5e9e8;
-    background-size: 7px 18px;
-    box-shadow: inset 0 1px white;
-}
-
-/*
-Active state
-*/
-
-input[type=range]:active::-webkit-slider-thumb,
-.topcoat-range-input--vertical:active::-webkit-slider-thumb {
-    border: 1px solid #0940fd;
-    box-shadow: 0 0 0 2px #6fb5f1;
-}
-
-input[type=range]:active::-moz-range-thumb {
-    border: 1px solid #0940fd;
-    box-shadow: 0 0 0 2px #6fb5f1;
-}
-
-#indicator {
-}
-
+/* Sets the text color inside the modal (popup at page load) */
 #choosePatientType {
     color: #000000;
 }
 
+/* Formats text inside the modal */
 #choosePatientType #myModalLabel {
     text-align: center;
     font-size: 32px;
     font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 }
 
+/* Formats the body of the modal */
 #choosePatientType .modal-body {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
 }
 
+/* Formats the modal button for a practice test */
 #choosePatientType .patientOptionPractice {
     width: 280px;
     height: 75px;
@@ -284,6 +444,7 @@ input[type=range]:active::-moz-range-thumb {
     font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 }
 
+/* Formats the modal button for a real test */
 #choosePatientType .patientOptionReal {
     width: 280px;
     height: 75px;
@@ -292,4 +453,3 @@ input[type=range]:active::-moz-range-thumb {
     color: #e5e5e5;
     font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 }
-
