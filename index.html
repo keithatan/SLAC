@@ -1,209 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>SLAC Virtual Lab</title>
+  <meta charset="utf-8">
+  <title>SLAC Virtual Lab</title>
 
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
 
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-touch-fullscreen" content="yes">
 
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="images/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="images/favicon.png">
 
-    <!-- Style Sheets -->
-    <link href="bower_components/bootstrap-switch/dist/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
+  <!-- Style Sheets -->
+  <link href="bower_components/bootstrap-switch/dist/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
 
-    <!-- JavaScript Assets -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/raphael/raphael-min.js"></script>
-    <script src="bower_components/snap/snap.min.js"></script>
-    <script src="javascript/main.js"></script>
-    <script src="javascript/panel.js"></script>
-    <script src="javascript/audiogram.js"></script>
-    <script src="javascript/ajax.js"></script>
+  <!-- JavaScript Assets -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/raphael/raphael-min.js"></script>
+  <script src="bower_components/snap/snap.min.js"></script>
+  <script src="javascript/main.js"></script>
+  <script src="javascript/panel.js"></script>
+  <script src="javascript/audiogram.js"></script>
+  <script src="javascript/ajax.js"></script>
 
-    <!-- MAKES THE MODAL APPEAR ON WINDOW LOAD -->
-    <script type="text/javascript">
-        $(window).load(function () {
-            $('#choosePatientType').modal('show');
-        });
-    </script>
+  <!-- Makes the test type selection thing pop up on page load -->
+  <script type="text/javascript">
+      $(window).load(function () {
+          $('#choosePatientType').modal('show');
+      });
+  </script>
 </head>
 
 <body>
 
 <!-- Popup for test type selection -->
 <div class="modal fade" id="choosePatientType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">
-                      Close
-                    </span>
-                </button>
-                &nbsp;
-              </div>
-            <div class="modal-body">
-                <button type="button" class="btn btn-primary patientOptionPractice" data-toggle="btn" aria-pressed="false" autocomplete="false">
-                    Practice Test
-                </button>
-                <button type="button" class="btn btn-primary patientOptionReal" data-toggle="btn" aria-pressed="false" autocomplete="false">
-                    Real Test
-                </button>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">
+            &times;
+          </span>
+          <span class="sr-only">
+            Close
+          </span>
+        </button>
+        &nbsp;
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-primary patientOptionPractice" data-toggle="btn" aria-pressed="false" autocomplete="false">
+          Practice Test
+        </button>
+        <button type="button" class="btn btn-primary patientOptionReal" data-toggle="btn" aria-pressed="false" autocomplete="false">
+          Real Test
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
 					Close
 				</button>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- Page content -->
 <div class="snap-drawers">
 
 	<!-- Patient information drawer -->
-    <div class="snap-drawers">
-        <div class="snap-drawer snap-drawer-left">
-            <div>
-                <h3>Patients</h3>
-                <div class="demo-social">
-                </div>
-                <h4>Information</h4>
-                <div class="slider-left">
-                    <div>
-						<img src="images/portrait-1.png" style="width: 25%; height: 25%; ">
-                        <div id="patArea">
-                            <span id="patHeader"><b>Patient information will be displayed here.</b><br></span>
-							<span class="patInfoHider" id="patInfoHider">
-								<span class="hiddenPatInfo" id="patName">Name:</span><br>
-								<span class="hiddenPatInfo" id="patHistory">History:</span>
-							</span>
-                        </div>
-                    </div>
-                </div>
+  <div class="snap-drawers">
+    <div class="snap-drawer snap-drawer-left">
+      <div>
+        <h3>
+          Patients
+        </h3>
+        <div class="demo-social">
+        </div>
+        <h4>
+          Information
+        </h4>
+        <div class="slider-left">
+          <div>
+            <img src="images/portrait-1.png" style="width: 25%; height: 25%; " />
+            <div id="patArea">
+              <span id="patHeader">
+                <b>
+                  Patient information will be displayed here.
+                </b>
+                <br>
+              </span>
+              <span class="patInfoHider" id="patInfoHider">
+                <span class="hiddenPatInfo" id="patName">
+                  Name:
+                </span>
+                <br>
+                <span class="hiddenPatInfo" id="patHistory">
+                  History:
+                </span>
+              </span>
             </div>
+          </div>
         </div>
-
-        <!-- Audiogram drawer -->
-        <div class="snap-drawer snap-drawer-right audiogram-drawer">
-            <div id="audiogram"></div>
-            <!--<div class="btn-type-select-audiogram">-->
-            <!-- Symbol selection -->
-            <h5>
-              Choose Symbol:
-            </h5>
-				<table>
-					<tr>
-						<td>
-							<label>
-								<input type="radio" name="opt-select" value="AC_L" />
-								<img src="images/AC_L.png">
-							</label>
-							<label>
-								<input type="radio" name="opt-select" value="AC_NR_L" />
-								<img src="images/AC_NR_L.png">
-							</label>
-							<label>
-								<input type="radio" name="opt-select" value="AC_M_L" />
-								<img src="images/AC_M_L.png">
-							</label>
-							<label>
-								<input type="radio" name="opt-select" value="AC_M_NR_R" />
-								<img src="images/AC_M_NR_R.png">
-							</label>
-							<br>
-							<label>
-								<input type="radio" name="opt-select" value="AC_R" />
-								<img src="images/AC_R.png">
-							</label>
-							<label>
-								<input type="radio" name="opt-select" value="AC_NR_R" />
-								<img src="images/AC_NR_R.png">
-							</label>
-							<label>
-								<input type="radio" name="opt-select" value="AC_M_R" />
-								<img src="images/AC_M_R.png">
-							</label>
-							<label>
-								<input type="radio" name="opt-select" value="AC_M_NR_L" />
-								<img src="images/AC_M_NR_L.png">
-							</label>
-						</td>
-						<td>
-							<label>
-								<input type="radio" name="opt-select" value="BC_L" />
-								<img src="images/template.png">
-							</label>
-							<label>
-								<input type="radio" name="opt-select" value="BC_R" />
-								<img src="images/template.png">
-							</label>
-							<label>
-								<input type="radio" name="opt-select" value="BC_NR_L" />
-								<img src="images/template.png">
-							</label>
-							<label>
-								<input type="radio" name="opt-select" value="BC_NR_R" />
-								<img src="images/template.png">
-							</label>
-							<br>
-							<label>
-								<input type="radio" name="opt-select" value="BC_M_L" />
-								<img src="images/template.png">
-							</label>
-							<label>
-								<input type="radio" name="opt-select" value="BC_M_R" />
-								<img src="images/template.png">
-							</label>
-							<label>
-								<input type="radio" name="opt-select" value="BC_M_NR_L" />
-								<img src="images/template.png">
-							</label>
-							<label>
-								<input type="radio" name="opt-select" value="BC_M_NR_R" />
-								<img src="images/template.png">
-							</label>
-						</td>
-					</tr>
-				</table>
-            <!--</div>-->
-        </div>
+      </div>
     </div>
 
+    <!-- Audiogram drawer -->
+    <div class="snap-drawer snap-drawer-right audiogram-drawer">
+      <div id="audiogram"></div>
+      <!--<div class="btn-type-select-audiogram">-->
+        
+      <!-- Symbol selection -->
+      <h5>
+        Choose Symbol:
+      </h5>
+      <table>
+				<tr>
+					<td>
+						<label>
+							<input type="radio" name="opt-select" value="AC_L" />
+							<img src="images/AC_L.png" />
+						</label>
+						<label>
+              <input type="radio" name="opt-select" value="AC_NR_L" />
+							<img src="images/AC_NR_L.png" />
+						</label>
+						<label>
+							<input type="radio" name="opt-select" value="AC_M_L" />
+							<img src="images/AC_M_L.png" />
+						</label>
+						<label>
+              <input type="radio" name="opt-select" value="AC_M_NR_R" />
+							<img src="images/AC_M_NR_R.png" />
+						</label>
+						<br>
+						<label>
+							<input type="radio" name="opt-select" value="AC_R" />
+							<img src="images/AC_R.png" />
+						</label>
+						<label>
+							<input type="radio" name="opt-select" value="AC_NR_R" />
+							<img src="images/AC_NR_R.png" />
+						</label>
+						<label>
+							<input type="radio" name="opt-select" value="AC_M_R" />
+							<img src="images/AC_M_R.png" />
+						</label>
+						<label>
+							<input type="radio" name="opt-select" value="AC_M_NR_L" />
+							<img src="images/AC_M_NR_L.png" />
+						</label>
+					</td>
+					<td>
+						<label>
+							<input type="radio" name="opt-select" value="BC_L" />
+							<img src="images/template.png" />
+						</label>
+						<label>
+							<input type="radio" name="opt-select" value="BC_R" />
+							<img src="images/template.png" />
+						</label>
+						<label>
+							<input type="radio" name="opt-select" value="BC_NR_L" />
+							<img src="images/template.png" />
+						</label>
+						<label>
+							<input type="radio" name="opt-select" value="BC_NR_R" />
+							<img src="images/template.png" />
+						</label>
+						<br>
+						<label>
+							<input type="radio" name="opt-select" value="BC_M_L" />
+							<img src="images/template.png" />
+						</label>
+						<label>
+							<input type="radio" name="opt-select" value="BC_M_R" />
+							<img src="images/template.png" />
+						</label>
+						<label>
+							<input type="radio" name="opt-select" value="BC_M_NR_L" />
+							<img src="images/template.png" />
+						</label>
+						<label>
+							<input type="radio" name="opt-select" value="BC_M_NR_R" />
+							<img src="images/template.png" />
+						</label>
+					</td>
+				</tr>
+			</table>
+      <!--</div>-->
+    </div>
+  </div>
 
-    <div id="content" class="snap-content" data-snap-ignore="true">
-        <div class="container-fluid ">
-
-			<!-- Header -->
-            <div class="row display">
+  <div id="content" class="snap-content" data-snap-ignore="true">
+    <div class="container-fluid ">
+    
+		<!-- Header -->
+      <div class="row display">
 			
-				<!-- Left header -->
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="right">
-                    <div id="Stimulus1">
-						Stimulus: Tone
-					</div>
-                    <div id="Transducer1">
-						Transducer: Phone
-					</div>
-                    <div id="Routing1">
-						Routing: Left
-					</div>
-                </div>
+	  	<!-- Left header -->
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="right">
+        <div id="Stimulus1">
+          Stimulus: Tone
+				</div>
+        <div id="Transducer1">
+          Transducer: Phone
+				</div>
+        <div id="Routing1">
+					Routing: Left
+				</div>
+      </div>
 				
 				<!-- Middle left header -->
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -267,17 +283,17 @@
 								<!-- FM/PULSE/ALT/SISI buttons -->
                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                     <button class="btn btn-default" disabled>
-										FM
-									</button>
+                                      FM
+                                      </button>
                                     <button id="pulse" class="btn btn-default" onclick="changeColor(this.id)">
-										Pulse
+                                      Pulse
                                     </button>
                                     <button class="btn btn-default" disabled>
-										ALT
-									</button>
+                                      ALT
+                                    </button>
                                     <button class="btn btn-default" disabled>
-										SISI
-									</button>
+                                      SISI
+                                    </button>
                                 </div>
 								
 								<!-- Left TONE/MIC/EXT A/EXT B buttons -->
@@ -423,7 +439,7 @@
                                     <!-- End indicator box -->
 									
 									<!-- MATCH/RESET buttons -->
-                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 bottom-ight">
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 bottom-right">
                                         <button class="btn btn-default">
 											Match
 										</button>
