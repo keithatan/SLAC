@@ -276,10 +276,10 @@
                       <button id="pulse" class="btn btn-default" onclick="changeColor(this.id)">
                         Pulse
                       </button>
-                      <button class="btn btn-default" disabled>
+                      <button class="btn btn-default" onclick="responseLeft()">
                         ALT
                       </button>
-                      <button class="btn btn-default" disabled>
+                      <button class="btn btn-default" onclick="responseRight()">
                         SISI
                       </button>
                     </div>

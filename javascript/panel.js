@@ -1,3 +1,4 @@
+// A few default values (what things are set to on page load)
 var app = {
     stimulus: 'tone',
     transducer: 'phone',
@@ -5,12 +6,49 @@ var app = {
     ch2: {}
 };
 
+// These variables make it easier to change what color the background changes to to indicate virtual patient response
+var defaultColor = "rgb(51, 51, 51)";
+var responseLeftColor = "rgb(205, 92, 92)";
+var responseRightColor = "rgb(0, 147, 207)";
+var colorResetWait = 1000;
 
-// Changing frequency
+// Display patient response left (red)
+function responseLeft() {
+  // Sets the background color
+  document.getElementById("content").style.background = responseLeftColor;
+  console.log("Background changed to left response color (" + responseLeftColor + ")");
+  
+  // Changes the background back to the default after 'colorResetWait' milliseconds ONLY if the background is still set to the red color after 'colorResetWait' milliseconds
+  setTimeout(function(){
+    if (document.getElementById("content").style.background == responseLeftColor) {
+      document.getElementById("content").style.background = defaultColor;
+      console.log("Background changed to default color (" + defaultColor + ")");
+    }
+  }, colorResetWait);
+}
+
+// Display patient response right (blue)
+function responseRight() {
+  // Sets the background color
+  document.getElementById("content").style.background = responseRightColor;
+  console.log("Background changed to right response color (" + responseRightColor + ")");
+  
+  // Changes the background back to the default after 'colorResetWait' milliseconds ONLY if the background is still set to the blue color after 'colorResetWait' milliseconds
+  setTimeout(function(){
+    if (document.getElementById("content").style.background == responseRightColor) {
+      document.getElementById("content").style.background = defaultColor;
+      console.log("Background changed to default color (" + defaultColor + ")");
+    }
+  }, colorResetWait);
+}
+
+// Sets the default frequency (what it's set to on page load)
 var Freq = 125;
 
 // Increasing frequency
 function FreqPlus() {
+    oldFreq = Freq;
+    
     if (Freq >= 8000) return Freq;
 
     else if (Freq >= 500 && Freq < 1000) {
@@ -24,12 +62,14 @@ function FreqPlus() {
     } else {
         Freq = Freq * 2;
     }
-    console.log(String(Freq));
+    console.log("Frequency increased from " + oldFreq + "Hz to " + String(Freq) + "Hz");
     return Freq;
 }
 
 // Decreasing frequency
 function FreqMinus() {
+    oldFreq = Freq;
+  
     if (Freq <= 125) return Freq;
 
     else if (Freq > 4000 && Freq <= 8000) {
@@ -43,7 +83,7 @@ function FreqMinus() {
     } else {
         Freq = Freq / 2;
     }
-    console.log(String(Freq));
+    console.log("Frequency decreased from " + oldFreq + "Hz to " + String(Freq) + "Hz");
     return Freq;
 }
 
@@ -80,6 +120,7 @@ function secondPassed() {
 
 // Updates routing on page
 function print_routing(id, routing) {
+    var oldRouting = routing;
     app.routing = routing;
     document.getElementById(id).innerHTML = "Routing: " + routing;
 }
@@ -102,26 +143,39 @@ function print_step(id, step) {
     document.getElementById(id).innerHTML = step + " dB step";
 }
 
+var redButtonColor = "rgb(255, 0, 0)";
+var blueButtonColor = "rgb(100, 149, 237)";
+var defaultButtonColor = "rgb(255, 255, 255)";
+
 // Changes color to red and back
-function changeColor(clicked_id){
+function changeColor(clicked_id) {  
     var tmp = document.getElementById(clicked_id);
-    console.log("Button color changed from: " + tmp.style.backgroundColor);
-    if(tmp.style.backgroundColor == 'rgb(255, 0, 0)'){
-        tmp.style.backgroundColor = 'white';
-    }else{
-        tmp.style.backgroundColor = 'rgb(255, 0, 0)';
+    var oldColor = tmp.style.backgroundColor;
+    
+    if (tmp.style.backgroundColor == redButtonColor) {
+        tmp.style.backgroundColor = defaultButtonColor;
+    } else {
+        tmp.style.backgroundColor = redButtonColor;
     }
+    
+    console.log("Button color changed from " + oldColor + " to " + tmp.style.backgroundColor);
 }
 
 // Changes color to blue and back
-function changeColorBlue(clicked_id){
+function changeColorBlue(clicked_id) {
     var tmp = document.getElementById(clicked_id);
-    console.log("Button color changed from: " + tmp.style.backgroundColor);
-    if(tmp.style.backgroundColor == 'rgb(100, 149, 237)'){
-        tmp.style.backgroundColor = 'white';
-    }else{
-        tmp.style.backgroundColor = 'rgb(100, 149, 237)';
+    var oldColor = tmp.style.backgroundColor;
+    
+    if (tmp.style.backgroundColor != defaultButtonColor & tmp.style.backgroundColor != blueButtonColor)
+      tmp.style.backgroundColor = defaultButtonColor;
+    
+    if (tmp.style.backgroundColor == blueButtonColor) {
+        tmp.style.backgroundColor = defaultButtonColor;
+    } else {
+        tmp.style.backgroundColor = blueButtonColor;
     }
+    
+    console.log("Button color changed from " + oldColor + " to " + tmp.style.backgroundColor);
 }
 
 // Sleeps for a given time
@@ -134,7 +188,6 @@ function sleep(milliseconds) {
     }
 }
 
-// Play audio
 // Define audio variables
 var snd200 = new Audio("sound/200hz.wav");
 var snd250 = new Audio("sound/250hz.mp3");
@@ -163,6 +216,7 @@ function sndplay() {
     else if (Freq == 6000) snd6000.play();
     else if (Freq == 8000) snd8000.play();
 
+    console.log("Sound played at frequency " + Freq + "Hz");
 }
 
 
