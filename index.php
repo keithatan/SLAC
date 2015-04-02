@@ -24,7 +24,7 @@
     <link href="css/main.css" rel="stylesheet">
     
     <!-- JavaScript Assets -->
-    <!--    <script src="bower_components/jquery/dist/jquery.min.js"></script> -->
+    <!--<script src="bower_components/jquery/dist/jquery.min.js"></script>-->
     
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
     
@@ -66,7 +66,6 @@
             </button>
             Name: <input type = "text" id = "name">
             <input type ="submit" id ="name-submit" value ="Get Patient Info.">
-            <script>console.log("global not run");</script>
             
             <button type="button" class="btn btn-primary patientOptionReal" data-toggle="btn" aria-pressed="false" autocomplete="false">
               Real Test
@@ -84,8 +83,9 @@
     <!-- Page content -->
     <div class="snap-drawers">
       
-      <!-- Patient information drawer -->
+      <!-- Patient information and Audiogram drawers -->
       <div class="snap-drawers">
+        <!-- Patient information drawer -->
         <div class="snap-drawer snap-drawer-left">
           <div>
             <h3>Patients</h3>
@@ -105,87 +105,102 @@
         
         <!-- Audiogram drawer -->
         <div class="snap-drawer snap-drawer-right audiogram-drawer">
+          <!-- Where the vector drawing gets placed -- don't you dare delete this div -->
           <div id="audiogram"></div>
-          <!--<div class="btn-type-select-audiogram">-->
-          <!-- Symbol selection -->
-          <p class="audiogram-text">
-            Choose Symbol:
-          </p>
-          <table>
-            <tr>
-              <td>
-                <label>
-                  <input type="radio" name="opt-select" value="AC_L" />
-                  <img src="images/AC_L.png">
-                </label>
-                <label>
-                  <input type="radio" name="opt-select" value="AC_NR_L" />
-                  <img src="images/AC_NR_L.png">
-                </label>
-                <label>
-                  <input type="radio" name="opt-select" value="AC_M_L" />
-                  <img src="images/AC_M_L.png">
-                </label>
-                <label>
-                  <input type="radio" name="opt-select" value="AC_M_NR_R" />
-                  <img src="images/AC_M_NR_R.png">
-                </label>
-                <br>
-                <label>
-                  <input type="radio" name="opt-select" value="AC_R" />
-                  <img src="images/AC_R.png">
-                </label>
-                <label>
-                  <input type="radio" name="opt-select" value="AC_NR_R" />
-                  <img src="images/AC_NR_R.png">
-                </label>
-                <label>
-                  <input type="radio" name="opt-select" value="AC_M_R" />
-                  <img src="images/AC_M_R.png">
-                </label>
-                <label>
-                  <input type="radio" name="opt-select" value="AC_M_NR_L" />
-                  <img src="images/AC_M_NR_L.png">
-                </label>
-              </td>
-              <td>
-                <label>
-                  <input type="radio" name="opt-select" value="BC_L" />
-                  <img src="images/template.png">
-                </label>
-                <label>
-                  <input type="radio" name="opt-select" value="BC_R" />
-                  <img src="images/template.png">
-                </label>
-                <label>
-                  <input type="radio" name="opt-select" value="BC_NR_L" />
-                  <img src="images/template.png">
-                </label>
-                <label>
-                  <input type="radio" name="opt-select" value="BC_NR_R" />
-                  <img src="images/template.png">
-                </label>
-                <br>
-                <label>
-                  <input type="radio" name="opt-select" value="BC_M_L" />
-                  <img src="images/template.png">
-                </label>
-                <label>
-                  <input type="radio" name="opt-select" value="BC_M_R" />
-                  <img src="images/template.png">
-                </label>
-                <label>
-                  <input type="radio" name="opt-select" value="BC_M_NR_L" />
-                  <img src="images/template.png">
-                </label>
-                <label>
-                  <input type="radio" name="opt-select" value="BC_M_NR_R" />
-                  <img src="images/template.png">
-                </label>
-              </td>
-            </tr>
-          </table>
-          <!--</div>-->
+          
+          <!-- Span to format everything below the audiogram -->
+          <span class="belowAudiogram">
+          
+            <table>
+              <tr>
+                <td>
+                  <!-- Symbol selection prompt text -->
+                  <h1>
+                    Choose Symbol
+                  </h1>
+                </td>
+                <td align="right">
+                  <!-- Export button -->
+                  <input type="submit" name="submit" value="Complete & Export" id="submit" />
+                </td>
+              </tr>
+            </table>
+            
+            <table>
+              <tr>
+                <td>
+                  <label>
+                    <input type="radio" name="opt-select" value="AC_L" />
+                    <img src="images/AC_L.png">
+                  </label>
+                  <label>
+                    <input type="radio" name="opt-select" value="AC_NR_L" />
+                    <img src="images/AC_NR_L.png">
+                  </label>
+                  <label>
+                    <input type="radio" name="opt-select" value="AC_M_L" />
+                    <img src="images/AC_M_L.png">
+                  </label>
+                  <label>
+                    <input type="radio" name="opt-select" value="AC_M_NR_R" />
+                    <img src="images/AC_M_NR_R.png">
+                  </label>
+                  <br>
+                  <label>
+                    <input type="radio" name="opt-select" value="AC_R" />
+                    <img src="images/AC_R.png">
+                  </label>
+                  <label>
+                    <input type="radio" name="opt-select" value="AC_NR_R" />
+                    <img src="images/AC_NR_R.png">
+                  </label>
+                  <label>
+                    <input type="radio" name="opt-select" value="AC_M_R" />
+                    <img src="images/AC_M_R.png">
+                  </label>
+                  <label>
+                    <input type="radio" name="opt-select" value="AC_M_NR_L" />
+                    <img src="images/AC_M_NR_L.png">
+                  </label>
+                </td>
+                <td>
+                  <label>
+                    <input type="radio" name="opt-select" value="BC_L" />
+                    <img src="images/template.png">
+                  </label>
+                  <label>
+                    <input type="radio" name="opt-select" value="BC_R" />
+                    <img src="images/template.png">
+                  </label>
+                  <label>
+                    <input type="radio" name="opt-select" value="BC_NR_L" />
+                    <img src="images/template.png">
+                  </label>
+                  <label>
+                    <input type="radio" name="opt-select" value="BC_NR_R" />
+                    <img src="images/template.png">
+                  </label>
+                  <br>
+                  <label>
+                    <input type="radio" name="opt-select" value="BC_M_L" />
+                    <img src="images/template.png">
+                  </label>
+                  <label>
+                    <input type="radio" name="opt-select" value="BC_M_R" />
+                    <img src="images/template.png">
+                  </label>
+                  <label>
+                    <input type="radio" name="opt-select" value="BC_M_NR_L" />
+                    <img src="images/template.png">
+                  </label>
+                  <label>
+                    <input type="radio" name="opt-select" value="BC_M_NR_R" />
+                    <img src="images/template.png">
+                  </label>
+                </td>
+              </tr>
+            </table>
+          </span>
         </div>
       </div>
       

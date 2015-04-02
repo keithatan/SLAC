@@ -1,4 +1,4 @@
-/* NOTE: This file was created before my time. Essentially all these rules stack on each other and make this crazy complex web of conflicting and overwriting rules. I won't pretend to have the faintest understanding of how all these rules work together - I've just done my best to infer what each rule (generally) applies to, in order to assist people who don't understand HTML or CSS code. If you want to go through and consolidate stuff, change up the HTML file to something sensible, and make a legitimate structure to how the CSS is formatted, more power to you. And good luck. -HH */
+/* NOTE: Most of this file was created before my time. Essentially all these rules stack on each other and make this crazy complex web of conflicting and overwriting rules. I won't pretend to have the faintest understanding of how all these rules work together - I've just done my best to infer what each rule (generally) applies to, in order to assist people who don't understand HTML or CSS code. If you want to go through and consolidate stuff, change up the HTML file to something sensible, and make a legitimate structure to how the CSS is formatted, more power to you. And good luck. -HH */
 
 /*******************/
 /* CONSTRUCT RULES */
@@ -145,12 +145,14 @@ input[type=range]::-moz-range-track {
 /* CLASS RULES */
 /***************/
 
-/* Determines how the "Choose Symbol:" text looks */
-/* At least it's supposed to. God knows why it doesn't work at the moment */
-.audiogram-text {
-	font-size: 24;
-  color: black;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+/* Helps format the button and prompt text below the audiogram */
+.belowAudiogram table {
+  width: 100%;
+}
+
+/* Helps format the button and prompt text below the audiogram */
+.belowAudiogram td {
+  width: 50%;
 }
 
 /* Defines rules for snap drawers */
@@ -410,6 +412,20 @@ input[type=range]::-moz-range-track {
     background: #333333;
 }
 
+/* Formats the button below the audiogram */
+#submit {
+    background-color: #9DB151;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:6px;
+    color: #ffffff;
+    font-family: 'Oswald';
+    font-size: 20px;
+    text-decoration: none;
+    cursor: poiner;
+    border:none;
+}
+
 /* Sets the color of the countdown text */
 #countdown {
     color: white;
@@ -452,4 +468,16 @@ input[type=range]::-moz-range-track {
     font-size: 24px;
     color: #e5e5e5;
     font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+}
+
+/* Determines how the text looks below the audiogram */
+.belowAudiogram h1 {
+  display: block;
+  font-size: 1.5em;
+  margin-before: 0.67em;
+  margin-after: 0.67em;
+  margin-start: 0;
+  margin-end: 0;
+  font-weight: bold;
+  color: black;
 }
