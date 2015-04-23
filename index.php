@@ -166,36 +166,36 @@
                 <td>
                   <label>
                     <input type="radio" name="opt-select" value="BC_L" />
-                    <img src="images/template.png">
+                    <img src="images/BC_L.png">
                   </label>
                   <label>
                     <input type="radio" name="opt-select" value="BC_R" />
-                    <img src="images/template.png">
+                    <img src="images/BC_R.png">
                   </label>
                   <label>
                     <input type="radio" name="opt-select" value="BC_NR_L" />
-                    <img src="images/template.png">
+                    <img src="images/BC_NR_L.png">
                   </label>
                   <label>
                     <input type="radio" name="opt-select" value="BC_NR_R" />
-                    <img src="images/template.png">
+                    <img src="images/BC_NR_R.png">
                   </label>
                   <br>
                   <label>
                     <input type="radio" name="opt-select" value="BC_M_L" />
-                    <img src="images/template.png">
+                    <img src="images/BC_M_L.png">
                   </label>
                   <label>
                     <input type="radio" name="opt-select" value="BC_M_R" />
-                    <img src="images/template.png">
+                    <img src="images/BC_M_R.png">
                   </label>
                   <label>
                     <input type="radio" name="opt-select" value="BC_M_NR_L" />
-                    <img src="images/template.png">
+                    <img src="images/BC_M_NR_L.png">
                   </label>
                   <label>
                     <input type="radio" name="opt-select" value="BC_M_NR_R" />
-                    <img src="images/template.png">
+                    <img src="images/BC_M_NR_R.png">
                   </label>
                 </td>
               </tr>
