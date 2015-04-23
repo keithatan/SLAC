@@ -8,8 +8,8 @@ var app = {
 
 // These variables make it easier to change what color the background changes to to indicate virtual patient response
 var defaultColor = "rgb(51, 51, 51)";
-var responseLeftColor = "rgb(205, 92, 92)";
-var responseRightColor = "rgb(0, 147, 207)";
+var responseLeftColor = "rgb(0, 147, 207)";
+var responseRightColor = "rgb(205, 92, 92)";
 var colorResetWait = 1000;
 
 // Display patient response left (red)
