@@ -531,5 +531,6 @@
       </div>
     </div>
   </body>
+  <!-- Global reference (variables shared between .js files)-->
   <script src="js/global.js"></script>
 </html>
