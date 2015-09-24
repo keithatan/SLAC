@@ -121,7 +121,22 @@
                 </td>
                 <td align="right">
                   <!-- Export button -->
-                  <input type="submit" name="submit" value="Complete & Export" id="submit" />
+                  <input type="submit" value="Complete & Export" id="submit" onclick='printAudiogram("audiogram");'>
+                  <script>
+                  //the purpose of this function is to export the graph without exporting "Choose symbols section"
+                  function printAudiogram(divName) {
+                    if (confirm("You will not be able to edit the graph after exporting, is that okay?") == true) {
+                      //document.getElementById("demo").innerHTML = x;
+                      var printContents = document.getElementById(divName).innerHTML; //what we want to print 
+                      var originalContents = document.body.innerHTML; //original html
+                      document.body.innerHTML = printContents; //set whole html as print contents
+                      window.print(); //print
+                      document.body.innerHTML = originalContents; //reset whole html
+                    } else {
+                        return false;
+                    }
+                  }
+                  </script>
                 </td>
               </tr>
             </table>
