@@ -44,11 +44,16 @@
       });
     </script>
   </head>
+
+  <!-- Connect to  -->
+  <?php
+    include 'php/connection.php';
+  ?>
   
   <body>
     
     <!-- Popup for test type selection -->
-    <div class="modal fade" id="choosePatientType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!--     <div class="modal fade" id="choosePatientType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -78,7 +83,27 @@
           </div>
         </div>
       </div>
+    </div> -->
+
+  <div id="abc">
+    <!-- Popup Div Starts Here -->
+    <div id="popupContact">
+      <!-- Contact Us Form -->
+      <form action="#" id="form" method="post" name="form">
+        <img id="close" src="images/3.png" onclick ="div_hide()">
+        <h2>Contact Us</h2>
+        <hr>
+        <input id="name" name="name" placeholder="Name" type="text">
+        <input id="email" name="email" placeholder="Email" type="text">
+        <textarea id="msg" name="message" placeholder="Message">
+        </textarea>
+        <a href="javascript:%20check_empty()" id="submit">
+        Send
+        </a>
+      </form>
     </div>
+    <!-- Popup Div Ends Here -->
+  </div>
     
     <!-- Page content -->
     <div class="snap-drawers">
@@ -93,12 +118,14 @@
             </div>
             <h4>Information</h4>
             <div class="slider-left">
-              <div>
+              <button id="Add Patient" class="btn btn-primary" onclick="">
+                  Add Patient
+              </button>
+              <!-- <div>
                 <img src="images/portrait-1.png" style="width: 25%; height: 25%; ">
                 <div id="name-data">
-                  
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
