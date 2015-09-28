@@ -36,6 +36,7 @@
     <script src="javascript/panel.js"></script>
     <script src="javascript/audiogram.js"></script>
     <script src="javascript/ajax.js"></script>
+    <script src="javascript/function.js"></script>
     
     <!-- MAKES THE MODAL APPEAR ON WINDOW LOAD -->
     <script type="text/javascript">
@@ -44,11 +45,17 @@
       });
     </script>
   </head>
+
+  <!-- Connect to database -->
+
+  <?php
+    include 'php/connection.php';
+  ?>
   
   <body>
     
     <!-- Popup for test type selection -->
-    <div class="modal fade" id="choosePatientType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="choosePatientType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -78,8 +85,8 @@
           </div>
         </div>
       </div>
-    </div>
-    
+    </div> -->
+
     <!-- Page content -->
     <div class="snap-drawers">
       
@@ -92,12 +99,102 @@
             <div class="demo-social">
             </div>
             <h4>Information</h4>
-            <div class="slider-left">
-              <div>
+            <div class="snap-drawer-left">
+              <div id = "Patient-Columns">
                 <img src="images/portrait-1.png" style="width: 25%; height: 25%; ">
-                <div id="name-data">
-                  
-                </div>
+                <button type="button" class="btn btn-primary" onclick="openform('Popup')">
+                  Add Patient
+                </button>
+              </div>
+              <div id = "Patient-Columns">
+                <img src="images/portrait-2.png" style="width: 25%; height: 25%;">
+                <button type="button" class="btn btn-primary" onclick="openform('Popup_2')">
+                  Select Patient
+                </button>
+                <?php
+                  echo '<h1> HELLO WORLD </h1>';
+                ?>
+              </div>
+              <!-- Pop up Menu to add new patient to database -->
+              <div id="Popup">
+                <form action="php/add_patient.php" id= "form" method="get" name = "patient">
+                <img id="close" src="images/favicon.png" onclick ="closeform('Popup')">
+                <button type= "button" style="float: right;" class="btn btn-primary" onclick="">Upload File</button>
+                <button type="submit" style="float: right;" class="btn btn-primary">Submit</button>
+                <h2 style="text-align: center;">New Patient Information</h2>
+                <input name="first_name" id= "form-input" placeholder="First Name" type="text">
+                <input name="last_name" id= "form-input" placeholder="Last Name" type="text">
+                <input name="description" id= "form-input" placeholder="Description" type="text">
+
+                <input name="R_125" id= "form-input" placeholder="Right ear max at 125Hz" type="text">
+                <input name="R_250" id= "form-input" placeholder="Right ear max at 250Hz" type="text">
+                <input name="R_500" id= "form-input" placeholder="Right ear max at 500Hz" type="text">
+                <input name="R_750" id= "form-input" placeholder="Right ear max at 750Hz" type="text">
+                <input name="R_1000" id= "form-input" placeholder="Right ear max at 1000Hz" type="text">
+                <input name="R_1500" id= "form-input" placeholder="Right ear max at 1500Hz" type="text">
+                <input name="R_2000" id= "form-input" placeholder="Right ear max at 2000Hz" type="text">
+                <input name="R_3000" id= "form-input" placeholder="Right ear max at 3000Hz" type="text">
+                <input name="R_4000" id= "form-input" placeholder="Right ear max at 4000Hz" type="text">
+                <input name="R_6000" id= "form-input" placeholder="Right ear max at 6000Hz" type="text">
+                <input name="R_8000" id= "form-input" placeholder="Right ear max at 8000Hz" type="text">
+
+                <input name="L_125" id= "form-input" placeholder="Left ear max at 125Hz" type="text">
+                <input name="L_250" id= "form-input" placeholder="Left ear max at 250Hz" type="text">
+                <input name="L_500" id= "form-input" placeholder="Left ear max at 500Hz" type="text">
+                <input name="L_750" id= "form-input" placeholder="Left ear max at 750Hz" type="text">
+                <input name="L_1000" id= "form-input" placeholder="Left ear max at 1000Hz" type="text">
+                <input name="L_1500" id= "form-input" placeholder="Left ear max at 1500Hz" type="text">
+                <input name="L_2000" id= "form-input" placeholder="Left ear max at 2000Hz" type="text">
+                <input name="L_3000" id= "form-input" placeholder="Left ear max at 3000Hz" type="text">
+                <input name="L_4000" id= "form-input" placeholder="Left ear max at 4000Hz" type="text">
+                <input name="L_6000" id= "form-input" placeholder="Left ear max at 6000Hz" type="text">
+                <input name="L_8000" id= "form-input" placeholder="Left ear max at 8000Hz" type="text">
+
+                <input name="BR_125" id= "form-input" placeholder="Right ear bone max at 125Hz" type="text">
+                <input name="BR_250" id= "form-input" placeholder="Right ear bone max at 250Hz" type="text">
+                <input name="BR_500" id= "form-input" placeholder="Right ear bone max at 500Hz" type="text">
+                <input name="BR_750" id= "form-input" placeholder="Right ear bone max at 750Hz" type="text">
+                <input name="BR_1000" id= "form-input" placeholder="Right ear bone max at 1000Hz" type="text">
+                <input name="BR_1500" id= "form-input" placeholder="Right ear bone max at 1500Hz" type="text">
+                <input name="BR_2000" id= "form-input" placeholder="Right ear bone max at 2000Hz" type="text">
+                <input name="BR_3000" id= "form-input" placeholder="Right ear bone max at 3000Hz" type="text">
+                <input name="BR_4000" id= "form-input" placeholder="Right ear bone max at 4000Hz" type="text">
+                <input name="BR_6000" id= "form-input" placeholder="Right ear bone max at 6000Hz" type="text">
+                <input name="BR_8000" id= "form-input" placeholder="Right ear bone max at 8000Hz" type="text">
+
+                <input name="BL_125" id= "form-input" placeholder="Left ear bone max at 125Hz" type="text">
+                <input name="BL_250" id= "form-input" placeholder="Left ear bone max at 250Hz" type="text">
+                <input name="BL_500" id= "form-input" placeholder="Left ear bone max at 500Hz" type="text">
+                <input name="BL_750" id= "form-input" placeholder="Left ear bone max at 750Hz" type="text">
+                <input name="BL_1000" id= "form-input" placeholder="Left ear bone max at 1000Hz" type="text">
+                <input name="BL_1500" id= "form-input" placeholder="Left ear bone max at 1500Hz" type="text">
+                <input name="BL_2000" id= "form-input" placeholder="Left ear bone max at 2000Hz" type="text">
+                <input name="BL_3000" id= "form-input" placeholder="Left ear bone max at 3000Hz" type="text">
+                <input name="BL_4000" id= "form-input" placeholder="Left ear bone max at 4000Hz" type="text">
+                <input name="BL_6000" id= "form-input" placeholder="Left ear bone max at 6000Hz" type="text">
+                <input name="BL_8000" id= "form-input" placeholder="Left ear bone max at 8000Hz" type="text">
+                </form>
+              </div>
+
+              <div id="Popup_2">
+                <img id="close" src="images/favicon.png" onclick ="closeform('Popup_2')">
+                <h4> Select a Patient </h4>
+                <?php
+                  include 'php/connection.php';
+                  $sql = "SELECT id, first_name, last_name FROM patients";
+                  $result = mysqli_query($conn, $sql);
+                  if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      echo '<div>';
+                      echo '<button id ="' .$row["id"] . '" type = "button" class = "btn btn-primary" onclick="loadpatient(' . $row["id"] . ')">' . $row["first_name"] . $row["last_name"] . '</button>';
+                      echo "</div>";
+                    }
+                  }
+                  else
+                  {
+                    echo "No patients found :(";
+                  }
+                ?>
               </div>
             </div>
           </div>
@@ -131,6 +228,7 @@
                       document.body.innerHTML = printContents; //set whole html as print contents
                       window.print(); //print
                       document.body.innerHTML = originalContents; //reset whole html
+                      window.reload();
                     } else {
                         return false;
                     }

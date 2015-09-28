@@ -2,8 +2,12 @@
 $dbhost='localhost';
 $dbuser='root';
 $dbpass='';
-$db = 'mydatabase';
+$db = 'slac';
 
-$conn = mysql_connect($dbhost,$dbuser,$dbpass);
-mysql_select_db($db);
+$conn = mysqli_connect($dbhost,$dbuser,$dbpass, $db);
+if (!$conn) {
+	echo "Error connecting to Database";
+	exit;
+}
+//mysql_select_db($db);
 ?>
