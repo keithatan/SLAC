@@ -106,17 +106,20 @@
                   Add Patient
                 </button>
               </div>
+              <div id="Patient-Columns">
+                <img src="images/portrait-3.png" style="width: 25%; height: 25%;">
+                <button type="button" class="btn btn-primary" onclick="openform('Popup_3')">
+                  Edit Patient
+                </button>
+              </div>
               <div id = "Patient-Columns">
                 <img src="images/portrait-2.png" style="width: 25%; height: 25%;">
                 <button type="button" class="btn btn-primary" onclick="openform('Popup_2')">
                   Select Patient
                 </button>
-                <?php
-                  echo '<h1> HELLO WORLD </h1>';
-                ?>
               </div>
               <!-- Pop up Menu to add new patient to database -->
-              <div id="Popup">
+              <div id="Popup" class="popups">
                 <form action="php/add_patient.php" id= "form" method="get" name = "patient">
                 <img id="close" src="images/favicon.png" onclick ="closeform('Popup')">
                 <button type= "button" style="float: right;" class="btn btn-primary" onclick="">Upload File</button>
@@ -176,7 +179,7 @@
                 </form>
               </div>
 
-              <div id="Popup_2">
+              <div id="Popup_2" class="popups">
                 <img id="close" src="images/favicon.png" onclick ="closeform('Popup_2')">
                 <h4> Select a Patient </h4>
                 <?php
