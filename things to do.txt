@@ -1,0 +1,7 @@
+  1. Load patient data into java function
+  2. Configure buttons to work with patient data
+  3. Fix light up buttons for "present" and ALT, SISI
+  4. Fix lighting when change from left to right or right to left
+  5. Fix printing graph freeze bug
+  6. Allow erasing of the graph
+  7. Add teacher data and check graph against teacher results

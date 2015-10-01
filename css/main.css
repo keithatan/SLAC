@@ -405,6 +405,17 @@ input[type=range]::-moz-range-track {
     border-left: 1px solid whiteSmoke;
 }
 
+.popups {
+width:300px;
+height:100%;
+opacity:.95;
+top:0;
+left:0;
+display:none;
+position:fixed;
+background-color: #333333;
+overflow:auto
+}
 /************/
 /* ID RULES */
 /************/
@@ -472,7 +483,7 @@ input[type=range]::-moz-range-track {
     font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 }
 
-#Popup {
+/*#Popup {
 width:300px;
 height:100%;
 opacity:.95;
@@ -494,7 +505,7 @@ display:none;
 position:fixed;
 background-color: #333333;
 overflow:auto
-}
+}*/
 
 #form {
     background-color: #333333;
