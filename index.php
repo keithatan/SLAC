@@ -231,7 +231,7 @@
                       document.body.innerHTML = printContents; //set whole html as print contents
                       window.print(); //print
                       document.body.innerHTML = originalContents; //reset whole html
-                      window.reload();
+                      location.reload(); //reload page
                     } else {
                         return false;
                     }
