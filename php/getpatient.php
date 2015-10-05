@@ -71,8 +71,9 @@ if ($count == 1) {
 }
 elseif ($count == 2) {
     while ($row = mysqli_fetch_array($result)) {
-        echo $row[$values[$i]] . ",";
-        $i = $i + 1;
+        foreach ($values as $value) {
+            echo $row[$value] . ',';
+        }
     }
 }
 mysqli_close($conn); 

@@ -7,6 +7,12 @@
             <div class="demo-social">
             </div>
             <h4>Information</h4>
+            <div class="Patient_col_middle">
+              <img src="images/portrait-4.png" style="width: 25%; height=25%;">
+            </div>
+
+            <div class="Patient_col_middle" style="display: block;" id="CurrentPatient">No Patient Selected</div>
+
             <div class="snap-drawer-left">
               <div id = "Patient-Columns">
                 <img src="images/portrait-1.png" style="width: 25%; height: 25%; ">
@@ -95,7 +101,7 @@
                   $sql = "SELECT id, first_name, last_name FROM patients";
                   $result = mysqli_query($conn, $sql);
                   if (mysqli_num_rows($result) > 0) {
-                    echo '<form><select id="form-input" name="users" onchange="showPatient(this.value)"><option value="">Select a person:</option>';
+                    echo '<form><select id="forminput" name="users" onchange="showPatient(this.value)"><option value="">Select a person:</option>';
                     while ($row = mysqli_fetch_assoc($result)) {
                       echo  '<option value="' .$row["id"] . '">' . $row["first_name"] . ' ' . $row["last_name"] . '</option>';
                     }

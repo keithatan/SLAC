@@ -500,7 +500,7 @@ overflow:auto
     background-color: #333333;
 }
 
-#form-input {
+#forminput {
     position: relative;
     display: block;
     margin : 0 auto;
@@ -513,6 +513,13 @@ overflow:auto
 
 #Patient-Columns {
     padding: 10px;
+}
+
+.Patient_col_middle {
+    padding: 10px;
+    display:table-cell; 
+    vertical-align:middle; 
+    text-align:center;
 }
 
 #hidden-button {

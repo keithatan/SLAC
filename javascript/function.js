@@ -14,7 +14,7 @@ document.getElementById("file1").click();
 function loadPatient()
 {
 	var string = "";
-	var val = document.getElementById("form-input").value;
+	var val =document.getElementById("forminput").value;
 	if (val == "") {
 		document.getElementById("selectPatient").innerHTML = "Please Select Patient";
 		return
@@ -30,18 +30,21 @@ function loadPatient()
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				string = xmlhttp.responseText;
+				var arr = string.split(",");
+				document.getElementById("Popup_2").style.display = 'none';
+				currentPatient(arr);
 			}
 		}
 		var str = val.concat(" all");
-		xmlhttp.open("GET", "php/getpatient?q="+str, true);
+		xmlhttp.open("GET", "php/getpatient.php?q="+str, true);
 		xmlhttp.send();
 	}
 
-	var arr = string.split(",");
-	var i = 0;
+	return
+}
 
-	this.first = arr[i++];
-	this.last = arr[i++];
+function currentPatient(arr){
+	document.getElementById("CurrentPatient").innerHTML = arr[0];
 	return
 }
 
