@@ -1,71 +1,79 @@
 <?php
-$q = intval($_GET['q']);
-//print($q);
-$con = mysqli_connect('localhost','root','','mydatabase');
-if (!$con)
-{
-    die('Could not connect: ' . mysqli_error($con));
+
+$values = array( "first_name", "last_name", "description",
+    "R_125",
+    "R_250",
+    "R_500",
+    "R_750",
+    "R_1000",
+    "R_1500",
+    "R_2000",
+    "R_3000",
+    "R_4000",
+    "R_6000",
+    "R_8000",
+    "L_125",
+    "L_250",
+    "L_500",
+    "L_750",
+    "L_1000",
+    "L_1500",
+    "L_2000",
+    "L_3000",
+    "L_4000",
+    "L_6000",
+    "L_8000",
+    "BR_125",
+    "BR_250",
+    "BR_500",
+    "BR_750",
+    "BR_1000",
+    "BR_1500",
+    "BR_2000",
+    "BR_3000",
+    "BR_4000",
+    "BR_6000",
+    "BR_8000",
+    "BL_125",
+    "BL_250",
+    "BL_500",
+    "BL_750",
+    "BL_1000",
+    "BL_1500",
+    "BL_2000",
+    "BL_3000",
+    "BL_4000",
+    "BL_6000",
+    "BL_8000");
+
+include 'connection.php';
+$q = $_GET['q'];
+$q = explode(" ", $q);
+$count = count($q);
+$i = 0;
+
+$id = intval($q[0]);
+
+$sql = "SELECT * FROM `slac`.`patients` WHERE id = '" .$id. "'";
+$result = mysqli_query($conn, $sql);
+if (mysqli_query($conn, $sql)) {}
+else {
+    exit();
 }
 
-mysqli_select_db($con,"ajax_demo");
-$sql1="SELECT * FROM patient WHERE id = $q";
-
-$result1 = mysqli_query($con,$sql1);
-
-while($person = mysqli_fetch_array($result1))
-{
-    echo 'ID: '.$person['ID'].'<Br>';
-    echo 'First Name: '.$person['First Name'].'<Br>';
-    echo 'Last Name: '.$person['Last Name'].'<Br>';
-    echo 'Sex: '.$person['Sex'].'<Br>';
-    echo 'Age: '.$person['Age'].'<Br>';
-    echo 'Race: '.$person['Race'];
-    echo '<Br>'.'<Br>'.'<Br>';
+//Format how the output looks
+if ($count == 1) {
+    while ($row = mysqli_fetch_array($result))
+    {
+        echo '<h1 class="display-patient">' . $row['first_name'] . " " . $row['last_name'] . "</h1>";
+        echo '<h1 class="display-patient">' . $row['description'] . "</h1>";
+    }
 }
-
-if($_GET['q'] == 1){
-    $sql2="SELECT * FROM `mydatabase`.`peter griffin`" ;
+elseif ($count == 2) {
+    while ($row = mysqli_fetch_array($result)) {
+        echo $row[$values[$i]] . ",";
+        $i = $i + 1;
+    }
 }
-if($_GET['q'] == 2){
-    $sql2="SELECT * FROM `mydatabase`.`lois griffin`" ;
-}
-
-if($_GET['q'] == 3){
-    $sql2="SELECT * FROM `mydatabase`.`Glenn Quagmire`" ;
-}
-
-if($_GET['q'] == 4){
-    $sql2="SELECT * FROM `mydatabase`.`Joseph Swanson`" ;
-}
-
-$result2 = mysqli_query($con, $sql2);
-echo "<table border='1' >
-<tr>
-<th>Type</th>
-<th>125</th>
-<th>250</th>
-<th>500</th>
-<th>1000</th>
-<th>2000</th>
-<th>4000</th>
-<th>8000</th>
-</tr>";
-
-while($row = mysqli_fetch_array($result2))
-{
-
-    echo "<td>" . $row['Type'] . "</td>";
-    echo "<td>" . $row['125'] . "</td>";
-    echo "<td>" . $row['250'] . "</td>";
-    echo "<td>" . $row['500'] . "</td>";
-    echo "<td>" . $row['1000'] . "</td>";
-    echo "<td>" . $row['2000'] . "</td>";
-    echo "<td>" . $row['4000'] . "</td>";
-    echo "<td>" . $row['8000'] . "</td>";
-    echo "</tr>";
-}
-
-echo "</table>";
-
-mysqli_close($con);
+mysqli_close($conn); 
 ?>

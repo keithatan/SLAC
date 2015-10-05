@@ -405,6 +405,7 @@ input[type=range]::-moz-range-track {
     border-left: 1px solid whiteSmoke;
 }
 
+/* Sets the popups forms for the patient tab*/
 .popups {
 width:300px;
 height:100%;
@@ -415,6 +416,13 @@ display:none;
 position:fixed;
 background-color: #333333;
 overflow:auto
+}
+
+.display-patient {
+    margin: 0px;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
 }
 /************/
 /* ID RULES */
@@ -483,29 +491,10 @@ overflow:auto
     font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 }
 
-/*#Popup {
-width:300px;
-height:100%;
-opacity:.95;
-top:0;
-left:0;
-display:none;
-position:fixed;
-background-color: #333333;
-overflow:auto
+#close 
+{
+    height: 30px;
 }
-
-#Popup_2 {
-width:300px;
-height:100%;
-opacity:.95;
-top:0;
-left:0;
-display:none;
-position:fixed;
-background-color: #333333;
-overflow:auto
-}*/
 
 #form {
     background-color: #333333;
@@ -526,6 +515,9 @@ overflow:auto
     padding: 10px;
 }
 
+#hidden-button {
+    display: none;
+}
 /* Determines how the text looks below the audiogram */
 .belowAudiogram h1 {
   display: block;

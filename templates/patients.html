@@ -29,7 +29,7 @@
               <!-- Pop up Menu to add new patient to database -->
               <div id="Popup" class="popups">
                 <form action="php/add_patient.php" id= "form" method="get" name = "patient">
-                <img id="close" src="images/favicon.png" onclick ="closeform('Popup')">
+                <img id="close" src="images/redX.png" onclick ="closeform('Popup')">
                 <button type= "button" style="float: right;" class="btn btn-primary" onclick="">Upload File</button>
                 <button type="submit" style="float: right;" class="btn btn-primary">Submit</button>
                 <h2 style="text-align: center;">New Patient Information</h2>
@@ -88,25 +88,31 @@
               </div>
 
               <div id="Popup_2" class="popups">
-                <img id="close" src="images/favicon.png" onclick ="closeform('Popup_2')">
+                <img id="close" src="images/redX.png" onclick ="closeform('Popup_2')">
                 <h4> Select a Patient </h4>
                 <?php
                   include 'php/connection.php';
                   $sql = "SELECT id, first_name, last_name FROM patients";
                   $result = mysqli_query($conn, $sql);
                   if (mysqli_num_rows($result) > 0) {
+                    echo '<form><select id="form-input" name="users" onchange="showPatient(this.value)"><option value="">Select a person:</option>';
                     while ($row = mysqli_fetch_assoc($result)) {
-                      echo '<div>';
-                      echo '<button id ="' .$row["id"] . '" type = "button" class = "btn btn-primary" onclick="loadpatient(' . $row["id"] . ')">' . $row["first_name"] . $row["last_name"] . '</button>';
-                      echo "</div>";
+                      echo  '<option value="' .$row["id"] . '">' . $row["first_name"] . ' ' . $row["last_name"] . '</option>';
                     }
+                    echo '</select></form>';
                   }
                   else
                   {
                     echo "No patients found :(";
                   }
                 ?>
+                <div id="selectPatient">
+                </div>
+                <button type="button" class="btn btn-primary" id="hidden-button" onclick="loadPatient()">
+                  Load Patient
+                </button>
               </div>
+
             </div>
           </div>
         </div>
