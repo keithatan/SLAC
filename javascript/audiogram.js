@@ -638,85 +638,134 @@ function Audiogram(id)
     {
       if (this.plotType == "AC_L")
       {
-        this.clearPoints(f, this.AC_L);
-        this.plotAC_L(x, y, f, h);
+      	samePointFlag = this.clearPoints(h, f, this.AC_L) //click on identical icon to clear it
+      	this.plotAC_L(x, y, f, h)
+      	if (samePointFlag) {
+      		this.clearPoints(h,f,this.AC_L); //clear it again
+      	}
       }
       else if (this.plotType == "AC_R")
       {
-        this.clearPoints(f, this.AC_R);
+        samePointFlag = this.clearPoints(h, f, this.AC_R);
         this.plotAC_R(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.AC_R);
+      	}
       }
       else if (this.plotType == "AC_NR_L")
       {
-        this.clearPoints(f, this.AC_NR_L);
+        samePointFlag = this.clearPoints(h, f, this.AC_NR_L);
         this.plotAC_NR_L(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.AC_NR_L);
+      	}
       }
       else if (this.plotType == "AC_NR_R")
       {
-        this.clearPoints(f, this.AC_NR_R1);
-        this.clearPoints(f, this.AC_NR_R2);
+        samePointFlag = this.clearPoints(h, f, this.AC_NR_R1);
+        this.clearPoints(h, f, this.AC_NR_R2);
         this.plotAC_NR_R1(x, y, f, h);
         this.plotAC_NR_R2(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.AC_NR_R1);
+      		this.clearPoints(h,f,this.AC_NR_R2);
+      	}
       }
       else if (this.plotType == "AC_M_L")
-      {
-        this.clearPoints(f, this.AC_M_L);
+      {      	
+        samePointFlag = this.clearPoints(h, f, this.AC_M_L);
         this.plotAC_M_L(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.AC_M_L);
+      	}
       }
       else if (this.plotType == "AC_M_R")
       {
-        this.clearPoints(f, this.AC_M_R);
+        samePointFlag = this.clearPoints(h, f, this.AC_M_R);
         this.plotAC_M_R(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.AC_M_R);
+      	}
       }
       else if (this.plotType == "AC_M_NR_L")
       {
-        this.clearPoints(f, this.AC_M_NR_L);
+        samePointFlag = this.clearPoints(h, f, this.AC_M_NR_L);
         this.plotAC_M_NR_L(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.AC_M_NR_L);
+      	}
       }
       else if (this.plotType == "AC_M_NR_R")
       {
-        this.clearPoints(f, this.AC_M_NR_R);
+        samePointFlag = this.clearPoints(h, f, this.AC_M_NR_R);
         this.plotAC_M_NR_R(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.AC_M_NR_R);
+      	}
       }
       else if (this.plotType == "BC_L")
       {
-        this.clearPoints(f, this.BC_L);
+        samePointFlag = this.clearPoints(h, f, this.BC_L);
         this.plotBC_L(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.BC_L);
+      	}
       }
       else if (this.plotType == "BC_R")
       {
-        this.clearPoints(f, this.BC_R);
+        samePointFlag = this.clearPoints(h, f, this.BC_R);
         this.plotBC_R(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.BC_R);
+      	}
       }
       else if (this.plotType == "BC_NR_L")
       {
-        this.clearPoints(f, this.BC_NR_L);
+        samePointFlag = this.clearPoints(h, f, this.BC_NR_L);
         this.plotBC_NR_L(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.BC_NR_L);
+      	}
       }
       else if (this.plotType == "BC_NR_R")
       {
-        this.clearPoints(f, this.BC_NR_R);
+        samePointFlag = this.clearPoints(h, f, this.BC_NR_R);
         this.plotBC_NR_R(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.BC_NR_R);
+      	}
       }
       else if (this.plotType == "BC_M_L")
       {
-        this.clearPoints(f, this.BC_M_L);
+        samePointFlag = this.clearPoints(h, f, this.BC_M_L);
         this.plotBC_M_L(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.BC_M_L);
+      	}
       }
       else if (this.plotType == "BC_M_R")
       {
-        this.clearPoints(f, this.BC_M_R);
+        samePointFlag = this.clearPoints(h, f, this.BC_M_R);
         this.plotBC_M_R(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.BC_M_R);
+      	}
       }
       else if (this.plotType == "BC_M_NR_L")
       {
-        this.clearPoints(f, this.BC_M_NR_L);
+        samePointFlag = this.clearPoints(h, f, this.BC_M_NR_L);
         this.plotBC_M_NR_L(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.BC_M_NR_L);
+      	}
       }
       else if (this.plotType == "BC_M_NR_R")
       {
-        this.clearPoints(f, this.BC_M_NR_R);
+        samePointFlag = this.clearPoints(h, f, this.BC_M_NR_R);
         this.plotBC_M_NR_R(x, y, f, h);
+        if (samePointFlag) {
+      		this.clearPoints(h,f,this.BC_M_NR_R);
+      	}
       }
       else
       {
@@ -726,17 +775,26 @@ function Audiogram(id)
   };
 	
   // Clears other points of the same type from a given frequency value
-	this.clearPoints = function(frequency, array)
+	this.clearPoints = function(hearingLoss, frequency, array)
   {
+  	var samePointFlag = 0;
 		for (i = 0; i < array.length; i++)
 		{		
+			console.log(frequency);
+			console.log(hearingLoss);
 			if (array[i].frequency == frequency)
 			{
+				if(array[i].hearingLoss == hearingLoss)
+				{
+					samePointFlag = 1;
+				}
         console.log("Point of type \"" + array[i].type + "\" removed from position (" + array[i].frequency + ", " + array[i].hearingLoss + ")");
 				array[i].pointPath.remove();
 				array.splice(i, 1);
-      }
+      		}
     }
+
+    return samePointFlag;
   };
     
 	// Handles events
