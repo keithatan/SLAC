@@ -69,12 +69,24 @@ if ($count == 1) {
         echo '<h1 class="display-patient">' . $row['description'] . "</h1>";
     }
 }
-elseif ($count == 2) {
+elseif ($q[1] == "all") {
     while ($row = mysqli_fetch_array($result)) {
         foreach ($values as $value) {
             echo $row[$value] . ',';
         }
     }
 }
+
+elseif ($count == 3) {
+    $sql = "UPDATE `slac`.`patients` SET " .$q[1]. "='" .$q[2]. "'" . "WHERE id = '" .$id. "'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_query($conn, $sql)) {
+        echo "it works";
+    }
+    else {
+        echo "Error updating record: " . mysqli_error($conn);
+    }
+}
+echo $count;
 mysqli_close($conn); 
 ?>

@@ -424,6 +424,12 @@ overflow:auto
     color: white;
     font-size: 18px;
 }
+
+.patient_option {
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-color: #333333;
+}
 /************/
 /* ID RULES */
 /************/
@@ -496,11 +502,11 @@ overflow:auto
     height: 30px;
 }
 
-#form {
+#newpatientform {
     background-color: #333333;
 }
 
-#forminput {
+#forminput, #form-input, #forminput_2, #editvalue, #forminput_3 {
     position: relative;
     display: block;
     margin : 0 auto;
@@ -522,7 +528,7 @@ overflow:auto
     text-align:center;
 }
 
-#hidden-button {
+#hidden-button, #hidden-button_2, #editpatientdata{
     display: none;
 }
 /* Determines how the text looks below the audiogram */

@@ -3,10 +3,20 @@
         <!-- Patient information drawer -->
         <div class="snap-drawer snap-drawer-left">
           <div>
-            <h3>Patients</h3>
+            <h3>Patient Tab</h3>
+              <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                  <div>
+                    <ul class="nav navbar-nav">
+                      <li class="patient_option"><a href="#" onclick="openform('Popup')">Add Patient</a></li>
+                      <li class="patient_option"><a href="#" onclick="openform('Popup_3')">Edit Patient</a></li> 
+                      <li class="patient_option" style="border-bottom-style:none"><a href="#" onclick="openform('Popup_2')">Select Patient</a></li> 
+                    </ul>
+                  </div>
+                </div>
+              </nav>
             <div class="demo-social">
             </div>
-            <h4>Information</h4>
             <div class="Patient_col_middle">
               <img src="images/portrait-4.png" style="width: 25%; height=25%;">
             </div>
@@ -14,30 +24,19 @@
             <div class="Patient_col_middle" style="display: block;" id="CurrentPatient">No Patient Selected</div>
 
             <div class="snap-drawer-left">
-              <div id = "Patient-Columns">
-                <img src="images/portrait-1.png" style="width: 25%; height: 25%; ">
-                <button type="button" class="btn btn-primary" onclick="openform('Popup')">
-                  Add Patient
-                </button>
-              </div>
-              <div id="Patient-Columns">
-                <img src="images/portrait-3.png" style="width: 25%; height: 25%;">
-                <button type="button" class="btn btn-primary" onclick="openform('Popup_3')">
-                  Edit Patient
-                </button>
-              </div>
-              <div id = "Patient-Columns">
-                <img src="images/portrait-2.png" style="width: 25%; height: 25%;">
-                <button type="button" class="btn btn-primary" onclick="openform('Popup_2')">
-                  Select Patient
-                </button>
-              </div>
+
               <!-- Pop up Menu to add new patient to database -->
               <div id="Popup" class="popups">
-                <form action="php/add_patient.php" id= "form" method="get" name = "patient">
+                <div class="dropdown">
                 <img id="close" src="images/redX.png" onclick ="closeform('Popup')">
-                <button type= "button" style="float: right;" class="btn btn-primary" onclick="">Upload File</button>
-                <button type="submit" style="float: right;" class="btn btn-primary">Submit</button>
+                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">SELECT
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu dropdown-menu-right">
+                    <li ><a href="#" onclick="openform('Popup_3')">Upload File</a></li> 
+                    <li ><a href="#" onclick="checkForm('newpatientform')">Submit</a></li> 
+                  </ul>
+                </div>
+                <form action="php/add_patient.php" id= "newpatientform" method="get" name = "patient">
                 <h2 style="text-align: center;">New Patient Information</h2>
                 <input name="first_name" id= "form-input" placeholder="First Name" type="text">
                 <input name="last_name" id= "form-input" placeholder="Last Name" type="text">
@@ -117,6 +116,88 @@
                 <button type="button" class="btn btn-primary" id="hidden-button" onclick="loadPatient()">
                   Load Patient
                 </button>
+              </div>
+
+              <div id="Popup_3" class="popups">
+                <img id="close" src="images/redX.png" onclick ="closeform('Popup_3')">
+                <h4> Edit a Patient </h4>
+                <?php
+                  include 'php/connection.php';
+                  $sql = "SELECT id, first_name, last_name FROM patients";
+                  $result = mysqli_query($conn, $sql);
+                  if (mysqli_num_rows($result) > 0) {
+                    echo '<form><select id="forminput_3" name="users" onchange=""><option value="">Select a person:</option>';
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      echo  '<option value="' .$row["id"] . '">' . $row["first_name"] . ' ' . $row["last_name"] . '</option>';
+                    }
+                    echo '</select></form>';
+                  }
+                  else
+                  {
+                    echo "No patients found :(";
+                  }
+                ?>
+                <div id="editPatient" style="margin: 0 auto;">
+                </div>
+                <form>
+                <select id="forminput_2" name="query">
+                <option value="">Select a Category</option>
+                <option name="first_name" value="first_name">First Name</option>
+                <option name="last_name" value="last_name">Last Name</option>
+                <option name="description" value="description">Description</option>
+
+                <option name="R_125"value="R_125">Right ear max at 125Hz</option>
+                <option name="R_250"value="R_250">Right ear max at 250Hz</option>
+                <option name="R_500"value="R_500">Right ear max at 500Hz</option>
+                <option name="R_750"value="R_750">Right ear max at 750Hz</option>
+                <option name="R_1000"value="R_1000">Right ear max at 1000Hz</option>
+                <option name="R_1500"value="R_1500">Right ear max at 1500Hz</option>
+                <option name="R_2000"value="R_2000">Right ear max at 2000Hz</option>
+                <option name="R_3000"value="R_3000">Right ear max at 3000Hz</option>
+                <option name="R_4000"value="R_4000">Right ear max at 4000Hz</option>
+                <option name="R_6000"value="R_6000">Right ear max at 6000Hz</option>
+                <option name="R_8000"value="R_8000">Right ear max at 8000Hz</option>
+
+                <option name="L_125"value="L_125">Left ear max at 125Hz</option>
+                <option name="L_250"value="L_250">Left ear max at 250Hz</option>
+                <option name="L_500"value="L_500">Left ear max at 500Hz</option>
+                <option name="L_750"value="L_750">Left ear max at 750Hz</option>
+                <option name="L_1000"value="L_1000">Left ear max at 1000Hz</option>
+                <option name="L_1500"value="L_1500">Left ear max at 1500Hz</option>
+                <option name="L_2000"value="L_2000">Left ear max at 2000Hz</option>
+                <option name="L_3000"value="L_3000">Left ear max at 3000Hz</option>
+                <option name="L_4000"value="L_4000">Left ear max at 4000Hz</option>
+                <option name="L_6000"value="L_6000">Left ear max at 6000Hz</option>
+                <option name="L_8000"value="L_8000">Left ear max at 8000Hz</option>
+
+                <option name="BR_125"value="BR_125">Right ear bone max at 125Hz</option>
+                <option name="BR_250"value="BR_250">Right ear bone max at 250Hz</option>
+                <option name="BR_500"value="BR_500">Right ear bone max at 500Hz</option>
+                <option name="BR_750"value="BR_750">Right ear bone max at 750Hz</option>
+                <option name="BR_1000"value="BR_1000">Right ear bone max at 1000Hz</option>
+                <option name="BR_1500"value="BR_1500">Right ear bone max at 1500Hz</option>
+                <option name="BR_2000"value="BR_2000">Right ear bone max at 2000Hz</option>
+                <option name="BR_3000"value="BR_3000">Right ear bone max at 3000Hz</option>
+                <option name="BR_4000"value="BR_4000">Right ear bone max at 4000Hz</option>
+                <option name="BR_6000"value="BR_6000">Right ear bone max at 6000Hz</option>
+                <option name="BR_8000"value="BR_8000">Right ear bone max at 8000Hz</option>
+
+                <option name="BL_125"value="BL_125">Left ear bone max at 125Hz</option>
+                <option name="BL_250"value="BL_250">Left ear bone max at 250Hz</option>
+                <option name="BL_500"value="BL_500">Left ear bone max at 500Hz</option>
+                <option name="BL_750"value="BL_750">Left ear bone max at 750Hz</option>
+                <option name="BL_1000"value="BL_1000">Left ear bone max at 1000Hz</option>
+                <option name="BL_1500"value="BL_1500">Left ear bone max at 1500Hz</option>
+                <option name="BL_2000"value="BL_2000">Left ear bone max at 2000Hz</option>
+                <option name="BL_3000"value="BL_3000">Left ear bone max at 3000Hz</option>
+                <option name="BL_4000"value="BL_4000">Left ear bone max at 4000Hz</option>
+                <option name="BL_6000"value="BL_6000">Left ear bone max at 6000Hz</option>
+                <option name="BL_8000"value="BL_8000">Left ear bone max at 8000Hz</option>
+                </select>
+                <input name="editvalue" id= "editvalue" placeholder="Enter New Value" type="text">
+                <button class="btn btn-primary" onclick="editPatient()"> Edit Value </button>
+                </form>
+                <div id="temp"></div>
               </div>
 
             </div>
