@@ -1,5 +1,5 @@
 <?php
 	include "connection.php";
-	echo "fuck this";
+	echo "hello world";
 	exit;
 ?>

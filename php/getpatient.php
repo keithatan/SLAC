@@ -80,6 +80,7 @@ elseif ($q[1] == "all") {
 elseif ($count == 3) {
     $sql = "UPDATE `slac`.`patients` SET " .$q[1]. "='" .$q[2]. "'" . "WHERE id = '" .$id. "'";
     $result = mysqli_query($conn, $sql);
+    echo "hello";
     if (mysqli_query($conn, $sql)) {
         echo "it works";
     }
