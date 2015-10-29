@@ -114,10 +114,10 @@
                 <div class="oldSpan">
                   Transducer
                 </div>
-                <button id="Phone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Phone'); changeColor(this.id)">
+                <button id="Phone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Phone'); changeColor(this.id); clearButtonColors('Bone')">
                   Phone
                 </button>
-                <button id="Bone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Bone');changeColor(this.id)">
+                <button id="Bone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Bone');changeColor(this.id); clearButtonColors('Phone')">
                   Bone
                 </button>
                 <button class="btn btn-default" onclick="print_transducer('Transducer1', 'SPKR')" disabled>
@@ -134,11 +134,11 @@
               
               <!-- Left INTERRUPT/PRESENT buttons and slider -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-left bottom-left divider-right">
-                <button id="Interrupt" class="btn btn-default" onclick="changeColor(this.id)">
+                <button id="Interrupt" class="btn btn-default" onclick="changeColor(this.id);clearButtonColors('Present1')">
                   Interrupt
                 </button>
                 <input id="range1" type="range" step="5" min="0" max="130" value="0">
-                <button id="Present1" class="btn btn-default btn-long" onclick="sndplay();changeColor(this.id)">
+                <button id="Present1" class="btn btn-default btn-long" onclick="sndplay();changeColor(this.id); clearButtonColors('Interrupt')">
                   Present
                 </button>
               </div>
@@ -164,11 +164,11 @@
                 <div class="oldSpan">
                   Routing
                 </div>
-                <button id="Left" class="btn btn-default" onclick="print_routing('Routing1', 'Left'); changeColor(this.id)">
+                <button id="Left" class="btn btn-default" onclick="print_routing('Routing1', 'Left'); changeColor(this.id); clearButtonColors('Right')">
                   <!--Logic needed-->
                   Left
                 </button>
-                <button id="Right" class="btn btn-default" onclick="print_routing('Routing1', 'Right'); changeColor(this.id)">
+                <button id="Right" class="btn btn-default" onclick="print_routing('Routing1', 'Right'); changeColor(this.id), clearButtonColors('Left')">
                   Right
                 </button>
                 <button class="btn btn-default" onclick="print_routing('Routing1', 'Both')" disabled>
@@ -189,10 +189,10 @@
                 <div class="oldSpan">
                   Transducer
                 </div>
-                <button id="Phone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Phone'); changeColorBlue(this.id)">
+                <button id="Phone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Phone'); changeColorBlue(this.id); clearButtonColors('Bone2')">
                   Phone
                 </button>
-                <button id="Bone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Bone'); changeColorBlue(this.id)">
+                <button id="Bone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Bone'); changeColorBlue(this.id); clearButtonColors('Phone2')">
                   Bone
                 </button>
                 <button class="btn btn-default" onclick="print_transducer('Transducer2', 'SPKR')" disabled>
@@ -254,10 +254,10 @@
                 <div class="oldSpan">
                   Routing
                 </div>
-                <button id="Left2" class="btn btn-default" onclick="print_routing('Routing2', 'Left'); changeColorBlue(this.id)">
+                <button id="Left2" class="btn btn-default" onclick="print_routing('Routing2', 'Left'); changeColorBlue(this.id); clearButtonColors('Right2')">
                   Left
                 </button>
-                <button id="Right2" class="btn btn-default" onclick="print_routing('Routing2', 'Right'); changeColorBlue(this.id)">
+                <button id="Right2" class="btn btn-default" onclick="print_routing('Routing2', 'Right'); changeColorBlue(this.id); clearButtonColors('Left2')">
                   Right
                 </button>
                 <button class="btn btn-default" onclick="print_routing('Routing2', 'Both')"
@@ -284,11 +284,11 @@
               
               <!-- Right INTERRUPT/PRESENT buttons and slider -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-right bottom-right divider-left">
-                <button id="Interrupt2" class="btn btn-default" onclick="changeColorBlue(this.id)">
+                <button id="Interrupt2" class="btn btn-default" onclick="changeColorBlue(this.id); clearButtonColors('Present2')">
                   Interrupt
                 </button>
                 <input id="range2" type="range" step="5" min="0" max="130" value="0">
-                <button id="Present2" class="btn btn-default btn-long" onclick="sndplay();changeColorBlue(this.id)">
+                <button id="Present2" class="btn btn-default btn-long" onclick="sndplay();changeColorBlue(this.id);clearButtonColors('Interrupt2')">
                   Present
                 </button>
               </div>

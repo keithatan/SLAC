@@ -176,6 +176,16 @@ function changeColorBlue(clicked_id) {
     }
     
     console.log("Button color changed from " + oldColor + " to " + tmp.style.backgroundColor);
+    console.log("this.id is " + clicked_id);
+}
+
+//clear other buttons to make button colors mutually exclusive
+function clearButtonColors(button) {
+    var tmp = document.getElementById(button);
+    if (tmp.style.backgroundColor == blueButtonColor)
+        tmp.style.backgroundColor = defaultButtonColor;
+    else if (tmp.style.backgroundColor == redButtonColor)
+        tmp.style.backgroundColor = defaultButtonColor;
 }
 
 // Sleeps for a given time
