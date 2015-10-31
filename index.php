@@ -37,6 +37,7 @@
     <script src="javascript/audiogram.js"></script>
     <script src="javascript/ajax.js"></script>
     <script src="javascript/function.js"></script>
+    <script src="javascript/patient_simulation.js"></script>
     
     <!-- MAKES THE MODAL APPEAR ON WINDOW LOAD (OLD DESIGN)-->
     <!--<script type="text/javascript">

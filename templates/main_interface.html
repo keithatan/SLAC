@@ -35,6 +35,9 @@
         <div id="countdown" class="oldSpan">
           0:00
         </div>
+        <div id="result">
+        INVALID :(
+        </div>
       </div>
       
       <!-- Middle right header -->
@@ -138,7 +141,7 @@
                   Interrupt
                 </button>
                 <input id="range1" type="range" step="5" min="0" max="130" value="0">
-                <button id="Present1" class="btn btn-default btn-long" onclick="sndplay();changeColor(this.id); clearButtonColors('Interrupt')">
+                <button id="Present1" class="btn btn-default btn-long" onclick="sndplay();changeColor(this.id); clearButtonColors('Interrupt'); simulate()">
                   Present
                 </button>
               </div>
@@ -288,7 +291,7 @@
                   Interrupt
                 </button>
                 <input id="range2" type="range" step="5" min="0" max="130" value="0">
-                <button id="Present2" class="btn btn-default btn-long" onclick="sndplay();changeColorBlue(this.id);clearButtonColors('Interrupt2')">
+                <button id="Present2" class="btn btn-default btn-long" onclick="sndplay();changeColorBlue(this.id);clearButtonColors('Interrupt2'), simulate()">
                   Present
                 </button>
               </div>

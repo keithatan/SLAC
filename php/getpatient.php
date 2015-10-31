@@ -88,6 +88,5 @@ elseif ($count == 3) {
         echo "Error updating record: " . mysqli_error($conn);
     }
 }
-echo $count;
 mysqli_close($conn); 
 ?>
