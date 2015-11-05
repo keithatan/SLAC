@@ -47,54 +47,102 @@ var array = [ "first_name", "last_name", "description",
 
 function patient(arr)
 {
-	var i = 0;
+    var R = "R";
+    var L = "L";
+    var BR = "BR";
+    var BL = "BL";	
+    var i = 0;
 	this.first_name = arr[i++];
 	this.last_name = arr[i++];
 	this.description = arr[i++];
-	this.R_125 = arr[i++]; 
-    this.R_250 = arr[i++]; 
-    this.R_500 = arr[i++]; 
-    this.R_750 = arr[i++]; 
-    this.R_1000 = arr[i++]; 
-    this.R_1500 = arr[i++]; 
-    this.R_2000 = arr[i++]; 
-    this.R_3000 = arr[i++]; 
-    this.R_4000 = arr[i++]; 
-    this.R_6000 = arr[i++]; 
-    this.R_8000 = arr[i++]; 
-    this.L_125 = arr[i++]; 
-    this.L_250 = arr[i++]; 
-    this.L_500 = arr[i++]; 
-    this.L_750 = arr[i++]; 
-    this.L_1000 = arr[i++]; 
-    this.L_1500 = arr[i++]; 
-    this.L_2000 = arr[i++]; 
-    this.L_3000 = arr[i++]; 
-    this.L_4000 = arr[i++]; 
-    this.L_6000 = arr[i++]; 
-    this.L_8000 = arr[i++]; 
-    this.BR_125 = arr[i++]; 
-    this.BR_250 = arr[i++]; 
-    this.BR_500 = arr[i++]; 
-    this.BR_750 = arr[i++]; 
-    this.BR_1000 = arr[i++]; 
-    this.BR_1500 = arr[i++]; 
-    this.BR_2000 = arr[i++]; 
-    this.BR_3000 = arr[i++]; 
-    this.BR_4000 = arr[i++]; 
-    this.BR_6000 = arr[i++]; 
-    this.BR_8000 = arr[i++]; 
-    this.BL_125 = arr[i++]; 
-    this.BL_250 = arr[i++]; 
-    this.BL_500 = arr[i++]; 
-    this.BL_750 = arr[i++]; 
-    this.BL_1000 = arr[i++]; 
-    this.BL_1500 = arr[i++]; 
-    this.BL_2000 = arr[i++]; 
-    this.BL_3000 = arr[i++]; 
-    this.BL_4000 = arr[i++]; 
-    this.BL_6000 = arr[i++]; 
-    this.BL_8000 = arr[i++]; 
+	this.R_125 = [125, "R", arr[i++]]; 
+    this.R_250 = [250, "R", arr[i++]]; 
+    this.R_500 = [500, "R", arr[i++]]; 
+    this.R_750 = [750, "R", arr[i++]]; 
+    this.R_1000 = [1000, "R", arr[i++]]; 
+    this.R_1500 = [1500, "R", arr[i++]]; 
+    this.R_2000 = [2000, "R", arr[i++]]; 
+    this.R_3000 = [3000, "R", arr[i++]]; 
+    this.R_4000 = [4000, "R", arr[i++]]; 
+    this.R_6000 = [6000, "R", arr[i++]]; 
+    this.R_8000 = [8000, "R", arr[i++]]; 
+    this.L_125 = [125, "L", arr[i++]]; 
+    this.L_250 = [250, "L", arr[i++]]; 
+    this.L_500 = [500, "L", arr[i++]]; 
+    this.L_750 = [750, "L", arr[i++]]; 
+    this.L_1000 = [1000, "L", arr[i++]]; 
+    this.L_1500 = [1500, "L", arr[i++]]; 
+    this.L_2000 = [2000, "L", arr[i++]]; 
+    this.L_3000 = [3000, "L", arr[i++]]; 
+    this.L_4000 = [4000, "L", arr[i++]]; 
+    this.L_6000 = [6000, "L", arr[i++]]; 
+    this.L_8000 = [8000, "L", arr[i++]]; 
+    this.BR_125 = [125, "BR", arr[i++]]; 
+    this.BR_250 = [250, "BR", arr[i++]]; 
+    this.BR_500 = [500, "BR", arr[i++]]; 
+    this.BR_750 = [750, "BR", arr[i++]]; 
+    this.BR_1000 = [1000, "BR", arr[i++]]; 
+    this.BR_1500 = [1500, "BR", arr[i++]]; 
+    this.BR_2000 = [2000, "BR", arr[i++]]; 
+    this.BR_3000 = [3000, "BR", arr[i++]]; 
+    this.BR_4000 = [4000, "BR", arr[i++]]; 
+    this.BR_6000 = [6000, "BR", arr[i++]]; 
+    this.BR_8000 = [8000, "BR", arr[i++]]; 
+    this.BL_125 = [125, "BL", arr[i++]]; 
+    this.BL_250 = [250, "BL", arr[i++]]; 
+    this.BL_500 = [500, "BL", arr[i++]]; 
+    this.BL_750 = [750, "BL", arr[i++]]; 
+    this.BL_1000 = [1000, "BL", arr[i++]]; 
+    this.BL_1500 = [1500, "BL", arr[i++]]; 
+    this.BL_2000 = [2000, "BL", arr[i++]]; 
+    this.BL_3000 = [3000, "BL", arr[i++]]; 
+    this.BL_4000 = [4000, "BL", arr[i++]]; 
+    this.BL_6000 = [6000, "BL", arr[i++]]; 
+    this.BL_8000 = [8000, "BL", arr[i++]];
+    this.list = [ this.R_125,
+    this.R_250, 
+    this.R_500, 
+    this.R_750, 
+    this.R_1000, 
+    this.R_1500, 
+    this.R_2000, 
+    this.R_3000, 
+    this.R_4000, 
+    this.R_6000, 
+    this.R_8000, 
+    this.L_125, 
+    this.L_250, 
+    this.L_500, 
+    this.L_750, 
+    this.L_1000, 
+    this.L_1500, 
+    this.L_2000, 
+    this.L_3000, 
+    this.L_4000, 
+    this.L_6000, 
+    this.L_8000, 
+    this.BR_125, 
+    this.BR_250, 
+    this.BR_500, 
+    this.BR_750, 
+    this.BR_1000, 
+    this.BR_1500, 
+    this.BR_2000, 
+    this.BR_3000, 
+    this.BR_4000, 
+    this.BR_6000, 
+    this.BR_8000, 
+    this.BL_125, 
+    this.BL_250, 
+    this.BL_500, 
+    this.BL_750, 
+    this.BL_1000, 
+    this.BL_1500, 
+    this.BL_2000, 
+    this.BL_3000, 
+    this.BL_4000, 
+    this.BL_6000, 
+    this.BL_8000];
 }
 
 var PatientObject;
@@ -159,7 +207,9 @@ function simulate()
     var Transducer2 = document.getElementById("Transducer2").innerHTML.replace("Transducer: ","");
     var Routing1 = document.getElementById("Routing1").innerHTML.replace("Routing: ","");
     var Routing2 = document.getElementById("Routing2").innerHTML.replace("Routing: ","");
-    var Freq = document.getElementById("Freq").innerHTML.replace(" Hz", "");
+    var Freq = parseInt(document.getElementById("Freq").innerHTML.replace(" Hz", ""),10);
+    var dB1 = parseInt(document.getElementById("dB1").innerHTML.replace(" dB HL", ""),10);
+    var dB2 = parseInt(document.getElementById("dB2").innerHTML.replace(" dB HL", ""),10);
     var NB = (document.getElementById("NB").style.backgroundColor == on1);
     var NB2 = (document.getElementById("NB2").style.backgroundColor == on2);
 
@@ -168,6 +218,8 @@ function simulate()
     var off = "rgb(255, 255, 255)";
     var on1 = "rgb(255, 0, 0)";
     var on2 = "rgb(100, 149, 237)";
+    var key = "";
+    var dB = 0;
 
     document.getElementById("result").innerHTML = "INVALID :(";
 
@@ -226,11 +278,15 @@ function simulate()
             if (Routing1 == "Right") 
             {
                 //check right ear for bone response
+                key = "BR";
+                dB = dB1;
             }
 
             else if (Routing1 == "Left") 
             {
                 //check left ear for bone response
+                key = "BL";
+                dB = dB1;
             }
             else
             {
@@ -243,11 +299,15 @@ function simulate()
             if (Routing2 == "Right") 
             {
                 //check right ear for bone response
+                key = "BR";
+                dB = dB2;
             }
 
             else if (Routing2 == "Left") 
             {
                 //check left ear for bone response
+                key = "BL";
+                dB = dB2;
             }
             else
             {
@@ -260,11 +320,15 @@ function simulate()
             if (Routing1 == "Right") 
             {
                 //check right ear for phone response
+                key="R";
+                dB = dB1;
             }
 
             else if (Routing1 == "Left") 
             {
                 //check left ear for phone response
+                key = "L";
+                dB = dB1;
             }
             else
             {
@@ -277,11 +341,15 @@ function simulate()
             if (Routing2 == "Right") 
             {
                 //check right ear for phone response
+                key = "R";
+                dB = dB2;
             }
 
             else if (Routing2 == "Left") 
             {
                 //check left ear for response
+                key = "L";
+                dB = dB2;
             }
             else
             {
@@ -294,7 +362,14 @@ function simulate()
             return;
         }
     }
-    document.getElementById("result").innerHTML = "VALID!";
+
+    for (var i = 0; i < PatientObject.list.length; i++) 
+    {
+        if (PatientObject.list[i][1] == key && PatientObject.list[i][0] == Freq && PatientObject.list[i][2] >= dB) 
+        {
+            document.getElementById("result").innerHTML = "VALID!";
+        }
+    };
 /*    sleep(8000);
     if (Present1)
     {
