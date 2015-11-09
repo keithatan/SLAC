@@ -314,10 +314,14 @@ function simulate()
                 if (Routing1 == "Left" && Routing2 == "Right") 
                 {
                     //left ear is masked so check only right ear
+                    key = "BMR";
+                    db = dB2;
                 }
                 else if (Routing2 = "Left" && Routing1 == "Right") 
                 {
                     //right ear is masked so check only left ear
+                    key = "BML";
+                    db = dB2;
                 }
             }
             else if(!NB && NB2)
@@ -326,10 +330,14 @@ function simulate()
                 if (Routing1 == "Left" && Routing2 == "Right") 
                 {
                     //right ear is masked so check only left ear
+                    key = "BML";
+                    db = dB1;
                 }
                 else if (Routing2 = "Left" && Routing1 == "Right") 
                 {
                     //left ear is masked so check only right ear
+                    key = "BMR";
+                    db = dB1;
                 }
             }
         }
