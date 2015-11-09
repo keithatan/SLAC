@@ -213,6 +213,9 @@ function patient(arr)
 }
 
 var PatientObject;
+var off = "rgb(255, 255, 255)"; //button is off color code
+var on1 = "rgb(255, 0, 0)"; //left panel button is on color code
+var on2 = "rgb(100, 149, 237)"; // right panel button is on color code
 
 function sleep(milliseconds) {
   var start = new Date().getTime();
@@ -267,6 +270,13 @@ function currentPatient(arr){
     return
 }
 
+function clearPatient()
+{
+    PatientObject = undefined;
+    document.getElementById("CurrentPatient").innerHTML = "No Patient Selected";
+    return
+}
+
 function simulate()
 {
     var Stimulus1 = document.getElementById("Stimulus1").innerHTML.replace("Stimulus: ", "");
@@ -283,9 +293,9 @@ function simulate()
 
     var Present1 = 0;
     var Present2 = 0;
-    var off = "rgb(255, 255, 255)";
+    /*var off = "rgb(255, 255, 255)";
     var on1 = "rgb(255, 0, 0)";
-    var on2 = "rgb(100, 149, 237)";
+    var on2 = "rgb(100, 149, 237)";*/
     var key = "";
     var dB = 0;
 
@@ -300,6 +310,10 @@ function simulate()
         Present2 = 1;
     }
     if (!Present1 && !Present2) 
+    {
+        return;
+    }
+    if (PatientObject.list == undefined) 
     {
         return;
     }
@@ -456,4 +470,13 @@ function simulate()
         document.getElementById("Present2").style.backgroundColor = off;
     }*/
 
+}
+
+function reset()
+{
+    var temp = document.getElementsByClassName("btn-default");
+    for (var i = 0; i < temp.length; i++) {
+        temp[i].style.backgroundColor = off;
+    };
+    return
 }
