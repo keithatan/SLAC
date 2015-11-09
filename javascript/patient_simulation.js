@@ -43,7 +43,29 @@ var array = [ "first_name", "last_name", "description",
     "BL_3000",
     "BL_4000",
     "BL_6000",
-    "BL_8000"];
+    "BL_8000",
+    "BMR_125",
+    "BMR_250",
+    "BMR_500",
+    "BMR_750",
+    "BMR_1000",
+    "BMR_1500",
+    "BMR_2000",
+    "BMR_3000",
+    "BMR_4000",
+    "BMR_6000",
+    "BMR_8000",
+    "BML_125",
+    "BML_250",
+    "BML_500",
+    "BML_750",
+    "BML_1000",
+    "BML_1500",
+    "BML_2000",
+    "BML_3000",
+    "BML_4000",
+    "BML_6000",
+    "BML_8000"];
 
 function patient(arr)
 {
@@ -99,6 +121,29 @@ function patient(arr)
     this.BL_4000 = [4000, "BL", arr[i++]]; 
     this.BL_6000 = [6000, "BL", arr[i++]]; 
     this.BL_8000 = [8000, "BL", arr[i++]];
+    this.BMR_125 = [125, "BMR", arr[i++]]; 
+    this.BMR_250 = [250, "BMR", arr[i++]]; 
+    this.BMR_500 = [500, "BMR", arr[i++]]; 
+    this.BMR_750 = [750, "BMR", arr[i++]]; 
+    this.BMR_1000 = [1000, "BMR", arr[i++]]; 
+    this.BMR_1500 = [1500, "BMR", arr[i++]]; 
+    this.BMR_2000 = [2000, "BMR", arr[i++]]; 
+    this.BMR_3000 = [3000, "BMR", arr[i++]]; 
+    this.BMR_4000 = [4000, "BMR", arr[i++]]; 
+    this.BMR_6000 = [6000, "BMR", arr[i++]]; 
+    this.BMR_8000 = [8000, "BMR", arr[i++]]; 
+    this.BML_125 = [125, "BML", arr[i++]]; 
+    this.BML_250 = [250, "BML", arr[i++]]; 
+    this.BML_500 = [500, "BML", arr[i++]]; 
+    this.BML_750 = [750, "BML", arr[i++]]; 
+    this.BML_1000 = [1000, "BML", arr[i++]]; 
+    this.BML_1500 = [1500, "BML", arr[i++]]; 
+    this.BML_2000 = [2000, "BML", arr[i++]]; 
+    this.BML_3000 = [3000, "BML", arr[i++]]; 
+    this.BML_4000 = [4000, "BML", arr[i++]]; 
+    this.BML_6000 = [6000, "BML", arr[i++]]; 
+    this.BML_8000 = [8000, "BML", arr[i++]];
+
     this.list = [ this.R_125,
     this.R_250, 
     this.R_500, 
@@ -142,7 +187,29 @@ function patient(arr)
     this.BL_3000, 
     this.BL_4000, 
     this.BL_6000, 
-    this.BL_8000];
+    this.BL_8000,
+    this.BMR_125, 
+    this.BMR_250, 
+    this.BMR_500, 
+    this.BMR_750, 
+    this.BMR_1000, 
+    this.BMR_1500, 
+    this.BMR_2000, 
+    this.BMR_3000, 
+    this.BMR_4000, 
+    this.BMR_6000, 
+    this.BMR_8000, 
+    this.BML_125, 
+    this.BML_250, 
+    this.BML_500, 
+    this.BML_750, 
+    this.BML_1000, 
+    this.BML_1500, 
+    this.BML_2000, 
+    this.BML_3000, 
+    this.BML_4000, 
+    this.BML_6000, 
+    this.BML_8000];
 }
 
 var PatientObject;
@@ -194,6 +261,7 @@ function currentPatient(arr){
     PatientObject = new patient(arr);
     var string = "";
     string = PatientObject.first_name.concat(string);
+    string = string.concat(" ");
     string = string.concat(PatientObject.last_name);
     document.getElementById("CurrentPatient").innerHTML = string;
     return
