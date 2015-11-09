@@ -188,6 +188,19 @@ function clearButtonColors(button) {
         tmp.style.backgroundColor = defaultButtonColor;
 }
 
+//grey out nb when phone is clicked
+function disableNB(whichNB) {
+    console.log(typeof(whichNB));
+    document.getElementById(whichNB).disabled = true; 
+    //try {document.getElementById(whichNB).disabled = true;}
+    //catch (err) {console.log("damn");}
+}
+
+//ungrey out nb when phone is clicked
+function enableNB(whichNB) {
+    document.getElementById(whichNB).disabled = false;    
+}
+
 // Sleeps for a given time
 function sleep(milliseconds) {
     var start = new Date().getTime();

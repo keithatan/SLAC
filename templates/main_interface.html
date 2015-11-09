@@ -117,10 +117,10 @@
                 <div class="oldSpan">
                   Transducer
                 </div>
-                <button id="Phone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Phone'); changeColor(this.id); clearButtonColors('Bone')">
+                <button id="Phone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Phone'); changeColor(this.id); clearButtonColors('Bone'); clearButtonColors('NB'); disableNB('NB')">
                   Phone
                 </button>
-                <button id="Bone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Bone');changeColor(this.id); clearButtonColors('Phone')">
+                <button id="Bone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Bone');changeColor(this.id); clearButtonColors('Phone'); enableNB('NB')">
                   Bone
                 </button>
                 <button class="btn btn-default" onclick="print_transducer('Transducer1', 'SPKR')" disabled>
@@ -151,7 +151,7 @@
                 <div class="oldSpan">
                   Noise
                 </div>
-                <button id="NB" class="btn btn-default" onclick="changeColor(this.id)">
+                <button id="NB" class="btn btn-default" onclick="changeColor(this.id); clearButtonColors('Phone')">
                   NB
                 </button>
                 <button class="btn btn-default" disabled>
@@ -192,10 +192,10 @@
                 <div class="oldSpan">
                   Transducer
                 </div>
-                <button id="Phone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Phone'); changeColorBlue(this.id); clearButtonColors('Bone2')">
+                <button id="Phone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Phone'); changeColorBlue(this.id); clearButtonColors('Bone2'); clearButtonColors('NB2'); disableNB('NB2');">
                   Phone
                 </button>
-                <button id="Bone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Bone'); changeColorBlue(this.id); clearButtonColors('Phone2')">
+                <button id="Bone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Bone'); changeColorBlue(this.id); clearButtonColors('Phone2'); enableNB('NB2')">
                   Bone
                 </button>
                 <button class="btn btn-default" onclick="print_transducer('Transducer2', 'SPKR')" disabled>
@@ -274,7 +274,7 @@
                 <div class="oldSpan">
                   Noise
                 </div>
-                <button id="NB2" class="btn btn-default" onclick="changeColorBlue(this.id)">
+                <button id="NB2" class="btn btn-default" onclick="changeColorBlue(this.id); clearButtonColors('Phone2');">
                   NB
                 </button>
                 <button class="btn btn-default" disabled>
