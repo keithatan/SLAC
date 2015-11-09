@@ -145,71 +145,76 @@ function patient(arr)
     this.BML_8000 = [8000, "BML", arr[i++]];
 
     this.list = [ this.R_125,
-    this.R_250, 
-    this.R_500, 
-    this.R_750, 
-    this.R_1000, 
-    this.R_1500, 
-    this.R_2000, 
-    this.R_3000, 
-    this.R_4000, 
-    this.R_6000, 
-    this.R_8000, 
-    this.L_125, 
-    this.L_250, 
-    this.L_500, 
-    this.L_750, 
-    this.L_1000, 
-    this.L_1500, 
-    this.L_2000, 
-    this.L_3000, 
-    this.L_4000, 
-    this.L_6000, 
-    this.L_8000, 
-    this.BR_125, 
-    this.BR_250, 
-    this.BR_500, 
-    this.BR_750, 
-    this.BR_1000, 
-    this.BR_1500, 
-    this.BR_2000, 
-    this.BR_3000, 
-    this.BR_4000, 
-    this.BR_6000, 
-    this.BR_8000, 
-    this.BL_125, 
-    this.BL_250, 
-    this.BL_500, 
-    this.BL_750, 
-    this.BL_1000, 
-    this.BL_1500, 
-    this.BL_2000, 
-    this.BL_3000, 
-    this.BL_4000, 
-    this.BL_6000, 
-    this.BL_8000,
-    this.BMR_125, 
-    this.BMR_250, 
-    this.BMR_500, 
-    this.BMR_750, 
-    this.BMR_1000, 
-    this.BMR_1500, 
-    this.BMR_2000, 
-    this.BMR_3000, 
-    this.BMR_4000, 
-    this.BMR_6000, 
-    this.BMR_8000, 
-    this.BML_125, 
-    this.BML_250, 
-    this.BML_500, 
-    this.BML_750, 
-    this.BML_1000, 
-    this.BML_1500, 
-    this.BML_2000, 
-    this.BML_3000, 
-    this.BML_4000, 
-    this.BML_6000, 
-    this.BML_8000];
+        this.R_250, 
+        this.R_500, 
+        this.R_750, 
+        this.R_1000, 
+        this.R_1500, 
+        this.R_2000, 
+        this.R_3000, 
+        this.R_4000, 
+        this.R_6000, 
+        this.R_8000, 
+        this.L_125, 
+        this.L_250, 
+        this.L_500, 
+        this.L_750, 
+        this.L_1000, 
+        this.L_1500, 
+        this.L_2000, 
+        this.L_3000, 
+        this.L_4000, 
+        this.L_6000, 
+        this.L_8000, 
+        this.BR_125, 
+        this.BR_250, 
+        this.BR_500, 
+        this.BR_750, 
+        this.BR_1000, 
+        this.BR_1500, 
+        this.BR_2000, 
+        this.BR_3000, 
+        this.BR_4000, 
+        this.BR_6000, 
+        this.BR_8000, 
+        this.BL_125, 
+        this.BL_250, 
+        this.BL_500, 
+        this.BL_750, 
+        this.BL_1000, 
+        this.BL_1500, 
+        this.BL_2000, 
+        this.BL_3000, 
+        this.BL_4000, 
+        this.BL_6000, 
+        this.BL_8000,
+        this.BMR_125, 
+        this.BMR_250, 
+        this.BMR_500, 
+        this.BMR_750, 
+        this.BMR_1000, 
+        this.BMR_1500, 
+        this.BMR_2000, 
+        this.BMR_3000, 
+        this.BMR_4000, 
+        this.BMR_6000, 
+        this.BMR_8000, 
+        this.BML_125, 
+        this.BML_250, 
+        this.BML_500, 
+        this.BML_750, 
+        this.BML_1000, 
+        this.BML_1500, 
+        this.BML_2000, 
+        this.BML_3000, 
+        this.BML_4000, 
+        this.BML_6000, 
+        this.BML_8000];
+    for(var i = 0; i< this.list.length; i++)
+    {
+        this.list[i].push(Math.floor((Math.random() * 3) + 1));
+        this.list[i].push(1);
+    }
 }
 
 var PatientObject;
@@ -313,7 +318,7 @@ function simulate()
     {
         return;
     }
-    if (PatientObject.list == undefined) 
+    if (PatientObject == undefined) 
     {
         return;
     }
@@ -455,9 +460,18 @@ function simulate()
 
     for (var i = 0; i < PatientObject.list.length; i++) 
     {
-        if (PatientObject.list[i][1] == key && PatientObject.list[i][0] == Freq && PatientObject.list[i][2] >= dB) 
+        if (PatientObject.list[i][1] == key && PatientObject.list[i][0] == Freq) 
         {
-            document.getElementById("result").innerHTML = "VALID!";
+            if ((PatientObject.list[i][3] == PatientObject.list[i][4] % 3 + 1) && PatientObject.list[i][2] - 5 <= dB) 
+            {
+                PatientObject.list[i][4] += 1;
+                document.getElementById("result").innerHTML = "VALID!";
+            }
+            else if (PatientObject.list[i][2] >= dB) 
+            {
+                PatientObject.list[i][4] += 1;
+                document.getElementById("result").innerHTML = "VALID!";
+            }
         }
     };
 /*    sleep(8000);
