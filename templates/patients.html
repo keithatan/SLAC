@@ -8,6 +8,7 @@
                 <div class="container-fluid">
                   <div>
                     <ul class="nav navbar-nav">
+                      <li class="patient_option"><a href="templates/login.php" onclick="">Login/Register</a></li>
                       <li class="patient_option"><a href="#" onclick="openform('Popup')">Add Patient</a></li>
                       <li class="patient_option"><a href="#" onclick="openform('Popup_3')">Edit Patient</a></li> 
                       <li class="patient_option"><a href="#" onclick="openform('Popup_2')">Select Patient</a></li>
@@ -21,7 +22,6 @@
             <div class="Patient_col_middle">
               <img src="images/portrait-4.png" style="width: 25%; height=25%;">
             </div>
-
             <div class="Patient_col_middle" style="display: block;" id="CurrentPatient">No Patient Selected</div>
 
             <div class="snap-drawer-left">
@@ -30,91 +30,107 @@
               <div id="Popup" class="popups">
                 <div class="dropdown">
                 <img id="close" src="images/redX.png" onclick ="closeform('Popup')">
-                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">SELECT
+                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: auto">Select Input Method
                   <span class="caret"></span></button>
                   <ul class="dropdown-menu dropdown-menu-right">
-                    <li ><a href="#" onclick="location.href='templates/responses.php';">Upload File</a></li> 
+                    <li ><a href="#" onclick="openform('patientform'); closeform('presetform');">Use Form</a></li> 
+                    <li><a href="#" onclick="openform('presetform'); closeform('patientform');">Use Presets</a></li>
+                    <li><a href="#" onclick="">Upload File</li>
                     <li ><a href="#" onclick="checkForm('newpatientform')">Submit</a></li> 
                   </ul>
                 </div>
-                <form action="php/add_patient.php" id= "newpatientform" method="get" name = "patient">
-                <h2 style="text-align: center;">New Patient Information</h2>
-                <input name="first_name" id= "form-input" placeholder="First Name" type="text">
-                <input name="last_name" id= "form-input" placeholder="Last Name" type="text">
-                <input name="description" id= "form-input" placeholder="Description" type="text">
-
-                <input name="R_125" id= "form-input" placeholder="Right ear max at 125Hz" type="text">
-                <input name="R_250" id= "form-input" placeholder="Right ear max at 250Hz" type="text">
-                <input name="R_500" id= "form-input" placeholder="Right ear max at 500Hz" type="text">
-                <input name="R_750" id= "form-input" placeholder="Right ear max at 750Hz" type="text">
-                <input name="R_1000" id= "form-input" placeholder="Right ear max at 1000Hz" type="text">
-                <input name="R_1500" id= "form-input" placeholder="Right ear max at 1500Hz" type="text">
-                <input name="R_2000" id= "form-input" placeholder="Right ear max at 2000Hz" type="text">
-                <input name="R_3000" id= "form-input" placeholder="Right ear max at 3000Hz" type="text">
-                <input name="R_4000" id= "form-input" placeholder="Right ear max at 4000Hz" type="text">
-                <input name="R_6000" id= "form-input" placeholder="Right ear max at 6000Hz" type="text">
-                <input name="R_8000" id= "form-input" placeholder="Right ear max at 8000Hz" type="text">
-
-                <input name="L_125" id= "form-input" placeholder="Left ear max at 125Hz" type="text">
-                <input name="L_250" id= "form-input" placeholder="Left ear max at 250Hz" type="text">
-                <input name="L_500" id= "form-input" placeholder="Left ear max at 500Hz" type="text">
-                <input name="L_750" id= "form-input" placeholder="Left ear max at 750Hz" type="text">
-                <input name="L_1000" id= "form-input" placeholder="Left ear max at 1000Hz" type="text">
-                <input name="L_1500" id= "form-input" placeholder="Left ear max at 1500Hz" type="text">
-                <input name="L_2000" id= "form-input" placeholder="Left ear max at 2000Hz" type="text">
-                <input name="L_3000" id= "form-input" placeholder="Left ear max at 3000Hz" type="text">
-                <input name="L_4000" id= "form-input" placeholder="Left ear max at 4000Hz" type="text">
-                <input name="L_6000" id= "form-input" placeholder="Left ear max at 6000Hz" type="text">
-                <input name="L_8000" id= "form-input" placeholder="Left ear max at 8000Hz" type="text">
-
-                <input name="BR_125" id= "form-input" placeholder="Right ear bone max at 125Hz" type="text">
-                <input name="BR_250" id= "form-input" placeholder="Right ear bone max at 250Hz" type="text">
-                <input name="BR_500" id= "form-input" placeholder="Right ear bone max at 500Hz" type="text">
-                <input name="BR_750" id= "form-input" placeholder="Right ear bone max at 750Hz" type="text">
-                <input name="BR_1000" id= "form-input" placeholder="Right ear bone max at 1000Hz" type="text">
-                <input name="BR_1500" id= "form-input" placeholder="Right ear bone max at 1500Hz" type="text">
-                <input name="BR_2000" id= "form-input" placeholder="Right ear bone max at 2000Hz" type="text">
-                <input name="BR_3000" id= "form-input" placeholder="Right ear bone max at 3000Hz" type="text">
-                <input name="BR_4000" id= "form-input" placeholder="Right ear bone max at 4000Hz" type="text">
-                <input name="BR_6000" id= "form-input" placeholder="Right ear bone max at 6000Hz" type="text">
-                <input name="BR_8000" id= "form-input" placeholder="Right ear bone max at 8000Hz" type="text">
-
-                <input name="BL_125" id= "form-input" placeholder="Left ear bone max at 125Hz" type="text">
-                <input name="BL_250" id= "form-input" placeholder="Left ear bone max at 250Hz" type="text">
-                <input name="BL_500" id= "form-input" placeholder="Left ear bone max at 500Hz" type="text">
-                <input name="BL_750" id= "form-input" placeholder="Left ear bone max at 750Hz" type="text">
-                <input name="BL_1000" id= "form-input" placeholder="Left ear bone max at 1000Hz" type="text">
-                <input name="BL_1500" id= "form-input" placeholder="Left ear bone max at 1500Hz" type="text">
-                <input name="BL_2000" id= "form-input" placeholder="Left ear bone max at 2000Hz" type="text">
-                <input name="BL_3000" id= "form-input" placeholder="Left ear bone max at 3000Hz" type="text">
-                <input name="BL_4000" id= "form-input" placeholder="Left ear bone max at 4000Hz" type="text">
-                <input name="BL_6000" id= "form-input" placeholder="Left ear bone max at 6000Hz" type="text">
-                <input name="BL_8000" id= "form-input" placeholder="Left ear bone max at 8000Hz" type="text">
-
-                <input name="BMR_125" id= "form-input" placeholder="Right ear masked bone max at 125Hz" type="text">
-                <input name="BMR_250" id= "form-input" placeholder="Right ear masked bone max at 250Hz" type="text">
-                <input name="BMR_500" id= "form-input" placeholder="Right ear masked bone max at 500Hz" type="text">
-                <input name="BMR_750" id= "form-input" placeholder="Right ear masked bone max at 750Hz" type="text">
-                <input name="BMR_1000" id= "form-input" placeholder="Right ear masked bone max at 1000Hz" type="text">
-                <input name="BMR_1500" id= "form-input" placeholder="Right ear masked bone max at 1500Hz" type="text">
-                <input name="BMR_2000" id= "form-input" placeholder="Right ear masked bone max at 2000Hz" type="text">
-                <input name="BMR_3000" id= "form-input" placeholder="Right ear masked bone max at 3000Hz" type="text">
-                <input name="BMR_4000" id= "form-input" placeholder="Right ear masked bone max at 4000Hz" type="text">
-                <input name="BMR_6000" id= "form-input" placeholder="Right ear masked bone max at 6000Hz" type="text">
-                <input name="BMR_8000" id= "form-input" placeholder="Right ear masked bone max at 8000Hz" type="text">
-                
-                <input name="BML_125" id= "form-input" placeholder="Left ear masked bone max at 125Hz" type="text">
-                <input name="BML_250" id= "form-input" placeholder="Left ear masked bone max at 250Hz" type="text">
-                <input name="BML_500" id= "form-input" placeholder="Left ear masked bone max at 500Hz" type="text">
-                <input name="BML_750" id= "form-input" placeholder="Left ear masked bone max at 750Hz" type="text">
-                <input name="BML_1000" id= "form-input" placeholder="Left ear masked bone max at 1000Hz" type="text">
-                <input name="BML_1500" id= "form-input" placeholder="Left ear masked bone max at 1500Hz" type="text">
-                <input name="BML_2000" id= "form-input" placeholder="Left ear masked bone max at 2000Hz" type="text">
-                <input name="BML_3000" id= "form-input" placeholder="Left ear masked bone max at 3000Hz" type="text">
-                <input name="BML_4000" id= "form-input" placeholder="Left ear masked bone max at 4000Hz" type="text">
-                <input name="BML_6000" id= "form-input" placeholder="Left ear masked bone max at 6000Hz" type="text">
-                <input name="BML_8000" id= "form-input" placeholder="Left ear masked bone max at 8000Hz" type="text">
+                <form id="presetform" style="display: none">
+                  <h4>Choose a Preset</h4>
+                  <select id="presetPatients" onchange = "fillForm(this.value)" class="select-form" method="get" name = "presets">
+                  <option value="">Select a Preset</option>
+                  <option value="Normal Hearing">Normal Hearing</option>
+                  <option value="Hearing Loss">Hearing Loss</option>
+                  <option value="Left Ear Bone">Left Ear Bone</option>
+                  <option value="Right Ear Bone">Right Ear Bone</option>
+                  <option value="No High Frequencies">No High Frequencies</option>
+                  </select>
+                  <h1 id="presetNotification" class = "display-patient"></h1>
                 </form>
+                <div id ='patientform' style="display: none">
+                  <form action="php/add_patient.php" id= "newpatientform" method="get" name = "patient">
+                    <h2 style="text-align: center;">New Patient Information</h2>
+                    <input name="first_name" id= "form-input" placeholder="First Name" type="text">
+                    <input name="last_name" id= "form-input" placeholder="Last Name" type="text">
+                    <input name="description" id= "form-input" placeholder="Description" type="text">
+
+                    <input name="R_125" id= "form-input" placeholder="Right ear max at 125Hz" type="text">
+                    <input name="R_250" id= "form-input" placeholder="Right ear max at 250Hz" type="text">
+                    <input name="R_500" id= "form-input" placeholder="Right ear max at 500Hz" type="text">
+                    <input name="R_750" id= "form-input" placeholder="Right ear max at 750Hz" type="text">
+                    <input name="R_1000" id= "form-input" placeholder="Right ear max at 1000Hz" type="text">
+                    <input name="R_1500" id= "form-input" placeholder="Right ear max at 1500Hz" type="text">
+                    <input name="R_2000" id= "form-input" placeholder="Right ear max at 2000Hz" type="text">
+                    <input name="R_3000" id= "form-input" placeholder="Right ear max at 3000Hz" type="text">
+                    <input name="R_4000" id= "form-input" placeholder="Right ear max at 4000Hz" type="text">
+                    <input name="R_6000" id= "form-input" placeholder="Right ear max at 6000Hz" type="text">
+                    <input name="R_8000" id= "form-input" placeholder="Right ear max at 8000Hz" type="text">
+
+                    <input name="L_125" id= "form-input" placeholder="Left ear max at 125Hz" type="text">
+                    <input name="L_250" id= "form-input" placeholder="Left ear max at 250Hz" type="text">
+                    <input name="L_500" id= "form-input" placeholder="Left ear max at 500Hz" type="text">
+                    <input name="L_750" id= "form-input" placeholder="Left ear max at 750Hz" type="text">
+                    <input name="L_1000" id= "form-input" placeholder="Left ear max at 1000Hz" type="text">
+                    <input name="L_1500" id= "form-input" placeholder="Left ear max at 1500Hz" type="text">
+                    <input name="L_2000" id= "form-input" placeholder="Left ear max at 2000Hz" type="text">
+                    <input name="L_3000" id= "form-input" placeholder="Left ear max at 3000Hz" type="text">
+                    <input name="L_4000" id= "form-input" placeholder="Left ear max at 4000Hz" type="text">
+                    <input name="L_6000" id= "form-input" placeholder="Left ear max at 6000Hz" type="text">
+                    <input name="L_8000" id= "form-input" placeholder="Left ear max at 8000Hz" type="text">
+
+                    <input name="BR_125" id= "form-input" placeholder="Right ear bone max at 125Hz" type="text">
+                    <input name="BR_250" id= "form-input" placeholder="Right ear bone max at 250Hz" type="text">
+                    <input name="BR_500" id= "form-input" placeholder="Right ear bone max at 500Hz" type="text">
+                    <input name="BR_750" id= "form-input" placeholder="Right ear bone max at 750Hz" type="text">
+                    <input name="BR_1000" id= "form-input" placeholder="Right ear bone max at 1000Hz" type="text">
+                    <input name="BR_1500" id= "form-input" placeholder="Right ear bone max at 1500Hz" type="text">
+                    <input name="BR_2000" id= "form-input" placeholder="Right ear bone max at 2000Hz" type="text">
+                    <input name="BR_3000" id= "form-input" placeholder="Right ear bone max at 3000Hz" type="text">
+                    <input name="BR_4000" id= "form-input" placeholder="Right ear bone max at 4000Hz" type="text">
+                    <input name="BR_6000" id= "form-input" placeholder="Right ear bone max at 6000Hz" type="text">
+                    <input name="BR_8000" id= "form-input" placeholder="Right ear bone max at 8000Hz" type="text">
+
+                    <input name="BL_125" id= "form-input" placeholder="Left ear bone max at 125Hz" type="text">
+                    <input name="BL_250" id= "form-input" placeholder="Left ear bone max at 250Hz" type="text">
+                    <input name="BL_500" id= "form-input" placeholder="Left ear bone max at 500Hz" type="text">
+                    <input name="BL_750" id= "form-input" placeholder="Left ear bone max at 750Hz" type="text">
+                    <input name="BL_1000" id= "form-input" placeholder="Left ear bone max at 1000Hz" type="text">
+                    <input name="BL_1500" id= "form-input" placeholder="Left ear bone max at 1500Hz" type="text">
+                    <input name="BL_2000" id= "form-input" placeholder="Left ear bone max at 2000Hz" type="text">
+                    <input name="BL_3000" id= "form-input" placeholder="Left ear bone max at 3000Hz" type="text">
+                    <input name="BL_4000" id= "form-input" placeholder="Left ear bone max at 4000Hz" type="text">
+                    <input name="BL_6000" id= "form-input" placeholder="Left ear bone max at 6000Hz" type="text">
+                    <input name="BL_8000" id= "form-input" placeholder="Left ear bone max at 8000Hz" type="text">
+
+                    <input name="BMR_125" id= "form-input" placeholder="Right ear masked bone max at 125Hz" type="text">
+                    <input name="BMR_250" id= "form-input" placeholder="Right ear masked bone max at 250Hz" type="text">
+                    <input name="BMR_500" id= "form-input" placeholder="Right ear masked bone max at 500Hz" type="text">
+                    <input name="BMR_750" id= "form-input" placeholder="Right ear masked bone max at 750Hz" type="text">
+                    <input name="BMR_1000" id= "form-input" placeholder="Right ear masked bone max at 1000Hz" type="text">
+                    <input name="BMR_1500" id= "form-input" placeholder="Right ear masked bone max at 1500Hz" type="text">
+                    <input name="BMR_2000" id= "form-input" placeholder="Right ear masked bone max at 2000Hz" type="text">
+                    <input name="BMR_3000" id= "form-input" placeholder="Right ear masked bone max at 3000Hz" type="text">
+                    <input name="BMR_4000" id= "form-input" placeholder="Right ear masked bone max at 4000Hz" type="text">
+                    <input name="BMR_6000" id= "form-input" placeholder="Right ear masked bone max at 6000Hz" type="text">
+                    <input name="BMR_8000" id= "form-input" placeholder="Right ear masked bone max at 8000Hz" type="text">
+                    
+                    <input name="BML_125" id= "form-input" placeholder="Left ear masked bone max at 125Hz" type="text">
+                    <input name="BML_250" id= "form-input" placeholder="Left ear masked bone max at 250Hz" type="text">
+                    <input name="BML_500" id= "form-input" placeholder="Left ear masked bone max at 500Hz" type="text">
+                    <input name="BML_750" id= "form-input" placeholder="Left ear masked bone max at 750Hz" type="text">
+                    <input name="BML_1000" id= "form-input" placeholder="Left ear masked bone max at 1000Hz" type="text">
+                    <input name="BML_1500" id= "form-input" placeholder="Left ear masked bone max at 1500Hz" type="text">
+                    <input name="BML_2000" id= "form-input" placeholder="Left ear masked bone max at 2000Hz" type="text">
+                    <input name="BML_3000" id= "form-input" placeholder="Left ear masked bone max at 3000Hz" type="text">
+                    <input name="BML_4000" id= "form-input" placeholder="Left ear masked bone max at 4000Hz" type="text">
+                    <input name="BML_6000" id= "form-input" placeholder="Left ear masked bone max at 6000Hz" type="text">
+                    <input name="BML_8000" id= "form-input" placeholder="Left ear masked bone max at 8000Hz" type="text">
+                  </form>
+                </div>
               </div>
 
               <div id="Popup_2" class="popups">
@@ -138,7 +154,7 @@
                 ?>
                 <div id="selectPatient">
                 </div>
-                <button type="button" class="btn btn-primary" id="hidden-button" onclick="loadPatient()">
+                <button type="button" class="btn btn-default" style="width: auto" id="hidden-button" onclick="loadPatient()">
                   Load Patient
                 </button>
               </div>
@@ -244,10 +260,9 @@
                 <option name="BML_8000"value="BML_8000">Left ear masked bone max at 8000Hz</option>
                 </select>
                 <input name="editvalue" id= "editvalue" placeholder="Enter New Value" type="text">
-                <button class="btn btn-primary" onclick="editPatient()"> Edit Value </button>
+                <button class="btn btn-default" style="width: auto" onclick="editPatient()"> Edit Value </button>
                 </form>
               </div>
-
             </div>
           </div>
         </div>

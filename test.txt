@@ -1,0 +1,4 @@
+Deprecated files:
+ajax.js
+patients.js
+select_all.php

@@ -467,7 +467,7 @@ function simulate()
                 PatientObject.list[i][4] += 1;
                 document.getElementById("result").innerHTML = "VALID!";
             }
-            else if (PatientObject.list[i][2] >= dB) 
+            else if (PatientObject.list[i][2] <= dB) 
             {
                 PatientObject.list[i][4] += 1;
                 document.getElementById("result").innerHTML = "VALID!";

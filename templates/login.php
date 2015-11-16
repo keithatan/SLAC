@@ -47,57 +47,8 @@
       });
     </script>-->
   </head>
-
-  <!-- Connect to database -->
-
-  <?php
-    include 'php/connection.php';
-  ?>
-  
-  <body>
-    <!-- Popup for test type selection (OLD DESIGN) -->
-    <!-- <div class="modal fade" id="choosePatientType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">
-              <span aria-hidden="true">&times;</span>
-              <span class="sr-only">
-                Close
-              </span>
-            </button>
-            &nbsp
-          </div>
-          <div class="modal-body">
-            <button type="button" class="btn btn-primary patientOptionPractice" data-toggle="btn" aria-pressed="false" autocomplete="false">
-              Practice Test
-            </button>
-            Name: <input type = "text" id = "name">
-            <input type ="submit" id ="name-submit" value ="Get Patient Info.">
-            
-            <button type="button" class="btn btn-primary patientOptionReal" data-toggle="btn" aria-pressed="false" autocomplete="false">
-              Real Test
-            </button>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!--left snap-->
-    <?php include("templates/patients.html"); ?>
-
-    <!--right snap-->
-    <?php include("templates/plotting.html"); ?>
-
-    <!--main interface-->
-    <?php include("templates/main_interface.html"); ?>
-      
-  </body>
-  <!-- Global reference (variables shared between .js files)-->
-  <script src="js/global.js"></script>
-</html>
+<div class ="snap-content"></div>
+Hello Word
+<button onclick="location.href='/SLAC/index.php'"> 
+	Click me
+</button>

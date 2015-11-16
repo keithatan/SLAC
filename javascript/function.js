@@ -124,3 +124,6 @@ function editPatient()
 		xmlhttp.send();
 	}
 }
+
+
+
