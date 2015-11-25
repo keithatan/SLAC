@@ -560,3 +560,29 @@ overflow:auto
     bottom: 0;
     width: 100%;
 }
+
+.modal-content {
+    background-color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:16px;
+    color: black;
+}
+
+.modal-header {
+    background-color: white;
+    border-radius: 6px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:24px;
+    color:black;
+ }
+
+ .modal-footer {
+    background-color: white;
+    color: black;
+ }
+
+textarea {
+    resize: none;
+}
