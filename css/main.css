@@ -430,6 +430,18 @@ overflow:auto
     border-bottom-style: solid;
     border-bottom-color: #333333;
 }
+
+.select-form{
+    position: relative;
+    display: block;
+    margin : 0 auto;
+    text-align: center;
+    width: 85%;
+    background-color: #333333;
+    color: rgb(255,255,255);
+    font-size: 12px;
+}
+
 /************/
 /* ID RULES */
 /************/
@@ -541,4 +553,10 @@ overflow:auto
   margin-end: 0;
   font-weight: bold;
   color: black;
+}
+
+#login div {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

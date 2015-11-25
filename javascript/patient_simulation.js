@@ -145,74 +145,82 @@ function patient(arr)
     this.BML_8000 = [8000, "BML", arr[i++]];
 
     this.list = [ this.R_125,
-    this.R_250, 
-    this.R_500, 
-    this.R_750, 
-    this.R_1000, 
-    this.R_1500, 
-    this.R_2000, 
-    this.R_3000, 
-    this.R_4000, 
-    this.R_6000, 
-    this.R_8000, 
-    this.L_125, 
-    this.L_250, 
-    this.L_500, 
-    this.L_750, 
-    this.L_1000, 
-    this.L_1500, 
-    this.L_2000, 
-    this.L_3000, 
-    this.L_4000, 
-    this.L_6000, 
-    this.L_8000, 
-    this.BR_125, 
-    this.BR_250, 
-    this.BR_500, 
-    this.BR_750, 
-    this.BR_1000, 
-    this.BR_1500, 
-    this.BR_2000, 
-    this.BR_3000, 
-    this.BR_4000, 
-    this.BR_6000, 
-    this.BR_8000, 
-    this.BL_125, 
-    this.BL_250, 
-    this.BL_500, 
-    this.BL_750, 
-    this.BL_1000, 
-    this.BL_1500, 
-    this.BL_2000, 
-    this.BL_3000, 
-    this.BL_4000, 
-    this.BL_6000, 
-    this.BL_8000,
-    this.BMR_125, 
-    this.BMR_250, 
-    this.BMR_500, 
-    this.BMR_750, 
-    this.BMR_1000, 
-    this.BMR_1500, 
-    this.BMR_2000, 
-    this.BMR_3000, 
-    this.BMR_4000, 
-    this.BMR_6000, 
-    this.BMR_8000, 
-    this.BML_125, 
-    this.BML_250, 
-    this.BML_500, 
-    this.BML_750, 
-    this.BML_1000, 
-    this.BML_1500, 
-    this.BML_2000, 
-    this.BML_3000, 
-    this.BML_4000, 
-    this.BML_6000, 
-    this.BML_8000];
+        this.R_250, 
+        this.R_500, 
+        this.R_750, 
+        this.R_1000, 
+        this.R_1500, 
+        this.R_2000, 
+        this.R_3000, 
+        this.R_4000, 
+        this.R_6000, 
+        this.R_8000, 
+        this.L_125, 
+        this.L_250, 
+        this.L_500, 
+        this.L_750, 
+        this.L_1000, 
+        this.L_1500, 
+        this.L_2000, 
+        this.L_3000, 
+        this.L_4000, 
+        this.L_6000, 
+        this.L_8000, 
+        this.BR_125, 
+        this.BR_250, 
+        this.BR_500, 
+        this.BR_750, 
+        this.BR_1000, 
+        this.BR_1500, 
+        this.BR_2000, 
+        this.BR_3000, 
+        this.BR_4000, 
+        this.BR_6000, 
+        this.BR_8000, 
+        this.BL_125, 
+        this.BL_250, 
+        this.BL_500, 
+        this.BL_750, 
+        this.BL_1000, 
+        this.BL_1500, 
+        this.BL_2000, 
+        this.BL_3000, 
+        this.BL_4000, 
+        this.BL_6000, 
+        this.BL_8000,
+        this.BMR_125, 
+        this.BMR_250, 
+        this.BMR_500, 
+        this.BMR_750, 
+        this.BMR_1000, 
+        this.BMR_1500, 
+        this.BMR_2000, 
+        this.BMR_3000, 
+        this.BMR_4000, 
+        this.BMR_6000, 
+        this.BMR_8000, 
+        this.BML_125, 
+        this.BML_250, 
+        this.BML_500, 
+        this.BML_750, 
+        this.BML_1000, 
+        this.BML_1500, 
+        this.BML_2000, 
+        this.BML_3000, 
+        this.BML_4000, 
+        this.BML_6000, 
+        this.BML_8000];
+    for(var i = 0; i< this.list.length; i++)
+    {
+        this.list[i].push(Math.floor((Math.random() * 3) + 1));
+        this.list[i].push(1);
+    }
 }
 
 var PatientObject;
+var off = "rgb(255, 255, 255)"; //button is off color code
+var on1 = "rgb(255, 0, 0)"; //left panel button is on color code
+var on2 = "rgb(100, 149, 237)"; // right panel button is on color code
 
 function sleep(milliseconds) {
   var start = new Date().getTime();
@@ -267,6 +275,13 @@ function currentPatient(arr){
     return
 }
 
+function clearPatient()
+{
+    PatientObject = undefined;
+    document.getElementById("CurrentPatient").innerHTML = "No Patient Selected";
+    return
+}
+
 function simulate()
 {
     var Stimulus1 = document.getElementById("Stimulus1").innerHTML.replace("Stimulus: ", "");
@@ -283,9 +298,9 @@ function simulate()
 
     var Present1 = 0;
     var Present2 = 0;
-    var off = "rgb(255, 255, 255)";
+    /*var off = "rgb(255, 255, 255)";
     var on1 = "rgb(255, 0, 0)";
-    var on2 = "rgb(100, 149, 237)";
+    var on2 = "rgb(100, 149, 237)";*/
     var key = "";
     var dB = 0;
 
@@ -303,6 +318,10 @@ function simulate()
     {
         return;
     }
+    if (PatientObject == undefined) 
+    {
+        return;
+    }
 
     if (Present1 && Present2) 
     {
@@ -314,10 +333,14 @@ function simulate()
                 if (Routing1 == "Left" && Routing2 == "Right") 
                 {
                     //left ear is masked so check only right ear
+                    key = "BMR";
+                    db = dB2;
                 }
                 else if (Routing2 = "Left" && Routing1 == "Right") 
                 {
                     //right ear is masked so check only left ear
+                    key = "BML";
+                    db = dB2;
                 }
             }
             else if(!NB && NB2)
@@ -326,10 +349,14 @@ function simulate()
                 if (Routing1 == "Left" && Routing2 == "Right") 
                 {
                     //right ear is masked so check only left ear
+                    key = "BML";
+                    db = dB1;
                 }
                 else if (Routing2 = "Left" && Routing1 == "Right") 
                 {
                     //left ear is masked so check only right ear
+                    key = "BMR";
+                    db = dB1;
                 }
             }
         }
@@ -433,9 +460,18 @@ function simulate()
 
     for (var i = 0; i < PatientObject.list.length; i++) 
     {
-        if (PatientObject.list[i][1] == key && PatientObject.list[i][0] == Freq && PatientObject.list[i][2] >= dB) 
+        if (PatientObject.list[i][1] == key && PatientObject.list[i][0] == Freq) 
         {
-            document.getElementById("result").innerHTML = "VALID!";
+            if ((PatientObject.list[i][3] == PatientObject.list[i][4] % 3 + 1) && PatientObject.list[i][2] - 5 <= dB) 
+            {
+                PatientObject.list[i][4] += 1;
+                document.getElementById("result").innerHTML = "VALID!";
+            }
+            else if (PatientObject.list[i][2] <= dB) 
+            {
+                PatientObject.list[i][4] += 1;
+                document.getElementById("result").innerHTML = "VALID!";
+            }
         }
     };
 /*    sleep(8000);
@@ -448,4 +484,13 @@ function simulate()
         document.getElementById("Present2").style.backgroundColor = off;
     }*/
 
+}
+
+function reset()
+{
+    var temp = document.getElementsByClassName("btn-default");
+    for (var i = 0; i < temp.length; i++) {
+        temp[i].style.backgroundColor = off;
+    };
+    return
 }

@@ -39,6 +39,7 @@
     <script src="javascript/ajax.js"></script>
     <script src="javascript/function.js"></script>
     <script src="javascript/patient_simulation.js"></script>
+    <script src="javascript/preset_patients.js"></script>
     
     <!-- MAKES THE MODAL APPEAR ON WINDOW LOAD (OLD DESIGN)-->
     <!--<script type="text/javascript">

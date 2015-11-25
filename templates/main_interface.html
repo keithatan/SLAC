@@ -117,10 +117,10 @@
                 <div class="oldSpan">
                   Transducer
                 </div>
-                <button id="Phone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Phone'); changeColor(this.id); clearButtonColors('Bone'); clearButtonColors('NB'); disableNB('NB')">
+                <button id="Phone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Phone'); changeColor(this.id); clearButtonColors('Bone')">
                   Phone
                 </button>
-                <button id="Bone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Bone');changeColor(this.id); clearButtonColors('Phone'); enableNB('NB')">
+                <button id="Bone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Bone');changeColor(this.id); clearButtonColors('Phone')">
                   Bone
                 </button>
                 <button class="btn btn-default" onclick="print_transducer('Transducer1', 'SPKR')" disabled>
@@ -141,7 +141,7 @@
                   Interrupt
                 </button>
                 <input id="range1" type="range" step="5" min="0" max="130" value="0">
-                <button id="Present1" class="btn btn-default btn-long" onclick="sndplay();changeColor(this.id); clearButtonColors('Interrupt'); simulate()">
+                <button id="Present1" class="btn btn-default btn-long" onclick="sndplay();changeColor(this.id); clearButtonColors('Interrupt')">
                   Present
                 </button>
               </div>
@@ -151,7 +151,7 @@
                 <div class="oldSpan">
                   Noise
                 </div>
-                <button id="NB" class="btn btn-default" onclick="changeColor(this.id); clearButtonColors('Phone')">
+                <button id="NB" class="btn btn-default" onclick="changeColor(this.id)">
                   NB
                 </button>
                 <button class="btn btn-default" disabled>
@@ -192,10 +192,10 @@
                 <div class="oldSpan">
                   Transducer
                 </div>
-                <button id="Phone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Phone'); changeColorBlue(this.id); clearButtonColors('Bone2'); clearButtonColors('NB2'); disableNB('NB2');">
+                <button id="Phone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Phone'); changeColorBlue(this.id); clearButtonColors('Bone2')">
                   Phone
                 </button>
-                <button id="Bone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Bone'); changeColorBlue(this.id); clearButtonColors('Phone2'); enableNB('NB2')">
+                <button id="Bone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Bone'); changeColorBlue(this.id); clearButtonColors('Phone2')">
                   Bone
                 </button>
                 <button class="btn btn-default" onclick="print_transducer('Transducer2', 'SPKR')" disabled>
@@ -239,10 +239,10 @@
                 
                 <!-- MATCH/RESET buttons -->
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 bottom-ight">
-                  <button class="btn btn-default">
+                  <button class="btn btn-default" id="match" onclick="simulate(); changeColorBlue(this.id)">
                     Match
                   </button>
-                  <button class="btn btn-default">
+                  <button class="btn btn-default" id ="reset" onclick="reset()">
                     Reset
                   </button>
                 </div>
@@ -274,7 +274,7 @@
                 <div class="oldSpan">
                   Noise
                 </div>
-                <button id="NB2" class="btn btn-default" onclick="changeColorBlue(this.id); clearButtonColors('Phone2');">
+                <button id="NB2" class="btn btn-default" onclick="changeColorBlue(this.id)">
                   NB
                 </button>
                 <button class="btn btn-default" disabled>
@@ -291,7 +291,7 @@
                   Interrupt
                 </button>
                 <input id="range2" type="range" step="5" min="0" max="130" value="0">
-                <button id="Present2" class="btn btn-default btn-long" onclick="sndplay();changeColorBlue(this.id);clearButtonColors('Interrupt2'), simulate()">
+                <button id="Present2" class="btn btn-default btn-long" onclick="sndplay();changeColorBlue(this.id);clearButtonColors('Interrupt2')">
                   Present
                 </button>
               </div>
