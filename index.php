@@ -41,8 +41,8 @@
     <script src="javascript/patient_simulation.js"></script>
     <script src="javascript/preset_patients.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
     <!-- MAKES THE MODAL APPEAR ON WINDOW LOAD (OLD DESIGN)-->
     <!--<script type="text/javascript">
       $(window).load(function () {
