@@ -1,6 +1,8 @@
 <?php
 include 'connection.php';
 
+//COUNT DETERMINES WHETHER TO UPDATE OR IF YOU SELECTED A PATIENT
+
 //see connection.php for variable "values"
 $q = $_GET['q'];
 $q = explode(" ", $q);
@@ -16,7 +18,7 @@ else {
     exit();
 }
 
-//Format how the output looks
+//Format how the output looks when patient selected
 if ($count == 1) {
     while ($row = mysqli_fetch_array($result))
     {
@@ -32,6 +34,7 @@ elseif ($q[1] == "all") {
     }
 }
 
+//edit a patient
 elseif ($count == 3) {
     $sql = "UPDATE `slac`.`patients` SET " .$q[1]. "='" .$q[2]. "'" . "WHERE id = '" .$id. "'";
     $result = mysqli_query($conn, $sql);

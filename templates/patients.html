@@ -3,6 +3,7 @@
         <!-- Patient information drawer -->
         <div class="snap-drawer snap-drawer-left">
           <div>
+          <!-- This is where all the different TABS reside -->
             <h3>Patient Tab</h3>
               <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
@@ -39,6 +40,8 @@
                     <li ><a href="#" onclick="checkForm('newpatientform')">Submit</a></li> 
                   </ul>
                 </div>
+
+                <!-- Form to choose from presets -->
                 <form id="presetform" style="display: none">
                   <h4>Choose a Preset</h4>
                   <select id="presetPatients" onchange = "fillForm(this.value)" class="select-form" method="get" name = "presets">
@@ -51,6 +54,8 @@
                   </select>
                   <h1 id="presetNotification" class = "display-patient"></h1>
                 </form>
+
+                <!-- Form to fill in patient data -->
                 <div id ='patientform' style="display: none">
                   <form action="php/add_patient.php" id= "newpatientform" method="get" name = "patient">
                     <h2 style="text-align: center;">New Patient Information</h2>
@@ -133,6 +138,7 @@
                 </div>
               </div>
 
+              <!-- Select Patient for simulation tab -->
               <div id="Popup_2" class="popups">
                 <img id="close" src="images/redX.png" onclick ="closeform('Popup_2')">
                 <h4> Select a Patient </h4>
@@ -159,6 +165,7 @@
                 </button>
               </div>
 
+              <!-- Edit Patient Tab -->
               <div id="Popup_3" class="popups">
                 <img id="close" src="images/redX.png" onclick ="closeform('Popup_3')">
                 <h4> Edit a Patient </h4>

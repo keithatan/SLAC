@@ -210,17 +210,19 @@ function patient(arr)
         this.BML_4000, 
         this.BML_6000, 
         this.BML_8000];
+    //add a variation of +5 to each value    
     for(var i = 0; i< this.list.length; i++)
     {
         this.list[i].push(Math.floor((Math.random() * 3) + 1));
-        this.list[i].push(1);
+        this.list[i].push(0);
     }
 }
 
+/*Creating global variables don't reuse these names*/
 var PatientObject;
 var off = "rgb(255, 255, 255)"; //button is off color code
-var on1 = "rgb(255, 0, 0)"; //left panel button is on color code
-var on2 = "rgb(100, 149, 237)"; // right panel button is on color code
+var on1 = "rgb(255, 0, 0)"; //left panel button is "on" color code
+var on2 = "rgb(100, 149, 237)"; // right panel button is "on" color code
 
 function sleep(milliseconds) {
   var start = new Date().getTime();
@@ -284,6 +286,11 @@ function clearPatient()
 
 function simulate()
 {
+    if (document.getElementById("match").style.backgroundColor == on2) 
+        {
+            return
+        }
+    /*Use the actual interface text to get current state*/
     var Stimulus1 = document.getElementById("Stimulus1").innerHTML.replace("Stimulus: ", "");
     var Stimulus2 = document.getElementById("Stimulus2").innerHTML.replace("Stimulus: ", "");
     var Transducer1 = document.getElementById("Transducer1").innerHTML.replace("Transducer: ","");
@@ -304,8 +311,10 @@ function simulate()
     var key = "";
     var dB = 0;
 
-    document.getElementById("result").innerHTML = "INVALID :(";
+    document.getElementById("result").innerHTML = "INVALID :("; //Used to show if patient heard the sound
 
+
+    //check if present button is on
     if (document.getElementById("Present1").style.backgroundColor == on1) 
     {
         Present1 = 1;
@@ -322,7 +331,7 @@ function simulate()
     {
         return;
     }
-
+    //Present button must be on in order to play a sound
     if (Present1 && Present2) 
     {
         if (Transducer1 == "Bone" && Transducer2 == "Bone") 
@@ -462,7 +471,7 @@ function simulate()
     {
         if (PatientObject.list[i][1] == key && PatientObject.list[i][0] == Freq) 
         {
-            if ((PatientObject.list[i][3] == PatientObject.list[i][4] % 3 + 1) && PatientObject.list[i][2] - 5 <= dB) 
+            if ((PatientObject.list[i][3] == PatientObject.list[i][4] % 3 + 1) && PatientObject.list[i][2] + 5 <= dB) 
             {
                 PatientObject.list[i][4] += 1;
                 document.getElementById("result").innerHTML = "VALID!";
@@ -486,8 +495,10 @@ function simulate()
 
 }
 
+/*must press reset before running another test*/
 function reset()
 {
+    document.getElementById("result").innerHTML = "Result Displayed here";
     var temp = document.getElementsByClassName("btn-default");
     for (var i = 0; i < temp.length; i++) {
         temp[i].style.backgroundColor = off;
