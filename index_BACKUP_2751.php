@@ -51,15 +51,25 @@
     </script>-->
   </head>
 
+<<<<<<< HEAD
+  <!-- Connect to  -->
+=======
   <!-- Connect to database -->
 
+>>>>>>> dev
   <?php
     include 'php/connection.php';
   ?>
   
   <body>
+<<<<<<< HEAD
+    
+    <!-- Popup for test type selection -->
+<!--     <div class="modal fade" id="choosePatientType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+=======
     <!-- Popup for test type selection (OLD DESIGN) -->
     <!-- <div class="modal fade" id="choosePatientType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+>>>>>>> dev
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -91,6 +101,50 @@
       </div>
     </div> -->
 
+<<<<<<< HEAD
+  <div id="abc">
+    <!-- Popup Div Starts Here -->
+    <div id="popupContact">
+      <!-- Contact Us Form -->
+      <form action="#" id="form" method="post" name="form">
+        <img id="close" src="images/3.png" onclick ="div_hide()">
+        <h2>Contact Us</h2>
+        <hr>
+        <input id="name" name="name" placeholder="Name" type="text">
+        <input id="email" name="email" placeholder="Email" type="text">
+        <textarea id="msg" name="message" placeholder="Message">
+        </textarea>
+        <a href="javascript:%20check_empty()" id="submit">
+        Send
+        </a>
+      </form>
+    </div>
+    <!-- Popup Div Ends Here -->
+  </div>
+    
+    <!-- Page content -->
+    <div class="snap-drawers">
+      
+      <!-- Patient information and Audiogram drawers -->
+      <div class="snap-drawers">
+        <!-- Patient information drawer -->
+        <div class="snap-drawer snap-drawer-left">
+          <div>
+            <h3>Patients</h3>
+            <div class="demo-social">
+            </div>
+            <h4>Information</h4>
+            <div class="slider-left">
+              <button id="Add Patient" class="btn btn-primary" onclick="">
+                  Add Patient
+              </button>
+              <!-- <div>
+                <img src="images/portrait-1.png" style="width: 25%; height: 25%; ">
+                <div id="name-data">
+                </div>
+              </div> -->
+            </div>
+=======
     <!-- report findings modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
       <div class="modal-dialog" role="document">
@@ -98,6 +152,7 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h3 class="modal-title" id="myModalLabel">Student Findings</h3>
+>>>>>>> dev
           </div>
           <div class="modal-body">
             <div class="container">

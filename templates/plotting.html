@@ -1,0 +1,122 @@
+<!-- Page content -->
+<div class="snap-drawers">
+    
+    <!-- Audiogram drawer -->
+    <div class="snap-drawer snap-drawer-right audiogram-drawer">
+      <!-- Where the vector drawing gets placed -- don't you dare delete this div -->
+      <div id="audiogram"></div>
+      
+      <!-- Span to format everything below the audiogram -->
+      <span class="belowAudiogram">
+      
+        <table>
+          <tr>
+            <td>
+              <!-- Symbol selection prompt text -->
+              <h1>
+                Choose Symbol
+              </h1>
+            </td>
+            <td align="center">
+              <!-- Trigger the modal with a button , modal code is in index to prevent being covered by left snap drawer -->
+              <button type="button" id="submit" data-toggle="modal" data-target="#myModal">Report Findings</button>
+            </td>
+            <td align="right">
+              <!-- Export button -->
+              <input type="submit" value="Complete & Export" id="submit" onclick='printAudiogram("audiogram");'>
+              <script type="text/javascript">
+              //the purpose of this function is to export the graph without exporting "Choose symbols section"
+              function printAudiogram(divName) {
+                if (confirm("You will not be able to edit the graph after exporting, is that okay?") == true) {
+                  var printContents = document.getElementById(divName).innerHTML; //what we want to print 
+                  var originalContents = document.body.innerHTML; //original html
+                  document.body.innerHTML = printContents; //set whole html as print contents
+                  window.print(); //print
+                  document.body.innerHTML = originalContents; //reset whole html
+                  location.reload(); //reload page
+                } else {
+                    return false;
+                }
+              }
+              </script>
+            </td>
+          </tr>
+        </table>
+        
+        <table>
+          <tr>
+            <td>
+              <label>
+                <input type="radio" name="opt-select" value="AC_L" />
+                <img src="images/AC_L.png">
+              </label>
+              <label>
+                <input type="radio" name="opt-select" value="AC_NR_L" />
+                <img src="images/AC_NR_L.png">
+              </label>
+              <label>
+                <input type="radio" name="opt-select" value="AC_M_L" />
+                <img src="images/AC_M_L.png">
+              </label>
+              <label>
+                <input type="radio" name="opt-select" value="AC_M_NR_R" />
+                <img src="images/AC_M_NR_R.png">
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="opt-select" value="AC_R" />
+                <img src="images/AC_R.png">
+              </label>
+              <label>
+                <input type="radio" name="opt-select" value="AC_NR_R" />
+                <img src="images/AC_NR_R.png">
+              </label>
+              <label>
+                <input type="radio" name="opt-select" value="AC_M_R" />
+                <img src="images/AC_M_R.png">
+              </label>
+              <label>
+                <input type="radio" name="opt-select" value="AC_M_NR_L" />
+                <img src="images/AC_M_NR_L.png">
+              </label>
+            </td>
+            <td>
+              <label>
+                <input type="radio" name="opt-select" value="BC_L" />
+                <img src="images/BC_L.png">
+              </label>
+              <label>
+                <input type="radio" name="opt-select" value="BC_R" />
+                <img src="images/BC_R.png">
+              </label>
+              <label>
+                <input type="radio" name="opt-select" value="BC_NR_L" />
+                <img src="images/BC_NR_L.png">
+              </label>
+              <label>
+                <input type="radio" name="opt-select" value="BC_NR_R" />
+                <img src="images/BC_NR_R.png">
+              </label>
+              <br>
+              <label>
+                <input type="radio" name="opt-select" value="BC_M_L" />
+                <img src="images/BC_M_L.png">
+              </label>
+              <label>
+                <input type="radio" name="opt-select" value="BC_M_R" />
+                <img src="images/BC_M_R.png">
+              </label>
+              <label>
+                <input type="radio" name="opt-select" value="BC_M_NR_L" />
+                <img src="images/BC_M_NR_L.png">
+              </label>
+              <label>
+                <input type="radio" name="opt-select" value="BC_M_NR_R" />
+                <img src="images/BC_M_NR_R.png">
+              </label>
+            </td>
+          </tr>
+        </table>
+      </span>
+    </div>
+  </div>

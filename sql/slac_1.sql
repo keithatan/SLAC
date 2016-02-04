@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2015 at 09:55 PM
+-- Generation Time: Sep 28, 2015 at 06:58 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -19,8 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `slac`
 --
-CREATE DATABASE IF NOT EXISTS `slac` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `slac`;
+
 -- --------------------------------------------------------
 
 --
@@ -75,30 +74,20 @@ CREATE TABLE IF NOT EXISTS `patients` (
   `BL_3000` int(11) DEFAULT NULL,
   `BL_4000` int(11) DEFAULT NULL,
   `BL_6000` int(11) DEFAULT NULL,
-  `BL_8000` int(11) DEFAULT NULL,
-  `BMR_125` int(11) DEFAULT NULL,
-  `BMR_250` int(11) DEFAULT NULL,
-  `BMR_500` int(11) DEFAULT NULL,
-  `BMR_750` int(11) DEFAULT NULL,
-  `BMR_1000` int(11) DEFAULT NULL,
-  `BMR_1500` int(11) DEFAULT NULL,
-  `BMR_2000` int(11) DEFAULT NULL,
-  `BMR_3000` int(11) DEFAULT NULL,
-  `BMR_4000` int(11) DEFAULT NULL,
-  `BMR_6000` int(11) DEFAULT NULL,
-  `BMR_8000` int(11) DEFAULT NULL,
-  `BML_125` int(11) DEFAULT NULL,
-  `BML_250` int(11) DEFAULT NULL,
-  `BML_500` int(11) DEFAULT NULL,
-  `BML_750` int(11) DEFAULT NULL,
-  `BML_1000` int(11) DEFAULT NULL,
-  `BML_1500` int(11) DEFAULT NULL,
-  `BML_2000` int(11) DEFAULT NULL,
-  `BML_3000` int(11) DEFAULT NULL,
-  `BML_4000` int(11) DEFAULT NULL,
-  `BML_6000` int(11) DEFAULT NULL,
-  `BML_8000` int(11) DEFAULT NULL
+  `BL_8000` int(11) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `patients`
+--
+
+INSERT INTO `patients` (`id`, `first_name`, `last_name`, `description`, `R_125`, `R_250`, `R_500`, `R_750`, `R_1000`, `R_1500`, `R_2000`, `R_3000`, `R_4000`, `R_6000`, `R_8000`, `L_125`, `L_250`, `L_500`, `L_750`, `L_1000`, `L_1500`, `L_2000`, `L_3000`, `L_4000`, `L_6000`, `L_8000`, `BR_125`, `BR_250`, `BR_500`, `BR_750`, `BR_1000`, `BR_1500`, `BR_2000`, `BR_3000`, `BR_4000`, `BR_6000`, `BR_8000`, `BL_125`, `BL_250`, `BL_500`, `BL_750`, `BL_1000`, `BL_1500`, `BL_2000`, `BL_3000`, `BL_4000`, `BL_6000`, `BL_8000`) VALUES
+(1, 'Aneesh', 'Samudrala', 'nothing', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+(2, 'Aneesh', 'Samudrala', 'nothing', 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+(3, 'a', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 'a', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(5, 'a', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(6, 'Test subject', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables

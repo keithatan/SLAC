@@ -350,6 +350,8 @@ input[type=range]::-moz-range-track {
 
 /* More formatting inside the left-side drawer */
 .slider-left {
+    width: 300px;
+    height: 
     text-align: center;
     width: 300px;
     height: 500px;
@@ -403,6 +405,43 @@ input[type=range]::-moz-range-track {
 /* Helps format the right half of the Audiometer/control panel (ohgodwhy) */
 .divider-left {
     border-left: 1px solid whiteSmoke;
+}
+
+/* Sets the popups forms for the patient tab*/
+.popups {
+width:300px;
+height:100%;
+opacity:.95;
+top:0;
+left:0;
+display:none;
+position:fixed;
+background-color: #333333;
+overflow:auto
+}
+
+.display-patient {
+    margin: 0px;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+}
+
+.patient_option {
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-color: #333333;
+}
+
+.select-form{
+    position: relative;
+    display: block;
+    margin : 0 auto;
+    text-align: center;
+    width: 85%;
+    background-color: #333333;
+    color: rgb(255,255,255);
+    font-size: 12px;
 }
 
 /************/
@@ -472,6 +511,40 @@ input[type=range]::-moz-range-track {
     font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 }
 
+#close 
+{
+    height: 30px;
+}
+
+#newpatientform {
+    background-color: #333333;
+}
+
+#forminput, #form-input, #forminput_2, #editvalue, #forminput_3 {
+    position: relative;
+    display: block;
+    margin : 0 auto;
+    text-align: center;
+    width: 85%;
+    background-color: #333333;
+    color: rgb(255,255,255);
+    font-size: 12px;
+}
+
+#Patient-Columns {
+    padding: 10px;
+}
+
+.Patient_col_middle {
+    padding: 10px;
+    display:table-cell; 
+    vertical-align:middle; 
+    text-align:center;
+}
+
+#hidden-button, #hidden-button_2, #editpatientdata{
+    display: none;
+}
 /* Determines how the text looks below the audiogram */
 .belowAudiogram h1 {
   display: block;
@@ -482,4 +555,36 @@ input[type=range]::-moz-range-track {
   margin-end: 0;
   font-weight: bold;
   color: black;
+}
+
+#login div {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.modal-content {
+    background-color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:16px;
+    color: black;
+}
+
+.modal-header {
+    background-color: white;
+    border-radius: 6px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:24px;
+    color:black;
+ }
+
+ .modal-footer {
+    background-color: white;
+    color: black;
+ }
+
+textarea {
+    resize: none;
 }
