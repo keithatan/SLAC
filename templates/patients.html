@@ -9,7 +9,7 @@
                 <div class="container-fluid">
                   <div>
                     <ul class="nav navbar-nav">
-                      <li class="patient_option"><a href="templates/login.php" onclick="">Login/Register</a></li>
+                      <li class="patient_option"><a href="#myModal1" data-toggle="modal" onclick="">Login/Register</a></li>
                       <li class="patient_option"><a href="#" onclick="openform('Popup')">Add Patient</a></li>
                       <li class="patient_option"><a href="#" onclick="openform('Popup_3')">Edit Patient</a></li> 
                       <li class="patient_option"><a href="#" onclick="openform('Popup_2')">Select Patient</a></li>
@@ -18,6 +18,7 @@
                   </div>
                 </div>
               </nav>
+
             <div class="demo-social">
             </div>
             <div class="Patient_col_middle">
@@ -59,6 +60,7 @@
                 <div id ='patientform' style="display: none">
                   <form action="php/add_patient.php" id= "newpatientform" method="get" name = "patient">
                     <h2 style="text-align: center;">New Patient Information</h2>
+                    <button type="submit" onclick="checkForm('newpatientform')" class="submit patient-info-btn">Submit</button>
                     <input name="first_name" id= "form-input" placeholder="First Name" type="text">
                     <input name="last_name" id= "form-input" placeholder="Last Name" type="text">
                     <input name="description" id= "form-input" placeholder="Description" type="text">

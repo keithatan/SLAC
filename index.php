@@ -92,6 +92,7 @@
     </div> -->
 
     <!-- report findings modal -->
+    
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -130,16 +131,52 @@
               Course: <input type="text" name="StudentCourse" value=""><br>
               Section: <input type="text" name="StudentSection" value="" placeholder="if applicable"><br>
               </div>
+
               <!--<input type="submit" value="Submit">-->
             </form>
             </div>
           </div>
           <div class="modal-footer">
-            <input type="submit" id="submit" value="Report">
+            <input type="submit" class="submit" value="Report">
           </div>
         </div>
       </div>
     </div>
+
+    
+
+      <!-- Login/Register Modal -->
+
+<div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Login Into Your Account</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+          </div>
+          <button type="submit" class="submit">Sign In</button>
+          <br><br><a href="registration.html">Don't have an account? Sign Up!</a>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="submit" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
     <!-- draggable modal for viewing plot for reference -->
     <script>$("#myModal").draggable({ handle: ".modal-header" });</script>

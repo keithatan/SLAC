@@ -451,8 +451,8 @@ overflow:auto
     background: #333333;
 }
 
-/* Formats the button below the audiogram */
-#submit {
+/* Style for button */
+.submit {
     background-color: #9DB151;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -463,6 +463,10 @@ overflow:auto
     text-decoration: none;
     cursor: poiner;
     border:none;
+}
+
+.submit:hover {
+    background-color: #7b8b3f;
 }
 
 /* Sets the color of the countdown text */
@@ -585,4 +589,9 @@ overflow:auto
 
 textarea {
     resize: none;
+}
+
+.patient-info-btn {
+    margin-left: 109px;
+    margin-bottom: 20px;
 }
