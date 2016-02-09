@@ -143,8 +143,8 @@ function print_step(id, step) {
     document.getElementById(id).innerHTML = step + " dB step";
 }
 
-var redButtonColor = "rgb(255, 0, 0)";
-var blueButtonColor = "rgb(100, 149, 237)";
+var redButtonColor = "rgb(186, 85, 211)";
+var blueButtonColor = "rgb(186, 85, 211)";
 var defaultButtonColor = "rgb(255, 255, 255)";
 
 // Changes color to red and back

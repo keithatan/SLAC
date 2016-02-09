@@ -221,8 +221,8 @@ function patient(arr)
 /*Creating global variables don't reuse these names*/
 var PatientObject;
 var off = "rgb(255, 255, 255)"; //button is off color code
-var on1 = "rgb(255, 0, 0)"; //left panel button is "on" color code
-var on2 = "rgb(100, 149, 237)"; // right panel button is "on" color code
+var on1 = "rgb(186, 85, 211)"; //left panel button is "on" color code
+var on2 = "rgb(186, 85, 211)"; // right panel button is "on" color code
 
 function sleep(milliseconds) {
   var start = new Date().getTime();
@@ -302,14 +302,23 @@ function simulate()
     var dB2 = parseInt(document.getElementById("dB2").innerHTML.replace(" dB HL", ""),10);
     var NB = (document.getElementById("NB").style.backgroundColor == on1);
     var NB2 = (document.getElementById("NB2").style.backgroundColor == on2);
+    var Tone1 = (document.getElementById("Tone").style.backgroundColor == on1);
+    var Tone2 = (document.getElementById("Tone2").style.backgroundColor == on2);
 
     var Present1 = 0;
     var Present2 = 0;
-    /*var off = "rgb(255, 255, 255)";
-    var on1 = "rgb(255, 0, 0)";
-    var on2 = "rgb(100, 149, 237)";*/
+
     var key = "";
     var dB = 0;
+
+    var masking = 0; //signal masking test
+    var mask_dB = 0; 
+    var bone_dB = 0;
+    var mask_key = "";
+    var bone_key = "";
+    var threshold_min = 0; //Required for OE (effect) specific to 250hz, 500hz, and 1000hz
+    var threshold_max = 40; //Based on ineraural atten something
+    var actual_mask_dB = 140;
 
     document.getElementById("result").innerHTML = "INVALID :("; //Used to show if patient heard the sound
 
@@ -331,10 +340,69 @@ function simulate()
     {
         return;
     }
+
     //Present button must be on in order to play a sound
-    if (Present1 && Present2) 
+    if (Present1 && Present2 && Tone1 && Tone2) 
     {
-        if (Transducer1 == "Bone" && Transducer2 == "Bone") 
+        if (Transducer1 == "Bone" && Transducer2 == "Phone") 
+        {
+            if (!NB && NB2 && Routing1 != Routing2) 
+            {
+                if (Routing1 == "Left" && Routing2 == "Right") 
+                {
+                    //Right ear will be masked
+                    masking = 1;
+                    mask_dB = dB2;
+                    bone_dB = dB1;
+                    mask_key = "BR";
+                    bone_key = "BML";
+
+                }
+                else if (Routing1 == "Right" && Routing2 == "Left") 
+                {
+                    //Left ear will be masked
+                    masking = 1;
+                    mask_dB = dB1;
+                    bone_dB = dB2;
+                    mask_key = "BL";
+                    bone_key = "BMR";
+                }
+            }
+            else
+            {
+                return
+            }
+        }
+
+        else if (Transducer1 == "Phone" && Transducer2 == "Bone")
+        {
+            if (NB && !NB2 && Routing1 != Routing2) 
+            {
+                if (Routing1 == "Left" && Routing2 == "Right") 
+                {
+                    //Left ear will be masked
+                    masking = 1;
+                    mask_dB = dB1;
+                    bone_dB = dB2;
+                    mask_key = "BL";
+                    bone_key = "BMR";
+                }
+                else if (Routing1 == "Right" && Routing2 == "Left") 
+                {
+                    //Right ear will be masked
+                    masking = 1;
+                    mask_dB = dB2;
+                    bone_dB = dB1;
+                    mask_key = "BR";
+                    bone_key = "BML";
+                }
+            }
+            else
+            {
+                return
+            }
+        }
+/*        if (Transducer1 == "Bone" && Transducer2 == "Bone") 
         {
             if (NB && !NB2 && Routing1 != Routing2) 
             {
@@ -368,7 +436,7 @@ function simulate()
                     db = dB1;
                 }
             }
-        }
+        }*/
         else
         {
             //invalid operation
@@ -467,41 +535,82 @@ function simulate()
         }
     }
 
-    for (var i = 0; i < PatientObject.list.length; i++) 
+    if (masking) 
     {
-        if (PatientObject.list[i][1] == key && PatientObject.list[i][0] == Freq) 
+        if (Freq == "250")
         {
-            if ((PatientObject.list[i][3] == PatientObject.list[i][4] % 3 + 1) && PatientObject.list[i][2] + 5 <= dB) 
+            threshold_min = 20;
+        }
+        else if (Freq == "500") 
+        {
+            threshold_min = 15;
+        }
+        else if (Freq == "500") 
+        {
+            threshold_min = 10;
+        }
+
+        for(var i = 0; i < PatientObject.list.length; i++)
+        {
+            if (PatientObject.list[i][0] == Freq)
             {
-                PatientObject.list[i][4] += 1;
+                if (PatientObject.list[i][1] == mask_key) 
+                {
+                    threshold_min = threshold_min + PatientObject.list[i][2];
+                    fake_mask_dB = PatientObject.list[i][2];
+                }
+                else if (PatientObject.list[i][1] == bone_key) 
+                {
+                    threshold_max = threshold_max + PatientObject.list[i][2];
+                    actual_mask_dB = PatientObject.list[i][2];
+                }
+            }
+
+            if (mask_dB >= threshold_min && mask_dB <= threshold_max && bone_dB >= actual_mask_dB) 
+            {
                 document.getElementById("result").innerHTML = "VALID!";
             }
-            else if (PatientObject.list[i][2] <= dB) 
+            else if (mask_dB < threshold_min && (bone_dB >= fake_mask_dB || bone_dB >= actual_mask_dB)) 
             {
-                PatientObject.list[i][4] += 1;
                 document.getElementById("result").innerHTML = "VALID!";
+            }
+            else
+            {
+                return;
             }
         }
-    };
-/*    sleep(8000);
-    if (Present1)
-    {
-        document.getElementById("Present1").style.backgroundColor = off;
     }
-    if (Present2) 
+    else
     {
-        document.getElementById("Present2").style.backgroundColor = off;
-    }*/
-
+        for (var i = 0; i < PatientObject.list.length; i++) 
+        {
+            if (PatientObject.list[i][1] == key && PatientObject.list[i][0] == Freq) 
+            {
+                if ((PatientObject.list[i][3] == PatientObject.list[i][4] % 3 + 1) && PatientObject.list[i][2] + 5 <= dB) 
+                {
+                    PatientObject.list[i][4] += 1;
+                    document.getElementById("result").innerHTML = "VALID!";
+                }
+                else if (PatientObject.list[i][2] <= dB) 
+                {
+                    PatientObject.list[i][4] += 1;
+                    document.getElementById("result").innerHTML = "VALID!";
+                }
+            }
+        }
+    }
 }
 
 /*must press reset before running another test*/
 function reset()
 {
-    document.getElementById("result").innerHTML = "Result Displayed here";
-    var temp = document.getElementsByClassName("btn-default");
-    for (var i = 0; i < temp.length; i++) {
-        temp[i].style.backgroundColor = off;
-    };
+    document.getElementById("result").innerHTML = "Result Display";
+    var match = document.getElementById("match");
+    var Present1 = document.getElementById("Present1");
+    var Present2 = document.getElementById("Present2");
+    match.style.backgroundColor = off;
+    Present2.style.backgroundColor = off;
+    Present1.style.backgroundColor = off;
+
     return
 }
