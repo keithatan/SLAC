@@ -36,7 +36,7 @@
           0:00
         </div>
         <div id="result">
-        Result Displayed here
+        Result Display
         </div>
       </div>
       
@@ -84,13 +84,13 @@
                 <button class="btn btn-default" disabled>
                   FM
                 </button>
-                <button id="pulse" class="btn btn-default" onclick="changeColor(this.id)">
+                <button id="pulse" class="btn btn-default" onclick="changeColor(this.id)" disabled>
                   Pulse
                 </button>
-                <button class="btn btn-default" onclick="responseLeft()">
+                <button class="btn btn-default" onclick="responseLeft()" disabled>
                   ALT
                 </button>
-                <button class="btn btn-default" onclick="responseRight()">
+                <button class="btn btn-default" onclick="responseRight()" disabled>
                   SISI
                 </button>
               </div>
@@ -137,7 +137,7 @@
               
               <!-- Left INTERRUPT/PRESENT buttons and slider -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-left bottom-left divider-right">
-                <button id="Interrupt" class="btn btn-default" onclick="changeColor(this.id);clearButtonColors('Present1')">
+                <button id="Interrupt" class="btn btn-default" onclick="changeColor(this.id);clearButtonColors('Present1')" disabled>
                   Interrupt
                 </button>
                 <input id="range1" type="range" step="5" min="0" max="130" value="0">
@@ -287,7 +287,7 @@
               
               <!-- Right INTERRUPT/PRESENT buttons and slider -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-right bottom-right divider-left">
-                <button id="Interrupt2" class="btn btn-default" onclick="changeColorBlue(this.id); clearButtonColors('Present2')">
+                <button id="Interrupt2" class="btn btn-default" onclick="changeColorBlue(this.id); clearButtonColors('Present2')" disabled>
                   Interrupt
                 </button>
                 <input id="range2" type="range" step="5" min="0" max="130" value="0">

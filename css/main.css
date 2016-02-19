@@ -353,8 +353,6 @@ input[type=range]::-moz-range-track {
     width: 300px;
     height: 
     text-align: center;
-    width: 300px;
-    height: 500px;
     margin: 0px 0;
     padding: 0px 0;
     margin-left: auto;
@@ -454,7 +452,7 @@ overflow:auto
 }
 
 /* Formats the button below the audiogram */
-#submit {
+.submit {
     background-color: #9DB151;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -587,4 +585,9 @@ overflow:auto
 
 textarea {
     resize: none;
+}
+
+.patient-info-btn {
+    margin-left: 109px;
+    margin-bottom: 20px;
 }

@@ -49,6 +49,9 @@
   </head>
 <div class ="snap-content"></div>
 Hello Word
-<button onclick="location.href='/SLAC/index.php'"> 
-	Click me
+<form action = "../php/temp.php">
+    <input type="submit" value="Submit">
+    <button onclick=""> 
+    Click me
 </button>
+</form>

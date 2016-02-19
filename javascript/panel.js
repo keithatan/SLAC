@@ -8,8 +8,8 @@ var app = {
 
 // These variables make it easier to change what color the background changes to to indicate virtual patient response
 var defaultColor = "rgb(51, 51, 51)";
-var responseLeftColor = "rgb(0, 147, 207)";
-var responseRightColor = "rgb(205, 92, 92)";
+var responseLeftColor = "rgb(186, 85, 211)";
+var responseRightColor = "rgb(186, 85, 211)";
 var colorResetWait = 1000;
 
 // Display patient response left (red)
@@ -143,8 +143,8 @@ function print_step(id, step) {
     document.getElementById(id).innerHTML = step + " dB step";
 }
 
-var redButtonColor = "rgb(255, 0, 0)";
-var blueButtonColor = "rgb(100, 149, 237)";
+var redButtonColor = "rgb(186, 85, 211)";
+var blueButtonColor = "rgb(186, 85, 211)";
 var defaultButtonColor = "rgb(255, 255, 255)";
 
 // Changes color to red and back
