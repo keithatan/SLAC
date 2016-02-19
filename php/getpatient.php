@@ -11,23 +11,24 @@ $i = 0;
 
 $id = intval($q[0]);
 
-$sql = "SELECT * FROM `slac`.`patients` WHERE id = '" .$id. "'";
-$result = mysqli_query($conn, $sql);
-if (mysqli_query($conn, $sql)) {}
+$sql = "SELECT * FROM Patients WHERE id = '" .$id. "'";
+//$result = mysqli_query($conn, $sql);
+$result = $conn->query($sql);
+if ($result) {}
 else {
     exit();
 }
 
 //Format how the output looks when patient selected
 if ($count == 1) {
-    while ($row = mysqli_fetch_array($result))
+    foreach($result as $row)
     {
         echo '<h1 class="display-patient">' . $row['first_name'] . " " . $row['last_name'] . "</h1>";
         echo '<h1 class="display-patient">' . $row['description'] . "</h1>";
     }
 }
 elseif ($q[1] == "all") {
-    while ($row = mysqli_fetch_array($result)) {
+    foreach ($result as $row) {
         foreach ($values as $value) {
             echo $row[$value] . ',';
         }
@@ -36,15 +37,17 @@ elseif ($q[1] == "all") {
 
 //edit a patient
 elseif ($count == 3) {
-    $sql = "UPDATE `slac`.`patients` SET " .$q[1]. "='" .$q[2]. "'" . "WHERE id = '" .$id. "'";
-    $result = mysqli_query($conn, $sql);
+    $sql = "UPDATE Patients SET " .$q[1]. "='" .$q[2]. "'" . "WHERE id = '" .$id. "'";
+    //$result = mysqli_query($conn, $sql);
+    $result = $conn->query($sql);
     echo "hello";
-    if (mysqli_query($conn, $sql)) {
+    if ($result) {
         echo "it works";
     }
     else {
-        echo "Error updating record: " . mysqli_error($conn);
+        echo "Error updating record: ";
+        print_r($conn->errorInfo());
     }
 }
-mysqli_close($conn); 
+// mysqli_close($conn); 
 ?>
