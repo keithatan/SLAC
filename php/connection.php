@@ -1,15 +1,25 @@
 <?php
-$dbhost='localhost';
-$dbuser='root';
-$dbpass='';
-$db = 'slac';
 
-$conn = mysqli_connect($dbhost,$dbuser,$dbpass, $db);
-if (!$conn) {
-	echo "Error connecting to Database";
-	exit;
+//INCLUDE IN ALL PHP SCRIPTS
+
+//echo 'Current PHP version: ' . phpversion();
+
+//echo 'Php info' . phpinfo();
+
+try
+{
+  $conn = new PDO("sqlsrv:Server=ecnmssqldev.ecn.purdue.edu;Database=WISE-SLAC", "", "");
 }
-// array of values used 
+
+catch (Exception $e)
+{
+  die('Connection Failed');
+}
+$home = 'Location: http://epics.ecn.purdue.edu/wise/slac-dev/';
+$header = 'Location: http://epics.ecn.purdue.edu/wise/slac-dev/simulator.php';
+
+
+// array of values used
 $values = array( "first_name", "last_name", "description",
 	"R_125",
 	"R_250",

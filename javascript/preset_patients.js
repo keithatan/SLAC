@@ -1,4 +1,5 @@
 //Preset Hearing values 
+//super long and literally just hardcoded text
 Normal_Hearing = 
 	{"first_name" : "Preset", 
 	"last_name" : "add name", 

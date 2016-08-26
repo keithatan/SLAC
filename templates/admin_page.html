@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<link href="../bower_components/bootstrap-switch/dist/css/bootstrap2/bootstrap-switch.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+  </head>
+
+<body>
+
+<br>
+<input style="float:right" type="submit" value="Submit Changes" class="submit" onclick='saveAdminChanges("admin-table");'>
+<script type="text/javascript">
+function saveAdminChanges(divName) {
+	if (confirm("Save changes?") == true) {
+		console.log("true, can save")
+	} else {
+		console.log("false, can't save")
+	    return false;
+	}
+}
+</script>
+
+<br>
+<br>
+<table id="admin-table" class="table table-bordered" border="1" style="width:100%">
+	<tr>
+		<th>Student ID</th>
+		<th>Student First Name</th>
+		<th>Student Last Name</th>
+		<th>Course Number</th>
+		<th>Patient First Name</th>
+		<th>Patient Last Name</th>
+		<th>Conductive Hearing Loss</th>
+		<th>Sensorineural Hearing Loss</th>
+		<th>Mixed Hearing Loss</th>
+		<th>Indeterminate Hearing Loss</th>
+		<th>Notes</th>
+	</tr>
+	<tr>
+		<td><div id="id_number" contenteditable>00123-45678</div></td>
+		<td><div id="student_first_name" contenteditable>John</div></td>
+		<td><div id="student_last_name" contenteditable>Doe</div></td>
+		<td><div id="course_number" contenteditable>SLHS11500</div></td>
+		<td><div id="patient_first_name" contenteditable>patient_firstname</div></td>
+		<td><div id="patient_last_name" contenteditable>patient_lastname</div></td>
+		<td><input id="conductive_hearing_loss" type="checkbox"/></td>
+		<td><input id="sensorineural_hearing_loss" type="checkbox"/></td>
+		<td><input id="mixed_hearing_loss" type="checkbox"/></td>
+		<td><input id="indeterminate_hearing_loss" type="checkbox"/></td>	
+		<td><div id="notes_for_professor" contenteditable><font size="1">The patient's hearing gradually became worse unless I switched  to the other ear, I doubt the patient can have a normal conversation on the phone on the bad ear.</font></div></td>
+	</tr>
+</table>
+
+
+</body>
+</html>

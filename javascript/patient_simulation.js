@@ -1,4 +1,5 @@
 //array on column names
+//HANDLES ALL PATIENT SIMULATIONS SHOULD BE WORKING FINE ACCORDING TO ROBERTA
 var array = [ "first_name", "last_name", "description",
     "R_125",
     "R_250",
@@ -67,17 +68,19 @@ var array = [ "first_name", "last_name", "description",
     "BML_6000",
     "BML_8000"];
 
+/*CREATES A PATIENT OBJECT IN WHICH EACH VALUE ASIDE FROM FIRST THREE CONTAIN THE FOLLOWING FORMAT:
+[FREQ, LEFT OR RIGHT, HEARING THRESHOLD]*/
 function patient(arr)
 {
     var R = "R";
     var L = "L";
     var BR = "BR";
-    var BL = "BL";	
+    var BL = "BL";  
     var i = 0;
-	this.first_name = arr[i++];
-	this.last_name = arr[i++];
-	this.description = arr[i++];
-	this.R_125 = [125, "R", arr[i++]]; 
+    this.first_name = arr[i++];
+    this.last_name = arr[i++];
+    this.description = arr[i++];
+    this.R_125 = [125, "R", arr[i++]]; 
     this.R_250 = [250, "R", arr[i++]]; 
     this.R_500 = [500, "R", arr[i++]]; 
     this.R_750 = [750, "R", arr[i++]]; 
@@ -221,9 +224,10 @@ function patient(arr)
 /*Creating global variables don't reuse these names*/
 var PatientObject;
 var off = "rgb(255, 255, 255)"; //button is off color code
-var on1 = "rgb(255, 0, 0)"; //left panel button is "on" color code
-var on2 = "rgb(100, 149, 237)"; // right panel button is "on" color code
+var on1 = "rgb(186, 85, 211)"; //left panel button is "on" color code
+var on2 = "rgb(186, 85, 211)"; // right panel button is "on" color code
 
+/*THIS FUNCTION IS NOT USED*/
 function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
@@ -284,35 +288,116 @@ function clearPatient()
     return
 }
 
+/*ALL SIMULATION TAKES PLACE HERE*/
 function simulate()
 {
     if (document.getElementById("match").style.backgroundColor == on2) 
         {
             return
         }
-    /*Use the actual interface text to get current state*/
-    var Stimulus1 = document.getElementById("Stimulus1").innerHTML.replace("Stimulus: ", "");
+
+    /*************************8PLEASE READ THIS FALL2016****************************/
+    /*
+        I originally used the html text to determine what buttons were pressed (pretty stupid idea)
+        Now I use the actual button itself so please check that I use them correctly
+        In order to debug this section you will need to have taken a hearing test and understand what each button does
+    */
+
+
+    /*Use the actual interface text to get current state <----- DEPRECATED!!!!!!!! */
+    /*var Stimulus1 = document.getElementById("Stimulus1").innerHTML.replace("Stimulus: ", "");
     var Stimulus2 = document.getElementById("Stimulus2").innerHTML.replace("Stimulus: ", "");
     var Transducer1 = document.getElementById("Transducer1").innerHTML.replace("Transducer: ","");
     var Transducer2 = document.getElementById("Transducer2").innerHTML.replace("Transducer: ","");
     var Routing1 = document.getElementById("Routing1").innerHTML.replace("Routing: ","");
-    var Routing2 = document.getElementById("Routing2").innerHTML.replace("Routing: ","");
+    var Routing2 = document.getElementById("Routing2").innerHTML.replace("Routing: ","");*/
     var Freq = parseInt(document.getElementById("Freq").innerHTML.replace(" Hz", ""),10);
     var dB1 = parseInt(document.getElementById("dB1").innerHTML.replace(" dB HL", ""),10);
     var dB2 = parseInt(document.getElementById("dB2").innerHTML.replace(" dB HL", ""),10);
     var NB = (document.getElementById("NB").style.backgroundColor == on1);
     var NB2 = (document.getElementById("NB2").style.backgroundColor == on2);
+    var Tone1 = (document.getElementById("Tone").style.backgroundColor == on1);
+    var Tone2 = (document.getElementById("Tone2").style.backgroundColor == on2);
+
 
     var Present1 = 0;
     var Present2 = 0;
-    /*var off = "rgb(255, 255, 255)";
-    var on1 = "rgb(255, 0, 0)";
-    var on2 = "rgb(100, 149, 237)";*/
+    var Transducer1 = 0;
+    var Transducer2 = 0;
+    var Routing1 = 0;
+    var Routing2 = 0;
+
     var key = "";
     var dB = 0;
 
-    document.getElementById("result").innerHTML = "INVALID :("; //Used to show if patient heard the sound
+    var masking = 0; //signal masking test
+    var mask_dB = 0; 
+    var bone_dB = 0;
+    var mask_key = "";
+    var bone_key = "";
+    var threshold_min = 0; //Required for OE (effect) specific to 250hz, 500hz, and 1000hz
+    var threshold_max = 40; //Based on ineraural atten something
+    var actual_mask_dB = 140;
 
+    //document.getElementById("result").innerHTML = "INVALID :("; //Used to show if patient heard the sound
+    document.getElementById("result").innerHTML = '<img src="../slac-dev/images/redlight.png" height="40px" />';
+
+
+    //check value of transducer1
+    if (document.getElementById("Phone").style.backgroundColor == on1) 
+    {
+        Transducer1 = "Phone";
+    }
+    else if (document.getElementById("Bone").style.backgroundColor == on1) 
+    {
+        Transducer1 = "Bone";
+    }
+    else
+    {
+        Transducer1 = "None";
+    }
+
+    //Check value of transducer2
+    if (document.getElementById("Phone2").style.backgroundColor == on2) 
+    {
+        Transducer2 = "Phone";
+    }
+    else if (document.getElementById("Bone2").style.backgroundColor == on2) 
+    {
+        Transducer2 = "Bone";
+    }
+    else
+    {
+        Transducer2 = "None";
+    }
+
+    //check value of routing1
+    if (document.getElementById("Left").style.backgroundColor == on1) 
+    {
+        Routing1 = "Left";
+    }
+    else if (document.getElementById("Right").style.backgroundColor == on1) 
+    {
+        Routing1 = "Right";
+    }
+    else
+    {
+        Routing1 = "None";
+    }
+
+    //check value of routing2
+    if (document.getElementById("Left2").style.backgroundColor == on2) 
+    {
+        Routing2 = "Left";
+    }
+    else if (document.getElementById("Right2").style.backgroundColor == on2) 
+    {
+        Routing2 = "Right";
+    }
+    else
+    {
+        Routing2 = "None";
+    }
 
     //check if present button is on
     if (document.getElementById("Present1").style.backgroundColor == on1) 
@@ -331,42 +416,66 @@ function simulate()
     {
         return;
     }
+
     //Present button must be on in order to play a sound
-    if (Present1 && Present2) 
+    if (Present1 && Present2 && Tone1 && Tone2) 
     {
-        if (Transducer1 == "Bone" && Transducer2 == "Bone") 
+        if (Transducer1 == "Bone" && Transducer2 == "Phone") 
+        {
+            if (!NB && NB2 && Routing1 != Routing2) 
+            {
+                if (Routing1 == "Left" && Routing2 == "Right") 
+                {
+                    //Right ear will be masked
+                    masking = 1;
+                    mask_dB = dB2;
+                    bone_dB = dB1;
+                    mask_key = "BR";
+                    bone_key = "BML";
+
+                }
+                else if (Routing1 == "Right" && Routing2 == "Left") 
+                {
+                    //Left ear will be masked
+                    masking = 1;
+                    mask_dB = dB1;
+                    bone_dB = dB2;
+                    mask_key = "BL";
+                    bone_key = "BMR";
+                }
+            }
+            else
+            {
+                return
+            }
+        }
+
+        else if (Transducer1 == "Phone" && Transducer2 == "Bone")
         {
             if (NB && !NB2 && Routing1 != Routing2) 
             {
-                //Bone masking using left panel for masking
                 if (Routing1 == "Left" && Routing2 == "Right") 
                 {
-                    //left ear is masked so check only right ear
-                    key = "BMR";
-                    db = dB2;
+                    //Left ear will be masked
+                    masking = 1;
+                    mask_dB = dB1;
+                    bone_dB = dB2;
+                    mask_key = "BL";
+                    bone_key = "BMR";
                 }
-                else if (Routing2 = "Left" && Routing1 == "Right") 
+                else if (Routing1 == "Right" && Routing2 == "Left") 
                 {
-                    //right ear is masked so check only left ear
-                    key = "BML";
-                    db = dB2;
+                    //Right ear will be masked
+                    masking = 1;
+                    mask_dB = dB2;
+                    bone_dB = dB1;
+                    mask_key = "BR";
+                    bone_key = "BML";
                 }
             }
-            else if(!NB && NB2)
+            else
             {
-                //bone masking using right panel for masking
-                if (Routing1 == "Left" && Routing2 == "Right") 
-                {
-                    //right ear is masked so check only left ear
-                    key = "BML";
-                    db = dB1;
-                }
-                else if (Routing2 = "Left" && Routing1 == "Right") 
-                {
-                    //left ear is masked so check only right ear
-                    key = "BMR";
-                    db = dB1;
-                }
+                return
             }
         }
         else
@@ -377,7 +486,7 @@ function simulate()
     }
     else
     {
-        if (Transducer1 == "Bone" && Present1) 
+        if (Transducer1 == "Bone" && Present1 && Tone1) 
         {
             if (Routing1 == "Right") 
             {
@@ -398,7 +507,7 @@ function simulate()
                 return;
             }
         }
-        else if (Transducer2 == "Bone" && Present2) 
+        else if (Transducer2 == "Bone" && Present2 && Tone2) 
         {
             if (Routing2 == "Right") 
             {
@@ -419,7 +528,7 @@ function simulate()
                 return;
             }
         }
-        else if (Transducer1 == "Phone" && Present1) 
+        else if (Transducer1 == "Phone" && Present1 && Tone1) 
         {
             if (Routing1 == "Right") 
             {
@@ -440,7 +549,7 @@ function simulate()
                 return;
             }
         }
-        else if (Transducer2 == "Phone" && Present2) 
+        else if (Transducer2 == "Phone" && Present2 && Tone2) 
         {
             if (Routing2 == "Right") 
             {
@@ -467,41 +576,84 @@ function simulate()
         }
     }
 
-    for (var i = 0; i < PatientObject.list.length; i++) 
+
+    /*Some crazy bone masking algorithm that was described by Grad student in audiology department*/
+    if (masking) 
     {
-        if (PatientObject.list[i][1] == key && PatientObject.list[i][0] == Freq) 
+        if (Freq == "250")
         {
-            if ((PatientObject.list[i][3] == PatientObject.list[i][4] % 3 + 1) && PatientObject.list[i][2] + 5 <= dB) 
+            threshold_min = 20;
+        }
+        else if (Freq == "500") 
+        {
+            threshold_min = 15;
+        }
+        else if (Freq == "500") 
+        {
+            threshold_min = 10;
+        }
+
+        for(var i = 0; i < PatientObject.list.length; i++)
+        {
+            if (PatientObject.list[i][0] == Freq)
             {
-                PatientObject.list[i][4] += 1;
-                document.getElementById("result").innerHTML = "VALID!";
+                if (PatientObject.list[i][1] == mask_key) 
+                {
+                    threshold_min = threshold_min + PatientObject.list[i][2];
+                    fake_mask_dB = PatientObject.list[i][2];
+                }
+                else if (PatientObject.list[i][1] == bone_key) 
+                {
+                    threshold_max = threshold_max + PatientObject.list[i][2];
+                    actual_mask_dB = PatientObject.list[i][2];
+                }
             }
-            else if (PatientObject.list[i][2] <= dB) 
+
+            if (mask_dB >= threshold_min && mask_dB <= threshold_max && bone_dB >= actual_mask_dB) 
             {
-                PatientObject.list[i][4] += 1;
-                document.getElementById("result").innerHTML = "VALID!";
+                document.getElementById("result").innerHTML = '<img src="../slac-dev/images/greenlight.png" height="40px" />';
+            }
+            else if (mask_dB < threshold_min && (bone_dB >= fake_mask_dB || bone_dB >= actual_mask_dB)) 
+            {
+                document.getElementById("result").innerHTML = '<img src="../slac-dev/images/greenlight.png" height="40px" />';
+            }
+            else
+            {
+                return;
             }
         }
-    };
-/*    sleep(8000);
-    if (Present1)
-    {
-        document.getElementById("Present1").style.backgroundColor = off;
     }
-    if (Present2) 
+    else
     {
-        document.getElementById("Present2").style.backgroundColor = off;
-    }*/
-
+        for (var i = 0; i < PatientObject.list.length; i++) 
+        {
+            if (PatientObject.list[i][1] == key && PatientObject.list[i][0] == Freq) 
+            {
+                if ((PatientObject.list[i][3] == PatientObject.list[i][4] % 3 + 1) && PatientObject.list[i][2] + 5 <= dB) 
+                {
+                    PatientObject.list[i][4] += 1;
+                    document.getElementById("result").innerHTML = '<img src="../slac-dev/images/greenlight.png" height="40px" />';
+                }
+                else if (PatientObject.list[i][2] <= dB) 
+                {
+                    PatientObject.list[i][4] += 1;
+                    document.getElementById("result").innerHTML = '<img src="../slac-dev/images/greenlight.png" height="40px" />';
+                }
+            }
+        }
+    }
 }
 
 /*must press reset before running another test*/
 function reset()
 {
-    document.getElementById("result").innerHTML = "Result Displayed here";
-    var temp = document.getElementsByClassName("btn-default");
-    for (var i = 0; i < temp.length; i++) {
-        temp[i].style.backgroundColor = off;
-    };
+    document.getElementById("result").innerHTML = "";
+    var match = document.getElementById("match");
+    var Present1 = document.getElementById("Present1");
+    var Present2 = document.getElementById("Present2");
+    match.style.backgroundColor = off;
+    Present2.style.backgroundColor = off;
+    Present1.style.backgroundColor = off;
+
     return
 }

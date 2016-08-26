@@ -1,0 +1,23 @@
+
+.container {
+	background-color: white;
+	
+}
+
+.form-group {
+	margin-top: 3%;
+}
+
+.header h2 {
+	float: left;
+	margin-bottom: 50px;
+}
+
+.header img {
+	width: 70px;
+	height: auto;
+}
+
+#register {
+	clear: left;
+}

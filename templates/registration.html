@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sign Up</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="../javascript/accounts.js"></script>
+</head>
+</head>
+<body>
+	<div class="container">	
+		<div class="header">
+			<h2>Create your new account</h2>
+			<a href="../index.php"><img src="../images/close.png" align="right"></a>
+		</div>
+		<form id="register" onsubmit="return register_valid('register');">
+			<div class="form-group row">
+			    <label class="col-sm-2">Who are you</label>
+			    <div class="col-sm-10">
+			      <div class="radio">
+			        <label>
+			          <input type="radio" name="Admin" id="gridRadios1" value="option1" checked>
+			          Professor/ Administrator
+			        </label>
+			      </div>
+			      <div class="radio">
+			        <label>
+			          <input type="radio" name="Admin" id="gridRadios2" value="option2">
+			          Student
+			        </label>
+			      </div>
+			    </div>
+			  </div>
+			<div class="form-group row">
+			   <label for="FirstName" class="col-sm-2 form-control-label">First Name</label>
+			   <div class="col-sm-10">
+			   <input type="text" class="form-control" id="FirstName" name="firstname" placeholder="Jane">
+		       </div>
+		  </div>	 
+		  <div class="form-group row">
+			   <label for="LastName" class="col-sm-2 form-control-label">Last Name</label>
+			   <div class="col-sm-10">
+			   <input type="text" class="form-control" id="LastName" name="lastname" placeholder="Doe">
+		       </div>
+		  </div>	
+		  <div class="form-group row">
+			   <label for="PUID" class="col-sm-2 form-control-label">PUID</label>
+			   <div class="col-sm-10">
+			   <input type="number" class="form-control" id="PUID" name="puid" placeholder="PUID">
+		       </div>
+		       <label class="col-sm-2 form-control-label" id="CheckPUID"></label>
+		  </div>	  
+		  <div class="form-group row">
+		    <label for="Email" class="col-sm-2 form-control-label">Purdue Email</label>
+		    <div class="col-sm-10">
+		      <input type="email" class="form-control" id="Email" name="email" placeholder="Email">
+		    </div>
+		    <label class="col-sm-2 form-control-label" id="CheckEmail"></label>
+		  </div>
+		  <div class="form-group row">
+		    <label for="Password" class="col-sm-2 form-control-label">Password</label>
+		    <div class="col-sm-10">
+		      <input type="password" class="form-control" id="Password" name="password" placeholder="Password">
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="Passwordconfirm" class="col-sm-2 form-control-label">Confirm Password</label>
+		    <div class="col-sm-10">
+		      <input type="password" class="form-control" id="Passwordconfirm" name="passwordconfirm" placeholder="Confirm Password">
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <button type="submit" class="btn btn-success">Submit</button>
+		      <label id="SubmitResponse"></label>
+		    </div>
+		  </div>
+		</form>
+	</div>	
+</body>
+</html>

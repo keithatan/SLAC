@@ -5,7 +5,7 @@
     <div class="row display">
       
       <!-- Left header -->
-      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="right">
+      <!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="right">
         <div id="Stimulus1">
           Stimulus: Tone
         </div>
@@ -15,40 +15,23 @@
         <div id="Routing1">
           Routing: Left
         </div>
-      </div>
-      
-      <!-- Middle left header -->
-      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-        <div class="decibel" id="dB1">
-          0 dB HL
-        </div>
-      </div>
+      </div>-->
       
       <!-- Middle header -->
-      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div>
           &nbsp
         </div>
-        <div id="Freq">
-          125 Hz
-        </div>
-        <div id="countdown" class="oldSpan">
+        <div id="countdown" class="clock">
           0:00
         </div>
-        <div id="result">
-        Result Displayed here
-        </div>
-      </div>
-      
-      <!-- Middle right header -->
-      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-        <div class="decibel" id="dB2">
-          0 dB HL
+        <div id="result" class="clock">
+        <!-- <img src="../slac-dev/images/redlight.png" height="40px" /> -->
         </div>
       </div>
       
       <!-- Right header -->
-      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="left">
+      <!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="left">
         <div id="Stimulus2">
           Stimulus: Tone
         </div>
@@ -59,7 +42,7 @@
           Routing: Right
         </div>
       </div>
-    </div>
+    </div>-->
     
     <!-- Main audiometer area -->
     <div class="row controls">
@@ -84,13 +67,13 @@
                 <button class="btn btn-default" disabled>
                   FM
                 </button>
-                <button id="pulse" class="btn btn-default" onclick="changeColor(this.id)">
+                <button id="pulse" class="btn btn-default" onclick="changeColor(this.id)" disabled>
                   Pulse
                 </button>
-                <button class="btn btn-default" onclick="responseLeft()">
+                <button class="btn btn-default" onclick="responseLeft()" disabled>
                   ALT
                 </button>
-                <button class="btn btn-default" onclick="responseRight()">
+                <button class="btn btn-default" onclick="responseRight()" disabled>
                   SISI
                 </button>
               </div>
@@ -98,7 +81,7 @@
               <!-- Left TONE/MIC/EXT A/EXT B buttons -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 top-left color">
                 <div class="oldSpan">Stimulus</div>
-                <button id="Tone" class="btn btn-default" onclick="print_stimulus('Stimulus1', 'Tone');changeColor(this.id)">
+                <button id="Tone" class="btn btn-default" onclick="changeColor(this.id)"> <!--print_stimulus('Stimulus1', 'Tone');-->
                   Tone
                 </button>
                 <button class="btn btn-default" disabled>
@@ -117,10 +100,10 @@
                 <div class="oldSpan">
                   Transducer
                 </div>
-                <button id="Phone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Phone'); changeColor(this.id); clearButtonColors('Bone')">
+                <button id="Phone" class="btn btn-default" onclick="changeColor(this.id); clearButtonColors('Bone')">
                   Phone
-                </button>
-                <button id="Bone" class="btn btn-default" onclick="print_transducer('Transducer1', 'Bone');changeColor(this.id); clearButtonColors('Phone')">
+                </button><!--print_transducer('Transducer1', 'Phone'); -->
+                <button id="Bone" class="btn btn-default" onclick="changeColor(this.id); clearButtonColors('Phone')"> <!--print_transducer('Transducer1', 'Bone');-->
                   Bone
                 </button>
                 <button class="btn btn-default" onclick="print_transducer('Transducer1', 'SPKR')" disabled>
@@ -137,10 +120,10 @@
               
               <!-- Left INTERRUPT/PRESENT buttons and slider -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-left bottom-left divider-right">
-                <button id="Interrupt" class="btn btn-default" onclick="changeColor(this.id);clearButtonColors('Present1')">
+                <button id="Interrupt" class="btn btn-default" onclick="changeColor(this.id);clearButtonColors('Present1')" disabled>
                   Interrupt
                 </button>
-                <input id="range1" type="range" step="5" min="0" max="130" value="0">
+                <input id="range1" type="range" step="5" min="0" max="100" value="0">
                 <button id="Present1" class="btn btn-default btn-long" onclick="sndplay();changeColor(this.id); clearButtonColors('Interrupt')">
                   Present
                 </button>
@@ -151,7 +134,7 @@
                 <div class="oldSpan">
                   Noise
                 </div>
-                <button id="NB" class="btn btn-default" onclick="changeColor(this.id)">
+                <button id="NB" class="btn btn-default" onclick="changeColor(this.id); nbplay()">
                   NB
                 </button>
                 <button class="btn btn-default" disabled>
@@ -167,11 +150,11 @@
                 <div class="oldSpan">
                   Routing
                 </div>
-                <button id="Left" class="btn btn-default" onclick="print_routing('Routing1', 'Left'); changeColor(this.id); clearButtonColors('Right')">
+                <button id="Left" class="btn btn-default" onclick="changeColor(this.id); clearButtonColors('Right')"> <!--print_routing('Routing1', 'Left'); -->
                   <!--Logic needed-->
                   Left
                 </button>
-                <button id="Right" class="btn btn-default" onclick="print_routing('Routing1', 'Right'); changeColor(this.id), clearButtonColors('Left')">
+                <button id="Right" class="btn btn-default" onclick="changeColor(this.id), clearButtonColors('Left')"> <!--print_routing('Routing1', 'Right'); -->
                   Right
                 </button>
                 <button class="btn btn-default" onclick="print_routing('Routing1', 'Both')" disabled>
@@ -192,10 +175,10 @@
                 <div class="oldSpan">
                   Transducer
                 </div>
-                <button id="Phone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Phone'); changeColorBlue(this.id); clearButtonColors('Bone2')">
+                <button id="Phone2" class="btn btn-default" onclick=" changeColorBlue(this.id); clearButtonColors('Bone2')"> <!--print_transducer('Transducer2', 'Phone');-->
                   Phone
                 </button>
-                <button id="Bone2" class="btn btn-default" onclick="print_transducer('Transducer2', 'Bone'); changeColorBlue(this.id); clearButtonColors('Phone2')">
+                <button id="Bone2" class="btn btn-default" onclick="changeColorBlue(this.id); clearButtonColors('Phone2')"> <!--print_transducer('Transducer2', 'Bone'); -->
                   Bone
                 </button>
                 <button class="btn btn-default" onclick="print_transducer('Transducer2', 'SPKR')" disabled>
@@ -211,7 +194,7 @@
                 <div class="oldSpan">
                   Stimulus
                 </div>
-                <button id="Tone2" class="btn btn-default" onclick="print_stimulus('Stimulus2', 'Tone'); changeColorBlue(this.id)">
+                <button id="Tone2" class="btn btn-default" onclick="changeColorBlue(this.id)"> <!--print_stimulus('Stimulus2', 'Tone'); -->
                   Tone
                 </button>
                 <button class="btn btn-default" onclick="print_stimulus('Stimulus2', 'MIC')" disabled>
@@ -257,10 +240,10 @@
                 <div class="oldSpan">
                   Routing
                 </div>
-                <button id="Left2" class="btn btn-default" onclick="print_routing('Routing2', 'Left'); changeColorBlue(this.id); clearButtonColors('Right2')">
+                <button id="Left2" class="btn btn-default" onclick="changeColorBlue(this.id); clearButtonColors('Right2')"> <!--print_routing('Routing2', 'Left'); -->
                   Left
                 </button>
-                <button id="Right2" class="btn btn-default" onclick="print_routing('Routing2', 'Right'); changeColorBlue(this.id); clearButtonColors('Left2')">
+                <button id="Right2" class="btn btn-default" onclick="changeColorBlue(this.id); clearButtonColors('Left2')"> <!--print_routing('Routing2', 'Right'); -->
                   Right
                 </button>
                 <button class="btn btn-default" onclick="print_routing('Routing2', 'Both')"
@@ -274,7 +257,7 @@
                 <div class="oldSpan">
                   Noise
                 </div>
-                <button id="NB2" class="btn btn-default" onclick="changeColorBlue(this.id)">
+                <button id="NB2" class="btn btn-default" onclick="changeColorBlue(this.id); nbplay()">
                   NB
                 </button>
                 <button class="btn btn-default" disabled>
@@ -287,10 +270,10 @@
               
               <!-- Right INTERRUPT/PRESENT buttons and slider -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-right bottom-right divider-left">
-                <button id="Interrupt2" class="btn btn-default" onclick="changeColorBlue(this.id); clearButtonColors('Present2')">
+                <button id="Interrupt2" class="btn btn-default" onclick="changeColorBlue(this.id); clearButtonColors('Present2')" disabled>
                   Interrupt
                 </button>
-                <input id="range2" type="range" step="5" min="0" max="130" value="0">
+                <input id="range2" type="range" step="5" min="0" max="100" value="0">
                 <button id="Present2" class="btn btn-default btn-long" onclick="sndplay();changeColorBlue(this.id);clearButtonColors('Interrupt2')">
                   Present
                 </button>
@@ -306,20 +289,31 @@
         
         <!-- Frequency buttons -->
         <div class="row frequency">
-          <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-          </div>
+            <!-- Middle left header -->
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <div class="decibel" id="dB1">
+                0 dB HL
+              </div>
+            </div>
           <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 color top-left bottom-left">
             <button class="btn btn-default" onclick="printHz('Freq', FreqMinus())">
               Freq -
             </button>
+          </div>
+          <div id="Freq" class="decibel col-xs-2 col-sm-2 col-md-2 col-lg-2">
+            125 Hz
           </div>
           <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 color top-right bottom-right">
             <button class="btn btn-default" onclick="printHz('Freq', FreqPlus())">
               Freq +
             </button>
           </div>
-          <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+        <!-- Middle right header -->
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+          <div class="decibel" id="dB2">
+            0 dB HL
           </div>
+        </div>
         </div>
       </div>
     </div>

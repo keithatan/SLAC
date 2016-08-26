@@ -277,7 +277,16 @@ input[type=range]::-moz-range-track {
 /* This is what I used to replace 'span' tags everywhere. This is what some old team had inhabiting the 'span' tag near the top of this file, but they also made it display: block which makes it exactly like a 'div'. God only knows why they did that. Instead of going for a cool, neat, clean fix I just did this. Deal w/it */
 .oldSpan {
     font-size: 10px;
-    color: rgba(0, 0, 0, .7);
+    color: black; /*rgba(0, 0, 0, .7);*/
+    text-shadow: 0px 0px #000000;
+    padding: 3px;
+}
+
+/* clock css */
+.clock {
+    font-size: 20px;
+    color: black; /*rgba(0, 0, 0, .7);*/
+    text-shadow: 0px 0px #000000;
     padding: 3px;
 }
 
@@ -294,6 +303,7 @@ input[type=range]::-moz-range-track {
     -webkit-border-radius: 20px;
     border-radius: 20px;
     background: whiteSmoke;
+    /*height: 95vh;*/
 }
 
 /* Helps format the header display (the place where all the information is, it's above the main Audiometer/control panel thing) */
@@ -308,6 +318,8 @@ input[type=range]::-moz-range-track {
 .display .decibel {
     font-size: 40px;
     padding: 10px 0;
+    color: black;
+    text-shadow: 0px 0px #000000;
 }
 
 /* This rule applies to everything besides the header */
@@ -353,8 +365,6 @@ input[type=range]::-moz-range-track {
     width: 300px;
     height: 
     text-align: center;
-    width: 300px;
-    height: 500px;
     margin: 0px 0;
     padding: 0px 0;
     margin-left: auto;
@@ -453,8 +463,8 @@ overflow:auto
     background: #333333;
 }
 
-/* Formats the button below the audiogram */
-#submit {
+/* Style for button */
+.submit {
     background-color: #9DB151;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -465,11 +475,17 @@ overflow:auto
     text-decoration: none;
     cursor: poiner;
     border:none;
+    z-index: 1000;
+    position: relative;
+}
+
+.submit:hover {
+    background-color: #7b8b3f;
 }
 
 /* Sets the color of the countdown text */
 #countdown {
-    color: white;
+    color: black;
 }
 
 /* Sets the text color inside the modal (popup at page load) */
@@ -545,6 +561,12 @@ overflow:auto
 #hidden-button, #hidden-button_2, #editpatientdata{
     display: none;
 }
+
+.gramresize {
+    height: 700px;
+    width: 664.5714285714286px;
+    /*position: fixed; */
+}
 /* Determines how the text looks below the audiogram */
 .belowAudiogram h1 {
   display: block;
@@ -587,4 +609,9 @@ overflow:auto
 
 textarea {
     resize: none;
+}
+
+.patient-info-btn {
+    margin-left: 109px;
+    margin-bottom: 20px;
 }

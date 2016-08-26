@@ -4,11 +4,10 @@
     <!-- Audiogram drawer -->
     <div class="snap-drawer snap-drawer-right audiogram-drawer">
       <!-- Where the vector drawing gets placed -- don't you dare delete this div -->
-      <div id="audiogram"></div>
+      <div id="audiogram" class="gramresize"></div>
       
       <!-- Span to format everything below the audiogram -->
       <span class="belowAudiogram">
-      
         <table>
           <tr>
             <td>
@@ -19,11 +18,11 @@
             </td>
             <td align="center">
               <!-- Trigger the modal with a button , modal code is in index to prevent being covered by left snap drawer -->
-              <button type="button" id="submit" data-toggle="modal" data-target="#myModal">Report Findings</button>
+              <button type="button" class="submit" data-toggle="modal" data-target="#myModal">Report Findings</button>
             </td>
             <td align="right">
               <!-- Export button -->
-              <input type="submit" value="Complete & Export" id="submit" onclick='printAudiogram("audiogram");'>
+              <input type="submit" value="Complete & Export" class="submit" onclick='printAudiogram("audiogram");'>
               <script type="text/javascript">
               //the purpose of this function is to export the graph without exporting "Choose symbols section"
               function printAudiogram(divName) {

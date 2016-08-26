@@ -8,8 +8,10 @@ var app = {
 
 // These variables make it easier to change what color the background changes to to indicate virtual patient response
 var defaultColor = "rgb(51, 51, 51)";
-var responseLeftColor = "rgb(0, 147, 207)";
-var responseRightColor = "rgb(205, 92, 92)";
+var responseLeftColor = "rgb(186, 85, 211)";
+var responseRightColor = "rgb(186, 85, 211)";
+/*var responseLeftColor = "rgb(0, 147, 207)";
+var responseRightColor = "rgb(205, 92, 92)";*/
 var colorResetWait = 1000;
 
 // Display patient response left (red)
@@ -143,8 +145,8 @@ function print_step(id, step) {
     document.getElementById(id).innerHTML = step + " dB step";
 }
 
-var redButtonColor = "rgb(255, 0, 0)";
-var blueButtonColor = "rgb(100, 149, 237)";
+var redButtonColor = "rgb(186, 85, 211)";
+var blueButtonColor = "rgb(186, 85, 211)";
 var defaultButtonColor = "rgb(255, 255, 255)";
 
 // Changes color to red and back
@@ -224,9 +226,24 @@ var snd4000 = new Audio("sound/4000hz.mp3");
 //var snd5000 = new Audio("sound/5000hz.wav"); 
 var snd6000 = new Audio("sound/6000hz.mp3");
 var snd8000 = new Audio("sound/8000hz.wav");
+var greynoise = new Audio("sound/audiocheck.net_greynoise.wav")
 
 // Play sound based on what frequency is
-function sndplay() {
+function sndplay() { 
+    var dB_ch1 = document.getElementById('range1').value;
+    //var dB_ch2 = document.getElementById('range2').value;
+    
+    snd200.volume = dB_ch1*0.01;
+    snd250.volume = dB_ch1*0.01;
+    snd500.volume = dB_ch1*0.01;
+    snd750.volume = dB_ch1*0.01;
+    snd1000.volume = dB_ch1*0.01;
+    snd2000.volume = dB_ch1*0.01;
+    snd3000.volume = dB_ch1*0.01;
+    snd4000.volume = dB_ch1*0.01;
+    snd6000.volume = dB_ch1*0.01;
+    snd8000.volume = dB_ch1*0.01;
+
     if (Freq == 200) snd200.play();
     else if (Freq == 250) snd250.play();
     else if (Freq == 500) snd500.play();
@@ -242,6 +259,10 @@ function sndplay() {
     console.log("Sound played at frequency " + Freq + "Hz");
 }
 
+var count = 0;
+function nbplay(){
+    greynoise.play();
+} 
 
 /*****************************
  * Blinking Text
