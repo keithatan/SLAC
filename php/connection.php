@@ -1,5 +1,5 @@
 <?php
-
+$config = include('config.php');
 //INCLUDE IN ALL PHP SCRIPTS
 
 //echo 'Current PHP version: ' . phpversion();
@@ -8,12 +8,12 @@
 
 try
 {
-  $conn = new PDO("sqlsrv:Server=ecnmssqldev.ecn.purdue.edu;Database=WISE-SLAC", "", "");
+  $conn = new PDO($config[dsn], $config[dbuser], $config[dbpassword]);
 }
 
 catch (Exception $e)
 {
-  die('Connection Failed');
+	 die('Connection failed: ' . $e->getMessage());
 }
 $home = 'Location: http://epics.ecn.purdue.edu/wise/slac-dev/';
 $header = 'Location: http://epics.ecn.purdue.edu/wise/slac-dev/simulator.php';
