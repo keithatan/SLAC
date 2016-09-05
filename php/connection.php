@@ -8,7 +8,7 @@ $config = include('config.php');
 
 try
 {
-  $conn = new PDO($config[dsn], $config[dbuser], $config[dbpassword]);
+  $conn = new PDO($config['dsn'], $config['dbuser'], $config['dbpassword']);
 }
 
 catch (Exception $e)
