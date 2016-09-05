@@ -11,9 +11,9 @@
                     <ul class="nav navbar-nav">
                       <!-- <li class="patient_option"><a href="#myModal1" data-toggle="modal" onclick="">Login/Register</a></li> -->
                       <li class="patient_option"><a href="#" onclick="openform('Popup')">Add Patient</a></li>
-                      <li class="patient_option"><a href="#" onclick="openform('Popup_3')">Edit Patient</a></li> 
+                      <li class="patient_option"><a href="#" onclick="openform('Popup_3')">Edit Patient</a></li>
                       <li class="patient_option"><a href="#" onclick="openform('Popup_2')">Select Patient</a></li>
-                      <li class="patient_option" style="border-bottom-style:none"><a href="#" onclick="clearPatient()">Clear Patient</a></li>  
+                      <li class="patient_option" style="border-bottom-style:none"><a href="#" onclick="clearPatient()">Clear Patient</a></li>
                     </ul>
                   </div>
                 </div>
@@ -34,10 +34,10 @@
                   <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: auto">Select Input Method
                   <span class="caret"></span></button>
                   <ul class="dropdown-menu dropdown-menu-right">
-                    <li ><a href="#" onclick="openform('patientform'); closeform('presetform');">Use Form</a></li> 
+                    <li ><a href="#" onclick="openform('patientform'); closeform('presetform');">Use Form</a></li>
                     <li><a href="#" onclick="openform('presetform'); closeform('patientform');">Use Presets</a></li>
                     <li><a href="#" onclick="">Upload File</li>
-                    <li ><a href="#" onclick="checkForm('newpatientform')">Submit</a></li> 
+                    <li ><a href="#" onclick="checkForm('newpatientform')">Submit</a></li>
                   </ul>
                 </div>
 
@@ -124,7 +124,7 @@
                     <input name="BMR_4000" id= "form-input" placeholder="Right ear masked bone max at 4000Hz" type="text">
                     <input name="BMR_6000" id= "form-input" placeholder="Right ear masked bone max at 6000Hz" type="text">
                     <input name="BMR_8000" id= "form-input" placeholder="Right ear masked bone max at 8000Hz" type="text">
-                    
+
                     <input name="BML_125" id= "form-input" placeholder="Left ear masked bone max at 125Hz" type="text">
                     <input name="BML_250" id= "form-input" placeholder="Left ear masked bone max at 250Hz" type="text">
                     <input name="BML_500" id= "form-input" placeholder="Left ear masked bone max at 500Hz" type="text">
@@ -145,7 +145,7 @@
                 <img id="close" src="images/redX.png" onclick ="closeform('Popup_2')">
                 <h4> Select a Patient </h4>
                 <?php
-                  include '../php/connection.php';
+                  include 'php/connection.php';
                   $sql = "SELECT id, first_name, last_name FROM Patients";
                   echo '<form><select id="forminput" name="users" onchange="showPatient(this.value)"><option value="">Select a person:</option>';
                   foreach($conn->query($sql) as $row)
@@ -153,7 +153,7 @@
                     echo  '<option value="' .$row["id"] . '">' . $row["first_name"] . ' ' . $row["last_name"] . '</option>';
                   }
                   echo '</select></form>';
-                  
+
                 ?>
                 <div id="selectPatient">
                 </div>
@@ -167,7 +167,7 @@
                 <img id="close" src="images/redX.png" onclick ="closeform('Popup_3')">
                 <h4> Edit a Patient </h4>
                 <?php
-                  include '../php/connection.php';
+                  include 'php/connection.php';
                   $sql = "SELECT id, first_name, last_name FROM Patients";
                   echo '<form><select id="forminput_3" name="users" onchange=""><option value="">Select a person:</option>';
                   foreach($conn->query($sql) as $row) {
@@ -243,7 +243,7 @@
                 <option name="BMR_4000"value="BMR_4000">Right ear masked bone max at 4000Hz</option>
                 <option name="BMR_6000"value="BMR_6000">Right ear masked bone max at 6000Hz</option>
                 <option name="BMR_8000"value="BMR_8000">Right ear masked bone max at 8000Hz</option>
-                
+
                 <option name="BML_125"value="BML_125">Left ear masked bone max at 125Hz</option>
                 <option name="BML_250"value="BML_250">Left ear masked bone max at 250Hz</option>
                 <option name="BML_500"value="BML_500">Left ear masked bone max at 500Hz</option>
