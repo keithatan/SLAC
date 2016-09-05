@@ -6,3 +6,8 @@
 3. Copy `config.example.php` to `config.php` and enter in your MySQL info (created when you installed MySQL)
 4. Run `php -S localhost:8000` in the project directory
 5. Visit the site at http://localhost:8000/
+
+### Libraries and versions
+* Bootstrap - 3.3.7
+* jQuery - 1.x
+* jQuery UI - 1.11.4
