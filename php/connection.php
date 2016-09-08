@@ -1,5 +1,5 @@
 <?php
-$config = include('config.php');
+$config = include $_SERVER['DOCUMENT_ROOT'].'/config.php';
 //INCLUDE IN ALL PHP SCRIPTS
 
 //echo 'Current PHP version: ' . phpversion();
