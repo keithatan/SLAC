@@ -24,10 +24,10 @@ USE `slac`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patients`
+-- Table structure for table `Patients`
 --
 
-CREATE TABLE IF NOT EXISTS `patients` (
+CREATE TABLE IF NOT EXISTS `Patients` (
   `id` int(11) NOT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
@@ -105,9 +105,9 @@ CREATE TABLE IF NOT EXISTS `patients` (
 --
 
 --
--- Indexes for table `patients`
+-- Indexes for table `Patients`
 --
-ALTER TABLE `patients`
+ALTER TABLE `Patients`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -115,9 +115,9 @@ ALTER TABLE `patients`
 --
 
 --
--- AUTO_INCREMENT for table `patients`
+-- AUTO_INCREMENT for table `Patients`
 --
-ALTER TABLE `patients`
+ALTER TABLE `Patients`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
