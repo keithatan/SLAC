@@ -15,8 +15,8 @@ catch (Exception $e)
 {
 	 die('Connection failed: ' . $e->getMessage());
 }
-$home = 'Location: http://epics.ecn.purdue.edu/wise/slac-dev/';
-$header = 'Location: http://epics.ecn.purdue.edu/wise/slac-dev/simulator.php';
+$home = 'Location: /index.php';
+$header = 'Location: /simulator.php';
 
 
 // array of values used
