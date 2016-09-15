@@ -17,15 +17,20 @@ document.getElementById("file1").click();
 function checkForm(element)
 {
 	var x = document.getElementById(element).elements;
-	for (var i = x.length - 1; i >= 0; i--) 
+	var errorFlag = 0
+	//i doesn't reset (fix this eventually)
+	for (var i = x.length - 1; i > 0; i--)
 	{
 		if (x[i].value == "") {
-			alert("Please fill in all fields");
+			console.log(x[i])
+			alert("Please fill in all fields.");
+			errorFlag = 1
 			return
 		};
 	}
-
+if (errorFlag == 0){
 	document.getElementById(element).submit();
+}
 	return
 }
 
@@ -124,6 +129,3 @@ function editPatient()
 		xmlhttp.send();
 	}
 }
-
-
-
