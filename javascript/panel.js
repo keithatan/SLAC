@@ -19,7 +19,7 @@ function responseLeft() {
   // Sets the background color
   document.getElementById("content").style.background = responseLeftColor;
   console.log("Background changed to left response color (" + responseLeftColor + ")");
-  
+
   // Changes the background back to the default after 'colorResetWait' milliseconds ONLY if the background is still set to the red color after 'colorResetWait' milliseconds
   setTimeout(function(){
     if (document.getElementById("content").style.background == responseLeftColor) {
@@ -34,7 +34,7 @@ function responseRight() {
   // Sets the background color
   document.getElementById("content").style.background = responseRightColor;
   console.log("Background changed to right response color (" + responseRightColor + ")");
-  
+
   // Changes the background back to the default after 'colorResetWait' milliseconds ONLY if the background is still set to the blue color after 'colorResetWait' milliseconds
   setTimeout(function(){
     if (document.getElementById("content").style.background == responseRightColor) {
@@ -50,7 +50,7 @@ var Freq = 125;
 // Increasing frequency
 function FreqPlus() {
     oldFreq = Freq;
-    
+
     if (Freq >= 8000) return Freq;
 
     else if (Freq >= 500 && Freq < 1000) {
@@ -71,7 +71,7 @@ function FreqPlus() {
 // Decreasing frequency
 function FreqMinus() {
     oldFreq = Freq;
-  
+
     if (Freq <= 125) return Freq;
 
     else if (Freq > 4000 && Freq <= 8000) {
@@ -129,7 +129,7 @@ function print_routing(id, routing) {
 
 // Updates transducer on page
 function print_transducer(id, transducer) {
-    app.transducer = transducer;    
+    app.transducer = transducer;
     document.getElementById(id).innerHTML = "Transducer: " + transducer;
 }
 
@@ -150,16 +150,16 @@ var blueButtonColor = "rgb(186, 85, 211)";
 var defaultButtonColor = "rgb(255, 255, 255)";
 
 // Changes color to red and back
-function changeColor(clicked_id) {  
+function changeColor(clicked_id) {
     var tmp = document.getElementById(clicked_id);
     var oldColor = tmp.style.backgroundColor;
-    
+
     if (tmp.style.backgroundColor == redButtonColor) {
         tmp.style.backgroundColor = defaultButtonColor;
     } else {
         tmp.style.backgroundColor = redButtonColor;
     }
-    
+
     console.log("Button color changed from " + oldColor + " to " + tmp.style.backgroundColor);
 }
 
@@ -167,16 +167,16 @@ function changeColor(clicked_id) {
 function changeColorBlue(clicked_id) {
     var tmp = document.getElementById(clicked_id);
     var oldColor = tmp.style.backgroundColor;
-    
+
     if (tmp.style.backgroundColor != defaultButtonColor & tmp.style.backgroundColor != blueButtonColor)
       tmp.style.backgroundColor = defaultButtonColor;
-    
+
     if (tmp.style.backgroundColor == blueButtonColor) {
         tmp.style.backgroundColor = defaultButtonColor;
     } else {
         tmp.style.backgroundColor = blueButtonColor;
     }
-    
+
     console.log("Button color changed from " + oldColor + " to " + tmp.style.backgroundColor);
     console.log("this.id is " + clicked_id);
 }
@@ -193,14 +193,14 @@ function clearButtonColors(button) {
 //grey out nb when phone is clicked
 function disableNB(whichNB) {
     console.log(typeof(whichNB));
-    document.getElementById(whichNB).disabled = true; 
+    document.getElementById(whichNB).disabled = true;
     //try {document.getElementById(whichNB).disabled = true;}
     //catch (err) {console.log("damn");}
 }
 
 //ungrey out nb when phone is clicked
 function enableNB(whichNB) {
-    document.getElementById(whichNB).disabled = false;    
+    document.getElementById(whichNB).disabled = false;
 }
 
 // Sleeps for a given time
@@ -214,25 +214,25 @@ function sleep(milliseconds) {
 }
 
 // Define audio variables
-var snd200 = new Audio("sound/200hz.wav");
+var snd200 = new Audio("sound/200hz.mp3");
 var snd250 = new Audio("sound/250hz.mp3");
-var snd500 = new Audio("sound/500hz.wav");
+var snd500 = new Audio("sound/500hz.mp3");
 var snd750 = new Audio("sound/750hz.mp3");
-var snd1000 = new Audio("sound/1000hz.wav");
+var snd1000 = new Audio("sound/1000hz.mp3");
 var snd1500 = new Audio("sound/1500hz.mp3");
-var snd2000 = new Audio("sound/2000hz.wav");
+var snd2000 = new Audio("sound/2000hz.mp3");
 var snd3000 = new Audio("sound/3000hz.mp3");
 var snd4000 = new Audio("sound/4000hz.mp3");
-//var snd5000 = new Audio("sound/5000hz.wav"); 
+//var snd5000 = new Audio("sound/5000hz.wav");
 var snd6000 = new Audio("sound/6000hz.mp3");
-var snd8000 = new Audio("sound/8000hz.wav");
+var snd8000 = new Audio("sound/8000hz.mp3");
 var greynoise = new Audio("sound/audiocheck.net_greynoise.wav")
 
 // Play sound based on what frequency is
-function sndplay() { 
+function sndplay() {
     var dB_ch1 = document.getElementById('range1').value;
     //var dB_ch2 = document.getElementById('range2').value;
-    
+
     snd200.volume = dB_ch1*0.01;
     snd250.volume = dB_ch1*0.01;
     snd500.volume = dB_ch1*0.01;
@@ -262,7 +262,7 @@ function sndplay() {
 var count = 0;
 function nbplay(){
     greynoise.play();
-} 
+}
 
 /*****************************
  * Blinking Text
@@ -314,20 +314,20 @@ function setblinkColor() {
 
 // Initialize environment
 function windowLoad() {
-    
+
     app.audiogram = new Audiogram().initialize("audiogram", 600);  //pass the id of the HTML DOM Element
-    
+
     var countdownTimer = setInterval('secondPassed()', 1000);
-    
+
     var dB_ch1 = document.getElementById('range1');
     var dB_ch2 = document.getElementById('range2');
-    
+
     dB_ch1.addEventListener('change', update_ch1_dB, false);
     dB_ch1.addEventListener('mousemove', update_ch1_dB, false);
-    
+
     dB_ch2.addEventListener('change', update_ch2_dB, false);
     dB_ch2.addEventListener('mousemove', update_ch2_dB, false);
-    
+
     var snapper = new Snap({
         element: document.getElementById('content'),
         maxPosition: 300,   //left drawer width; must also be modified in the CSS file

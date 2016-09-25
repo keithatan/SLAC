@@ -208,11 +208,11 @@ input[type=range]::-moz-range-track {
 
 /* Probably does someting inside the drawers (see how you can use the names to infer what they do?) and with the opacity of said area. Beyond that, I'm lost. This rule probably came as default from whatever library we got the nifty sliding drawers from (bootstrap maybe?) and whatever team implemented it didn't feel the need to cull the herd and delete unused CSS rules. Thanks, old team. */
 .drawer-inner {
-	-webkit-transition: opacity 0.3s ease; 
-	   -moz-transition: opacity 0.3s ease; 
-	    -ms-transition: opacity 0.3s ease; 
-	     -o-transition: opacity 0.3s ease; 
-	        transition: opacity 0.3s ease; 
+	-webkit-transition: opacity 0.3s ease;
+	   -moz-transition: opacity 0.3s ease;
+	    -ms-transition: opacity 0.3s ease;
+	     -o-transition: opacity 0.3s ease;
+	        transition: opacity 0.3s ease;
 }
 
 /* Set the Header 3 (it's an HTML thing, don't worry about it) text format inside drawers */
@@ -363,7 +363,7 @@ input[type=range]::-moz-range-track {
 /* More formatting inside the left-side drawer */
 .slider-left {
     width: 300px;
-    height: 
+    height:
     text-align: center;
     margin: 0px 0;
     padding: 0px 0;
@@ -527,7 +527,7 @@ overflow:auto
     font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 }
 
-#close 
+#close
 {
     height: 30px;
 }
@@ -553,8 +553,8 @@ overflow:auto
 
 .Patient_col_middle {
     padding: 10px;
-    display:table-cell; 
-    vertical-align:middle; 
+    display:table-cell;
+    vertical-align:middle;
     text-align:center;
 }
 
@@ -614,4 +614,9 @@ textarea {
 .patient-info-btn {
     margin-left: 109px;
     margin-bottom: 20px;
+}
+
+.patient-form-label {
+    font-family: Arial, 'Arial', Arial, sans-serif;
+    font-size: 12px;
 }
