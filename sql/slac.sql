@@ -136,6 +136,3 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `instructor` varchar(255) DEFAULT NULL,
   `grade` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
-ALTER TABLE `Users`
-  ADD PRIMARY KEY (`id`);
