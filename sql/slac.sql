@@ -107,8 +107,6 @@ CREATE TABLE IF NOT EXISTS `Patients` (
 --
 -- Indexes for table `Patients`
 --
-ALTER TABLE `Patients`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
