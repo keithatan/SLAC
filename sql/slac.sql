@@ -122,3 +122,20 @@ ALTER TABLE `Patients`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+CREATE TABLE IF NOT EXISTS `Users` (
+  `id` int(11) DEFAULT 0,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `PUID` int(10),
+  `account_type` varchar(255) DEFAULT NULL,
+  `PasswordHash` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `course_id` varchar(255) DEFAULT NULL,
+  `instructor` varchar(255) DEFAULT NULL,
+  `grade` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+ALTER TABLE `Users`
+  ADD PRIMARY KEY (`id`);

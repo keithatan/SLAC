@@ -1,4 +1,4 @@
-function register_valid(element) 
+function register_valid(element)
 {
 	/*This function will test the registration page for valid responses
 	I used AJAX to show the user messages that describe the problem at hand
@@ -11,7 +11,7 @@ function register_valid(element)
 	var pattern;
 	var temp;
 
-	var x = new Array(document.getElementById("gridRadios1"), 
+	var x = new Array(document.getElementById("gridRadios1"),
 		document.getElementById("gridRadios2"),
 		document.getElementById("FirstName"),
 		document.getElementById("LastName"),
@@ -21,7 +21,7 @@ function register_valid(element)
 		document.getElementById("Passwordconfirm"));
 
 	//check all fields
-	for (var i = 7; i >= 2; i--) 
+	for (var i = 7; i >= 2; i--)
 	{
 		if (x[i].value == "") {
 			alert("Please fill in all fields");
@@ -30,16 +30,16 @@ function register_valid(element)
 	}
 
 	//check passwords to match
-	if (x[7].value != x[6].value) 
+	if (x[7].value != x[6].value)
 	{
 		alert("Passwords do not match!");
 		return false;
 	}
 
-	//Check if email exists in database 
+	//Check if email exists in database
 	str = "CheckEmail ";
 	pattern = /.*@purdue.edu/;
-	if (pattern.test(x[5].value)) 
+	if (pattern.test(x[5].value))
 	{
 		str = str + x[5].value;
 	}
@@ -58,7 +58,7 @@ function register_valid(element)
 		xmlhttp = new ActiveXObject();
 	}
 
-	xmlhttp.onreadystatechange = function() 
+	xmlhttp.onreadystatechange = function()
 	{
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			/*in registration.html there is a spot under Email to write an error message*/
@@ -72,7 +72,7 @@ function register_valid(element)
 	//Check if PUID is 10 digits
 	str = "CheckPUID ";
 	pattern = /[0-9]{10}/;
-	if (pattern.test(x[4].value)) 
+	if (pattern.test(x[4].value))
 	{
 		str = str + x[4].value;
 	}
@@ -82,7 +82,7 @@ function register_valid(element)
 		return false;
 	}
 	/*SECOND AJAX CALL TO CHECK PUID*/
-	if (window.XMLHttpRequest) 
+	if (window.XMLHttpRequest)
 	{
 		xmlhttp2 = new XMLHttpRequest();
 	}
@@ -103,11 +103,11 @@ function register_valid(element)
 	xmlhttp2.send();
 
 	str = "";
-	if (x[0].checked) 
+	if (x[0].checked)
 	{
 		str = "admin ";
 	}
-	else if (x[1].checked) 
+	else if (x[1].checked)
 	{
 		str = "student ";
 	}
@@ -122,7 +122,7 @@ function register_valid(element)
 	}
 
 	/*THIRD AJAX CALL TO ADD TO DATABASE BUT ALSO CHECKS VALUES AGAIN*/
-	if (window.XMLHttpRequest) 
+	if (window.XMLHttpRequest)
 	{
 		xmlhttp3 = new XMLHttpRequest();
 	}
@@ -164,24 +164,25 @@ function login(element)
 		xmlhttp = new ActiveXObject();
 	}
 
-	xmlhttp.onreadystatechange = function() 
+	xmlhttp.onreadystatechange = function()
 	{
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			console.log(xmlhttp)
 			document.getElementById("LoginFail").innerHTML = xmlhttp.responseText;
 			/*I could only get the if statement to work like this and not with the "==" for some reason*/
-			if (xmlhttp.responseText != "") 
+			if (xmlhttp.responseText != "")
 			{
 
 			}
 			else
 			{
 				/*Opens a pop up window of the simulator*/
-				window.open("http://epics.ecn.purdue.edu/wise/slac-dev/simulator.php");
+				window.location.href = '/simulator.php';
 			}
 		}
 	}
 
-	xmlhttp.open("GET", "http://epics.ecn.purdue.edu/wise/slac-dev/php/login.php?q="+str, true);
+	xmlhttp.open("GET", "/php/login.php?q="+str, true);
 	xmlhttp.send();
 	return false;
 }
