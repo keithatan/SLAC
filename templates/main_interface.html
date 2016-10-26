@@ -1,9 +1,9 @@
 <div id="content" class="snap-content" data-snap-ignore="true">
   <div class="container-fluid ">
-    
+
     <!-- Header -->
     <div class="row display">
-      
+
       <!-- Left header -->
       <!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="right">
         <div id="Stimulus1">
@@ -16,7 +16,7 @@
           Routing: Left
         </div>
       </div>-->
-      
+
       <!-- Middle header -->
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div>
@@ -29,7 +29,7 @@
         <!-- <img src="../slac-dev/images/redlight.png" height="40px" /> -->
         </div>
       </div>
-      
+
       <!-- Right header -->
       <!--<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="left">
         <div id="Stimulus2">
@@ -43,25 +43,25 @@
         </div>
       </div>
     </div>-->
-    
+
     <!-- Main audiometer area -->
     <div class="row controls">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        
+
         <!-- Controls (besides frequency buttons) -->
         <div class="row">
-          
+
           <!-- Left arrow -->
           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <img class="toggler" id="ol" src="./images/arrow-left.png" alt="">
           </div>
-          
+
           <!-- Left button area -->
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 left">
-            
+
             <!-- Top left button area -->
             <div class="row divider-bottom divider-right">
-              
+
               <!-- FM/PULSE/ALT/SISI buttons -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                 <button class="btn btn-default" disabled>
@@ -77,7 +77,7 @@
                   SISI
                 </button>
               </div>
-              
+
               <!-- Left TONE/MIC/EXT A/EXT B buttons -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 top-left color">
                 <div class="oldSpan">Stimulus</div>
@@ -94,7 +94,7 @@
                   EXT B
                 </button>
               </div>
-              
+
               <!-- Left PHONE/BONE/SPKR/INSERT buttons -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 top-right color">
                 <div class="oldSpan">
@@ -114,10 +114,10 @@
                 </button>
               </div>
             </div>
-            
+
             <!-- Bottom left button area -->
             <div class="row divider-right">
-              
+
               <!-- Left INTERRUPT/PRESENT buttons and slider -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-left bottom-left divider-right">
                 <button id="Interrupt" class="btn btn-default" onclick="changeColor(this.id);clearButtonColors('Present1')" disabled>
@@ -128,7 +128,7 @@
                   Present
                 </button>
               </div>
-              
+
               <!-- Left NB/SPEECH/NOISE buttons -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color">
                 <div class="oldSpan">
@@ -144,7 +144,7 @@
                   White
                 </button>
               </div>
-              
+
               <!-- Left LEFT/RIGHT/BOTH buttons -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color bottom-right">
                 <div class="oldSpan">
@@ -163,13 +163,13 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Right button area -->
           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            
+
             <!-- Top right button area -->
             <div class="row divider-bottom">
-              
+
               <!-- Right PHONE/BONE/SPKR/INSERT buttons -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-left">
                 <div class="oldSpan">
@@ -188,7 +188,7 @@
                   Insert
                 </button>
               </div>
-              
+
               <!-- Right TONE/MIC/EXT A/EXT B buttons -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-right">
                 <div class="oldSpan">
@@ -207,7 +207,7 @@
                   EXT B
                 </button>
               </div>
-              
+
               <!-- Top far right area -->
               <!-- NOTE: I'm pretty sure this is what's breaking stuff -Henry -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -219,7 +219,7 @@
                   onmouseout="evt.target.setAttribute('opacity', '1');"/>
                 </svg> -->
                 <!-- End indicator box -->
-                
+
                 <!-- MATCH/RESET buttons -->
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 bottom-ight">
                   <button class="btn btn-default" id="match" onclick="simulate(); changeColorBlue(this.id)">
@@ -231,10 +231,10 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Bottom right button area -->
             <div class="row">
-              
+
               <!-- Right LEFT/RIGHT/BOTH buttons -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color bottom-left">
                 <div class="oldSpan">
@@ -251,7 +251,7 @@
                   Both
                 </button>
               </div>
-              
+
               <!-- Right NB/SPEECH/WHITE buttons -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color">
                 <div class="oldSpan">
@@ -267,7 +267,7 @@
                   White
                 </button>
               </div>
-              
+
               <!-- Right INTERRUPT/PRESENT buttons and slider -->
               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 color top-right bottom-right divider-left">
                 <button id="Interrupt2" class="btn btn-default" onclick="changeColorBlue(this.id); clearButtonColors('Present2')" disabled>
@@ -280,13 +280,13 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Right arrow -->
           <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
             <img class="toggler" id="or" src="./images/arrow-right.png" alt="">
           </div>
         </div>
-        
+
         <!-- Frequency buttons -->
         <div class="row frequency">
             <!-- Middle left header -->

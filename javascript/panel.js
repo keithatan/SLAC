@@ -226,23 +226,35 @@ var snd4000 = new Audio("sound/4000hz.mp3");
 //var snd5000 = new Audio("sound/5000hz.wav");
 var snd6000 = new Audio("sound/6000hz.mp3");
 var snd8000 = new Audio("sound/8000hz.mp3");
-var greynoise = new Audio("sound/audiocheck.net_greynoise.wav")
+var greynoise = new Audio("sound/audiocheck.net_greynoise.mp3")
 
 // Play sound based on what frequency is
 function sndplay() {
     var dB_ch1 = document.getElementById('range1').value;
-    //var dB_ch2 = document.getElementById('range2').value;
+    var dB_ch2 = document.getElementById('range2').value;
+    var vol1 = dB_ch1*0.01;
+    var vol2 = dB_ch2*0.01;
+    snd200.volume = vol1;
+    snd250.volume = vol1;
+    snd500.volume = vol1;
+    snd750.volume = vol1;
+    snd1000.volume = vol1;
+    snd2000.volume = vol1;
+    snd3000.volume = vol1;
+    snd4000.volume = vol1;
+    snd6000.volume = vol1;
+    snd8000.volume = vol1;
+    snd200.volume = vol2;
+    snd250.volume = vol2;
+    snd500.volume = vol2;
+    snd750.volume = vol2;
+    snd1000.volume = vol2;
+    snd2000.volume = vol2;
+    snd3000.volume = vol2;
+    snd4000.volume = vol2;
+    snd6000.volume = vol2;
+    snd8000.volume = vol2;
 
-    snd200.volume = dB_ch1*0.01;
-    snd250.volume = dB_ch1*0.01;
-    snd500.volume = dB_ch1*0.01;
-    snd750.volume = dB_ch1*0.01;
-    snd1000.volume = dB_ch1*0.01;
-    snd2000.volume = dB_ch1*0.01;
-    snd3000.volume = dB_ch1*0.01;
-    snd4000.volume = dB_ch1*0.01;
-    snd6000.volume = dB_ch1*0.01;
-    snd8000.volume = dB_ch1*0.01;
 
     if (Freq == 200) snd200.play();
     else if (Freq == 250) snd250.play();
@@ -261,6 +273,8 @@ function sndplay() {
 
 var count = 0;
 function nbplay(){
+    console.log('Playing NB noise');
+    greynoise.loop = true;
     greynoise.play();
 }
 
