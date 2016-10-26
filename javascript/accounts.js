@@ -153,36 +153,14 @@ function login(element)
 	var password = document.getElementById("pwd").value;
 	var str = "";
 
-	str = "login " + email + " " + password;
-
-	if (window.XMLHttpRequest)
-	{
-		xmlhttp = new XMLHttpRequest();
-	}
-	else
-	{
-		xmlhttp = new ActiveXObject();
-	}
-
-	xmlhttp.onreadystatechange = function()
-	{
-		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			console.log(xmlhttp)
-			document.getElementById("LoginFail").innerHTML = xmlhttp.responseText;
-			/*I could only get the if statement to work like this and not with the "==" for some reason*/
-			if (xmlhttp.responseText != "")
-			{
-
-			}
-			else
-			{
-				/*Opens a pop up window of the simulator*/
-				window.location.href = '/simulator.php';
-			}
+	$.post( "/php/login.php", {email: email, pass: password}, function(data) {
+		if (data) {
+			console.log(data);
+			document.getElementById("LoginFail").innerHTML = data;
+		} else {
+			window.location.href = '/simulator.php';
 		}
-	}
+	});
 
-	xmlhttp.open("GET", "/php/login.php?q="+str, true);
-	xmlhttp.send();
 	return false;
 }
