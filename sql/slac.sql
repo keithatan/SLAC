@@ -123,7 +123,7 @@ ALTER TABLE `Patients`
 
 
 CREATE TABLE IF NOT EXISTS `Users` (
-  `id` int(11) DEFAULT 0,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   `PUID` int(10),
@@ -132,5 +132,6 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `email` varchar(255) DEFAULT NULL,
   `course_id` varchar(255) DEFAULT NULL,
   `instructor` varchar(255) DEFAULT NULL,
-  `grade` varchar(255) DEFAULT NULL
+  `grade` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
