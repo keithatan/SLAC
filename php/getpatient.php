@@ -3,7 +3,7 @@ include 'connection.php';
 /*THIS SCRIPT IS USED FOR THE SELECT PATIENT AND EDIT PATIENT TABS*/
 
 //COUNT DETERMINES WHETHER TO UPDATE OR IF YOU SELECTED A PATIENT
-//basically acts like case statement but sloppy coding 
+//basically acts like case statement but sloppy coding
 
 //see connection.php for variable "values"
 $q = $_GET['q'];
@@ -48,8 +48,8 @@ elseif ($count == 3) {
     }
     else {
         echo "Error updating record: ";
-        print_r($conn->errorInfo());
+        print_r($conn->error);
     }
 }
-// mysqli_close($conn); 
+// mysqli_close($conn);
 ?>

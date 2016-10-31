@@ -24,7 +24,7 @@
 		}
 		else
 		{
-			print_r($conn->errorInfo());
+			print_r($conn->error);
 		}
 	//mssql_close($conn);
 	//header('Location: http://epics.ecn.purdue.edu/wise/slac-dev/');
