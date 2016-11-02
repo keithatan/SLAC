@@ -275,7 +275,12 @@ var count = 0;
 function nbplay(){
     console.log('Playing NB noise');
     greynoise.loop = true;
-    greynoise.play();
+    if (greynoise.paused === true) {
+        greynoise.play();
+    }
+    else {
+        greynoise.pause();
+    }
 }
 
 /*****************************
