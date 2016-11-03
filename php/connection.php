@@ -6,14 +6,10 @@ $config = include $_SERVER['DOCUMENT_ROOT'].'/config.php';
 
 //echo 'Php info' . phpinfo();
 
-try
-{
-  $conn = new PDO($config['dsn'], $config['dbuser'], $config['dbpassword']);
-}
-
-catch (Exception $e)
-{
-	 die('Connection failed: ' . $e->getMessage());
+$conn = new mysqli("mysql.ecn.purdue.edu", "atkins11", "MFLg7Q5Kzf", "slac");
+if ($conn->connect_errno) {
+    echo "Failed to connect to MySQL: (" . $conn->connect_errno . ") " . $conn->connect_error;
+		die();
 }
 $home = 'Location: /index.php';
 $header = 'Location: /simulator.php';

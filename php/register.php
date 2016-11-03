@@ -25,7 +25,7 @@
 	$sql = "SELECT * from Users where email=" . "'". $email."'";
 	if ($res = $conn->query($sql))
 	{
-		if($res->fetchColumn() > 0)
+		if($res->num_rows > 0)
 		{
 			echo "ERROR: Check Form";
 			exit();
@@ -41,7 +41,7 @@
 	$sql = "SELECT * from Users where PUID=" . "'". $PUID."'";
 	if ($res = $conn->query($sql))
 	{
-		if($res->fetchColumn() > 0)
+		if($res->num_rows > 0)
 		{
 			echo "ERROR: Check Form";
 			exit();
@@ -61,6 +61,6 @@
 	}
 	else
 	{
-		print_r($conn->errorInfo());
+		print_r($conn->error);
 	}
 ?>
