@@ -143,7 +143,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <img class="icon-box" src="../img/icons/png/student.png" />
+                        <img class="icon-box" src="./img/icons/png/student.png" />
                         <h3>Student Accounts</h3>
                         <p class="text-muted">Come test real patient data and get feedback on your findings!</p>
                     </div>
@@ -151,7 +151,7 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <!-- <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i> -->
-                          <img class="icon-box" src="../img/icons/png/classroom.png" />
+                          <img class="icon-box" src="./img/icons/png/classroom.png" />
                         <h3>Professor Accounts</h3>
                         <p class="text-muted">Add classes and patient data to our database today! Also have the option to grade students and create class activities.</p>
                     </div>
@@ -159,7 +159,7 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <!-- <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i> -->
-                          <img class="icon-box" src="../img/icons/png/results.png" />
+                          <img class="icon-box" src="./img/icons/png/results.png" />
                         <h3>Findings</h3>
                         <p class="text-muted">Store your results in our database and review them at anytime!</p>
                     </div>
@@ -167,7 +167,7 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <!-- <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i> -->
-                          <img class="icon-box" src="../img/icons/png/ear.png" />
+                          <img class="icon-box" src="./img/icons/png/ear.png" />
                         <h3>Simulator</h3>
                         <p class="text-muted">Use a detail intensive simulator to test either headphone sounds or bone conduction noises!</p>
                     </div>
