@@ -102,7 +102,7 @@ function register_valid(element) {
     return false;
   }
 
-  $.post("/php/register.php", register_data, function(data) {
+  $.post("../php/register.php", register_data, function(data) {
     if (data) {
       document.getElementById("SubmitResponse").innerHTML = data;
     }
@@ -118,7 +118,7 @@ function login(element) {
   var password = document.getElementById("pwd").value;
   var str = "";
 
-  $.post("/php/login.php", {
+  $.post("./php/login.php", {
     email: email,
     pass: password
   }, function(data) {
@@ -126,7 +126,7 @@ function login(element) {
       console.log(data);
       document.getElementById("LoginFail").innerHTML = data;
     } else {
-      window.location.href = '/simulator.php';
+      window.location.href = './simulator.php';
     }
   });
 
