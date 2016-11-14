@@ -1,3 +1,4 @@
 .svn/*
 projectFilesBackup/*
 config.php
+.DS_Store

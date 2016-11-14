@@ -1,5 +1,5 @@
 <?php
-	include "../php/connection.php";
+	include "connection.php";
 	/*check if email or puid exists and report appropriate error message*/
 
 	$q = $_GET['q'];
