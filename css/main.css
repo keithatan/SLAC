@@ -612,6 +612,7 @@ textarea {
 }
 
 .patient-info-btn {
+    z-index: 1;
     margin-left: 109px;
     margin-bottom: 20px;
 }
