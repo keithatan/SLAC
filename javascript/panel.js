@@ -214,6 +214,7 @@ function sleep(milliseconds) {
 }
 
 // Define audio variables
+var snd125 = new Audio("sound/125hz.mp3");
 var snd200 = new Audio("sound/200hz.mp3");
 var snd250 = new Audio("sound/250hz.mp3");
 var snd500 = new Audio("sound/500hz.mp3");
@@ -229,46 +230,44 @@ var snd8000 = new Audio("sound/8000hz.mp3");
 var greynoise = new Audio("sound/audiocheck.net_greynoise.mp3")
 
 // Play sound based on what frequency is
+
+function presentLeft () {
+    var dBLeft = document.getElementById('range1').value;
+    var vol1 = dBLeft*0.01;
+    var tone = new Tone.Frequency(Freq);
+    var merge = new Tone.Merge().toMaster();
+    var leftEar = new Tone.Oscillator(tone, "sine");
+    merge.volume = vol1;
+    leftEar.connect(merge.left);
+    leftEar.start().stop("+1");
+}
+
+function presentRight () {
+    var dBRight = document.getElementById('range2').value;
+    var vol2 = dBRight*0.01;
+    var tone = new Tone.Frequency(Freq);
+    var merge = new Tone.Merge().toMaster();
+    var rightEar = new Tone.Oscillator(tone, "sine");
+    merge.volume = vol2;
+    rightEar.connect(merge.right);
+    rightEar.start().stop("+1");
+}
+
 function sndplay() {
+
+
+    var rightEar = new Tone.Oscillator(tone, "sine");
+    leftEar.connect(merge.left);
+    rightEar.connect(merge.right);
+
+    leftEar.start().stop("+1");
+    rightEar.start().stop("+1")
+
     var dB_ch1 = document.getElementById('range1').value;
     var dB_ch2 = document.getElementById('range2').value;
     var vol1 = dB_ch1*0.01;
     var vol2 = dB_ch2*0.01;
-    snd200.volume = vol1;
-    snd250.volume = vol1;
-    snd500.volume = vol1;
-    snd750.volume = vol1;
-    snd1000.volume = vol1;
-    snd2000.volume = vol1;
-    snd3000.volume = vol1;
-    snd4000.volume = vol1;
-    snd6000.volume = vol1;
-    snd8000.volume = vol1;
-    snd200.volume = vol2;
-    snd250.volume = vol2;
-    snd500.volume = vol2;
-    snd750.volume = vol2;
-    snd1000.volume = vol2;
-    snd2000.volume = vol2;
-    snd3000.volume = vol2;
-    snd4000.volume = vol2;
-    snd6000.volume = vol2;
-    snd8000.volume = vol2;
 
-
-    if (Freq == 200) snd200.play();
-    else if (Freq == 250) snd250.play();
-    else if (Freq == 500) snd500.play();
-    else if (Freq == 750) snd750.play();
-    else if (Freq == 1000) snd1000.play();
-    else if (Freq == 1500) snd1500.play();
-    else if (Freq == 2000) snd2000.play();
-    else if (Freq == 3000) snd3000.play();
-    else if (Freq == 4000) snd4000.play();
-    else if (Freq == 6000) snd6000.play();
-    else if (Freq == 8000) snd8000.play();
-
-    console.log("Sound played at frequency " + Freq + "Hz");
 }
 
 var count = 0;
