@@ -160,7 +160,7 @@ function changeColor(clicked_id) {
         tmp.style.backgroundColor = redButtonColor;
     }
 
-    console.log("Button color changed from " + oldColor + " to " + tmp.style.backgroundColor);
+    //console.log("Button color changed from " + oldColor + " to " + tmp.style.backgroundColor);
 }
 
 // Changes color to blue and back
@@ -177,8 +177,8 @@ function changeColorBlue(clicked_id) {
         tmp.style.backgroundColor = blueButtonColor;
     }
 
-    console.log("Button color changed from " + oldColor + " to " + tmp.style.backgroundColor);
-    console.log("this.id is " + clicked_id);
+    //console.log("Button color changed from " + oldColor + " to " + tmp.style.backgroundColor);
+    //console.log("this.id is " + clicked_id);
 }
 
 //clear other buttons to make button colors mutually exclusive
@@ -213,22 +213,6 @@ function sleep(milliseconds) {
     }
 }
 
-// Define audio variables
-var snd125 = new Audio("sound/125hz.mp3");
-var snd200 = new Audio("sound/200hz.mp3");
-var snd250 = new Audio("sound/250hz.mp3");
-var snd500 = new Audio("sound/500hz.mp3");
-var snd750 = new Audio("sound/750hz.mp3");
-var snd1000 = new Audio("sound/1000hz.mp3");
-var snd1500 = new Audio("sound/1500hz.mp3");
-var snd2000 = new Audio("sound/2000hz.mp3");
-var snd3000 = new Audio("sound/3000hz.mp3");
-var snd4000 = new Audio("sound/4000hz.mp3");
-//var snd5000 = new Audio("sound/5000hz.wav");
-var snd6000 = new Audio("sound/6000hz.mp3");
-var snd8000 = new Audio("sound/8000hz.mp3");
-var greynoise = new Audio("sound/audiocheck.net_greynoise.mp3")
-
 // Play sound based on what frequency is
 
 function presentLeft () {
@@ -253,33 +237,26 @@ function presentRight () {
     rightEar.start().stop("+1");
 }
 
-function sndplay() {
-
-
-    var rightEar = new Tone.Oscillator(tone, "sine");
-    leftEar.connect(merge.left);
-    rightEar.connect(merge.right);
-
-    leftEar.start().stop("+1");
-    rightEar.start().stop("+1")
-
-    var dB_ch1 = document.getElementById('range1').value;
-    var dB_ch2 = document.getElementById('range2').value;
-    var vol1 = dB_ch1*0.01;
-    var vol2 = dB_ch2*0.01;
-
-}
-
 var count = 0;
 function nbplay(){
     console.log('Playing NB noise');
     greynoise.loop = true;
-    if (greynoise.paused === true) {
-        greynoise.play();
-    }
-    else {
-        greynoise.pause();
-    }
+    //initialize the noise and start
+    var noise = new Tone.Noise("white").start();
+
+    //make an autofilter to shape the noise
+    var scaledEnv = new Tone.ScaledEnvelope({
+ 	"attack" : 0.2,
+ 	"min" : 200,
+ 	"max" : 300
+ });
+
+ scaledEnv.connect(noise.frequency);
+
+    //connect the noise
+    noise.connect(scaledEnv);
+    //start the autofilter LFO
+    //autoFilter.start()
 }
 
 /*****************************
@@ -308,27 +285,6 @@ function setblinkColor() {
     document.getElementById("blink2").style.background = "green";
     setTimeout("blinkColor()", 500);
 }
-
-
-/*****************************
- * record unheard data
- ******************************/
-
-
-//function UserWindow() {
-//
-//    // URL, name and attributes
-//    window.open('User.html','windowNew','width=300, height=300');
-//    return true;
-//}
-
-//function unheard(dB_left, dB_right){
-//    var freq = Freq;
-//    console.log("dB left is" + dB_left);
-//    console.log("dB left is" + dB_right);
-//    console.log("Frequency is" + freq);
-////    draw AC, BC accordingly;
-//}
 
 // Initialize environment
 function windowLoad() {

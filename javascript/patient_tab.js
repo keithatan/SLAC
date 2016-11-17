@@ -59,7 +59,7 @@ function showPatient(str)
 			}
 		}
 
-		xmlhttp.open("GET", "../slac-dev/php/getpatient.php?q="+str, true);
+		xmlhttp.open("GET", "../php/getpatient.php?q="+str, true);
 		xmlhttp.send();
 	}
 }

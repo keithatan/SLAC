@@ -75,145 +75,145 @@ function patient(arr)
     var R = "R";
     var L = "L";
     var BR = "BR";
-    var BL = "BL";  
+    var BL = "BL";
     var i = 0;
     this.first_name = arr[i++];
     this.last_name = arr[i++];
     this.description = arr[i++];
-    this.R_125 = [125, "R", arr[i++]]; 
-    this.R_250 = [250, "R", arr[i++]]; 
-    this.R_500 = [500, "R", arr[i++]]; 
-    this.R_750 = [750, "R", arr[i++]]; 
-    this.R_1000 = [1000, "R", arr[i++]]; 
-    this.R_1500 = [1500, "R", arr[i++]]; 
-    this.R_2000 = [2000, "R", arr[i++]]; 
-    this.R_3000 = [3000, "R", arr[i++]]; 
-    this.R_4000 = [4000, "R", arr[i++]]; 
-    this.R_6000 = [6000, "R", arr[i++]]; 
-    this.R_8000 = [8000, "R", arr[i++]]; 
-    this.L_125 = [125, "L", arr[i++]]; 
-    this.L_250 = [250, "L", arr[i++]]; 
-    this.L_500 = [500, "L", arr[i++]]; 
-    this.L_750 = [750, "L", arr[i++]]; 
-    this.L_1000 = [1000, "L", arr[i++]]; 
-    this.L_1500 = [1500, "L", arr[i++]]; 
-    this.L_2000 = [2000, "L", arr[i++]]; 
-    this.L_3000 = [3000, "L", arr[i++]]; 
-    this.L_4000 = [4000, "L", arr[i++]]; 
-    this.L_6000 = [6000, "L", arr[i++]]; 
-    this.L_8000 = [8000, "L", arr[i++]]; 
-    this.BR_125 = [125, "BR", arr[i++]]; 
-    this.BR_250 = [250, "BR", arr[i++]]; 
-    this.BR_500 = [500, "BR", arr[i++]]; 
-    this.BR_750 = [750, "BR", arr[i++]]; 
-    this.BR_1000 = [1000, "BR", arr[i++]]; 
-    this.BR_1500 = [1500, "BR", arr[i++]]; 
-    this.BR_2000 = [2000, "BR", arr[i++]]; 
-    this.BR_3000 = [3000, "BR", arr[i++]]; 
-    this.BR_4000 = [4000, "BR", arr[i++]]; 
-    this.BR_6000 = [6000, "BR", arr[i++]]; 
-    this.BR_8000 = [8000, "BR", arr[i++]]; 
-    this.BL_125 = [125, "BL", arr[i++]]; 
-    this.BL_250 = [250, "BL", arr[i++]]; 
-    this.BL_500 = [500, "BL", arr[i++]]; 
-    this.BL_750 = [750, "BL", arr[i++]]; 
-    this.BL_1000 = [1000, "BL", arr[i++]]; 
-    this.BL_1500 = [1500, "BL", arr[i++]]; 
-    this.BL_2000 = [2000, "BL", arr[i++]]; 
-    this.BL_3000 = [3000, "BL", arr[i++]]; 
-    this.BL_4000 = [4000, "BL", arr[i++]]; 
-    this.BL_6000 = [6000, "BL", arr[i++]]; 
+    this.R_125 = [125, "R", arr[i++]];
+    this.R_250 = [250, "R", arr[i++]];
+    this.R_500 = [500, "R", arr[i++]];
+    this.R_750 = [750, "R", arr[i++]];
+    this.R_1000 = [1000, "R", arr[i++]];
+    this.R_1500 = [1500, "R", arr[i++]];
+    this.R_2000 = [2000, "R", arr[i++]];
+    this.R_3000 = [3000, "R", arr[i++]];
+    this.R_4000 = [4000, "R", arr[i++]];
+    this.R_6000 = [6000, "R", arr[i++]];
+    this.R_8000 = [8000, "R", arr[i++]];
+    this.L_125 = [125, "L", arr[i++]];
+    this.L_250 = [250, "L", arr[i++]];
+    this.L_500 = [500, "L", arr[i++]];
+    this.L_750 = [750, "L", arr[i++]];
+    this.L_1000 = [1000, "L", arr[i++]];
+    this.L_1500 = [1500, "L", arr[i++]];
+    this.L_2000 = [2000, "L", arr[i++]];
+    this.L_3000 = [3000, "L", arr[i++]];
+    this.L_4000 = [4000, "L", arr[i++]];
+    this.L_6000 = [6000, "L", arr[i++]];
+    this.L_8000 = [8000, "L", arr[i++]];
+    this.BR_125 = [125, "BR", arr[i++]];
+    this.BR_250 = [250, "BR", arr[i++]];
+    this.BR_500 = [500, "BR", arr[i++]];
+    this.BR_750 = [750, "BR", arr[i++]];
+    this.BR_1000 = [1000, "BR", arr[i++]];
+    this.BR_1500 = [1500, "BR", arr[i++]];
+    this.BR_2000 = [2000, "BR", arr[i++]];
+    this.BR_3000 = [3000, "BR", arr[i++]];
+    this.BR_4000 = [4000, "BR", arr[i++]];
+    this.BR_6000 = [6000, "BR", arr[i++]];
+    this.BR_8000 = [8000, "BR", arr[i++]];
+    this.BL_125 = [125, "BL", arr[i++]];
+    this.BL_250 = [250, "BL", arr[i++]];
+    this.BL_500 = [500, "BL", arr[i++]];
+    this.BL_750 = [750, "BL", arr[i++]];
+    this.BL_1000 = [1000, "BL", arr[i++]];
+    this.BL_1500 = [1500, "BL", arr[i++]];
+    this.BL_2000 = [2000, "BL", arr[i++]];
+    this.BL_3000 = [3000, "BL", arr[i++]];
+    this.BL_4000 = [4000, "BL", arr[i++]];
+    this.BL_6000 = [6000, "BL", arr[i++]];
     this.BL_8000 = [8000, "BL", arr[i++]];
-    this.BMR_125 = [125, "BMR", arr[i++]]; 
-    this.BMR_250 = [250, "BMR", arr[i++]]; 
-    this.BMR_500 = [500, "BMR", arr[i++]]; 
-    this.BMR_750 = [750, "BMR", arr[i++]]; 
-    this.BMR_1000 = [1000, "BMR", arr[i++]]; 
-    this.BMR_1500 = [1500, "BMR", arr[i++]]; 
-    this.BMR_2000 = [2000, "BMR", arr[i++]]; 
-    this.BMR_3000 = [3000, "BMR", arr[i++]]; 
-    this.BMR_4000 = [4000, "BMR", arr[i++]]; 
-    this.BMR_6000 = [6000, "BMR", arr[i++]]; 
-    this.BMR_8000 = [8000, "BMR", arr[i++]]; 
-    this.BML_125 = [125, "BML", arr[i++]]; 
-    this.BML_250 = [250, "BML", arr[i++]]; 
-    this.BML_500 = [500, "BML", arr[i++]]; 
-    this.BML_750 = [750, "BML", arr[i++]]; 
-    this.BML_1000 = [1000, "BML", arr[i++]]; 
-    this.BML_1500 = [1500, "BML", arr[i++]]; 
-    this.BML_2000 = [2000, "BML", arr[i++]]; 
-    this.BML_3000 = [3000, "BML", arr[i++]]; 
-    this.BML_4000 = [4000, "BML", arr[i++]]; 
-    this.BML_6000 = [6000, "BML", arr[i++]]; 
+    this.BMR_125 = [125, "BMR", arr[i++]];
+    this.BMR_250 = [250, "BMR", arr[i++]];
+    this.BMR_500 = [500, "BMR", arr[i++]];
+    this.BMR_750 = [750, "BMR", arr[i++]];
+    this.BMR_1000 = [1000, "BMR", arr[i++]];
+    this.BMR_1500 = [1500, "BMR", arr[i++]];
+    this.BMR_2000 = [2000, "BMR", arr[i++]];
+    this.BMR_3000 = [3000, "BMR", arr[i++]];
+    this.BMR_4000 = [4000, "BMR", arr[i++]];
+    this.BMR_6000 = [6000, "BMR", arr[i++]];
+    this.BMR_8000 = [8000, "BMR", arr[i++]];
+    this.BML_125 = [125, "BML", arr[i++]];
+    this.BML_250 = [250, "BML", arr[i++]];
+    this.BML_500 = [500, "BML", arr[i++]];
+    this.BML_750 = [750, "BML", arr[i++]];
+    this.BML_1000 = [1000, "BML", arr[i++]];
+    this.BML_1500 = [1500, "BML", arr[i++]];
+    this.BML_2000 = [2000, "BML", arr[i++]];
+    this.BML_3000 = [3000, "BML", arr[i++]];
+    this.BML_4000 = [4000, "BML", arr[i++]];
+    this.BML_6000 = [6000, "BML", arr[i++]];
     this.BML_8000 = [8000, "BML", arr[i++]];
 
     this.list = [ this.R_125,
-        this.R_250, 
-        this.R_500, 
-        this.R_750, 
-        this.R_1000, 
-        this.R_1500, 
-        this.R_2000, 
-        this.R_3000, 
-        this.R_4000, 
-        this.R_6000, 
-        this.R_8000, 
-        this.L_125, 
-        this.L_250, 
-        this.L_500, 
-        this.L_750, 
-        this.L_1000, 
-        this.L_1500, 
-        this.L_2000, 
-        this.L_3000, 
-        this.L_4000, 
-        this.L_6000, 
-        this.L_8000, 
-        this.BR_125, 
-        this.BR_250, 
-        this.BR_500, 
-        this.BR_750, 
-        this.BR_1000, 
-        this.BR_1500, 
-        this.BR_2000, 
-        this.BR_3000, 
-        this.BR_4000, 
-        this.BR_6000, 
-        this.BR_8000, 
-        this.BL_125, 
-        this.BL_250, 
-        this.BL_500, 
-        this.BL_750, 
-        this.BL_1000, 
-        this.BL_1500, 
-        this.BL_2000, 
-        this.BL_3000, 
-        this.BL_4000, 
-        this.BL_6000, 
+        this.R_250,
+        this.R_500,
+        this.R_750,
+        this.R_1000,
+        this.R_1500,
+        this.R_2000,
+        this.R_3000,
+        this.R_4000,
+        this.R_6000,
+        this.R_8000,
+        this.L_125,
+        this.L_250,
+        this.L_500,
+        this.L_750,
+        this.L_1000,
+        this.L_1500,
+        this.L_2000,
+        this.L_3000,
+        this.L_4000,
+        this.L_6000,
+        this.L_8000,
+        this.BR_125,
+        this.BR_250,
+        this.BR_500,
+        this.BR_750,
+        this.BR_1000,
+        this.BR_1500,
+        this.BR_2000,
+        this.BR_3000,
+        this.BR_4000,
+        this.BR_6000,
+        this.BR_8000,
+        this.BL_125,
+        this.BL_250,
+        this.BL_500,
+        this.BL_750,
+        this.BL_1000,
+        this.BL_1500,
+        this.BL_2000,
+        this.BL_3000,
+        this.BL_4000,
+        this.BL_6000,
         this.BL_8000,
-        this.BMR_125, 
-        this.BMR_250, 
-        this.BMR_500, 
-        this.BMR_750, 
-        this.BMR_1000, 
-        this.BMR_1500, 
-        this.BMR_2000, 
-        this.BMR_3000, 
-        this.BMR_4000, 
-        this.BMR_6000, 
-        this.BMR_8000, 
-        this.BML_125, 
-        this.BML_250, 
-        this.BML_500, 
-        this.BML_750, 
-        this.BML_1000, 
-        this.BML_1500, 
-        this.BML_2000, 
-        this.BML_3000, 
-        this.BML_4000, 
-        this.BML_6000, 
+        this.BMR_125,
+        this.BMR_250,
+        this.BMR_500,
+        this.BMR_750,
+        this.BMR_1000,
+        this.BMR_1500,
+        this.BMR_2000,
+        this.BMR_3000,
+        this.BMR_4000,
+        this.BMR_6000,
+        this.BMR_8000,
+        this.BML_125,
+        this.BML_250,
+        this.BML_500,
+        this.BML_750,
+        this.BML_1000,
+        this.BML_1500,
+        this.BML_2000,
+        this.BML_3000,
+        this.BML_4000,
+        this.BML_6000,
         this.BML_8000];
-    //add a variation of +5 to each value    
+    //add a variation of +5 to each value
     for(var i = 0; i< this.list.length; i++)
     {
         this.list[i].push(Math.floor((Math.random() * 3) + 1));
@@ -263,7 +263,7 @@ function loadPatient()
             }
         }
         var str = val.concat(" all");
-        xmlhttp.open("GET", "php/getpatient.php?q="+str, true);
+        xmlhttp.open("GET", "./php/getpatient.php?q="+str, true);
         xmlhttp.send();
     }
 
@@ -291,7 +291,7 @@ function clearPatient()
 /*ALL SIMULATION TAKES PLACE HERE*/
 function simulate()
 {
-    if (document.getElementById("match").style.backgroundColor == on2) 
+    if (document.getElementById("match").style.backgroundColor == on2)
         {
             return
         }
@@ -331,7 +331,7 @@ function simulate()
     var dB = 0;
 
     var masking = 0; //signal masking test
-    var mask_dB = 0; 
+    var mask_dB = 0;
     var bone_dB = 0;
     var mask_key = "";
     var bone_key = "";
@@ -340,15 +340,15 @@ function simulate()
     var actual_mask_dB = 140;
 
     //document.getElementById("result").innerHTML = "INVALID :("; //Used to show if patient heard the sound
-    document.getElementById("result").innerHTML = '<img src="../slac-dev/images/redlight.png" height="40px" />';
+    document.getElementById("result").innerHTML = '<img src="../images/redlight.png" height="40px" />';
 
 
     //check value of transducer1
-    if (document.getElementById("Phone").style.backgroundColor == on1) 
+    if (document.getElementById("Phone").style.backgroundColor == on1)
     {
         Transducer1 = "Phone";
     }
-    else if (document.getElementById("Bone").style.backgroundColor == on1) 
+    else if (document.getElementById("Bone").style.backgroundColor == on1)
     {
         Transducer1 = "Bone";
     }
@@ -358,11 +358,11 @@ function simulate()
     }
 
     //Check value of transducer2
-    if (document.getElementById("Phone2").style.backgroundColor == on2) 
+    if (document.getElementById("Phone2").style.backgroundColor == on2)
     {
         Transducer2 = "Phone";
     }
-    else if (document.getElementById("Bone2").style.backgroundColor == on2) 
+    else if (document.getElementById("Bone2").style.backgroundColor == on2)
     {
         Transducer2 = "Bone";
     }
@@ -372,11 +372,11 @@ function simulate()
     }
 
     //check value of routing1
-    if (document.getElementById("Left").style.backgroundColor == on1) 
+    if (document.getElementById("Left").style.backgroundColor == on1)
     {
         Routing1 = "Left";
     }
-    else if (document.getElementById("Right").style.backgroundColor == on1) 
+    else if (document.getElementById("Right").style.backgroundColor == on1)
     {
         Routing1 = "Right";
     }
@@ -386,11 +386,11 @@ function simulate()
     }
 
     //check value of routing2
-    if (document.getElementById("Left2").style.backgroundColor == on2) 
+    if (document.getElementById("Left2").style.backgroundColor == on2)
     {
         Routing2 = "Left";
     }
-    else if (document.getElementById("Right2").style.backgroundColor == on2) 
+    else if (document.getElementById("Right2").style.backgroundColor == on2)
     {
         Routing2 = "Right";
     }
@@ -400,31 +400,31 @@ function simulate()
     }
 
     //check if present button is on
-    if (document.getElementById("Present1").style.backgroundColor == on1) 
+    if (document.getElementById("Present1").style.backgroundColor == on1)
     {
         Present1 = 1;
     }
-    if (document.getElementById("Present2").style.backgroundColor == on2) 
+    if (document.getElementById("Present2").style.backgroundColor == on2)
     {
         Present2 = 1;
     }
-    if (!Present1 && !Present2) 
+    if (!Present1 && !Present2)
     {
         return;
     }
-    if (PatientObject == undefined) 
+    if (PatientObject == undefined)
     {
         return;
     }
 
     //Present button must be on in order to play a sound
-    if (Present1 && Present2 && Tone1 && Tone2) 
+    if (Present1 && Present2 && Tone1 && Tone2)
     {
-        if (Transducer1 == "Bone" && Transducer2 == "Phone") 
+        if (Transducer1 == "Bone" && Transducer2 == "Phone")
         {
-            if (!NB && NB2 && Routing1 != Routing2) 
+            if (!NB && NB2 && Routing1 != Routing2)
             {
-                if (Routing1 == "Left" && Routing2 == "Right") 
+                if (Routing1 == "Left" && Routing2 == "Right")
                 {
                     //Right ear will be masked
                     masking = 1;
@@ -434,7 +434,7 @@ function simulate()
                     bone_key = "BML";
 
                 }
-                else if (Routing1 == "Right" && Routing2 == "Left") 
+                else if (Routing1 == "Right" && Routing2 == "Left")
                 {
                     //Left ear will be masked
                     masking = 1;
@@ -452,9 +452,9 @@ function simulate()
 
         else if (Transducer1 == "Phone" && Transducer2 == "Bone")
         {
-            if (NB && !NB2 && Routing1 != Routing2) 
+            if (NB && !NB2 && Routing1 != Routing2)
             {
-                if (Routing1 == "Left" && Routing2 == "Right") 
+                if (Routing1 == "Left" && Routing2 == "Right")
                 {
                     //Left ear will be masked
                     masking = 1;
@@ -463,7 +463,7 @@ function simulate()
                     mask_key = "BL";
                     bone_key = "BMR";
                 }
-                else if (Routing1 == "Right" && Routing2 == "Left") 
+                else if (Routing1 == "Right" && Routing2 == "Left")
                 {
                     //Right ear will be masked
                     masking = 1;
@@ -486,16 +486,16 @@ function simulate()
     }
     else
     {
-        if (Transducer1 == "Bone" && Present1 && Tone1) 
+        if (Transducer1 == "Bone" && Present1 && Tone1)
         {
-            if (Routing1 == "Right") 
+            if (Routing1 == "Right")
             {
                 //check right ear for bone response
                 key = "BR";
                 dB = dB1;
             }
 
-            else if (Routing1 == "Left") 
+            else if (Routing1 == "Left")
             {
                 //check left ear for bone response
                 key = "BL";
@@ -507,16 +507,16 @@ function simulate()
                 return;
             }
         }
-        else if (Transducer2 == "Bone" && Present2 && Tone2) 
+        else if (Transducer2 == "Bone" && Present2 && Tone2)
         {
-            if (Routing2 == "Right") 
+            if (Routing2 == "Right")
             {
                 //check right ear for bone response
                 key = "BR";
                 dB = dB2;
             }
 
-            else if (Routing2 == "Left") 
+            else if (Routing2 == "Left")
             {
                 //check left ear for bone response
                 key = "BL";
@@ -528,16 +528,16 @@ function simulate()
                 return;
             }
         }
-        else if (Transducer1 == "Phone" && Present1 && Tone1) 
+        else if (Transducer1 == "Phone" && Present1 && Tone1)
         {
-            if (Routing1 == "Right") 
+            if (Routing1 == "Right")
             {
                 //check right ear for phone response
                 key="R";
                 dB = dB1;
             }
 
-            else if (Routing1 == "Left") 
+            else if (Routing1 == "Left")
             {
                 //check left ear for phone response
                 key = "L";
@@ -549,16 +549,16 @@ function simulate()
                 return;
             }
         }
-        else if (Transducer2 == "Phone" && Present2 && Tone2) 
+        else if (Transducer2 == "Phone" && Present2 && Tone2)
         {
-            if (Routing2 == "Right") 
+            if (Routing2 == "Right")
             {
                 //check right ear for phone response
                 key = "R";
                 dB = dB2;
             }
 
-            else if (Routing2 == "Left") 
+            else if (Routing2 == "Left")
             {
                 //check left ear for response
                 key = "L";
@@ -578,17 +578,17 @@ function simulate()
 
 
     /*Some crazy bone masking algorithm that was described by Grad student in audiology department*/
-    if (masking) 
+    if (masking)
     {
         if (Freq == "250")
         {
             threshold_min = 20;
         }
-        else if (Freq == "500") 
+        else if (Freq == "500")
         {
             threshold_min = 15;
         }
-        else if (Freq == "500") 
+        else if (Freq == "500")
         {
             threshold_min = 10;
         }
@@ -597,25 +597,25 @@ function simulate()
         {
             if (PatientObject.list[i][0] == Freq)
             {
-                if (PatientObject.list[i][1] == mask_key) 
+                if (PatientObject.list[i][1] == mask_key)
                 {
                     threshold_min = threshold_min + PatientObject.list[i][2];
                     fake_mask_dB = PatientObject.list[i][2];
                 }
-                else if (PatientObject.list[i][1] == bone_key) 
+                else if (PatientObject.list[i][1] == bone_key)
                 {
                     threshold_max = threshold_max + PatientObject.list[i][2];
                     actual_mask_dB = PatientObject.list[i][2];
                 }
             }
 
-            if (mask_dB >= threshold_min && mask_dB <= threshold_max && bone_dB >= actual_mask_dB) 
+            if (mask_dB >= threshold_min && mask_dB <= threshold_max && bone_dB >= actual_mask_dB)
             {
-                document.getElementById("result").innerHTML = '<img src="../slac-dev/images/greenlight.png" height="40px" />';
+                document.getElementById("result").innerHTML = '<img src="../images/greenlight.png" height="40px" />';
             }
-            else if (mask_dB < threshold_min && (bone_dB >= fake_mask_dB || bone_dB >= actual_mask_dB)) 
+            else if (mask_dB < threshold_min && (bone_dB >= fake_mask_dB || bone_dB >= actual_mask_dB))
             {
-                document.getElementById("result").innerHTML = '<img src="../slac-dev/images/greenlight.png" height="40px" />';
+                document.getElementById("result").innerHTML = '<img src="../images/greenlight.png" height="40px" />';
             }
             else
             {
@@ -625,19 +625,19 @@ function simulate()
     }
     else
     {
-        for (var i = 0; i < PatientObject.list.length; i++) 
+        for (var i = 0; i < PatientObject.list.length; i++)
         {
-            if (PatientObject.list[i][1] == key && PatientObject.list[i][0] == Freq) 
+            if (PatientObject.list[i][1] == key && PatientObject.list[i][0] == Freq)
             {
-                if ((PatientObject.list[i][3] == PatientObject.list[i][4] % 3 + 1) && PatientObject.list[i][2] + 5 <= dB) 
+                if ((PatientObject.list[i][3] == PatientObject.list[i][4] % 3 + 1) && PatientObject.list[i][2] + 5 <= dB)
                 {
                     PatientObject.list[i][4] += 1;
-                    document.getElementById("result").innerHTML = '<img src="../slac-dev/images/greenlight.png" height="40px" />';
+                    document.getElementById("result").innerHTML = '<img src="../images/greenlight.png" height="40px" />';
                 }
-                else if (PatientObject.list[i][2] <= dB) 
+                else if (PatientObject.list[i][2] <= dB)
                 {
                     PatientObject.list[i][4] += 1;
-                    document.getElementById("result").innerHTML = '<img src="../slac-dev/images/greenlight.png" height="40px" />';
+                    document.getElementById("result").innerHTML = '<img src="../images/greenlight.png" height="40px" />';
                 }
             }
         }
