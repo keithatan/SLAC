@@ -217,24 +217,28 @@ function sleep(milliseconds) {
 
 function presentLeft () {
     var dBLeft = document.getElementById('range1').value;
-    var vol1 = dBLeft*0.01;
+    var vol1 = dBLeft*0.1;
     var tone = new Tone.Frequency(Freq);
     var merge = new Tone.Merge().toMaster();
     var leftEar = new Tone.Oscillator(tone, "sine");
-    merge.volume = vol1;
+    
     leftEar.connect(merge.left);
     leftEar.start().stop("+1");
+
+    Tone.Master.volume.value = vol1
 }
 
 function presentRight () {
     var dBRight = document.getElementById('range2').value;
-    var vol2 = dBRight*0.01;
+    var vol2 = dBRight*0.1;
     var tone = new Tone.Frequency(Freq);
     var merge = new Tone.Merge().toMaster();
     var rightEar = new Tone.Oscillator(tone, "sine");
-    merge.volume = vol2;
+
     rightEar.connect(merge.right);
     rightEar.start().stop("+1");
+
+    Tone.Master.volume.value = vol2;
 }
 
 var count = 0;
