@@ -1,7 +1,8 @@
 <?php
 
 return array(
-    'dsn' => 'mysql:dbname=slac;host=127.0.0.1',
+    'dbhost' => 'mysql.ecn.purdue.edu',
     'dbuser' => '',
-    'dbpassword' => ''
+    'dbpassword' => '',
+    'dbname' => 'slac'
 );

@@ -6,7 +6,7 @@ $config = include $_SERVER['DOCUMENT_ROOT'].'/config.php';
 
 //echo 'Php info' . phpinfo();
 
-$conn = new mysqli("mysql.ecn.purdue.edu", "atkins11", "MFLg7Q5Kzf", "slac");
+$conn = new mysqli($config['dbhost'], $config['dbuser'], $config['dbpassword'], $config['dbname']);
 if ($conn->connect_errno) {
     echo "Failed to connect to MySQL: (" . $conn->connect_errno . ") " . $conn->connect_error;
 		die();
