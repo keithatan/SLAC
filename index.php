@@ -109,7 +109,7 @@
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>The Student Language & Audiology Clinic</h1>
+                <h1>The Speech Language & Audiology Clinic</h1>
                 <hr>
                 <p>Use our online clinic to administer a hearing test on a virtual patient, or perform a pre-screening hearing test online for free!</p>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
