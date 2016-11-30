@@ -3,7 +3,7 @@
 // Try to pull in the config variables from the config file
 $config = include $_SERVER['DOCUMENT_ROOT'].'/config.php';
 // If that doesn't work, set it here (above wasn't working on server)
-if (!isset($config)) {
+if (!isset($config['dbhost'])) {
 	$config = array(
 	    'dbhost' => 'mysql.ecn.purdue.edu',
 	    'dbuser' => '',
