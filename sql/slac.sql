@@ -28,10 +28,11 @@ USE `slac`;
 --
 
 CREATE TABLE IF NOT EXISTS `Patients` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
+  `user` varchar(255) DEFAULT NULL,
   `R_125` int(11) DEFAULT NULL,
   `R_250` int(11) DEFAULT NULL,
   `R_500` int(11) DEFAULT NULL,
@@ -97,29 +98,9 @@ CREATE TABLE IF NOT EXISTS `Patients` (
   `BML_3000` int(11) DEFAULT NULL,
   `BML_4000` int(11) DEFAULT NULL,
   `BML_6000` int(11) DEFAULT NULL,
-  `BML_8000` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `Patients`
---
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `Patients`
---
-ALTER TABLE `Patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+  `BML_8000` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE IF NOT EXISTS `Users` (

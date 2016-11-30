@@ -166,7 +166,7 @@
                 <h4> Select a Patient </h4>
                 <?php
                   include 'php/connection.php';
-                  $sql = "SELECT id, first_name, last_name FROM Patients";
+                  $sql = 'SELECT id, first_name, last_name FROM Patients WHERE user="'. $_SESSION['user'] . '"';
                   echo '<form><select id="forminput" name="users" onchange="showPatient(this.value)"><option value="">Select a person:</option>';
                   foreach($conn->query($sql) as $row)
                   {
