@@ -47,6 +47,7 @@
     <script src="javascript/patient_simulation.js"></script>
     <script src="javascript/preset_patients.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="./js/Tone.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
