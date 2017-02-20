@@ -528,9 +528,10 @@ overflow:auto
     font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 }
 
-#close
-{
+#close {
     height: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
 }
 
 #newpatientform {
@@ -540,12 +541,12 @@ overflow:auto
 #forminput, #form-input, #forminput_2, #editvalue, #forminput_3 {
     position: relative;
     display: block;
-    margin : 0 auto;
+    margin: 10px auto;
     text-align: center;
     width: 85%;
     background-color: #333333;
     color: rgb(255,255,255);
-    font-size: 12px;
+    font-size: 15px;
 }
 
 #Patient-Columns {
@@ -627,4 +628,27 @@ textarea {
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    color: #ffffff;
+    background-color: #ee4b28;
+    border-color: #ed431f;
+}
+.btn:hover {
+    /* color: #333; */
+    text-decoration: none;
+}
+.btn-primary {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    border: none;
+    border-radius: 300px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #9db151;
+    border-color: #9db151;
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
 }

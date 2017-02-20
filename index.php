@@ -58,14 +58,16 @@
               <label for="pwd">Password:</label>
               <input type="password" class="form-control" id="pwd" placeholder="Enter password">
             </div>
-            <button type="submit" class="submit">Sign In</button>
+            <button type="submit" class="btn btn-primary" style="padding: 10px 30px;">Log In</button>
             <div id="LoginFail" style="color: red;"></div>
-            <br><br><a href="templates/registration.html">Don't have an account? Sign Up!</a>
+            <br>
+            <a href="templates/registration.html">Don't have an account? Sign Up!</a>
+            <br>
           </form>
         </div>
-        <div class="modal-footer">
+        <!-- <div class="modal-footer">
           <button type="button" class="submit" data-dismiss="modal">Close</button>
-        </div>
+        </div> -->
       </div>
 
     </div>
