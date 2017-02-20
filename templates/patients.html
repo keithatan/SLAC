@@ -32,14 +32,16 @@
               <div id="Popup" class="popups">
                 <div class="dropdown">
                 <img id="close" src="images/redX.png" onclick ="closeform('Popup')">
-                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: auto">Select Input Method
-                  <span class="caret"></span></button>
+                <br>
+                <div style="text-align: center;">
+                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 85%; margin-top: 15px;">Select Input Method<span class="caret"></span></button>
                   <ul class="dropdown-menu dropdown-menu-right">
                     <li ><a href="#" onclick="openform('patientform'); closeform('presetform');">Use Form</a></li>
                     <li><a href="#" onclick="openform('presetform'); closeform('patientform');">Use Presets</a></li>
                     <li><a href="#" onclick="">Upload File</li>
                     <li ><a href="#" onclick="checkForm('newpatientform')">Submit</a></li>
                   </ul>
+                  </div>
                 </div>
 
                 <!-- Form to choose from presets -->
@@ -53,7 +55,7 @@
                   <option value="Right Ear Bone">Right Ear Bone</option>
                   <option value="No High Frequencies">No High Frequencies</option>
                   </select>
-                  <br><button type="button" onclick="openform('patientform'); closeform('presetform');" class="submit patient-info-btn">Use Form</button>
+                  <br><button type="button" onclick="openform('patientform'); closeform('presetform');" class="btn btn-primary patient-info-btn">Use Form</button>
                   <h1 id="presetNotification" class = "display-patient"></h1>
                 </form>
 
@@ -61,7 +63,7 @@
                 <div id ='patientform' style="display: none">
                   <form action="php/add_patient.php" id= "newpatientform" method="get" name = "patient" class="form-horizontal">
                     <h2 style="text-align: center;">New Patient Information</h2>
-                    <button onclick="checkForm('newpatientform'); return false;" class="submit patient-info-btn">Submit</button>
+                    <button onclick="checkForm('newpatientform'); return false;" class="btn btn-primary patient-info-btn">Submit</button>
                     <input name="first_name" id= "form-input" type="text">
 
                     <div class="form-group">
@@ -177,9 +179,11 @@
                 ?>
                 <div id="selectPatient">
                 </div>
-                <button type="button" class="btn btn-default" style="width: auto" id="hiddenbutton" onclick="loadPatient()">
+                <div style="text-align: center;">
+                  <button type="button" class="btn btn-default" style="width: 85%; margin-top: 15px;" id="hiddenbutton" onclick="loadPatient()">
                   Load Patient
                 </button>
+                </div>
               </div>
 
               <!-- Edit Patient Tab -->
@@ -197,87 +201,87 @@
                 ?>
                 <div id="editPatient" style="margin: 0 auto;">
                 </div>
-                <form>
-                <select id="forminput_2" name="query">
-                <option value="">Select a Category</option>
-                <option name="first_name" value="first_name">First Name</option>
-                <option name="last_name" value="last_name">Last Name</option>
-                <option name="description" value="description">Description</option>
+                <form style="text-align: center;">
+                  <select id="forminput_2" name="query">
+                    <option value="">Select a Category</option>
+                    <option name="first_name" value="first_name">First Name</option>
+                    <option name="last_name" value="last_name">Last Name</option>
+                    <option name="description" value="description">Description</option>
 
-                <option name="R_125"value="R_125">Right ear max at 125Hz</option>
-                <option name="R_250"value="R_250">Right ear max at 250Hz</option>
-                <option name="R_500"value="R_500">Right ear max at 500Hz</option>
-                <option name="R_750"value="R_750">Right ear max at 750Hz</option>
-                <option name="R_1000"value="R_1000">Right ear max at 1000Hz</option>
-                <option name="R_1500"value="R_1500">Right ear max at 1500Hz</option>
-                <option name="R_2000"value="R_2000">Right ear max at 2000Hz</option>
-                <option name="R_3000"value="R_3000">Right ear max at 3000Hz</option>
-                <option name="R_4000"value="R_4000">Right ear max at 4000Hz</option>
-                <option name="R_6000"value="R_6000">Right ear max at 6000Hz</option>
-                <option name="R_8000"value="R_8000">Right ear max at 8000Hz</option>
+                    <option name="R_125"value="R_125">Right ear max at 125Hz</option>
+                    <option name="R_250"value="R_250">Right ear max at 250Hz</option>
+                    <option name="R_500"value="R_500">Right ear max at 500Hz</option>
+                    <option name="R_750"value="R_750">Right ear max at 750Hz</option>
+                    <option name="R_1000"value="R_1000">Right ear max at 1000Hz</option>
+                    <option name="R_1500"value="R_1500">Right ear max at 1500Hz</option>
+                    <option name="R_2000"value="R_2000">Right ear max at 2000Hz</option>
+                    <option name="R_3000"value="R_3000">Right ear max at 3000Hz</option>
+                    <option name="R_4000"value="R_4000">Right ear max at 4000Hz</option>
+                    <option name="R_6000"value="R_6000">Right ear max at 6000Hz</option>
+                    <option name="R_8000"value="R_8000">Right ear max at 8000Hz</option>
 
-                <option name="L_125"value="L_125">Left ear max at 125Hz</option>
-                <option name="L_250"value="L_250">Left ear max at 250Hz</option>
-                <option name="L_500"value="L_500">Left ear max at 500Hz</option>
-                <option name="L_750"value="L_750">Left ear max at 750Hz</option>
-                <option name="L_1000"value="L_1000">Left ear max at 1000Hz</option>
-                <option name="L_1500"value="L_1500">Left ear max at 1500Hz</option>
-                <option name="L_2000"value="L_2000">Left ear max at 2000Hz</option>
-                <option name="L_3000"value="L_3000">Left ear max at 3000Hz</option>
-                <option name="L_4000"value="L_4000">Left ear max at 4000Hz</option>
-                <option name="L_6000"value="L_6000">Left ear max at 6000Hz</option>
-                <option name="L_8000"value="L_8000">Left ear max at 8000Hz</option>
+                    <option name="L_125"value="L_125">Left ear max at 125Hz</option>
+                    <option name="L_250"value="L_250">Left ear max at 250Hz</option>
+                    <option name="L_500"value="L_500">Left ear max at 500Hz</option>
+                    <option name="L_750"value="L_750">Left ear max at 750Hz</option>
+                    <option name="L_1000"value="L_1000">Left ear max at 1000Hz</option>
+                    <option name="L_1500"value="L_1500">Left ear max at 1500Hz</option>
+                    <option name="L_2000"value="L_2000">Left ear max at 2000Hz</option>
+                    <option name="L_3000"value="L_3000">Left ear max at 3000Hz</option>
+                    <option name="L_4000"value="L_4000">Left ear max at 4000Hz</option>
+                    <option name="L_6000"value="L_6000">Left ear max at 6000Hz</option>
+                    <option name="L_8000"value="L_8000">Left ear max at 8000Hz</option>
 
-                <option name="BR_125"value="BR_125">Right ear bone max at 125Hz</option>
-                <option name="BR_250"value="BR_250">Right ear bone max at 250Hz</option>
-                <option name="BR_500"value="BR_500">Right ear bone max at 500Hz</option>
-                <option name="BR_750"value="BR_750">Right ear bone max at 750Hz</option>
-                <option name="BR_1000"value="BR_1000">Right ear bone max at 1000Hz</option>
-                <option name="BR_1500"value="BR_1500">Right ear bone max at 1500Hz</option>
-                <option name="BR_2000"value="BR_2000">Right ear bone max at 2000Hz</option>
-                <option name="BR_3000"value="BR_3000">Right ear bone max at 3000Hz</option>
-                <option name="BR_4000"value="BR_4000">Right ear bone max at 4000Hz</option>
-                <option name="BR_6000"value="BR_6000">Right ear bone max at 6000Hz</option>
-                <option name="BR_8000"value="BR_8000">Right ear bone max at 8000Hz</option>
+                    <option name="BR_125"value="BR_125">Right ear bone max at 125Hz</option>
+                    <option name="BR_250"value="BR_250">Right ear bone max at 250Hz</option>
+                    <option name="BR_500"value="BR_500">Right ear bone max at 500Hz</option>
+                    <option name="BR_750"value="BR_750">Right ear bone max at 750Hz</option>
+                    <option name="BR_1000"value="BR_1000">Right ear bone max at 1000Hz</option>
+                    <option name="BR_1500"value="BR_1500">Right ear bone max at 1500Hz</option>
+                    <option name="BR_2000"value="BR_2000">Right ear bone max at 2000Hz</option>
+                    <option name="BR_3000"value="BR_3000">Right ear bone max at 3000Hz</option>
+                    <option name="BR_4000"value="BR_4000">Right ear bone max at 4000Hz</option>
+                    <option name="BR_6000"value="BR_6000">Right ear bone max at 6000Hz</option>
+                    <option name="BR_8000"value="BR_8000">Right ear bone max at 8000Hz</option>
 
-                <option name="BL_125"value="BL_125">Left ear bone max at 125Hz</option>
-                <option name="BL_250"value="BL_250">Left ear bone max at 250Hz</option>
-                <option name="BL_500"value="BL_500">Left ear bone max at 500Hz</option>
-                <option name="BL_750"value="BL_750">Left ear bone max at 750Hz</option>
-                <option name="BL_1000"value="BL_1000">Left ear bone max at 1000Hz</option>
-                <option name="BL_1500"value="BL_1500">Left ear bone max at 1500Hz</option>
-                <option name="BL_2000"value="BL_2000">Left ear bone max at 2000Hz</option>
-                <option name="BL_3000"value="BL_3000">Left ear bone max at 3000Hz</option>
-                <option name="BL_4000"value="BL_4000">Left ear bone max at 4000Hz</option>
-                <option name="BL_6000"value="BL_6000">Left ear bone max at 6000Hz</option>
-                <option name="BL_8000"value="BL_8000">Left ear bone max at 8000Hz</option>
+                    <option name="BL_125"value="BL_125">Left ear bone max at 125Hz</option>
+                    <option name="BL_250"value="BL_250">Left ear bone max at 250Hz</option>
+                    <option name="BL_500"value="BL_500">Left ear bone max at 500Hz</option>
+                    <option name="BL_750"value="BL_750">Left ear bone max at 750Hz</option>
+                    <option name="BL_1000"value="BL_1000">Left ear bone max at 1000Hz</option>
+                    <option name="BL_1500"value="BL_1500">Left ear bone max at 1500Hz</option>
+                    <option name="BL_2000"value="BL_2000">Left ear bone max at 2000Hz</option>
+                    <option name="BL_3000"value="BL_3000">Left ear bone max at 3000Hz</option>
+                    <option name="BL_4000"value="BL_4000">Left ear bone max at 4000Hz</option>
+                    <option name="BL_6000"value="BL_6000">Left ear bone max at 6000Hz</option>
+                    <option name="BL_8000"value="BL_8000">Left ear bone max at 8000Hz</option>
 
-                <option name="BMR_125"value="BMR_125">Right ear masked bone max at 125Hz</option>
-                <option name="BMR_250"value="BMR_250">Right ear masked bone max at 250Hz</option>
-                <option name="BMR_500"value="BMR_500">Right ear masked bone max at 500Hz</option>
-                <option name="BMR_750"value="BMR_750">Right ear masked bone max at 750Hz</option>
-                <option name="BMR_1000"value="BMR_1000">Right ear masked bone max at 1000Hz</option>
-                <option name="BMR_1500"value="BMR_1500">Right ear masked bone max at 1500Hz</option>
-                <option name="BMR_2000"value="BMR_2000">Right ear masked bone max at 2000Hz</option>
-                <option name="BMR_3000"value="BMR_3000">Right ear masked bone max at 3000Hz</option>
-                <option name="BMR_4000"value="BMR_4000">Right ear masked bone max at 4000Hz</option>
-                <option name="BMR_6000"value="BMR_6000">Right ear masked bone max at 6000Hz</option>
-                <option name="BMR_8000"value="BMR_8000">Right ear masked bone max at 8000Hz</option>
+                    <option name="BMR_125"value="BMR_125">Right ear masked bone max at 125Hz</option>
+                    <option name="BMR_250"value="BMR_250">Right ear masked bone max at 250Hz</option>
+                    <option name="BMR_500"value="BMR_500">Right ear masked bone max at 500Hz</option>
+                    <option name="BMR_750"value="BMR_750">Right ear masked bone max at 750Hz</option>
+                    <option name="BMR_1000"value="BMR_1000">Right ear masked bone max at 1000Hz</option>
+                    <option name="BMR_1500"value="BMR_1500">Right ear masked bone max at 1500Hz</option>
+                    <option name="BMR_2000"value="BMR_2000">Right ear masked bone max at 2000Hz</option>
+                    <option name="BMR_3000"value="BMR_3000">Right ear masked bone max at 3000Hz</option>
+                    <option name="BMR_4000"value="BMR_4000">Right ear masked bone max at 4000Hz</option>
+                    <option name="BMR_6000"value="BMR_6000">Right ear masked bone max at 6000Hz</option>
+                    <option name="BMR_8000"value="BMR_8000">Right ear masked bone max at 8000Hz</option>
 
-                <option name="BML_125"value="BML_125">Left ear masked bone max at 125Hz</option>
-                <option name="BML_250"value="BML_250">Left ear masked bone max at 250Hz</option>
-                <option name="BML_500"value="BML_500">Left ear masked bone max at 500Hz</option>
-                <option name="BML_750"value="BML_750">Left ear masked bone max at 750Hz</option>
-                <option name="BML_1000"value="BML_1000">Left ear masked bone max at 1000Hz</option>
-                <option name="BML_1500"value="BML_1500">Left ear masked bone max at 1500Hz</option>
-                <option name="BML_2000"value="BML_2000">Left ear masked bone max at 2000Hz</option>
-                <option name="BML_3000"value="BML_3000">Left ear masked bone max at 3000Hz</option>
-                <option name="BML_4000"value="BML_4000">Left ear masked bone max at 4000Hz</option>
-                <option name="BML_6000"value="BML_6000">Left ear masked bone max at 6000Hz</option>
-                <option name="BML_8000"value="BML_8000">Left ear masked bone max at 8000Hz</option>
-                </select>
-                <input name="editvalue" id= "editvalue" placeholder="Enter New Value" type="text">
-                <button class="btn btn-default" style="width: auto" onclick="editPatient()"> Edit Value </button>
+                    <option name="BML_125"value="BML_125">Left ear masked bone max at 125Hz</option>
+                    <option name="BML_250"value="BML_250">Left ear masked bone max at 250Hz</option>
+                    <option name="BML_500"value="BML_500">Left ear masked bone max at 500Hz</option>
+                    <option name="BML_750"value="BML_750">Left ear masked bone max at 750Hz</option>
+                    <option name="BML_1000"value="BML_1000">Left ear masked bone max at 1000Hz</option>
+                    <option name="BML_1500"value="BML_1500">Left ear masked bone max at 1500Hz</option>
+                    <option name="BML_2000"value="BML_2000">Left ear masked bone max at 2000Hz</option>
+                    <option name="BML_3000"value="BML_3000">Left ear masked bone max at 3000Hz</option>
+                    <option name="BML_4000"value="BML_4000">Left ear masked bone max at 4000Hz</option>
+                    <option name="BML_6000"value="BML_6000">Left ear masked bone max at 6000Hz</option>
+                    <option name="BML_8000"value="BML_8000">Left ear masked bone max at 8000Hz</option>
+                  </select>
+                  <input name="editvalue" id= "editvalue" placeholder="Enter New Value" type="text">
+                  <button class="btn btn-default" style="width: 85%; margin-top: 15px;" onclick="editPatient()">Edit Value</button>
                 </form>
               </div>
             </div>
