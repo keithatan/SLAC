@@ -18,11 +18,11 @@
             </td>
             <td align="center">
               <!-- Trigger the modal with a button , modal code is in index to prevent being covered by left snap drawer -->
-              <button type="button" class="submit" data-toggle="modal" data-target="#myModal">Report Findings</button>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="position: relative; padding: 10px 20px;">Report Findings</button>
             </td>
             <td align="right">
               <!-- Export button -->
-              <input type="submit" value="Complete & Export" class="submit" onclick='printAudiogram("audiogram");'>
+              <input type="submit" value="Complete & Export" class="btn btn-primary" style="position: relative; padding: 10px 20px;" onclick='printAudiogram("audiogram");'>
               <script type="text/javascript">
               //the purpose of this function is to export the graph without exporting "Choose symbols section"
               function printAudiogram(divName) {

@@ -340,7 +340,7 @@ function simulate()
     var actual_mask_dB = 140;
 
     //document.getElementById("result").innerHTML = "INVALID :("; //Used to show if patient heard the sound
-    document.getElementById("result").innerHTML = '<img src="../images/redlight.png" height="40px" />';
+    document.getElementById("result").innerHTML = '<img src="images/redlight.png" height="40px" />';
 
 
     //check value of transducer1
@@ -632,12 +632,12 @@ function simulate()
                 if ((PatientObject.list[i][3] == PatientObject.list[i][4] % 3 + 1) && PatientObject.list[i][2] + 5 <= dB)
                 {
                     PatientObject.list[i][4] += 1;
-                    document.getElementById("result").innerHTML = '<img src="../images/greenlight.png" height="40px" />';
+                    document.getElementById("result").innerHTML = '<img src="images/greenlight.png" height="40px" />';
                 }
                 else if (PatientObject.list[i][2] <= dB)
                 {
                     PatientObject.list[i][4] += 1;
-                    document.getElementById("result").innerHTML = '<img src="../images/greenlight.png" height="40px" />';
+                    document.getElementById("result").innerHTML = '<img src="images/greenlight.png" height="40px" />';
                 }
             }
         }
@@ -645,8 +645,20 @@ function simulate()
 }
 
 /*must press reset before running another test*/
-function reset()
+function reset(button)
 {
+    var tmp = document.getElementById(button);
+    if (tmp.style.backgroundColor == blueButtonColor) {
+        tmp.style.backgroundColor = defaultButtonColor;
+        tmp.style.borderColor = defaultButtonColor;
+        tmp.style.color = "black";
+    }
+    else if (tmp.style.backgroundColor == redButtonColor) {
+        tmp.style.backgroundColor = defaultButtonColor;
+        tmp.style.borderColor = defaultButtonColor;
+        tmp.style.color = "black";
+    }
+
     document.getElementById("result").innerHTML = "";
     var match = document.getElementById("match");
     var Present1 = document.getElementById("Present1");

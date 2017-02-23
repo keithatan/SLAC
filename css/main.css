@@ -452,7 +452,7 @@ overflow:auto
     width: 85%;
     background-color: #333333;
     color: rgb(255,255,255);
-    font-size: 12px;
+    font-size: 15px;
 }
 
 /************/
@@ -651,4 +651,13 @@ textarea {
     -webkit-transition: all 0.35s;
     -moz-transition: all 0.35s;
     transition: all 0.35s;
+}
+
+.btn-style {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
 }

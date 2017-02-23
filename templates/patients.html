@@ -45,7 +45,7 @@
                 </div>
 
                 <!-- Form to choose from presets -->
-                <form id="presetform" style="display: none">
+                <form id="presetform" style="display: none; text-align: center;">
                   <h4>Choose a Preset</h4>
                   <select id="presetPatients" onchange = "fillForm(this.value)" class="select-form" method="get" name = "presets">
                   <option value="">Select a Preset</option>
@@ -55,34 +55,40 @@
                   <option value="Right Ear Bone">Right Ear Bone</option>
                   <option value="No High Frequencies">No High Frequencies</option>
                   </select>
-                  <br><button type="button" onclick="openform('patientform'); closeform('presetform');" class="btn btn-primary patient-info-btn">Use Form</button>
+                  <br><button type="button" onclick="openform('patientform'); closeform('presetform');" class="btn btn-primary btn-style">Use Form</button>
                   <h1 id="presetNotification" class = "display-patient"></h1>
                 </form>
 
                 <!-- Form to fill in patient data -->
                 <div id ='patientform' style="display: none">
-                  <form action="php/add_patient.php" id= "newpatientform" method="get" name = "patient" class="form-horizontal">
+                  <form action="php/add_patient.php" id= "newpatientform" method="get" name = "patient" class="form-horizontal" style="text-align: center;">
                     <h2 style="text-align: center;">New Patient Information</h2>
-                    <button onclick="checkForm('newpatientform'); return false;" class="btn btn-primary patient-info-btn">Submit</button>
-                    <input name="first_name" id= "form-input" type="text">
+                    <button onclick="checkForm('newpatientform'); return false;" class="btn btn-primary btn-style">Submit</button>
+                    <!-- <input name="first_name" id= "form-input" type="text"> -->
 
                     <div class="form-group">
-                        <label for="first_name" class="col-sm-6 control-label patient-form-label">First Name</label>
-                        <div class="col-sm-6">
-                            <input name="first_name" id= "form-input" class="form-control" type="text">
-                        </div>
+                      <div class="col-sm-12">
+                        <label for="first_name" class="control-label patient-form-label">First Name</label>
+                      </div>
+                      <div class="col-sm-12">
+                        <input name="first_name" id= "form-input" class="form-control" type="text" style="margin: 0px auto 10px;">
+                      </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="last_name" class="col-sm-6 control-label patient-form-label">Last Name</label>
-                        <div class="col-sm-6">
-                            <input name="last_name" id= "form-input" class="form-control" type="text">
+                      <div class="col-sm-12">
+                        <label for="last_name" class="control-label patient-form-label">Last Name</label>
+                      </div>
+                        <div class="col-sm-12">
+                            <input name="last_name" id= "form-input" class="form-control" type="text" style="margin: 0px auto 10px;">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="description" class="col-sm-6 control-label patient-form-label">Description</label>
-                        <div class="col-sm-6">
-                            <input name="description" id= "form-input" class="form-control" type="text">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Description</label>
+                      </div>
+                        <div class="col-sm-12">
+                            <input name="description" id= "form-input" class="form-control" type="text" style="margin: 0px auto 10px;">
                         </div>
                     </div>
 
