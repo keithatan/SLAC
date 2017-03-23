@@ -11,8 +11,22 @@
                   <div>
                     <ul class="nav navbar-nav">
                       <!-- <li class="patient_option"><a href="#myModal1" data-toggle="modal" onclick="">Login/Register</a></li> -->
-                      <li class="patient_option"><a href="#" onclick="openform('Popup')">Add Patient</a></li>
-                      <li class="patient_option"><a href="#" onclick="openform('Popup_3')">Edit Patient</a></li>
+                      <?php
+                        include 'php/connection.php';
+                        $sql = 'SELECT account_type FROM Users WHERE email="'. $_SESSION['user'] . '"';
+                        $result = $conn->query($sql);
+                        foreach($result as $row) {
+                          $isInstructor = ($row['account_type'] == '0') ? false : true;
+                        }
+                      
+                      if($isInstructor) {
+                        echo '
+                          <li class="patient_option"><a href="#" onclick="openform(\'Popup\')">Add Patient</a></li>
+                          <li class="patient_option"><a href="#" onclick="openform(\'Popup_3\')">Edit Patient</a></li>
+                        ';
+                      }
+                      
+                      ?>
                       <li class="patient_option"><a href="#" onclick="openform('Popup_2')">Select Patient</a></li>
                       <li class="patient_option" style="border-bottom-style:none"><a href="#" onclick="clearPatient()">Clear Patient</a></li>
                     </ul>
