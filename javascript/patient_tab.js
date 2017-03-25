@@ -51,7 +51,10 @@ function showPatient(str)
 
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				document.getElementById("selectPatient").innerHTML = xmlhttp.responseText;
+				var patientInfo = JSON.parse(xmlhttp.responseText);
+				var messageToDisplay = '<h1 class="display-patient">'+patientInfo.first_name+' '+patientInfo.last_name+'</h1>';
+        		messageToDisplay += '<h1 class="display-patient">'+patientInfo.description+'</h1>';
+				document.getElementById("selectPatient").innerHTML = messageToDisplay;
 				document.getElementById("hiddenbutton").style.display = "block";
 			}
 			else {
@@ -59,7 +62,7 @@ function showPatient(str)
 			}
 		}
 
-		xmlhttp.open("GET", "../php/getpatient.php?q="+str, true);
+		xmlhttp.open("GET", "php/getpatient.php?q="+str, true);
 		xmlhttp.send();
 	}
 }

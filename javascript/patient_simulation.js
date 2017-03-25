@@ -1,5 +1,6 @@
 //array on column names
 //HANDLES ALL PATIENT SIMULATIONS SHOULD BE WORKING FINE ACCORDING TO ROBERTA
+var fullPatientInfo = {};
 var array = [ "first_name", "last_name", "description",
     "R_125",
     "R_250",
@@ -256,8 +257,9 @@ function loadPatient()
 
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                string = xmlhttp.responseText;
-                var arr = string.split(",");
+                combinedResult = JSON.parse(xmlhttp.responseText);
+                fullPatientInfo = (combinedResult.objectResult);
+                var arr = combinedResult.stringResult.split(",");
                 document.getElementById("Popup_2").style.display = 'none';
                 currentPatient(arr);
             }
@@ -287,8 +289,20 @@ function clearPatient()
     document.getElementById("CurrentPatient").innerHTML = "No Patient Selected";
     return
 }
-
 /*ALL SIMULATION TAKES PLACE HERE*/
+
+function matchWithDatabase(frequency, leftDb, rightDb) {
+    var leftFreq = fullPatientInfo['L_'+frequency]
+    var rightFreq = fullPatientInfo['R_'+frequency]
+    if(leftDb >= parseInt(leftFreq) && rightDb >= parseInt(rightFreq)) {
+        // show green;
+        document.getElementById("result").innerHTML = '<img src="images/greenlight.png" height="40px" />';
+    } else {
+        // show red
+        document.getElementById("result").innerHTML = '<img src="images/redlight.png" height="40px" />';
+    }
+}
+
 function simulate()
 {
     if (document.getElementById("match").style.backgroundColor == on2)
@@ -319,6 +333,7 @@ function simulate()
     var Tone1 = (document.getElementById("Tone").style.backgroundColor == on1);
     var Tone2 = (document.getElementById("Tone2").style.backgroundColor == on2);
 
+    matchWithDatabase(Freq, dB1, dB2);
 
     var Present1 = 0;
     var Present2 = 0;
@@ -340,7 +355,7 @@ function simulate()
     var actual_mask_dB = 140;
 
     //document.getElementById("result").innerHTML = "INVALID :("; //Used to show if patient heard the sound
-    document.getElementById("result").innerHTML = '<img src="images/redlight.png" height="40px" />';
+    
 
 
     //check value of transducer1

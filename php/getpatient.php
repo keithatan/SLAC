@@ -25,15 +25,19 @@ else {
 if ($count == 1) {
     foreach($result as $row)
     {
-        echo '<h1 class="display-patient">' . $row['first_name'] . " " . $row['last_name'] . "</h1>";
-        echo '<h1 class="display-patient">' . $row['description'] . "</h1>";
+        echo json_encode($row);
+        //echo '<h1 class="display-patient">' . $row['first_name'] . " " . $row['last_name'] . "</h1>";
+        //echo '<h1 class="display-patient">' . $row['description'] . "</h1>";
     }
 }
 elseif ($q[1] == "all") {
     foreach ($result as $row) {
+        $combinedValue = '';
         foreach ($values as $value) {
-            echo $row[$value] . ',';
+             $combinedValue .= $row[$value] . ',';
         }
+        $finalValue = array('stringResult'=>$combinedValue, 'objectResult'=>$row);
+        echo json_encode($finalValue);
     }
 }
 
