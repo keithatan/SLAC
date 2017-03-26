@@ -4,7 +4,7 @@
         <div class="snap-drawer snap-drawer-left">
           <div>
           <!-- This is where all the different TABS reside -->
-            <h5 style="color:white;">Logged in as <?php echo($_SESSION['user']); ?> <a href="/php/logout.php">Logout</a></h5>
+            <h5 style="color:white;">Logged in as <?php echo($_SESSION['user']); ?> <a href="php/logout.php">Logout</a></h5>
             <h3>Patient Tab</h3>
               <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
@@ -85,7 +85,7 @@
                         <label for="first_name" class="control-label patient-form-label">First Name</label>
                       </div>
                       <div class="col-sm-12">
-                        <input name="first_name" id= "form-input" class="form-control" type="text" style="margin: 0px auto 10px;">
+                        <input name="first_name" id= "form-input" class="form-control form-margin" type="text">
                       </div>
                     </div>
 
@@ -94,7 +94,7 @@
                         <label for="last_name" class="control-label patient-form-label">Last Name</label>
                       </div>
                         <div class="col-sm-12">
-                            <input name="last_name" id= "form-input" class="form-control" type="text" style="margin: 0px auto 10px;">
+                            <input name="last_name" id= "form-input" class="form-control form-margin" type="text">
                         </div>
                     </div>
                     <div class="form-group">
@@ -102,36 +102,120 @@
                         <label for="description" class="control-label patient-form-label">Description</label>
                       </div>
                         <div class="col-sm-12">
-                            <input name="description" id= "form-input" class="form-control" type="text" style="margin: 0px auto 10px;">
+                            <input name="description" id= "form-input" class="form-control form-margin" type="text">
                         </div>
                     </div>
 
 
-                    <input name="R_125" id= "form-input" placeholder="Right ear max at 125Hz" type="text">
-                    <input name="R_250" id= "form-input" placeholder="Right ear max at 250Hz" type="text">
-                    <input name="R_500" id= "form-input" placeholder="Right ear max at 500Hz" type="text">
-                    <input name="R_750" id= "form-input" placeholder="Right ear max at 750Hz" type="text">
-                    <input name="R_1000" id= "form-input" placeholder="Right ear max at 1000Hz" type="text">
-                    <input name="R_1500" id= "form-input" placeholder="Right ear max at 1500Hz" type="text">
-                    <input name="R_2000" id= "form-input" placeholder="Right ear max at 2000Hz" type="text">
-                    <input name="R_3000" id= "form-input" placeholder="Right ear max at 3000Hz" type="text">
-                    <input name="R_4000" id= "form-input" placeholder="Right ear max at 4000Hz" type="text">
-                    <input name="R_6000" id= "form-input" placeholder="Right ear max at 6000Hz" type="text">
-                    <input name="R_8000" id= "form-input" placeholder="Right ear max at 8000Hz" type="text">
+                    <!-- <input name="R_125" id= "form-input" placeholder="Right ear max at 125Hz" type="text"> -->
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Right ear max at 250Hz</label>
+                      </div>
+                        <div class="col-sm-12">
+                        <input name="R_250" id= "form-input" class="form-margin" type="number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Right ear max at 500Hz</label>
+                      </div>
+                        <div class="col-sm-12">
+                        <input name="R_500" id= "form-input" class="form-margin" type="number">
+                        </div>
+                    </div>
+                    <!-- <input name="R_750" id= "form-input" placeholder="Right ear max at 750Hz" type="text"> -->
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Right ear max at 1000Hz</label>
+                      </div>
+                        <div class="col-sm-12">
+                        <input name="R_1000" id= "form-input" class="form-margin" type="number">
+                        </div>
+                    </div>
+                    <!-- <input name="R_1500" id= "form-input" placeholder="Right ear max at 1500Hz" type="text"> -->
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Right ear max at 2000Hz</label>
+                      </div>
+                        <div class="col-sm-12">
+                        <input name="R_2000" id= "form-input" class="form-margin" type="number">
+                        </div>
+                    </div>
+                    <!-- <input name="R_3000" id= "form-input" placeholder="Right ear max at 3000Hz" type="text"> -->
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Right ear max at 4000Hz</label>
+                      </div>
+                        <div class="col-sm-12">
+                        <input name="R_4000" id= "form-input" class="form-margin" type="number">
+                        </div>
+                    </div>
+                    <!-- <input name="R_6000" id= "form-input" placeholder="Right ear max at 6000Hz" type="text"> -->
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Right ear max at 8000Hz</label>
+                      </div>
+                        <div class="col-sm-12">
+                        <input name="R_8000" id= "form-input" class="form-margin" type="number">
+                        </div>
+                    </div>
 
-                    <input name="L_125" id= "form-input" placeholder="Left ear max at 125Hz" type="text">
-                    <input name="L_250" id= "form-input" placeholder="Left ear max at 250Hz" type="text">
-                    <input name="L_500" id= "form-input" placeholder="Left ear max at 500Hz" type="text">
-                    <input name="L_750" id= "form-input" placeholder="Left ear max at 750Hz" type="text">
-                    <input name="L_1000" id= "form-input" placeholder="Left ear max at 1000Hz" type="text">
-                    <input name="L_1500" id= "form-input" placeholder="Left ear max at 1500Hz" type="text">
-                    <input name="L_2000" id= "form-input" placeholder="Left ear max at 2000Hz" type="text">
-                    <input name="L_3000" id= "form-input" placeholder="Left ear max at 3000Hz" type="text">
-                    <input name="L_4000" id= "form-input" placeholder="Left ear max at 4000Hz" type="text">
-                    <input name="L_6000" id= "form-input" placeholder="Left ear max at 6000Hz" type="text">
-                    <input name="L_8000" id= "form-input" placeholder="Left ear max at 8000Hz" type="text">
+                    <!-- <input name="L_125" id= "form-input" placeholder="Left ear max at 125Hz" type="text"> -->
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Left ear max at 250Hz</label>
+                      </div>
+                        <div class="col-sm-12">
+                        <input name="L_250" id= "form-input" class="form-margin" type="number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Left ear max at 500Hz</label>
+                      </div>
+                        <div class="col-sm-12">
+                        <input name="L_500" id= "form-input" class="form-margin" type="number">
+                        </div>
+                    </div>
+                    <!-- <input name="L_750" id= "form-input" placeholder="Left ear max at 750Hz" type="text"> -->
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Left ear max at 1000Hz</label>
+                      </div>
+                        <div class="col-sm-12">
+                        <input name="L_1000" id= "form-input" class="form-margin" type="number">
+                        </div>
+                    </div>
+                    <!-- <input name="L_1500" id= "form-input" placeholder="Left ear max at 1500Hz" type="text"> -->
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Left ear max at 2000Hz</label>
+                      </div>
+                        <div class="col-sm-12">
+                        <input name="L_2000" id= "form-input" class="form-margin" type="number">
+                        </div>
+                    </div>
+                    <!-- <input name="L_3000" id= "form-input" placeholder="Left ear max at 3000Hz" type="text"> -->
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Left ear max at 4000Hz</label>
+                      </div>
+                        <div class="col-sm-12">
+                        <input name="L_4000" id= "form-input" class="form-margin" type="number">
+                        </div>
+                    </div>
+                    <!-- <input name="L_6000" id= "form-input" placeholder="Left ear max at 6000Hz" type="text"> -->
+                    <div class="form-group">
+                      <div class="col-sm-12">
+                        <label for="description" class="control-label patient-form-label">Left ear max at 8000Hz</label>
+                      </div>
+                        <div class="col-sm-12">
+                        <input name="L_8000" id= "form-input" class="form-margin" type="number">
+                        </div>
+                    </div>
 
-                    <input name="BR_125" id= "form-input" placeholder="Right ear bone max at 125Hz" type="text">
+                    <!-- <input name="BR_125" id= "form-input" placeholder="Right ear bone max at 125Hz" type="text">
                     <input name="BR_250" id= "form-input" placeholder="Right ear bone max at 250Hz" type="text">
                     <input name="BR_500" id= "form-input" placeholder="Right ear bone max at 500Hz" type="text">
                     <input name="BR_750" id= "form-input" placeholder="Right ear bone max at 750Hz" type="text">
@@ -177,7 +261,7 @@
                     <input name="BML_3000" id= "form-input" placeholder="Left ear masked bone max at 3000Hz" type="text">
                     <input name="BML_4000" id= "form-input" placeholder="Left ear masked bone max at 4000Hz" type="text">
                     <input name="BML_6000" id= "form-input" placeholder="Left ear masked bone max at 6000Hz" type="text">
-                    <input name="BML_8000" id= "form-input" placeholder="Left ear masked bone max at 8000Hz" type="text">
+                    <input name="BML_8000" id= "form-input" placeholder="Left ear masked bone max at 8000Hz" type="text"> -->
                   </form>
                 </div>
               </div>
@@ -187,6 +271,7 @@
                 <img id="close" src="images/redX.png" onclick ="closeform('Popup_2')">
                 <h4> Select a Patient </h4>
                 <?php
+                  include 'php/connection.php';
                   $sql = "SELECT id, first_name, last_name FROM Patients";
                   echo '<form><select id="forminput" name="users" onchange="showPatient(this.value)"><option value="">Select a person:</option>';
                   foreach($conn->query($sql) as $row)
@@ -210,7 +295,8 @@
                 <img id="close" src="images/redX.png" onclick ="closeform('Popup_3')">
                 <h4> Edit a Patient </h4>
                 <?php
-                  $sql = "SELECT id, first_name, last_name FROM Patients";                
+                  include 'php/connection.php';
+                  $sql = "SELECT id, first_name, last_name FROM Patients";
                   echo '<form><select id="forminput_3" name="users" onchange=""><option value="">Select a person:</option>';
                   foreach($conn->query($sql) as $row) {
                     echo  '<option value="' .$row["id"] . '">' . $row["first_name"] . ' ' . $row["last_name"] . '</option>';
