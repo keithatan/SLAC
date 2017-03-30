@@ -56,7 +56,7 @@
 	$sql = "INSERT INTO Users (account_type, first_name, last_name, PUID, email, PasswordHash) VALUES " . "('" . $user . "', '" . $firstname . "', '" . $lastname . "', '" . $PUID . "', '" . $email . "', '" . $hash_pass . "')";
 	if ($conn->query($sql))
 	{
-		echo "SUBMITTED! Please confirm email (currently not implemented)";
+		echo "Thank you! Your account is now active!";
 		exit();
 	}
 	else
